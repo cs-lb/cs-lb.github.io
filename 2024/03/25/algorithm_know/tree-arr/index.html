@@ -16,23 +16,22 @@
   <meta name="author" content="Liu Bo">
   <meta name="keywords" content="408 算法 保研">
   
-    <meta name="description" content="这是一个测试博客浅浅许个愿：保研上岸">
+    <meta name="description" content="树状数组tips O(log)的时间复杂度去实现单点修改和区间查询 数组下标一定要从1开始 一个数的二进制表示中末尾有几个0就在第几层  lowbit x &amp; (-x) : 假设 x的二进制数表示 的从右向左数的第一个1所在位为k，则lowbit(x) &#x3D; 2^(k-1)   tip: 求 n 的二进制表示的第 k 位数字：n &gt;&gt; k &amp; 1  功能 实现单">
 <meta property="og:type" content="article">
-<meta property="og:title" content="first-test-blog">
-<meta property="og:url" content="https://cs-lb.github.io/2024/03/25/first-test-blog/index.html">
+<meta property="og:title" content="树状数组">
+<meta property="og:url" content="https://cs-lb.github.io/2024/03/25/algorithm_know/tree-arr/index.html">
 <meta property="og:site_name" content="CS_Blog">
-<meta property="og:description" content="这是一个测试博客浅浅许个愿：保研上岸">
+<meta property="og:description" content="树状数组tips O(log)的时间复杂度去实现单点修改和区间查询 数组下标一定要从1开始 一个数的二进制表示中末尾有几个0就在第几层  lowbit x &amp; (-x) : 假设 x的二进制数表示 的从右向左数的第一个1所在位为k，则lowbit(x) &#x3D; 2^(k-1)   tip: 求 n 的二进制表示的第 k 位数字：n &gt;&gt; k &amp; 1  功能 实现单">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-24T17:40:23.000Z">
-<meta property="article:modified_time" content="2024-03-25T04:05:28.349Z">
+<meta property="article:published_time" content="2024-03-25T15:47:51.000Z">
+<meta property="article:modified_time" content="2024-03-25T15:54:36.043Z">
 <meta property="article:author" content="Liu Bo">
-<meta property="article:tag" content="保研">
-<meta property="article:tag" content="测试">
+<meta property="article:tag" content="算法 树状数组">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>first-test-blog - CS_Blog</title>
+  <title>树状数组 - CS_Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -217,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="first-test-blog"></span>
+            <span id="subtitle" data-typed-text="树状数组"></span>
           
         </div>
 
@@ -228,8 +227,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-25 01:40" pubdate>
-          2024年3月25日 凌晨
+        <time datetime="2024-03-25 23:47" pubdate>
+          2024年3月25日 晚上
         </time>
       </span>
     
@@ -241,7 +240,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          17 字
+          392 字
         
       </span>
     
@@ -253,7 +252,7 @@
         
         
           <!-- compatible with older versions-->
-          1 分钟
+          4 分钟
         
       </span>
     
@@ -290,12 +289,27 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">first-test-blog</h1>
+            <h1 id="seo-header">树状数组</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="这是一个测试博客"><a href="#这是一个测试博客" class="headerlink" title="这是一个测试博客"></a>这是一个测试博客</h1><h1 id="浅浅许个愿：保研上岸"><a href="#浅浅许个愿：保研上岸" class="headerlink" title="浅浅许个愿：保研上岸"></a>浅浅许个愿：保研上岸</h1>
+                <h1 id="树状数组"><a href="#树状数组" class="headerlink" title="树状数组"></a>树状数组</h1><h2 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h2><ol>
+<li>O(log)的时间复杂度去实现单点修改和区间查询</li>
+<li>数组下标一定要从1开始</li>
+<li>一个数的二进制表示中末尾有几个0就在第几层</li>
+</ol>
+<h2 id="lowbit"><a href="#lowbit" class="headerlink" title="lowbit"></a>lowbit</h2><blockquote>
+<p><code>x &amp; (-x)</code> : 假设 x的二进制数表示 的从右向左数的第一个1所在位为k，则lowbit(x) &#x3D; 2^(k-1)</p>
+</blockquote>
+<blockquote>
+<p>tip: 求 n 的二进制表示的第 k 位数字：<code>n &gt;&gt; k &amp; 1</code></p>
+</blockquote>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ol>
+<li>实现单点修改</li>
+<li>实现求前缀和</li>
+</ol>
+<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">// 构造树状数组的方法</span><br><span class="hljs-comment">// 可以假设原序列a为全0，依次通过“单点修改”操作把每个数加进去，最后就可以形成树状数组了</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br> <br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1e5</span>+<span class="hljs-number">10</span>;<br><br><span class="hljs-type">int</span> n,m;<br><span class="hljs-type">int</span> t[N],tr[N];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">lowbit</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br>    <span class="hljs-keyword">return</span> x &amp; (-x);<br>&#125;<br><br><span class="hljs-comment">//在原数组的第x个数加上v</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> v)</span></span>&#123;<br>    <span class="hljs-comment">//注意这里的i是从x开始得</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=x;i&lt;=n;i+=<span class="hljs-built_in">lowbit</span>(i))&#123; <br>        tr[i] += v; <span class="hljs-comment">//在树状数组第i个位置上加上一个值</span><br>    &#125;<br>&#125;<br><br><span class="hljs-comment">//返回原数组前x个数的前缀和</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br>    <span class="hljs-type">int</span> sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=x; i&gt;<span class="hljs-number">0</span>; i-=<span class="hljs-built_in">lowbit</span>(i))&#123;<br>        sum += tr[i];<br>    &#125;<br>    <span class="hljs-keyword">return</span> sum;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    cin &gt;&gt; n &gt;&gt; m;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>        cin &gt;&gt; t[i];<br>    &#125;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>        <span class="hljs-built_in">add</span>(i,t[i]); <span class="hljs-comment">//在第i个位置上加上原数组t[i] 构造树状数组</span><br>    &#125;<br>    <span class="hljs-keyword">while</span>(m--)&#123;<br>        <span class="hljs-type">int</span> sum=<span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> k,x,y;<br>        cin &gt;&gt; k &gt;&gt; x &gt;&gt; y;<br>        <span class="hljs-keyword">if</span>(k == <span class="hljs-number">0</span>)&#123;<br>            cout &lt;&lt; <span class="hljs-built_in">query</span>(y) - <span class="hljs-built_in">query</span>(x<span class="hljs-number">-1</span>) &lt;&lt; endl; <span class="hljs-comment">//求的是[a,b]的必区间</span><br>        &#125;<br>        <span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-built_in">add</span>(x,y);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -313,12 +327,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%B5%8B%E8%AF%95/" class="category-chain-item">测试</a>
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E6%B5%8B%E8%AF%95/%E4%BF%9D%E7%A0%94/" class="category-chain-item">保研</a>
+  <a href="/categories/%E7%AE%97%E6%B3%95/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" class="category-chain-item">树状数组</a>
   
   
 
@@ -335,9 +349,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E4%BF%9D%E7%A0%94/" class="print-no-link">#保研</a>
-      
-        <a href="/tags/%E6%B5%8B%E8%AF%95/" class="print-no-link">#测试</a>
+        <a href="/tags/%E7%AE%97%E6%B3%95-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" class="print-no-link">#算法 树状数组</a>
       
     </div>
   
@@ -349,8 +361,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>first-test-blog</div>
-      <div>https://cs-lb.github.io/2024/03/25/first-test-blog/</div>
+      <div>树状数组</div>
+      <div>https://cs-lb.github.io/2024/03/25/algorithm_know/tree-arr/</div>
     </div>
     <div class="license-meta">
       
@@ -394,15 +406,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/25/cs_net/cs-net-1/" title="计算机网络复习第一章">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">计算机网络复习第一章</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2024/03/25/algorithm_know/algorithm-know/" title="algorithm_know">
+                        <span class="hidden-mobile">algorithm_know</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
