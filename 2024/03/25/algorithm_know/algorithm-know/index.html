@@ -16,24 +16,22 @@
   <meta name="author" content="Liu Bo">
   <meta name="keywords" content="">
   
-    <meta name="description" content="计算机网络复习第一章知识点 为网络中的数据交换而建立的规则.标准或约定称为网络协议，网络协议由三部分组成：语法（数据与控制信息的结构或格式）.语义（需要发出何种控制信息，完成何种动作以及做出何种响应）.同步（事件实现顺序的详细说明）。  Arpanet是Internet的前身，对因特网发展起到很大作用。Internet是通过路由器将多个LAN或WAN相连接形成。  计算机网络向用户提供的最重要的功">
+    <meta name="description" content="2.16降低时间复杂度的方法（降低运行时间防止超时）使用平方根去约束数的循环范围 应用场景：完全数，质数  前缀和得到某一段数组 [l,r] 的和，常规循环计算的复杂度为 O(n) ，使用前缀和就可以直接使用 S(r) - S(l-1) ，复杂度为O(1)2.17位运算 求 n 的二进制表示的第 k 位数字：n &gt;&gt; k &amp; 1返回 n 的最后一位1：lowbit(n) &amp;#x">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机网络复习第一章">
-<meta property="og:url" content="http://example.com/2024/03/25/cs_net/cs-net-1/index.html">
+<meta property="og:title" content="algorithm_know">
+<meta property="og:url" content="http://example.com/2024/03/25/algorithm_know/algorithm-know/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="计算机网络复习第一章知识点 为网络中的数据交换而建立的规则.标准或约定称为网络协议，网络协议由三部分组成：语法（数据与控制信息的结构或格式）.语义（需要发出何种控制信息，完成何种动作以及做出何种响应）.同步（事件实现顺序的详细说明）。  Arpanet是Internet的前身，对因特网发展起到很大作用。Internet是通过路由器将多个LAN或WAN相连接形成。  计算机网络向用户提供的最重要的功">
+<meta property="og:description" content="2.16降低时间复杂度的方法（降低运行时间防止超时）使用平方根去约束数的循环范围 应用场景：完全数，质数  前缀和得到某一段数组 [l,r] 的和，常规循环计算的复杂度为 O(n) ，使用前缀和就可以直接使用 S(r) - S(l-1) ，复杂度为O(1)2.17位运算 求 n 的二进制表示的第 k 位数字：n &gt;&gt; k &amp; 1返回 n 的最后一位1：lowbit(n) &amp;#x">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/network.png">
-<meta property="article:published_time" content="2024-03-25T04:15:11.000Z">
-<meta property="article:modified_time" content="2024-03-25T04:33:10.361Z">
+<meta property="article:published_time" content="2024-03-25T04:45:52.000Z">
+<meta property="article:modified_time" content="2024-03-25T04:47:11.976Z">
 <meta property="article:author" content="Liu Bo">
-<meta property="article:tag" content="计算机网络">
+<meta property="article:tag" content="算法小知识">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/network.png">
   
   
   
-  <title>计算机网络复习第一章 - Hexo</title>
+  <title>algorithm_know - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -203,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="计算机网络复习第一章"></span>
+            <span id="subtitle" data-typed-text="algorithm_know"></span>
           
         </div>
 
@@ -214,7 +212,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-25 12:15" pubdate>
+        <time datetime="2024-03-25 12:45" pubdate>
           March 25, 2024 pm
         </time>
       </span>
@@ -227,7 +225,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.3k 字
+          139 字
         
       </span>
     
@@ -239,7 +237,7 @@
         
         
           <!-- compatible with older versions-->
-          12 分钟
+          2 分钟
         
       </span>
     
@@ -276,58 +274,18 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">计算机网络复习第一章</h1>
+            <h1 id="seo-header">algorithm_know</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="计算机网络复习第一章"><a href="#计算机网络复习第一章" class="headerlink" title="计算机网络复习第一章"></a>计算机网络复习第一章</h1><h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><ol>
-<li><p>为网络中的数据交换而建立的规则.标准或约定称为网络协议，网络协议由三部分组成：语法（数据与控制信息的结构或格式）.语义（需要发出何种控制信息，完成何种动作以及做出何种响应）.同步（事件实现顺序的详细说明）。</p>
-</li>
-<li><p>Arpanet是Internet的前身，对因特网发展起到很大作用。Internet是通过路由器将多个LAN或WAN相连接形成。</p>
-</li>
-<li><p>计算机网络向用户提供的最重要的功能有2个：连通性和共享</p>
-</li>
-<li><p>所有因特网标准都是以RFC形式在因特网上发表。RFC的意思是“请求评论”</p>
-</li>
-<li><p>因特网从其工作方式上看，可以划分为2大块：边缘部分（由连接在因特网上的主机组成，这部分是用户直接使用的，用来进行通信和资源共享）和核心部分（由大量网络和连接这些网络的路由器组成，这部分为边缘部分提供服务，提供连通性和交换）</p>
-</li>
-<li><p>三网合一是指电信语音 .有线电视网和计算机网络的结合。</p>
-</li>
-<li><p>常用的交换方式有电路.报文和分组。在电路交换方式中要经过线路建立.数据传输.线路释放三个过程。而分组交换和报文交换不需要，因为每个分组都需要被独立进行确定“路由”处理，所以可能存在“后发先至”的现象。计算机网络通常采用分组交换方式。</p>
-</li>
-<li><p>网络通信常用的3种交换方式是电路交换（整个报文的比特流连续地从源点直达终点，好像在一个管道中传送）.报文交换（整个报文先送到相邻节点，全部存储下来后查找转发表，转发到下一节点）和分组交换（单个分组（这只是整个报文的一部分）传送到相邻节点，存储下来后查找转发表，转发到下一节点）。计算机网络采用的交换方式属于分组交换。</p>
-</li>
-<li><p>时延是计算机网络的性能指标之一，指的是数据从网络的一端传输到另一端所需的时间，通常包括发送时延（主机或路由器发送数据帧所需要的时间，也称为传输时延。发送时延&#x3D;数据帧长度&#x2F;发送速率）.传播时延（电磁波在信道中传播一定的距离所需要的时间，在自由空间的传播速率约为3.0<em>105km&#x2F;s，在铜线电缆中的传播速率约为2.3</em>105km&#x2F;s, 在光纤中的传播速率约为2.0*105km&#x2F;s。传播时延&#x3D;信道长度&#x2F;电磁波在信道上传输速率）.处理时延（主机或路由器在收到分组是需要花费一定的时间进行处理）和排队时延（分组在进入路由器后在输入队列中等待处理）。</p>
-</li>
-<li><p>OSI的体系结构由7层组成，从上到下分别是：应用层.表示层.会话层.运输曾.网络层.数据链路层.物理层。TCP&#x2F;IP协议由4层组成，从上向下分别为应用层.运输层.网际层（IP）和网络接口层。掌握OSI&#x2F;RM协议的各层次名称.顺序及与TCP&#x2F;IP协议的对应关系。教材图1-18</p>
-</li>
-<li><p>按距离进行分类，可将网络分为广域网.城域网和局域网，掌握其距离范围</p>
-</li>
-</ol>
-<h2 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h2><ol>
-<li>假定有一个10MB的数据块，在带宽为1Mb&#x2F;s的信道上连续发送，其发送时延是_____s。</li>
-<li>因特网从其工作方式上看，可以划分为2大块：用来进行通信和资源共享属于边缘部分。提供连通性和交换的属于(   )。</li>
-<li>网络通信有3种交换方式。其中【单个分组（这只是整个报文的一部分）传送到相邻节点，存储下来后查找转发表，转发到下一节点】属于(   )（请说明名称，不能说第一种、第二种或第三种）。</li>
-<li>时延是计算机网络的性能指标之一，指的是数据从网络的一端传输到另一端所需的时间。其中的传播时延是指电磁波在信道中传播一定的距离所需要的时间，通常在铜线电缆中其传播速率约为(   )km&#x2F;s。</li>
-<li>所有因特网标准都是以(   )形式在因特网上发表。其意思是“请求评论”。</li>
-<li>网络协议由三部分组成：语法、语义和同步，其中需要发出何种控制信息，完成何种动作以及做出何种响应属于(   )。</li>
-<li>OSI的体系结构由7层组成，从下向上，第六层是(   )。</li>
-<li>TCP&#x2F;IP协议由4层组成，从上向下，UDP是属于(   )。</li>
-<li>电磁波在光纤中传播的速率大约为2.0*105km&#x2F;s,长度为1000km的光纤传播时延是（    ）s。</li>
-</ol>
-<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><ol>
-<li>83.89</li>
-<li>核心部分</li>
-<li>分组交换</li>
-<li>2.3*105km&#x2F;s</li>
-<li>RFC</li>
-<li>语义</li>
-<li>表示层</li>
-<li>运输层</li>
-<li>0.005</li>
-</ol>
-
+                <h1 id="2-16"><a href="#2-16" class="headerlink" title="2.16"></a>2.16</h1><h2 id="降低时间复杂度的方法（降低运行时间防止超时）"><a href="#降低时间复杂度的方法（降低运行时间防止超时）" class="headerlink" title="降低时间复杂度的方法（降低运行时间防止超时）"></a>降低时间复杂度的方法（降低运行时间防止超时）</h2><h3 id="使用平方根去约束数的循环范围"><a href="#使用平方根去约束数的循环范围" class="headerlink" title="使用平方根去约束数的循环范围"></a>使用平方根去约束数的循环范围</h3><blockquote>
+<p>应用场景：完全数，质数</p>
+</blockquote>
+<h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><h2 id="得到某一段数组-l-r-的和，常规循环计算的复杂度为-O-n-，使用前缀和就可以直接使用-S-r-S-l-1-，复杂度为O-1"><a href="#得到某一段数组-l-r-的和，常规循环计算的复杂度为-O-n-，使用前缀和就可以直接使用-S-r-S-l-1-，复杂度为O-1" class="headerlink" title="得到某一段数组 [l,r] 的和，常规循环计算的复杂度为 O(n) ，使用前缀和就可以直接使用 S(r) - S(l-1) ，复杂度为O(1)"></a>得到某一段数组 [l,r] 的和，常规循环计算的复杂度为 O(n) ，使用前缀和就可以直接使用 S(r) - S(l-1) ，复杂度为O(1)</h2><h1 id="2-17"><a href="#2-17" class="headerlink" title="2.17"></a>2.17</h1><h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><blockquote>
+<p>求 n 的二进制表示的第 k 位数字：<code>n &gt;&gt; k &amp; 1</code><br>返回 n 的最后一位1：lowbit(n) &#x3D; n &amp; -n &#x3D; n &amp; ()</p>
+</blockquote>
+<h1 id="3-25"><a href="#3-25" class="headerlink" title="3.25"></a>3.25</h1><h2 id="n次方幂"><a href="#n次方幂" class="headerlink" title="n次方幂"></a>n次方幂</h2>
                 
               </div>
             
@@ -345,7 +303,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="category-chain-item">计算机网络</a>
+  <a href="/categories/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/" class="category-chain-item">算法小知识</a>
   
   
 
@@ -360,7 +318,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="print-no-link">#计算机网络</a>
+        <a href="/tags/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/" class="print-no-link">#算法小知识</a>
       
     </div>
   
@@ -372,8 +330,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>计算机网络复习第一章</div>
-      <div>http://example.com/2024/03/25/cs_net/cs-net-1/</div>
+      <div>algorithm_know</div>
+      <div>http://example.com/2024/03/25/algorithm_know/algorithm-know/</div>
     </div>
     <div class="license-meta">
       
@@ -417,18 +375,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/25/cs_net/cs-net-2/" title="计算机网络复习第二章">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">计算机网络复习第二章</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03/25/first-test-blog/" title="first-test-blog">
-                        <span class="hidden-mobile">first-test-blog</span>
+                      <a href="/2024/03/25/cs_net/cs-net-3/" title="计算机网络复习第三章">
+                        <span class="hidden-mobile">计算机网络复习第三章</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
