@@ -8,32 +8,32 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
-  <link rel="icon" href="/img/myfavicon.png">
+  <link rel="icon" href="/img/webico.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="Liu Bo">
-  <meta name="keywords" content="">
+  <meta name="keywords" content="408 算法 保研">
   
     <meta name="description" content="计算机网络复习第三章知识点 数据链路层的功能是：实现在两个通信实体之间传送数据（以 帧为单位），并通过差错控制方法，使有差错的物理线路变成无差错数据链路。数据链路层使用的信道有2种：广播信道和点对点信道。 数据链路层需要解决的三个基本问题是：封装成帧. 透明传输（如在数据中出现控制字符时加入转义字符）和差错检测（如CRC技术）。  10Mbps以太网是基带编码，使用的曼彻斯特编码，是一种自同步的数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络复习第三章">
-<meta property="og:url" content="http://example.com/2024/03/25/cs_net/cs-net-3/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="https://cs-lb.github.io/2024/03/25/cs_net/cs-net-3/index.html">
+<meta property="og:site_name" content="CS_Blog">
 <meta property="og:description" content="计算机网络复习第三章知识点 数据链路层的功能是：实现在两个通信实体之间传送数据（以 帧为单位），并通过差错控制方法，使有差错的物理线路变成无差错数据链路。数据链路层使用的信道有2种：广播信道和点对点信道。 数据链路层需要解决的三个基本问题是：封装成帧. 透明传输（如在数据中出现控制字符时加入转义字符）和差错检测（如CRC技术）。  10Mbps以太网是基带编码，使用的曼彻斯特编码，是一种自同步的数">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/network.png">
+<meta property="og:image" content="https://cs-lb.github.io/img/network.png">
 <meta property="article:published_time" content="2024-03-25T04:39:37.000Z">
 <meta property="article:modified_time" content="2024-03-25T04:42:43.467Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/network.png">
+<meta name="twitter:image" content="https://cs-lb.github.io/img/network.png">
   
   
   
-  <title>计算机网络复习第三章 - Hexo</title>
+  <title>计算机网络复习第三章 - CS_Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","app_key":"aoBSZ1mISmupN9aimSNuZrgr","server_url":"https://jx9ekdkf.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"cs-lb.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","app_key":"aoBSZ1mISmupN9aimSNuZrgr","server_url":"https://jx9ekdkf.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -409,7 +409,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>计算机网络复习第三章</div>
-      <div>http://example.com/2024/03/25/cs_net/cs-net-3/</div>
+      <div>https://cs-lb.github.io/2024/03/25/cs_net/cs-net-3/</div>
     </div>
     <div class="license-meta">
       
