@@ -16,22 +16,22 @@
   <meta name="author" content="Liu Bo">
   <meta name="keywords" content="408 算法 保研">
   
-    <meta name="description" content="将数据集分成训练集和测试集具体代码（带详细注释）12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485import osimport">
+    <meta name="description" content="动手做操作系统准备工具 在Windows下编写代码，使用vscode、记事本等编辑器。 使用Linux的虚拟机编译内核和生成操作软盘映像。（img软盘也可以直接在window11环境下使用bximage.exe生成，但需要在虚拟机里进行格式化） 必要时使用安装了DOS的虚拟机来调试程序以及操作软盘映像。 安装一个Bochs,必要的时候用它来调试。 使用其他必要的工具，比如版本控制工具(VSS或者C">
 <meta property="og:type" content="article">
-<meta property="og:title" content="将数据集分成训练集和测试集">
-<meta property="og:url" content="https://cs-lb.github.io/2024/03/26/data-set-spilt/index.html">
+<meta property="og:title" content="动手做操作系统">
+<meta property="og:url" content="https://cs-lb.github.io/2024/03/28/OS/index.html">
 <meta property="og:site_name" content="CS_Blog">
-<meta property="og:description" content="将数据集分成训练集和测试集具体代码（带详细注释）12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485import osimport">
+<meta property="og:description" content="动手做操作系统准备工具 在Windows下编写代码，使用vscode、记事本等编辑器。 使用Linux的虚拟机编译内核和生成操作软盘映像。（img软盘也可以直接在window11环境下使用bximage.exe生成，但需要在虚拟机里进行格式化） 必要时使用安装了DOS的虚拟机来调试程序以及操作软盘映像。 安装一个Bochs,必要的时候用它来调试。 使用其他必要的工具，比如版本控制工具(VSS或者C">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-26T03:13:36.000Z">
-<meta property="article:modified_time" content="2024-03-26T03:14:53.346Z">
+<meta property="article:published_time" content="2024-03-28T11:01:53.000Z">
+<meta property="article:modified_time" content="2024-03-29T01:37:46.363Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="408 算法 保研">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>将数据集分成训练集和测试集 - CS_Blog</title>
+  <title>动手做操作系统 - CS_Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -216,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="将数据集分成训练集和测试集"></span>
+            <span id="subtitle" data-typed-text="动手做操作系统"></span>
           
         </div>
 
@@ -227,8 +227,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-26 11:13" pubdate>
-          2024年3月26日 上午
+        <time datetime="2024-03-28 19:01" pubdate>
+          2024年3月28日 晚上
         </time>
       </span>
     
@@ -240,7 +240,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          633 字
+          275 字
         
       </span>
     
@@ -252,7 +252,7 @@
         
         
           <!-- compatible with older versions-->
-          6 分钟
+          3 分钟
         
       </span>
     
@@ -289,12 +289,29 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">将数据集分成训练集和测试集</h1>
+            <h1 id="seo-header">动手做操作系统</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="将数据集分成训练集和测试集"><a href="#将数据集分成训练集和测试集" class="headerlink" title="将数据集分成训练集和测试集"></a>将数据集分成训练集和测试集</h1><h2 id="具体代码（带详细注释）"><a href="#具体代码（带详细注释）" class="headerlink" title="具体代码（带详细注释）"></a>具体代码（带详细注释）</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> json<br><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">假设数据集文件夹中有三类</span><br><span class="hljs-string">class_indices.json</span><br><span class="hljs-string">&#123;</span><br><span class="hljs-string">    &quot;0&quot;: &quot;AD&quot;,</span><br><span class="hljs-string">    &quot;1&quot;: &quot;CN&quot;,</span><br><span class="hljs-string">    &quot;2&quot;: &quot;MCI&quot;</span><br><span class="hljs-string">&#125;</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">read_split_data</span>(<span class="hljs-params">root: <span class="hljs-built_in">str</span>, val_rate: <span class="hljs-built_in">float</span> = <span class="hljs-number">0.2</span></span>):<br>    random.seed(<span class="hljs-number">0</span>)  <span class="hljs-comment"># 保证随机结果可复现</span><br>    <span class="hljs-keyword">assert</span> os.path.exists(root), <span class="hljs-string">&quot;dataset root: &#123;&#125; does not exist.&quot;</span>.<span class="hljs-built_in">format</span>(root)<br><br>    <span class="hljs-comment"># 遍历文件夹，一个文件夹对应一个类别</span><br>    data_class = [cla <span class="hljs-keyword">for</span> cla <span class="hljs-keyword">in</span> os.listdir(root) <span class="hljs-keyword">if</span> os.path.isdir(os.path.join(root, cla))]<br>    <span class="hljs-comment"># 排序，保证各平台顺序一致</span><br>    data_class.sort()  <span class="hljs-comment"># [&#x27;AD&#x27;, &#x27;CN&#x27;, &#x27;MCI&#x27;]</span><br>    <span class="hljs-comment"># 生成类别名称以及对应的数字索引</span><br>    class_indices = <span class="hljs-built_in">dict</span>((k, v) <span class="hljs-keyword">for</span> v, k <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(data_class))<br>    json_str = json.dumps(<span class="hljs-built_in">dict</span>((val, key) <span class="hljs-keyword">for</span> key, val <span class="hljs-keyword">in</span> class_indices.items()), indent=<span class="hljs-number">4</span>)<br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;class_indices.json&#x27;</span>, <span class="hljs-string">&#x27;w&#x27;</span>) <span class="hljs-keyword">as</span> json_file:<br>        json_file.write(json_str)<br><br>    train_images_path = []  <span class="hljs-comment"># 存储训练集的所有图片路径</span><br>    train_images_label = []  <span class="hljs-comment"># 存储训练集图片对应索引信息</span><br>    val_images_path = []  <span class="hljs-comment"># 存储验证集的所有图片路径</span><br>    val_images_label = []  <span class="hljs-comment"># 存储验证集图片对应索引信息</span><br>    every_class_num = []  <span class="hljs-comment"># 存储每个类别的样本总数</span><br>    supported = [<span class="hljs-string">&quot;.jpg&quot;</span>, <span class="hljs-string">&quot;.JPG&quot;</span>, <span class="hljs-string">&quot;.png&quot;</span>, <span class="hljs-string">&quot;.PNG&quot;</span>]  <span class="hljs-comment"># 支持的文件后缀类型</span><br>    <span class="hljs-comment"># 遍历每个文件夹下的文件</span><br>    <span class="hljs-keyword">for</span> cla <span class="hljs-keyword">in</span> data_class:<br>        cla_path = os.path.join(root, cla) <span class="hljs-comment"># 类别文件夹的具体路径</span><br>        <span class="hljs-comment"># 遍历获取supported支持的所有文件路径</span><br>        images = [os.path.join(root, cla, i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> os.listdir(cla_path)<br>                  <span class="hljs-keyword">if</span> os.path.splitext(i)[-<span class="hljs-number">1</span>] <span class="hljs-keyword">in</span> supported]<br>        <span class="hljs-comment"># 排序，保证各平台顺序一致</span><br>        images.sort() <span class="hljs-comment"># 该类别文件夹下的所有图片 按名称字典顺序排列</span><br>        <span class="hljs-comment"># 获取该类别对应的索引</span><br>        image_class = class_indices[cla]<br>        <span class="hljs-comment"># 记录该类别的样本数量</span><br>        every_class_num.append(<span class="hljs-built_in">len</span>(images))<br>        <span class="hljs-comment"># 按比例随机采样验证样本</span><br>        val_path = random.sample(images, k=<span class="hljs-built_in">int</span>(<span class="hljs-built_in">len</span>(images) * val_rate))<br><br>        <span class="hljs-keyword">for</span> img_path <span class="hljs-keyword">in</span> images:<br>            <span class="hljs-keyword">if</span> img_path <span class="hljs-keyword">in</span> val_path:  <span class="hljs-comment"># 如果该路径在采样的验证集样本中则存入验证集</span><br>                val_images_path.append(img_path)<br>                val_images_label.append(image_class)<br>            <span class="hljs-keyword">else</span>:  <span class="hljs-comment"># 否则存入训练集</span><br>                train_images_path.append(img_path)<br>                train_images_label.append(image_class)<br><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;&#123;&#125; images were found in the dataset.&quot;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-built_in">sum</span>(every_class_num)))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;&#123;&#125; images for training.&quot;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-built_in">len</span>(train_images_path)))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;&#123;&#125; images for validation.&quot;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-built_in">len</span>(val_images_path)))<br>    <span class="hljs-keyword">assert</span> <span class="hljs-built_in">len</span>(train_images_path) &gt; <span class="hljs-number">0</span>, <span class="hljs-string">&quot;number of training images must greater than 0.&quot;</span><br>    <span class="hljs-keyword">assert</span> <span class="hljs-built_in">len</span>(val_images_path) &gt; <span class="hljs-number">0</span>, <span class="hljs-string">&quot;number of validation images must greater than 0.&quot;</span><br><br>    plot_image = <span class="hljs-literal">True</span><br>    <span class="hljs-keyword">if</span> plot_image:<br>        <span class="hljs-comment"># 绘制每种类别个数柱状图</span><br>        plt.bar(<span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(data_class)), every_class_num, align=<span class="hljs-string">&#x27;center&#x27;</span>)<br>        <span class="hljs-comment"># 将横坐标0,1,2,3,4替换为相应的类别名称</span><br>        plt.xticks(<span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(data_class)), data_class)<br>        <span class="hljs-comment"># 在柱状图上添加数值标签</span><br>        <span class="hljs-keyword">for</span> i, v <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(every_class_num):<br>            plt.text(x=i, y=v + <span class="hljs-number">5</span>, s=<span class="hljs-built_in">str</span>(v), ha=<span class="hljs-string">&#x27;center&#x27;</span>)<br>        <span class="hljs-comment"># 设置x坐标</span><br>        plt.xlabel(<span class="hljs-string">&#x27;image class&#x27;</span>)<br>        <span class="hljs-comment"># 设置y坐标</span><br>        plt.ylabel(<span class="hljs-string">&#x27;number of images&#x27;</span>)<br>        <span class="hljs-comment"># 设置柱状图的标题</span><br>        plt.title(<span class="hljs-string">&#x27;data class distribution&#x27;</span>)<br>        plt.show()<br><br>    <span class="hljs-keyword">return</span> train_images_path, train_images_label, val_images_path, val_images_label<br><br>data_path = <span class="hljs-string">&quot;D:\data_set&quot;</span> <span class="hljs-comment"># 数据集所在（绝对/相对）路径</span><br>train_images_path, train_images_label, val_images_path, val_images_label = read_split_data(data_path)<br><br></code></pre></td></tr></table></figure>
+                <h1 id="动手做操作系统"><a href="#动手做操作系统" class="headerlink" title="动手做操作系统"></a>动手做操作系统</h1><h2 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h2><ol>
+<li>在Windows下编写代码，使用vscode、记事本等编辑器。</li>
+<li>使用Linux的虚拟机编译内核和生成操作软盘映像。（img软盘也可以直接在window11环境下使用bximage.exe生成，但需要在虚拟机里进行格式化）</li>
+<li>必要时使用安装了DOS的虚拟机来调试程序以及操作软盘映像。</li>
+<li>安装一个Bochs,必要的时候用它来调试。</li>
+<li>使用其他必要的工具，比如版本控制工具(VSS或者CVS)。</li>
+</ol>
+<h2 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h2><ol>
+<li>软盘是从A盘启动的</li>
+</ol>
+<h2 id="运行一个-com程序的步骤"><a href="#运行一个-com程序的步骤" class="headerlink" title="运行一个.com程序的步骤"></a>运行一个.com程序的步骤</h2><ol>
+<li>使用bximage.exe生成一个软盘</li>
+<li>将软盘插入到xp虚拟机中，进行格式化（选择带ms-dos启动盘的格式化）</li>
+<li>将需要运行的.com程序放入软盘中，之后将软盘取出（防止软盘被占用而出错）</li>
+<li>编辑bochsrc.bxrc，将软盘名称改成自己软盘的名称，将启动盘改成A</li>
+<li>运行bochsrc.bxrc即可进入到软盘中，之后在窗口中输入test1.com即可运行</li>
+</ol>
+
                 
               </div>
             
@@ -311,8 +328,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>将数据集分成训练集和测试集</div>
-      <div>https://cs-lb.github.io/2024/03/26/data-set-spilt/</div>
+      <div>动手做操作系统</div>
+      <div>https://cs-lb.github.io/2024/03/28/OS/</div>
     </div>
     <div class="license-meta">
       
@@ -324,7 +341,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年3月26日</div>
+          <div>2024年3月28日</div>
         </div>
       
       
@@ -356,9 +373,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/28/algorithm_know/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95/" title="枚举算法">
+                      <a href="/2024/03/29/algorithm_know/pair/" title="pair">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">枚举算法</span>
+                        <span class="hidden-mobile">pair</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -366,8 +383,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03/25/algorithm_know/tree-arr/" title="树状数组">
-                        <span class="hidden-mobile">树状数组</span>
+                      <a href="/2024/03/28/algorithm_know/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95/" title="枚举算法">
+                        <span class="hidden-mobile">枚举算法</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
