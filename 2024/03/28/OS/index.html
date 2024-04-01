@@ -24,7 +24,7 @@
 <meta property="og:description" content="动手做操作系统准备工具 在Windows下编写代码，使用vscode、记事本等编辑器。 使用Linux的虚拟机编译内核和生成操作软盘映像。（img软盘也可以直接在window11环境下使用bximage.exe生成，但需要在虚拟机里进行格式化） 必要时使用安装了DOS的虚拟机来调试程序以及操作软盘映像。 安装一个Bochs,必要的时候用它来调试。 使用其他必要的工具，比如版本控制工具(VSS或者C">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-28T11:01:53.000Z">
-<meta property="article:modified_time" content="2024-03-29T01:37:46.363Z">
+<meta property="article:modified_time" content="2024-03-30T03:01:40.152Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="408 算法 保研">
 <meta name="twitter:card" content="summary_large_image">
@@ -240,7 +240,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          275 字
+          1.1k 字
         
       </span>
     
@@ -252,7 +252,7 @@
         
         
           <!-- compatible with older versions-->
-          3 分钟
+          9 分钟
         
       </span>
     
@@ -304,6 +304,23 @@
 <h2 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h2><ol>
 <li>软盘是从A盘启动的</li>
 </ol>
+<h2 id="实模式和保护模式"><a href="#实模式和保护模式" class="headerlink" title="实模式和保护模式"></a>实模式和保护模式</h2><p>在操作系统中，实模式（Real Mode）和保护模式（Protected Mode）是两种不同的工作模式，特别是在x86架构的计算机上常见。</p>
+<p><strong>实模式：</strong></p>
+<ul>
+<li>实模式是早期IBM PC兼容计算机上的一种工作模式。在实模式下，CPU可以访问1MB范围内的内存。</li>
+<li>内存管理采用分段机制，内存地址由一个16位段地址和一个16位偏移地址组成，共20位地址空间。</li>
+<li>实模式下，没有内存保护机制，任何程序都可以访问系统的所有内存和硬件设备，因此容易导致系统的稳定性问题。<br><strong>保护模式：</strong></li>
+<li>保护模式是后来引入的一种工作模式，提供了更为复杂和强大的内存管理和保护机制。</li>
+<li>在保护模式下，CPU可以访问超过1MB的内存，并且支持虚拟内存和分页机制。</li>
+<li>内存管理采用分段和分页结合的方式，可以实现更灵活的内存保护和隔离，不同程序之间不会相互影响。</li>
+<li>保护模式下，操作系统可以对内存和硬件设备进行更精细的控制和管理，提高了系统的稳定性和安全性。</li>
+</ul>
+<p>总的来说，实模式和保护模式是操作系统在x86架构下的两种不同的工作模式，保护模式相比实模式具有更多的功能和优势，是现代操作系统常用的工作模式。</p>
+<h2 id="全局描述符表（GDT）"><a href="#全局描述符表（GDT）" class="headerlink" title="全局描述符表（GDT）"></a>全局描述符表（GDT）</h2><p>全局描述符表（Global Descriptor Table，GDT）是x86架构下一种用于管理内存的数据结构，它在操作系统中扮演着重要的角色。GDT定义了内存分段的策略，包括内存段的起始地址、段的大小、访问权限等信息。</p>
+<p>在x86架构中，内存被分成多个段（segment），每个段都有自己的起始地址和大小。GDT就是用来管理这些段的数据结构。每个段都由一个描述符（descriptor）来描述，而GDT就是存放这些描述符的表格。描述符包含了段的各种属性，比如基地址、段限长、访问权限等。</p>
+<p>通过GDT，操作系统可以实现对内存的灵活管理和保护。例如，操作系统可以将代码、数据、堆栈等不同类型的信息放在不同的段中，并且对每个段设置不同的访问权限，从而提高系统的安全性和稳定性。此外，GDT还支持虚拟内存和分页机制，可以实现更高效的内存管理和地址转换。</p>
+<p>总的来说，全局描述符表（GDT）是x86架构下一种重要的内存管理数据结构，它定义了内存分段的策略，为操作系统提供了灵活的内存管理和保护机制。</p>
+<h2 id="进入保护模式"><a href="#进入保护模式" class="headerlink" title="进入保护模式"></a>进入保护模式</h2><p>(1)准备GDT<br>(2)用 lgdt 加载 gdtr.<br>(3)打开 A20.<br>(4)置cr0的PE位.<br>(5)跳转，进入保护模式.</p>
 <h2 id="运行一个-com程序的步骤"><a href="#运行一个-com程序的步骤" class="headerlink" title="运行一个.com程序的步骤"></a>运行一个.com程序的步骤</h2><ol>
 <li>使用bximage.exe生成一个软盘</li>
 <li>将软盘插入到xp虚拟机中，进行格式化（选择带ms-dos启动盘的格式化）</li>

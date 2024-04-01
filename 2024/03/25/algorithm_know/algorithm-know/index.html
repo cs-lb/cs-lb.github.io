@@ -24,7 +24,7 @@
 <meta property="og:description" content="2.16降低时间复杂度的方法（降低运行时间防止超时）使用平方根去约束数的循环范围 应用场景：完全数，质数  前缀和得到某一段数组 [l,r] 的和，常规循环计算的复杂度为 O(n) ，使用前缀和就可以直接使用 S(r) - S(l-1) ，复杂度为O(1)差分树状数组 O(log)的时间复杂度去实现单点修改和区间查询 数组下标一定要从1开始 一个数的二进制表示中末尾有几个0就在第几层  2.17位">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-25T04:45:52.000Z">
-<meta property="article:modified_time" content="2024-03-29T06:54:51.006Z">
+<meta property="article:modified_time" content="2024-03-29T14:38:20.094Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="算法小知识">
 <meta name="twitter:card" content="summary_large_image">
@@ -240,7 +240,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.1k 字
+          1.2k 字
         
       </span>
     
@@ -333,6 +333,7 @@
 <p>mp.count(key)<br>查看元素是否存在，因为map中键是唯一的，所以存在返回1，不存在返回0<br>mp.find(key)<br>返回键为key的映射的迭代器 $O(logN) $ 注意：用find函数来定位数据出现位置，它返回一个迭代器。当数据存在时，返回数据所在位置的迭代器，数据不存在时，返回mp.end()</p>
 </blockquote>
 <h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><p>set里面的元素<strong>不重复</strong> 且 <strong>有序</strong></p>
+<h1 id="如何将字符串转换成数字"><a href="#如何将字符串转换成数字" class="headerlink" title="如何将字符串转换成数字"></a>如何将字符串转换成数字</h1><p>String str&#x3D;“2019”;<br>char s[]&#x3D;str.toCharArray();<br>int x&#x3D;0;<br>for(int i&#x3D;0;i&lt;s.length;i++){<br>x&#x3D;x*10+str[i]-‘0’;<br>}</p>
 
                 
               </div>

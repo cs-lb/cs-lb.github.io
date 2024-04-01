@@ -24,7 +24,7 @@
 <meta property="og:description" content="树状数组首要用途：维护序列的前缀和  对一个序列a，建立一个数组c，其中c[x]保存序列a的区间[x-lowbit(x)+1,x]中所有数的和。  性质：1.每一个节点x，有c[x]保存着以x为根节点的所有叶节点的和 2.每个内部节点c[x]的子节点个数等于lowbit（x）的位数 3.除了树根以外的每个子节点的父节点都是c[x+lowbit(x)]; 4.数的深度为log(N)  &#x2F;&amp;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-25T15:47:51.000Z">
-<meta property="article:modified_time" content="2024-03-26T16:22:15.212Z">
+<meta property="article:modified_time" content="2024-03-30T08:10:40.164Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="算法 树状数组">
 <meta name="twitter:card" content="summary_large_image">
@@ -240,7 +240,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          529 字
+          533 字
         
       </span>
     
@@ -311,7 +311,7 @@
 <p><code>x &amp; (-x)</code> : 假设 x的二进制数表示 的从右向左数的第一个1所在位为k，则lowbit(x) &#x3D; 2^(k-1)</p>
 </blockquote>
 <blockquote>
-<p>tip: 求 n 的二进制表示的第 k 位数字：<code>n &gt;&gt; k &amp; 1</code></p>
+<p>tip: 求 n 的二进制表示的第 k 位(从0开始)数字：<code>n &gt;&gt; k &amp; 1</code></p>
 </blockquote>
 <h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ol>
 <li>实现单点修改</li>
