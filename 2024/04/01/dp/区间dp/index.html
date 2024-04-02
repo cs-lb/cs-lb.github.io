@@ -16,22 +16,22 @@
   <meta name="author" content="Liu Bo">
   <meta name="keywords" content="408 算法 保研">
   
-    <meta name="description" content="贪心算法哈夫曼树实现手段：通过一个小根堆，每次取出队列顶部的两个元素进行合并，同时将这两个元素出队，将合并之后得到的新元素入队直到队列中只剩下一个元素为止">
+    <meta name="description" content="区间dp区间dp问题枚举时，第一维通常是枚举区间长度，并且一般 len &#x3D; 1 时用来初始化，枚举从 len &#x3D; 2 开始；第二维枚举起点 i （右端点 j 自动获得，j &#x3D; i + len - 1） 模板代码 123456789101112131415for (int len &#x3D; 1; len &lt;&#x3D; n; len++) &#123;         &#x2F;&#x2F; 区间">
 <meta property="og:type" content="article">
-<meta property="og:title" content="贪心算法">
-<meta property="og:url" content="https://cs-lb.github.io/2024/03/29/algorithm_know/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:title" content="区间dp">
+<meta property="og:url" content="https://cs-lb.github.io/2024/04/01/dp/%E5%8C%BA%E9%97%B4dp/index.html">
 <meta property="og:site_name" content="CS_Blog">
-<meta property="og:description" content="贪心算法哈夫曼树实现手段：通过一个小根堆，每次取出队列顶部的两个元素进行合并，同时将这两个元素出队，将合并之后得到的新元素入队直到队列中只剩下一个元素为止">
+<meta property="og:description" content="区间dp区间dp问题枚举时，第一维通常是枚举区间长度，并且一般 len &#x3D; 1 时用来初始化，枚举从 len &#x3D; 2 开始；第二维枚举起点 i （右端点 j 自动获得，j &#x3D; i + len - 1） 模板代码 123456789101112131415for (int len &#x3D; 1; len &lt;&#x3D; n; len++) &#123;         &#x2F;&#x2F; 区间">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-29T14:57:43.000Z">
-<meta property="article:modified_time" content="2024-03-29T15:00:24.349Z">
+<meta property="article:published_time" content="2024-04-01T08:34:56.000Z">
+<meta property="article:modified_time" content="2024-04-01T10:14:47.083Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="408 算法 保研">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>贪心算法 - CS_Blog</title>
+  <title>区间dp - CS_Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -216,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="贪心算法"></span>
+            <span id="subtitle" data-typed-text="区间dp"></span>
           
         </div>
 
@@ -227,8 +227,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-29 22:57" pubdate>
-          2024年3月29日 晚上
+        <time datetime="2024-04-01 16:34" pubdate>
+          2024年4月1日 下午
         </time>
       </span>
     
@@ -240,7 +240,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          73 字
+          724 字
         
       </span>
     
@@ -252,7 +252,7 @@
         
         
           <!-- compatible with older versions-->
-          1 分钟
+          7 分钟
         
       </span>
     
@@ -289,13 +289,27 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">贪心算法</h1>
+            <h1 id="seo-header">区间dp</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h1><h2 id="哈夫曼树"><a href="#哈夫曼树" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h2><p>实现手段：<br>通过一个小根堆，每次取出队列顶部的两个元素进行合并，同时将这两个元素出队，将合并之后得到的新元素入队<br>直到队列中只剩下一个元素为止</p>
-
+                <h1 id="区间dp"><a href="#区间dp" class="headerlink" title="区间dp"></a>区间dp</h1><p>区间dp问题枚举时，第一维通常是枚举区间长度，并且一般 len &#x3D; 1 时用来初始化，枚举从 len &#x3D; 2 开始；第二维枚举起点 i （右端点 j 自动获得，j &#x3D; i + len - 1）</p>
+<p>模板代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> len = <span class="hljs-number">1</span>; len &lt;= n; len++) &#123;         <span class="hljs-comment">// 区间长度</span><br>    <span class="hljs-comment">//终止条件代表右端点要小于n</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i + len - <span class="hljs-number">1</span> &lt;= n; i++) &#123; <span class="hljs-comment">// 枚举起点</span><br>        <span class="hljs-type">int</span> j = i + len - <span class="hljs-number">1</span>;                 <span class="hljs-comment">// 区间终点</span><br>        <span class="hljs-keyword">if</span> (len == <span class="hljs-number">1</span>) &#123;<br>            dp[i][j] = 初始值<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = i; k &lt; j; k++) &#123;        <span class="hljs-comment">// 枚举分割点，构造状态转移方程</span><br>            dp[i][j] = <span class="hljs-built_in">min</span>(dp[i][j], dp[i][k] + dp[k + <span class="hljs-number">1</span>][j] + w[i][j]);<br>        &#125;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h2 id="石子合并"><a href="#石子合并" class="headerlink" title="石子合并"></a>石子合并</h2><blockquote>
+<p>问题描述：设有 N 堆石子排成一排，其编号为 1,2,3,…,N。每堆石子有一定的质量，可以用一个整数来描述，现在要将这 N堆石子合并成为一堆。<br>每次<strong>只能合并相邻的两堆</strong>，合并的代价为这两堆石子的质量之和，合并后与这两堆石子相邻的石子将和新堆相邻，合并时由于选择的顺序不同，合并的总代价也不相同。<br>找出一种合理的方法，使总的代价最小，输出最小代价</p>
+</blockquote>
+<p><strong>状态表示</strong></p>
+<ol>
+<li>集合：$ f(i,j) $ 表示将 [i,j] 这段区间的物品合并在一起的方案集合</li>
+<li>属性：最小代价</li>
+<li>集合划分，最后一次合并一定是左边连续的一部分和右边连续的一部分进行合并，将集合划分成某一堆是由区间 $ [i,i] ，[i,i+1] ，[i,i+2] ，… ， [i,i + j-1] $ 这些情况中之一所合并而成（即所有方案中，最后一次合并时，其中的某一堆一定是由上述某个区间所合并而成，满足不重不漏的原则）</li>
+<li>除了最后一次以外前面每次合并的和即为该次合并所产生的代价，因此最小总代价 &#x3D; $ f(i,k) + f(k+1,j) + s[j] - s[i-1] $</li>
+<li>$ f(i,j) $</li>
+</ol>
+<p><strong>状态计算</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1010</span>;<br><br><span class="hljs-type">int</span> f[N][N],s[N],n,w[N]; <span class="hljs-comment">//dp数组；前缀和数组</span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-number">0</span>);<br>    cin.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>    cout.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>        cin &gt;&gt; w[i];<br>    &#125;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>        s[i] = s[i<span class="hljs-number">-1</span>] + w[i];<br>    &#125;<br>    <span class="hljs-built_in">memset</span>(f, <span class="hljs-number">0x3f</span>, <span class="hljs-keyword">sizeof</span> f); <span class="hljs-comment">//由于是求最小值，因此先把dp数组设置成最大值</span><br>    <span class="hljs-comment">// 区间 DP 枚举套路：长度+左端点 </span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> len=<span class="hljs-number">1</span>;len&lt;=n;len++)&#123; <span class="hljs-comment">//len表示[i, j]的元素个数</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i+len<span class="hljs-number">-1</span>&lt;=n;i++)&#123; <br>            <span class="hljs-type">int</span> j = i+len<span class="hljs-number">-1</span>; <span class="hljs-comment">// 自动得到右端点</span><br>            <span class="hljs-keyword">if</span>(len == <span class="hljs-number">1</span>)&#123;<br>                f[i][j] = <span class="hljs-number">0</span>; <span class="hljs-comment">// 边界初始化</span><br>                <span class="hljs-keyword">continue</span>;<br>            &#125;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k=i;k&lt;j;k++)&#123;<br>                f[i][j] = <span class="hljs-built_in">min</span>(f[i][j],f[i][k] + f[k+<span class="hljs-number">1</span>][j] + s[j] - s[i<span class="hljs-number">-1</span>]);<br>            &#125;<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; f[<span class="hljs-number">1</span>][n];<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -312,8 +326,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>贪心算法</div>
-      <div>https://cs-lb.github.io/2024/03/29/algorithm_know/贪心算法/</div>
+      <div>区间dp</div>
+      <div>https://cs-lb.github.io/2024/04/01/dp/区间dp/</div>
     </div>
     <div class="license-meta">
       
@@ -325,7 +339,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年3月29日</div>
+          <div>2024年4月1日</div>
         </div>
       
       
@@ -357,9 +371,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/30/dp/dp/" title="动态规划（背包问题）">
+                      <a href="/2024/04/01/dp/%E7%BA%BF%E6%80%A7dp/" title="线性dp">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">动态规划（背包问题）</span>
+                        <span class="hidden-mobile">线性dp</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -367,8 +381,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03/29/algorithm_know/math/" title="math">
-                        <span class="hidden-mobile">math</span>
+                      <a href="/2024/03/30/dp/dp/" title="动态规划（背包问题）">
+                        <span class="hidden-mobile">动态规划（背包问题）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
