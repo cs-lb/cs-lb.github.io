@@ -16,22 +16,22 @@
   <meta name="author" content="Liu Bo">
   <meta name="keywords" content="408 算法 保研">
   
-    <meta name="description" content="线性dp 线性DP，是较常见的一类动态规划问题，其是在线性结构上进行状态转移，这类问题不像背包问题、区间DP等有固定的模板 线性动态规划的目标函数为特定变量的线性函数，约束是这些变量的线性不等式或等式，目的是求目标函数的最大值或最小值  LCS问题——最长公共子序列 子序列 : 指的是字符串中不一定连续但先后顺序一致的n个字符字符子串：指的是字符串中连续的n个字符最长公共子序列，英文缩写为LCS（">
+    <meta name="description" content="字符串操作字符比较使用 单引号 包括单个字符 字符串变数组将数字转换成字符串 to_string(num)  12int a &#x3D; 12345678;cout &lt;&lt; to_string(a) &lt;&lt; &#x27;\n&#x27;;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="线性dp">
-<meta property="og:url" content="https://cs-lb.github.io/2024/04/01/dp/%E7%BA%BF%E6%80%A7dp/index.html">
+<meta property="og:title" content="String">
+<meta property="og:url" content="https://cs-lb.github.io/2024/04/02/String/index.html">
 <meta property="og:site_name" content="CS_Blog">
-<meta property="og:description" content="线性dp 线性DP，是较常见的一类动态规划问题，其是在线性结构上进行状态转移，这类问题不像背包问题、区间DP等有固定的模板 线性动态规划的目标函数为特定变量的线性函数，约束是这些变量的线性不等式或等式，目的是求目标函数的最大值或最小值  LCS问题——最长公共子序列 子序列 : 指的是字符串中不一定连续但先后顺序一致的n个字符字符子串：指的是字符串中连续的n个字符最长公共子序列，英文缩写为LCS（">
+<meta property="og:description" content="字符串操作字符比较使用 单引号 包括单个字符 字符串变数组将数字转换成字符串 to_string(num)  12int a &#x3D; 12345678;cout &lt;&lt; to_string(a) &lt;&lt; &#x27;\n&#x27;;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-01T10:24:56.000Z">
-<meta property="article:modified_time" content="2024-04-03T17:38:54.438Z">
+<meta property="article:published_time" content="2024-04-02T05:38:29.000Z">
+<meta property="article:modified_time" content="2024-04-02T06:45:51.268Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="408 算法 保研">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>线性dp - CS_Blog</title>
+  <title>String - CS_Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -216,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="线性dp"></span>
+            <span id="subtitle" data-typed-text="String"></span>
           
         </div>
 
@@ -227,8 +227,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-01 18:24" pubdate>
-          2024年4月1日 晚上
+        <time datetime="2024-04-02 13:38" pubdate>
+          2024年4月2日 下午
         </time>
       </span>
     
@@ -240,7 +240,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          982 字
+          49 字
         
       </span>
     
@@ -252,7 +252,7 @@
         
         
           <!-- compatible with older versions-->
-          9 分钟
+          1 分钟
         
       </span>
     
@@ -289,60 +289,17 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">线性dp</h1>
+            <h1 id="seo-header">String</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="线性dp"><a href="#线性dp" class="headerlink" title="线性dp"></a>线性dp</h1><blockquote>
-<p>线性DP，是较常见的一类动态规划问题，其是在线性结构上进行状态转移，这类问题不像背包问题、区间DP等有固定的模板</p>
-<p>线性动态规划的目标函数为特定变量的线性函数，约束是这些变量的线性不等式或等式，目的是求目标函数的最大值或最小值</p>
+                <h1 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h1><h2 id="字符比较"><a href="#字符比较" class="headerlink" title="字符比较"></a>字符比较</h2><p>使用 <strong>单引号</strong> 包括单个字符</p>
+<h2 id="字符串变数组"><a href="#字符串变数组" class="headerlink" title="字符串变数组"></a>字符串变数组</h2><h2 id="将数字转换成字符串"><a href="#将数字转换成字符串" class="headerlink" title="将数字转换成字符串"></a>将数字转换成字符串</h2><blockquote>
+<p>to_string(num)</p>
 </blockquote>
-<h2 id="LCS问题——最长公共子序列"><a href="#LCS问题——最长公共子序列" class="headerlink" title="LCS问题——最长公共子序列"></a>LCS问题——最长公共子序列</h2><blockquote>
-<p><code>子序列</code> : 指的是字符串中<strong>不一定连续</strong>但先后顺序一致的n个字符<br><code>字符子串</code>：指的是字符串中连续的n个字符<br><code>最长公共子序列</code>，英文缩写为LCS（Longest Common Subsequence）。其定义是: 一个序列 S ，如果分别是两个或多个已知序列的子序列，且是所有符合此条件序列中最长的，则 S 称为已知序列的最长公共子序列。</p>
-</blockquote>
-<blockquote>
-<p>问题描述：给定两个长度分别为 N 和 M 的字符串 A 和 B，求既是 A 的子序列又是 B 的子序列的字符串长度最长是多少。</p>
-</blockquote>
-<p><strong>状态表示</strong></p>
-<ol>
-<li>集合表示：所有 $ A[1,n] $和 $ B[1,m] $ 的公共子序列的集合</li>
-<li><strong>dp[i][j]代表以s1[i]，s2[j]结尾的LCS的长度</strong></li>
-<li>属性：公共子序列长度的最大值</li>
-</ol>
-<p><strong>状态计算</strong></p>
-<ol>
-<li>找集合中所有情况的共同点和不同点来划分集合</li>
-<li>该公共子序列分为四种情况：包括a[n] , b[m] ，不包括a[n] ,包括b[m] ，不包括a[n] , b[m] ，包括a[n] ,不包括b[m] （可以用二进制0 1来表示）</li>
-<li>$ f[i][j] $：A前i个字符，B前j个字符的公共子序列 的集合<br>属性：maxlen</li>
-<li>集合划分情况（假定）<ul>
-<li>(1) $ f[i-1][j-1] + 1 $  同时包括 a[n] 和 b[m] （前提是a[n] &#x3D; a[m]）</li>
-<li>(2) $ f[i-1][j] $  不包括a[n] ,包括b[m]</li>
-<li>(3) $ f[i][j-1] $  包括a[n] ,不包括b[m]</li>
-<li>(4) $ f[i-1][j-1] $ a[n] 和 b[m] 都不包括</li>
-</ul>
-</li>
-<li>集合划分情况（实际）<ul>
-<li>f[i-1][j-1]+1 可以表示情况1    –&gt; a</li>
-<li>f[i][j-1]&#x3D;max(情况2,情况4)    –&gt; b</li>
-<li>f[i-1][j]&#x3D;max(情况3,情况4)    –&gt; c<br>所以我们最终只需要 求 max(a,b,c) 即可</li>
-</ul>
-</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs C++">\\最长公共子序列<br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1010</span>;<br><span class="hljs-type">char</span> a[N],b[N];<br><span class="hljs-type">int</span> n,m,f[N][N];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    cin &gt;&gt; n &gt;&gt; m;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>	    cin &gt;&gt; a[i];<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=m;i++)&#123;<br>	    cin &gt;&gt; b[i];<br>	&#125;<br>	<span class="hljs-comment">//状态计算</span><br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>	    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=m;j++)&#123;<br>            f[i][j] = <span class="hljs-built_in">max</span>(f[i][j<span class="hljs-number">-1</span>],f[i<span class="hljs-number">-1</span>][j]);<br>            <span class="hljs-keyword">if</span>(a[i] == b[j]) f[i][j]=<span class="hljs-built_in">max</span>(f[i][j],f[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>]+<span class="hljs-number">1</span>);<br>	    &#125;<br>	&#125;<br>    cout &lt;&lt; f[n][m];<br>&#125; <br></code></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-type">int</span> a = <span class="hljs-number">12345678</span>;<br>cout &lt;&lt; <span class="hljs-built_in">to_string</span>(a) &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br></code></pre></td></tr></table></figure>
 
-<h2 id="LIS问题——最长上升子序列"><a href="#LIS问题——最长上升子序列" class="headerlink" title="LIS问题——最长上升子序列"></a>LIS问题——最长上升子序列</h2><blockquote>
-<p><code>最长上升子序列</code>（Longest  Increasing Subsequence），简称LIS，也有些情况求的是最长非降序子序列，二者区别就是序列中是否可以有相等的数，对于固定的数组，虽然LIS序列不一定唯一，但LIS的<strong>长度是唯一的</strong></p>
-</blockquote>
-<ol>
-<li><p>状态设计：dp[i]代表以a[i]结尾的LIS的长度</p>
-</li>
-<li><p>状态转移：dp[i]&#x3D;max{dp[j]+1，dp[i]} (1&lt;&#x3D;j&lt; i，a[j]&lt;a[i])</p>
-</li>
-<li><p>边界处理：dp[i]&#x3D;1(1&lt;&#x3D;i&lt;&#x3D;n)</p>
-</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1010</span>;<br><br><span class="hljs-type">int</span> a[N],n;<br><span class="hljs-type">int</span> f[N]; <span class="hljs-comment">//f[i]: 以 a[i] 为结尾的上升子序列的最大长度</span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i =<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>        cin &gt;&gt; a[i];<br>        f[i] = <span class="hljs-number">1</span>; <span class="hljs-comment">//用1去初始化dp数组，因为最短的递增子序列的长度为1</span><br>    &#125;<br>    <span class="hljs-comment">//循环整个数组</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>        <span class="hljs-comment">//从前往后循环比那里之前的元素</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=i<span class="hljs-number">-1</span>;j++)&#123;<br>            <span class="hljs-keyword">if</span>(a[j] &lt; a[i]) f[i] = <span class="hljs-built_in">max</span>(f[i],f[j]+<span class="hljs-number">1</span>);<br>        &#125;<br>        ans = <span class="hljs-built_in">max</span>(ans,f[i]);<br>    &#125;<br>    cout &lt;&lt; ans;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -359,8 +316,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>线性dp</div>
-      <div>https://cs-lb.github.io/2024/04/01/dp/线性dp/</div>
+      <div>String</div>
+      <div>https://cs-lb.github.io/2024/04/02/String/</div>
     </div>
     <div class="license-meta">
       
@@ -372,7 +329,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年4月1日</div>
+          <div>2024年4月2日</div>
         </div>
       
       
@@ -404,9 +361,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/04/01/algorithm_know/vector/" title="vector">
+                      <a href="/2024/04/02/algorithm_know/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" title="二分查找">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vector</span>
+                        <span class="hidden-mobile">二分查找</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -414,8 +371,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/01/dp/%E5%8C%BA%E9%97%B4dp/" title="区间dp">
-                        <span class="hidden-mobile">区间dp</span>
+                      <a href="/2024/04/02/dp/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/" title="记忆化搜索">
+                        <span class="hidden-mobile">记忆化搜索</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
