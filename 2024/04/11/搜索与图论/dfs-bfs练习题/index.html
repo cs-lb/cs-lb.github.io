@@ -16,25 +16,25 @@
   <meta name="author" content="Liu Bo">
   <meta name="keywords" content="408 算法 保研">
   
-    <meta name="description" content="连通图的遍历 “连通块问题”，是基础搜索。用DFS或BFS都行：遍历一个连通块（找到这个连通块中所有的’#‘，并标记已经搜过，不用再搜）；再遍历下一个连通块…；遍历完所有连通块，统计有多少个连通块。  全球变暖题目链接：全球变暖  步骤：  对图g[N][N]进行循环，每次从是陆地并且没有遍历过的点开始搜索 进入dfs函数，将当前搜到的点置为true 然后以此点为中心向四个方向遍历，直到周围没有满">
+    <meta name="description" content="dfs&#x2F;bfs练习题母亲的牛奶题目链接：母亲的牛奶  步骤：  分析题目，找出总共有多少种状态，从而得出队列数组的内存空间 每种状态相当于一个点，状态与状态之间的转变相当于一条边 bfs遍历，将每种状态都存在队列中。  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647">
 <meta property="og:type" content="article">
-<meta property="og:title" content="连通图的遍历">
-<meta property="og:url" content="https://cs-lb.github.io/2024/04/11/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/%E8%BF%9E%E9%80%9A%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/index.html">
+<meta property="og:title" content="dfs&#x2F;bfs练习题">
+<meta property="og:url" content="https://cs-lb.github.io/2024/04/11/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/dfs-bfs%E7%BB%83%E4%B9%A0%E9%A2%98/index.html">
 <meta property="og:site_name" content="CS_Blog">
-<meta property="og:description" content="连通图的遍历 “连通块问题”，是基础搜索。用DFS或BFS都行：遍历一个连通块（找到这个连通块中所有的’#‘，并标记已经搜过，不用再搜）；再遍历下一个连通块…；遍历完所有连通块，统计有多少个连通块。  全球变暖题目链接：全球变暖  步骤：  对图g[N][N]进行循环，每次从是陆地并且没有遍历过的点开始搜索 进入dfs函数，将当前搜到的点置为true 然后以此点为中心向四个方向遍历，直到周围没有满">
+<meta property="og:description" content="dfs&#x2F;bfs练习题母亲的牛奶题目链接：母亲的牛奶  步骤：  分析题目，找出总共有多少种状态，从而得出队列数组的内存空间 每种状态相当于一个点，状态与状态之间的转变相当于一条边 bfs遍历，将每种状态都存在队列中。  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cs-lb.github.io/img/%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96.png">
-<meta property="article:published_time" content="2024-04-11T07:04:48.000Z">
-<meta property="article:modified_time" content="2024-04-11T07:15:06.758Z">
+<meta property="og:image" content="https://cs-lb.github.io/img/%E6%AF%8D%E4%BA%B2%E7%9A%84%E7%89%9B%E5%A5%B6.png">
+<meta property="article:published_time" content="2024-04-11T09:03:57.000Z">
+<meta property="article:modified_time" content="2024-04-11T09:13:59.578Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="图论">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cs-lb.github.io/img/%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96.png">
+<meta name="twitter:image" content="https://cs-lb.github.io/img/%E6%AF%8D%E4%BA%B2%E7%9A%84%E7%89%9B%E5%A5%B6.png">
   
   
   
-  <title>连通图的遍历 - CS_Blog</title>
+  <title>dfs/bfs练习题 - CS_Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -219,7 +219,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="连通图的遍历"></span>
+            <span id="subtitle" data-typed-text="dfs/bfs练习题"></span>
           
         </div>
 
@@ -230,7 +230,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-11 15:04" pubdate>
+        <time datetime="2024-04-11 17:03" pubdate>
           2024年4月11日 下午
         </time>
       </span>
@@ -243,7 +243,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          594 字
+          393 字
         
       </span>
     
@@ -255,7 +255,7 @@
         
         
           <!-- compatible with older versions-->
-          5 分钟
+          4 分钟
         
       </span>
     
@@ -292,26 +292,20 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">连通图的遍历</h1>
+            <h1 id="seo-header">dfs/bfs练习题</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="连通图的遍历"><a href="#连通图的遍历" class="headerlink" title="连通图的遍历"></a>连通图的遍历</h1><blockquote>
-<p>“连通块问题”，是基础搜索。用DFS或BFS都行：遍历一个连通块（找到这个连通块中所有的’#‘，并标记已经搜过，不用再搜）；再遍历下一个连通块…；遍历完所有连通块，统计有多少个连通块。</p>
-</blockquote>
-<h2 id="全球变暖"><a href="#全球变暖" class="headerlink" title="全球变暖"></a>全球变暖</h2><p>题目链接：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/1235/">全球变暖</a></p>
-<p><img src="/../../img/%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96.png" srcset="/img/loading.gif" lazyload></p>
+                <h1 id="dfs-bfs练习题"><a href="#dfs-bfs练习题" class="headerlink" title="dfs&#x2F;bfs练习题"></a>dfs&#x2F;bfs练习题</h1><h2 id="母亲的牛奶"><a href="#母亲的牛奶" class="headerlink" title="母亲的牛奶"></a>母亲的牛奶</h2><p>题目链接：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1357/">母亲的牛奶</a></p>
+<p><img src="/../../img/%E6%AF%8D%E4%BA%B2%E7%9A%84%E7%89%9B%E5%A5%B6.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>步骤：</strong></p>
 <ol>
-<li>对图g[N][N]进行循环，每次从是陆地并且没有遍历过的点开始搜索</li>
-<li>进入dfs函数，将当前搜到的点置为true</li>
-<li>然后以此点为中心向四个方向遍历，直到周围没有满足条件（即是陆地又没遍历过的）的点</li>
-<li>便会开始向上回溯直到一步步回溯到退出dfs函数</li>
-<li>如果本次找到的连通块中有一个点其四个方向都是陆地，则这个岛屿不会被完全淹没，否则会被完全淹没。</li>
+<li>分析题目，找出总共有多少种状态，从而得出队列数组的内存空间</li>
+<li>每种状态相当于一个点，状态与状态之间的转变相当于一条边</li>
+<li>bfs遍历，将每种状态都存在队列中。</li>
 </ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1010</span>;<br><br><span class="hljs-type">int</span> n;<br><span class="hljs-type">int</span> st[N][N];<br><span class="hljs-type">char</span> g[N][N];<br><span class="hljs-type">int</span> dx[<span class="hljs-number">4</span>] = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">-1</span>&#125;;<br><span class="hljs-type">int</span> dy[<span class="hljs-number">4</span>] = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>&#125;;<br><span class="hljs-type">int</span> d[<span class="hljs-number">4</span>][<span class="hljs-number">2</span>] = &#123;&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;, &#123;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>&#125;, &#123;<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>&#125;&#125;; <span class="hljs-comment">//四个方向</span><br><span class="hljs-type">int</span> flag,ans=<span class="hljs-number">0</span>;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> i,<span class="hljs-type">int</span> j)</span></span>&#123;<br>    st[i][j] = <span class="hljs-number">1</span>;<br>    <span class="hljs-comment">// cout &lt;&lt; &quot;ij:&quot;&lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; j &lt;&lt; &quot;\n&quot;;</span><br>    <span class="hljs-keyword">if</span>(g[i+<span class="hljs-number">1</span>][j]==<span class="hljs-string">&#x27;#&#x27;</span> &amp;&amp; g[i<span class="hljs-number">-1</span>][j]==<span class="hljs-string">&#x27;#&#x27;</span> &amp;&amp; g[i][j+<span class="hljs-number">1</span>]==<span class="hljs-string">&#x27;#&#x27;</span> &amp;&amp; g[i][j<span class="hljs-number">-1</span>]==<span class="hljs-string">&#x27;#&#x27;</span>)&#123;<br>        flag = <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-comment">//继续DFS周围的陆地</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> a=<span class="hljs-number">0</span>;a&lt;<span class="hljs-number">4</span>;a++)&#123;<br>        <span class="hljs-type">int</span> x = i+dx[a]; <span class="hljs-type">int</span> y = j+dy[a];<br>        <span class="hljs-comment">//继续DFS未搜过的陆地，目的是标记它们   </span><br>        <span class="hljs-comment">//if(nx&gt;=1 &amp;&amp; nx&lt;=n &amp;&amp; ny&gt;=1 &amp;&amp; ny&lt;=n &amp;&amp; vis[nx][ny]==0 &amp;&amp; a[nx][ny]==&#x27;#&#x27;) //题目说边上都是水，所以不用这么写了</span><br>        <span class="hljs-keyword">if</span>(!st[x][y] &amp;&amp; g[x][y] == <span class="hljs-string">&#x27;#&#x27;</span>)&#123;<br>            <span class="hljs-built_in">dfs</span>(x,y);<br>            <span class="hljs-comment">// cout &lt;&lt; x &lt;&lt; &quot; &quot; &lt;&lt; y &lt;&lt; &quot;\n&quot;;</span><br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++)&#123;<br>            cin &gt;&gt; g[i][j];<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++)&#123;<br>            <span class="hljs-keyword">if</span>(g[i][j] == <span class="hljs-string">&#x27;#&#x27;</span> &amp;&amp; !st[i][j])&#123;<br>                flag = <span class="hljs-number">0</span>;<br>                <span class="hljs-built_in">dfs</span>(i,j);<br>                <span class="hljs-comment">// cout &lt;&lt; &quot;本次连通图查找完毕&quot; &lt;&lt; &quot;\n&quot;;</span><br>                <span class="hljs-keyword">if</span>(flag == <span class="hljs-number">0</span>)&#123; <span class="hljs-comment">//这个岛全部被淹</span><br>                    ans++; <span class="hljs-comment">//统计被淹的岛的数量</span><br>                    <br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; ans;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">//A，B，C最大为20升</span><br><span class="hljs-comment">//状态个数为20^3</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">21</span>;<br><span class="hljs-type">int</span> A,B,C;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">node</span>&#123;<br>    <span class="hljs-type">int</span> a,b,c;<br>&#125;q[N*N*N]; <span class="hljs-comment">//关键点，队列数组q有N^3个状态</span><br> <br><span class="hljs-type">int</span> hh=<span class="hljs-number">0</span>,tt=<span class="hljs-number">-1</span>;<br><br><span class="hljs-type">bool</span> st[N][N][N];<br><span class="hljs-type">int</span> s[N]; <span class="hljs-comment">//记录当 A桶是空的时候，C桶中可能包含多少升牛奶</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b, <span class="hljs-type">int</span> c)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(!st[a][b][c])&#123;<br>        q[++tt] = &#123;a,b,c&#125;;<br>        st[a][b][c] = <span class="hljs-literal">true</span>;<br>    &#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">bfs</span><span class="hljs-params">()</span></span>&#123;<br>    q[++tt] = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,C&#125;;<br>    st[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>][C] = <span class="hljs-literal">true</span>;<br>    <span class="hljs-keyword">while</span>(hh &lt;= tt)&#123;<br>        node t = q[hh];<br>        hh++;<br>        <span class="hljs-type">int</span> a = t.a; <span class="hljs-type">int</span> b = t.b; <span class="hljs-type">int</span> c = t.c;<br>        <span class="hljs-comment">//由当前状态可以得到2*3 = 6 种状态</span><br>        <span class="hljs-comment">//从A开始转移</span><br>        <span class="hljs-built_in">insert</span>(a-<span class="hljs-built_in">min</span>(a,B-b), <span class="hljs-built_in">min</span>(a+b,B), c);<br>        <span class="hljs-built_in">insert</span>(a-<span class="hljs-built_in">min</span>(a,C-c), b, <span class="hljs-built_in">min</span>(a+c,C));<br>        <span class="hljs-comment">//从B开始转移</span><br>        <span class="hljs-built_in">insert</span>(<span class="hljs-built_in">min</span>(a+b,A), b-<span class="hljs-built_in">min</span>(b,A-a), c);<br>        <span class="hljs-built_in">insert</span>(a, b-<span class="hljs-built_in">min</span>(b,C-c), <span class="hljs-built_in">min</span>(b+c,C));<br>        <span class="hljs-comment">//从C开始转移</span><br>        <span class="hljs-built_in">insert</span>(<span class="hljs-built_in">min</span>(a+c,A), b, c-<span class="hljs-built_in">min</span>(c,A-a));<br>        <span class="hljs-built_in">insert</span>(a, <span class="hljs-built_in">min</span>(b+c,B), c-<span class="hljs-built_in">min</span>(c,B-b));<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-number">0</span>); cin.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>); cout.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>    cin &gt;&gt; A &gt;&gt; B &gt;&gt; C;<br>    <span class="hljs-built_in">bfs</span>();<br>    <span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;hh;i++)&#123;<br>        <span class="hljs-keyword">if</span>(q[i].a == <span class="hljs-number">0</span>)&#123;<br>            s[cnt] = q[i].c;<br>            cnt++;<br>        &#125;<br>    &#125;<br>    <span class="hljs-built_in">sort</span>(s,s+cnt);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;cnt;i++)&#123;<br>        cout &lt;&lt; s[i] &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -365,8 +359,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>连通图的遍历</div>
-      <div>https://cs-lb.github.io/2024/04/11/搜索与图论/连通图的遍历/</div>
+      <div>dfs/bfs练习题</div>
+      <div>https://cs-lb.github.io/2024/04/11/搜索与图论/dfs-bfs练习题/</div>
     </div>
     <div class="license-meta">
       
@@ -410,18 +404,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/04/11/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/dfs-bfs%E7%BB%83%E4%B9%A0%E9%A2%98/" title="dfs/bfs练习题">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">dfs/bfs练习题</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E8%B0%83%E6%A0%88%E5%92%8C%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/" title="单调栈和单调队列">
-                        <span class="hidden-mobile">单调栈和单调队列</span>
+                      <a href="/2024/04/11/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/%E8%BF%9E%E9%80%9A%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/" title="连通图的遍历">
+                        <span class="hidden-mobile">连通图的遍历</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

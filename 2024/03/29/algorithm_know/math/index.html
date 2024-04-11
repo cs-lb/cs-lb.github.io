@@ -16,19 +16,21 @@
   <meta name="author" content="Liu Bo">
   <meta name="keywords" content="408 算法 保研">
   
-    <meta name="description" content="数学知识欧几里得算法$ gcd(a, b) &#x3D; gcd(b, a mod b) $ 欧拉函数互质数：  两个数的公因数只有1的两个非零自然数,叫做互质数1与任何数都互斥，自身与自身不互斥（公约数包括1和自身）  性质一：两个不同的质数是互质的。性质二：一个质数，另一个不为它的倍数，这两个数为互质数。（较大数是质数的两个数是互质数）性质三：相邻的两个自然数是互质数。性质四：相邻的两个奇数是">
+    <meta name="description" content="数学知识约数(因数)个数 因数总是成对出现的,一个在开根号左边，一个在右边，此时因数个数加二 特殊情况：有可能刚好等于开根号之后的数字，此时因数个数只加一123456789101112131415161718192021222324#include &lt;bits&#x2F;stdc++.h&gt;using namespace std;const int N &#x3D; 1010;int n,a[N];int">
 <meta property="og:type" content="article">
 <meta property="og:title" content="math">
 <meta property="og:url" content="https://cs-lb.github.io/2024/03/29/algorithm_know/math/index.html">
 <meta property="og:site_name" content="CS_Blog">
-<meta property="og:description" content="数学知识欧几里得算法$ gcd(a, b) &#x3D; gcd(b, a mod b) $ 欧拉函数互质数：  两个数的公因数只有1的两个非零自然数,叫做互质数1与任何数都互斥，自身与自身不互斥（公约数包括1和自身）  性质一：两个不同的质数是互质的。性质二：一个质数，另一个不为它的倍数，这两个数为互质数。（较大数是质数的两个数是互质数）性质三：相邻的两个自然数是互质数。性质四：相邻的两个奇数是">
+<meta property="og:description" content="数学知识约数(因数)个数 因数总是成对出现的,一个在开根号左边，一个在右边，此时因数个数加二 特殊情况：有可能刚好等于开根号之后的数字，此时因数个数只加一123456789101112131415161718192021222324#include &lt;bits&#x2F;stdc++.h&gt;using namespace std;const int N &#x3D; 1010;int n,a[N];int">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cs-lb.github.io/img/%E8%B4%A8%E5%9B%A0%E6%95%B0.png">
 <meta property="article:published_time" content="2024-03-29T14:38:40.000Z">
-<meta property="article:modified_time" content="2024-04-04T15:39:46.115Z">
+<meta property="article:modified_time" content="2024-04-11T16:36:58.843Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="数学知识">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cs-lb.github.io/img/%E8%B4%A8%E5%9B%A0%E6%95%B0.png">
   
   
   
@@ -241,7 +243,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          597 字
+          930 字
         
       </span>
     
@@ -253,7 +255,7 @@
         
         
           <!-- compatible with older versions-->
-          5 分钟
+          8 分钟
         
       </span>
     
@@ -295,7 +297,15 @@
             
               <div class="markdown-body">
                 
-                <h1 id="数学知识"><a href="#数学知识" class="headerlink" title="数学知识"></a>数学知识</h1><h2 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h2><p>$ gcd(a, b) &#x3D; gcd(b, a mod b) $</p>
+                <h1 id="数学知识"><a href="#数学知识" class="headerlink" title="数学知识"></a>数学知识</h1><h2 id="约数-因数-个数"><a href="#约数-因数-个数" class="headerlink" title="约数(因数)个数"></a>约数(因数)个数</h2><ol>
+<li>因数总是成对出现的,一个在开根号左边，一个在右边，此时因数个数加二</li>
+<li>特殊情况：有可能刚好等于开根号之后的数字，此时因数个数只加一<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1010</span>;<br><br><span class="hljs-type">int</span> n,a[N];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>        cin &gt;&gt; a[i];<br>    &#125;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>        <span class="hljs-type">int</span> cnt=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j*j&lt;=a[i];j++)&#123;<br>            <span class="hljs-comment">//因数总是成对出现的,一个在开根号左边，一个在右边，此时因数个数加二</span><br>            <span class="hljs-comment">//特殊情况：有可能刚好等于开根号之后的数字，此时因数个数只加一</span><br>            <span class="hljs-keyword">if</span>(a[i] % j == <span class="hljs-number">0</span> &amp;&amp; j*j != a[i]) cnt+=<span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">if</span>(a[i] % j == <span class="hljs-number">0</span> &amp;&amp; j*j == a[i]) cnt+=<span class="hljs-number">1</span>;<br>        &#125;<br>        cout &lt;&lt; cnt &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="分解质因数"><a href="#分解质因数" class="headerlink" title="分解质因数"></a>分解质因数</h2><p>题目链接：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/869/">分解质因数</a></p>
+<p><img src="/../../img/%E8%B4%A8%E5%9B%A0%E6%95%B0.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1010</span>;<br><br><span class="hljs-type">int</span> n,a[N];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">while</span>(n--)&#123;<br>        <span class="hljs-type">int</span> x;<br>        cin &gt;&gt; x;<br>        <span class="hljs-type">int</span> m = x;<br>        <span class="hljs-comment">//循环到平方根</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">2</span>;i*i&lt;=x;i++)&#123;<br>            <span class="hljs-keyword">if</span>(x%i == <span class="hljs-number">0</span>)&#123;<br>                <span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;<br>                <span class="hljs-keyword">while</span>(x%i == <span class="hljs-number">0</span>)&#123;<br>                    x /= i;<br>                    cnt++;<br>                &#125;<br>                cout &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; cnt &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(x &gt; <span class="hljs-number">1</span>) cout &lt;&lt; x &lt;&lt; <span class="hljs-string">&quot; 1&quot;</span> &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>        cout &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h2><p>$ gcd(a, b) &#x3D; gcd(b, a mod b) $</p>
 <h2 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h2><p><strong>互质数：</strong></p>
 <blockquote>
 <p>两个数的公因数只有1的两个非零自然数,叫做互质数<br>1与任何数都互斥，自身与自身不互斥（公约数包括1和自身）</p>

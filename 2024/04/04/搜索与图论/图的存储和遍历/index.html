@@ -24,7 +24,7 @@
 <meta property="og:description" content="树和图的存储和遍历树和图的存储 树是一种特殊的图（无环连通图），因此可以把树当作图来处理 图分为有向图(a-&gt;b)和无向图(a-b),但我们在算法题中如果遇到无向图，就直接（a-&gt;b）和（b-&gt;a）都建立，因此无向图就是特殊的有向图。 存储方式  （1）邻接矩阵 g[N][N]  g[a][b] &#x3D; 0 代表 节点a-&gt;b没有边  g[a][b] &#x3D; 1">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-04T08:25:30.000Z">
-<meta property="article:modified_time" content="2024-04-07T01:53:56.394Z">
+<meta property="article:modified_time" content="2024-04-11T08:25:53.123Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="图论">
@@ -322,7 +322,7 @@
 <h2 id="树和图的遍历"><a href="#树和图的遍历" class="headerlink" title="树和图的遍历"></a>树和图的遍历</h2><blockquote>
 <p>对于树和图的遍历，不管是DFS还是BFS，因为每个点只会被遍历一次，所以时间复杂度与点和边的数量成线性关系，为<strong>O(n + m)</strong></p>
 </blockquote>
-<p><strong>dfs 和 bfs 的不同</strong></p>
+<p><strong>dfs 和 bfs 的不同</strong><br><strong>不同：</strong></p>
 <ol>
 <li><p>参数上：</p>
 <ul>
@@ -332,6 +332,10 @@
 </li>
 <li><p>变量上<br>bfs 多了一个距离数组，初始时要将其置为-1 <code>memset(d,-1,sizeof(d))</code><br>dfs 用st[N] 当作状态数组 ，bfs可以使用距离数组 d 来充当状态数组</p>
 </li>
+</ol>
+<p><strong>相同：</strong></p>
+<ol>
+<li>初始化上<br>要在开始时将当前正在访问的点设置为true</li>
 </ol>
 <h3 id="dfs"><a href="#dfs" class="headerlink" title="dfs"></a>dfs</h3><p>从节点编号1开始遍历，沿着节点的邻接表一路深搜</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-type">int</span> st[N]; <span class="hljs-comment">//状态数组,标记某个点是否被遍历到</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> u)</span></span>&#123;<br>    st[u] = <span class="hljs-literal">true</span>;<br>    <span class="hljs-comment">//遍历点u的所有出边</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=h[u];i!=<span class="hljs-number">-1</span>;i=ne[i])&#123;<br>        <span class="hljs-type">int</span> b = e[i]; <span class="hljs-comment">//b是该边终点</span><br>        <span class="hljs-keyword">if</span>(!st[b])&#123;<br>            <span class="hljs-built_in">dfs</span>(b);<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-built_in">dfs</span>(<span class="hljs-number">1</span>);<br></code></pre></td></tr></table></figure>
