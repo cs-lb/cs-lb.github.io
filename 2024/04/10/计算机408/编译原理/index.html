@@ -16,24 +16,22 @@
   <meta name="author" content="Liu Bo">
   <meta name="keywords" content="408 算法 保研">
   
-    <meta name="description" content="队列 元素先进先出，从队尾入队，从队首出队。只允许在最后面添加元素，只允许在最前面删除元素。  queue 初始化队列queue&lt;int&gt; q 返回队首和队尾元素q.front() q.back() 尾部增加和删除一个元素 q.push() q.pop() 队列长度和是否为空q.size() q.empty  队列模拟12345678910111213141516171819int q">
+    <meta name="description" content="编译原理 考预测分析法，不考梯度下降法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="队列">
-<meta property="og:url" content="https://cs-lb.github.io/2024/04/04/algorithm_know/%E9%98%9F%E5%88%97/index.html">
+<meta property="og:title" content="编译原理">
+<meta property="og:url" content="https://cs-lb.github.io/2024/04/10/%E8%AE%A1%E7%AE%97%E6%9C%BA408/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="CS_Blog">
-<meta property="og:description" content="队列 元素先进先出，从队尾入队，从队首出队。只允许在最后面添加元素，只允许在最前面删除元素。  queue 初始化队列queue&lt;int&gt; q 返回队首和队尾元素q.front() q.back() 尾部增加和删除一个元素 q.push() q.pop() 队列长度和是否为空q.size() q.empty  队列模拟12345678910111213141516171819int q">
+<meta property="og:description" content="编译原理 考预测分析法，不考梯度下降法">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-04T06:26:48.000Z">
-<meta property="article:modified_time" content="2024-04-04T15:41:02.852Z">
+<meta property="article:published_time" content="2024-04-10T06:25:47.000Z">
+<meta property="article:modified_time" content="2024-04-10T06:27:22.623Z">
 <meta property="article:author" content="Liu Bo">
-<meta property="article:tag" content="算法">
-<meta property="article:tag" content="数据结构">
-<meta property="article:tag" content="队列">
+<meta property="article:tag" content="408 算法 保研">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>队列 - CS_Blog</title>
+  <title>编译原理 - CS_Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -218,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="队列"></span>
+            <span id="subtitle" data-typed-text="编译原理"></span>
           
         </div>
 
@@ -229,8 +227,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-04 14:26" pubdate>
-          2024年4月4日 下午
+        <time datetime="2024-04-10 14:25" pubdate>
+          2024年4月10日 下午
         </time>
       </span>
     
@@ -242,7 +240,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          547 字
+          17 字
         
       </span>
     
@@ -254,7 +252,7 @@
         
         
           <!-- compatible with older versions-->
-          5 分钟
+          1 分钟
         
       </span>
     
@@ -291,31 +289,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">队列</h1>
+            <h1 id="seo-header">编译原理</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h1><blockquote>
-<p>元素先进先出，<strong>从队尾入队，从队首出队</strong>。只允许在最后面添加元素，只允许在最前面删除元素。</p>
-</blockquote>
-<h2 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h2><ol>
-<li>初始化队列<br><code>queue&lt;int&gt; q</code></li>
-<li>返回队首和队尾元素<br><code>q.front()</code> <code>q.back()</code></li>
-<li>尾部增加和删除一个元素<br> <code>q.push()</code> <code>q.pop()</code></li>
-<li>队列长度和是否为空<br><code>q.size()</code> <code>q.empty</code></li>
-</ol>
-<h2 id="队列模拟"><a href="#队列模拟" class="headerlink" title="队列模拟"></a>队列模拟</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-type">int</span> q[N]; <span class="hljs-comment">//队列数组</span><br><span class="hljs-comment">//队列区间为[hh,tt]</span><br><span class="hljs-type">int</span> hh = <span class="hljs-number">0</span>; tt = <span class="hljs-number">-1</span>; <span class="hljs-comment">//队头和队尾指针</span><br><br>初始时tt = <span class="hljs-number">-1</span>,队列为空，当 ++tt 之后 tt = hh = <span class="hljs-number">0</span>,给q[<span class="hljs-number">0</span>]赋值，hh指向该队头元素<br><br>之后新元素入队，++tt往后移，元素出队，hh++,队头指针往后移。队列区间为[hh,tt]<br><br>q[++tt] = &#123;&#125; <span class="hljs-comment">//入队 </span><br><br>hh ++ <span class="hljs-comment">//出队，队首向后移动一格（本来指向队头元素，）</span><br><br>q[hh] <span class="hljs-comment">//取队头元素</span><br><br><span class="hljs-comment">//是否为空的判断，因为队列区间为[hh,tt],当hh &lt;= tt 时代表队列中有元素为非空</span><br><span class="hljs-keyword">while</span>(hh &lt;= tt)&#123;<br><br>&#125;<br><br></code></pre></td></tr></table></figure>
-<h2 id="priority-queue（优先队列）"><a href="#priority-queue（优先队列）" class="headerlink" title="priority_queue（优先队列）"></a>priority_queue（优先队列）</h2><blockquote>
-<p>优先队列是在正常队列的基础上加了优先级，保证每次的队首元素都是优先级最大的。底层是通过堆（小根堆、大根堆）来实现的。</p>
-</blockquote>
-<ol>
-<li>初始化</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs C++">priority_queue&lt;<span class="hljs-type">int</span>&gt; q; <span class="hljs-comment">//默认是大根堆，每次取出的元素是队列中的最大值</span><br>priority_queue&lt;<span class="hljs-type">int</span>,vector&lt;<span class="hljs-type">int</span>&gt;,great&lt;<span class="hljs-type">int</span>&gt;&gt; q;<br><br>第一个参数：就是优先队列中存储的数据类型<br>第二个参数：vector&lt;<span class="hljs-type">int</span>&gt; 是用来承载底层数据结构堆的容器，若优先队列中存放的是<span class="hljs-type">double</span>型数据，就要填vector&lt; <span class="hljs-type">double</span> &gt;，总之存的是什么类型的数据，就相应的填写对应类型。同时也要改动第三个参数里面的对应类型。<br><br>less&lt;<span class="hljs-type">int</span>&gt; 表示数字大的优先级大，堆顶为最大的数字<br>greater&lt;<span class="hljs-type">int</span>&gt;表示数字小的优先级大，堆顶为最小的数字<br><br>如果存储pair<br>默认先对pair的first进行降序排序，然后再对second降序排序<br></code></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>访问队头元素 ： <code>q.top()</code><br>优先队列只能通过top()访问队首元素（优先级最高的元素）</li>
+                <h1 id="编译原理"><a href="#编译原理" class="headerlink" title="编译原理"></a>编译原理</h1><ol>
+<li>考预测分析法，不考梯度下降法</li>
 </ol>
 
                 
@@ -325,52 +305,6 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-chain-item">数据结构</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%98%9F%E5%88%97/" class="category-chain-item">队列</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E7%AE%97%E6%B3%95/" class="print-no-link">#算法</a>
-      
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="print-no-link">#数据结构</a>
-      
-        <a href="/tags/%E9%98%9F%E5%88%97/" class="print-no-link">#队列</a>
-      
-    </div>
   
 </div>
 
@@ -380,8 +314,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>队列</div>
-      <div>https://cs-lb.github.io/2024/04/04/algorithm_know/队列/</div>
+      <div>编译原理</div>
+      <div>https://cs-lb.github.io/2024/04/10/计算机408/编译原理/</div>
     </div>
     <div class="license-meta">
       
@@ -393,7 +327,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年4月4日</div>
+          <div>2024年4月10日</div>
         </div>
       
       
@@ -425,9 +359,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/04/04/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E5%92%8C%E9%81%8D%E5%8E%86/" title="树和图的存储和遍历">
+                      <a href="/2024/04/10/algorithm_know/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6/" title="区间合并">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">树和图的存储和遍历</span>
+                        <span class="hidden-mobile">区间合并</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -435,8 +369,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/03/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/dfs-%E7%88%86%E6%90%9C/" title="dfs(爆搜)">
-                        <span class="hidden-mobile">dfs(爆搜)</span>
+                      <a href="/2024/04/10/algorithm_know/%E6%97%A5%E6%9C%9F%E9%97%AE%E9%A2%98/" title="日期问题">
+                        <span class="hidden-mobile">日期问题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
