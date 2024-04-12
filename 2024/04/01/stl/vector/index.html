@@ -24,7 +24,7 @@
 <meta property="og:description" content="vectorvector索引vector只有在指定长度时,才能用下标索引的方法修改元素 123456789101112vector&lt;int&gt; a(10);int main()&#123;	int n &#x3D; 2;	for(int i&#x3D;0;i&lt;n;i++)&#123;		cin &gt;&gt; a[i];	&#125;	for(auto p &#x3D; a.begin();p !&#x3D; a.en">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-01T15:08:07.000Z">
-<meta property="article:modified_time" content="2024-04-04T15:41:12.948Z">
+<meta property="article:modified_time" content="2024-04-12T09:38:53.573Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="stl">
@@ -242,7 +242,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          379 字
+          541 字
         
       </span>
     
@@ -254,7 +254,7 @@
         
         
           <!-- compatible with older versions-->
-          4 分钟
+          5 分钟
         
       </span>
     
@@ -330,6 +330,13 @@
 
 <h2 id="vector截取"><a href="#vector截取" class="headerlink" title="vector截取"></a>vector截取</h2><p>void assign(const_iterator first,const_iterator last); &#x2F;&#x2F;两个指针，分别指向开始和结束的地方</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">//通过vector的迭代器截取数组</span><br><span class="hljs-keyword">auto</span> first = a.<span class="hljs-built_in">begin</span>() + <span class="hljs-number">1</span>;<br><span class="hljs-keyword">auto</span> end = a.<span class="hljs-built_in">end</span>()<span class="hljs-number">-1</span>;<br>a.<span class="hljs-built_in">assign</span>(first,end);<br></code></pre></td></tr></table></figure>
+
+<h2 id="第k小数"><a href="#第k小数" class="headerlink" title="第k小数"></a>第k小数</h2><blockquote>
+<p>寻找序列第k小的值 <code>nth_element(beg, nth, end)</code><br><code>nth_element(a,a+k,a+n)</code>，函数只是把下标为k的元素放在了正确位置<br>求第k大时,我们可以转化成求第n+1-k小，此时下标应该是n - k,所以为 <code>nth_element(a,a+n-k,a+n)</code> 也可以用cmp自定义比较函数，<code>greater&lt;int&gt;()</code></p>
+</blockquote>
+<p>nth为一个迭代器，指向序列中的一个元素。第n小的值恰好在nth位置上</p>
+<p>执行nth_element()之后，序列中的元素会围绕nth进行划分：<strong>nth之前的元素都小于等于它，而之后的元素都大于等于它</strong></p>
+
                 
               </div>
             
