@@ -1,0 +1,837 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/webico.ico">
+  <link rel="icon" href="/img/webico.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Liu Bo">
+  <meta name="keywords" content="408 算法 保研">
+  
+    <meta name="description" content="深度学习知识点汇总12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455import torchimport torch.nn as nn# 定义模型class Net(nn.Module):    def __init__(self):">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度学习知识点汇总">
+<meta property="og:url" content="https://cs-lb.github.io/2024/04/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="CS_Blog">
+<meta property="og:description" content="深度学习知识点汇总12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455import torchimport torch.nn as nn# 定义模型class Net(nn.Module):    def __init__(self):">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-14T09:56:03.000Z">
+<meta property="article:modified_time" content="2024-04-14T09:56:29.962Z">
+<meta property="article:author" content="Liu Bo">
+<meta property="article:tag" content="408 算法 保研">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>深度学习知识点汇总 - CS_Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cs-lb.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","app_key":"aoBSZ1mISmupN9aimSNuZrgr","server_url":"https://jx9ekdkf.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CS_LB&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="深度学习知识点汇总"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-14 17:56" pubdate>
+          2024年4月14日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          3.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          32 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">深度学习知识点汇总</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="深度学习知识点汇总"><a href="#深度学习知识点汇总" class="headerlink" title="深度学习知识点汇总"></a>深度学习知识点汇总</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torch.nn <span class="hljs-keyword">as</span> nn<br><br><span class="hljs-comment"># 定义模型</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Net</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">super</span>(Net, self).__init__()<br>        self.fc1 = nn.Linear(input_size, hidden_units)<br>        self.dropout = nn.Dropout(dropout_rate)<br>        self.fc2 = nn.Linear(hidden_units, num_classes)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>        x = torch.relu(self.fc1(x))<br>        x = self.dropout(x)<br>        x = self.fc2(x)<br>        <span class="hljs-keyword">return</span> x<br><br><span class="hljs-comment"># 创建模型实例</span><br>model = Net()<br><br><span class="hljs-comment"># 定义损失函数和优化器</span><br>criterion = nn.CrossEntropyLoss()<br>optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)<br><br><span class="hljs-comment"># 训练模型</span><br><span class="hljs-keyword">for</span> epoch <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(num_epochs):<br>    <span class="hljs-keyword">for</span> i, (images, labels) <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(train_loader):<br>        images = images.reshape(-<span class="hljs-number">1</span>, input_size)<br>        <br>        <span class="hljs-comment"># 前向传播</span><br>        outputs = model(images)<br>        loss = criterion(outputs, labels)<br>        <br>        <span class="hljs-comment"># 反向传播和优化</span><br>        optimizer.zero_grad()<br>        loss.backward()<br>        optimizer.step()<br>        <br>        <span class="hljs-comment"># 打印训练信息</span><br>        <span class="hljs-keyword">if</span> (i+<span class="hljs-number">1</span>) % display_step == <span class="hljs-number">0</span>:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Epoch [&#123;&#125;/&#123;&#125;], Step [&#123;&#125;/&#123;&#125;], Loss: &#123;:.4f&#125;&#x27;</span><br>                  .<span class="hljs-built_in">format</span>(epoch+<span class="hljs-number">1</span>, num_epochs, i+<span class="hljs-number">1</span>, total_steps, loss.item()))<br><br><span class="hljs-comment"># 在测试集上评估模型</span><br><span class="hljs-keyword">with</span> torch.no_grad():<br>    correct = <span class="hljs-number">0</span><br>    total = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> images, labels <span class="hljs-keyword">in</span> test_loader:<br>        images = images.reshape(-<span class="hljs-number">1</span>, input_size)<br>        outputs = model(images)<br>        _, predicted = torch.<span class="hljs-built_in">max</span>(outputs.data, <span class="hljs-number">1</span>)<br>        total += labels.size(<span class="hljs-number">0</span>)<br>        correct += (predicted == labels).<span class="hljs-built_in">sum</span>()<br>    <br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Test Accuracy: &#123;&#125;%&#x27;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-number">100</span> * correct / total))<br></code></pre></td></tr></table></figure>
+
+<h1 id="12-1"><a href="#12-1" class="headerlink" title="12.1"></a>12.1</h1><h2 id="过拟合和欠拟合（Overfitting-and-underfitting）"><a href="#过拟合和欠拟合（Overfitting-and-underfitting）" class="headerlink" title="过拟合和欠拟合（Overfitting and underfitting）"></a>过拟合和欠拟合（Overfitting and underfitting）</h2><p>过拟合和欠拟合是导致模型泛化能力不高的两种常见原因，都是模型学习能力与数据复杂度之间失配的结果。<br><strong>“欠拟合”</strong>常常在模型学习能力较弱，而数据复杂度较高的情况出现，此时模型由于学习能力不足，无法学习到数据集中的“一般规律”，因而导致泛化能力弱。<br><strong>“过拟合”</strong>常常在模型学习能力过强的情况中出现，此时的模型学习能力太强，以至于将训练集单个样本自身的特点都能捕捉到，并将其认为是“一般规律”，同样这种情况也会导致模型泛化能力下降。</p>
+<h3 id="Overfitting"><a href="#Overfitting" class="headerlink" title="Overfitting"></a>Overfitting</h3><p>过拟合（over-fitting）也称为过学习，它的直观表现是算法在训练集上表现好，但在测试集上表现不好，泛化性能差<br><strong>cause</strong></p>
+<blockquote>
+<ul>
+<li>训练集的数据太少或者缺乏代表性；</li>
+<li>训练集样本存在的噪音干扰过大，导致模型拟合了噪音的特征，反而忽略了真实的输入输出间的关系；</li>
+<li>参数太多，模型复杂度过高；</li>
+</ul>
+</blockquote>
+<p><strong>method</strong></p>
+<p>1.增加数据量  </p>
+<ul>
+<li>从数据源头获取更多数据；</li>
+<li>通过数据增强对数据进行扩充：对图像进行翻转、裁剪、缩放、平移、添加噪声等。</li>
+</ul>
+<p>2.正则化<br>在进行目标函数或代价函数（损失函数）优化时，在函数后面加上一个正则项，一般有L1正则、L2正则等。</p>
+<blockquote>
+<ul>
+<li><strong>L1正则化：</strong> L1正则化是通过在目标函数中加入L1范数惩罚项来实现的。L1范数是指权重向量W中的各个元素绝对值之和，因此L1正则化的目的是使模型参数尽可能地稀疏。L1正则化可以促使模型参数向零值收缩，进而减少特征的数量。</li>
+<li><strong>L2正则化：</strong> L2正则化是通过在目标函数中加入L2范数惩罚项来实现的。L2范数是指权重向量W中的各个元素的平方和开根号，因此L2正则化的目的是通过约束模型参数的平方和，使得它们的值不会过大。L2正则化可以帮助避免模型的权值过拟合，并使得模型更具有鲁棒性和泛化能力。</li>
+</ul>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 添加L2正则化项</span><br>l2_reg = torch.tensor(<span class="hljs-number">0.</span>) <span class="hljs-comment"># 创建一个初始值为零的 torch.Tensor 对象，用于累加模型参数的 L2 范数。</span><br><span class="hljs-keyword">for</span> param <span class="hljs-keyword">in</span> model.parameters():<br>    l2_reg += torch.norm(param, <span class="hljs-number">2</span>)<br>loss += l2_penalty * l2_reg <span class="hljs-comment">#  L2 正则化的惩罚系数（penalty coefficient），用于控制正则化的强度。它是一个超参数，需要根据具体问题进行调整(交叉验证)。</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>区别：</strong> L1正则化减少的是一个常量，L2正则化减少的是权重的固定比例；使用L1可以得到稀疏的权值，使用L2可以得到平滑的权值；实践中L2正则化通常优于L1正则化。</p>
+</blockquote>
+<p>3.Dropout<br>Dropout 是一种常用的正则化技术，用于减少深度神经网络的过拟合现象。Dropout 在训练过程中随机地丢弃一部分神经元的输出，从而强制模型去学习其他特征的表示。</p>
+<blockquote>
+<p><code>self.dropout = nn.Dropout(dropout_rate)</code></p>
+</blockquote>
+<p>具体来说，Dropout 在前向传播的过程中，以一定的概率 p（通常设置为0.5）将某个神经元的输出设为0，即丢弃该神经元。这样做的结果是，每个神经元在训练过程中都有一定概率暂时被“关闭”，从而迫使网络去考虑其他神经元的贡献，减少了对特定神经元的依赖性。同时，在前向传播过程中，通过保留每个神经元输出的比例，可以确保网络的总体期望值不变。</p>
+<h1 id="12-2"><a href="#12-2" class="headerlink" title="12.2"></a>12.2</h1><h2 id="Triplet-Loss-和-Center-Loss"><a href="#Triplet-Loss-和-Center-Loss" class="headerlink" title="Triplet Loss 和 Center Loss"></a>Triplet Loss 和 Center Loss</h2><blockquote>
+<p><code>https://blog.csdn.net/weixin_40671425/article/details/98068190</code></p>
+</blockquote>
+<h2 id="梯度消失和梯度爆炸"><a href="#梯度消失和梯度爆炸" class="headerlink" title="梯度消失和梯度爆炸"></a>梯度消失和梯度爆炸</h2><p>梯度消失和梯度爆炸的根源主要是因为<strong>深度神经网络结构</strong>以及**激活函数选择不当(函数的导数数值过小会导致梯度消失)**，目前优化神经网络的方法都是基于反向传播的思想，即根据损失函数计算的误差通过反向传播的方式，指导深度网络权值的更新。<br>在反向传播时对激活函数进行求导。如果在此部分大于1，那么随着层数的增加，求出的梯度的更新将以指数形式增加，发生梯度爆炸。如果此部分小于1，那么随着层数的增加求出的梯度更新的信息会以指数形式衰减，发生梯度消失。</p>
+<p><strong>梯度消失：</strong> 即在反向传播过程中，由于梯度值逐层传递时逐渐变小，导致较靠近输入层的层难以有效地学习到输入数据的特征和模式。</p>
+<p><strong>梯度爆炸</strong> 在深度神经网络训练过程中，梯度值逐层传递时逐渐增大，并且可能超出网络的数值范围的问题。当梯度值变得非常大时，参数更新的幅度也会变得非常大，导致模型变得不稳定，甚至无法收敛。</p>
+<p><strong>method</strong><br>1.正则化：通过 L1 或 L2 正则化来控制参数的大小，防止梯度值过大。<br>2.梯度剪裁（Gradient Clipping）：限制梯度值的范围，将超出阈值的梯度进行裁剪。<br>3.预训练：可以先使用无监督学习或其他方式进行预训练，提供一个比较好的初始参数，从而减小梯度消失和爆炸的可能性。<br>4.层标准化（Layer Normalization）或批标准化（Batch Normalization）：对层输出进行标准化，使其均值为0、方差为1，有助于缓解梯度消失情况。<br>5.参数初始化：合理选择参数的初始化方法，如使用 Xavier 或 He 等初始化方法，可以减小梯度消失和爆炸的概率。<br>6.更稳定的激活函数：使用 ReLU、Leaky ReLU 或其变体等激活函数，可以避免梯度消失，并且有助于缓解梯度爆炸。<br>7.Residual Connections（残差连接）：在网络中增加跨层连接，可以传递较浅层的梯度信息，缓解梯度消失和爆炸。</p>
+<p><strong>Residual Connections</strong></p>
+<blockquote>
+<p>残差连接引入了一种跨层传递的机制，即在网络的某些层中，将前一层的输出直接加到后一层的输入中去。这种机制可以有效地传递一定的梯度信息，避免了网络深度增加时出现的梯度消失问题，同时也能够克服一些非凸优化问题，使得网络更容易优化。<br>具体而言，假设某一层的输入为 x，输出为 y，则残差连接的实现形式可以表示为：<br><code>y=F(x)+x</code><br>其中 F(x) 表示该层的非线性变换操作，即前向传播过程。在反向传播梯度计算时，则会将损失函数 L 反向传播到该层，生成梯度 ∂L&#x2F;∂y，并将该梯度传递到 x，从而计算 ∂L&#x2F;∂x，即该层输入 x 对损失函数的梯度。</p>
+</blockquote>
+<h1 id="12-2-1"><a href="#12-2-1" class="headerlink" title="12.2"></a>12.2</h1><blockquote>
+<p><code>https://zhuanlan.zhihu.com/p/438085414</code></p>
+</blockquote>
+<h1 id="tensor"><a href="#tensor" class="headerlink" title="tensor"></a>tensor</h1><p>Tensor（张量）是一个多维数组，它是深度学习中最基本的数据结构之一，也是基于计算图的深度学习框架的核心组成部分。Tensor 可以存储和表示任意维度的数据，支持各种数值和数据类型，并提供了类似于 numpy 的数据操作接口，例如加、减、乘、除、运算、矩阵乘法、转置等。在深度学习中，我们使用 Tensor 来存储训练样本和模型参数，并对它们进行线性和非线性的运算。</p>
+<p>Tensor 的维度通常被称作“阶”，例如，阶为 0 的 Tensor 又被称作“标量”（scalar），表示一个单独的数值；阶为 1 的 Tensor 又被称作“向量”（vector），表示一列数值；阶为 2 的 Tensor 又被称作“矩阵”（matrix），表示一个二维的表格。在深度学习中，我们通常会使用阶数更高的 Tensor，例如 3 阶、4 阶或更高阶的 Tensor，以表示更复杂的数据结构，如图像、视频或音频数据等。</p>
+<h2 id="1-张量的创建"><a href="#1-张量的创建" class="headerlink" title="1.张量的创建"></a>1.张量的创建</h2><h3 id="1-1-通过列表或者元组"><a href="#1-1-通过列表或者元组" class="headerlink" title="1.1 通过列表或者元组"></a>1.1 通过列表或者元组</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">t = torch([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]) / t = torch((<span class="hljs-number">1</span>,<span class="hljs-number">2</span>))<br><span class="hljs-built_in">print</span>(t)<br><span class="hljs-comment"># tensor([1, 2])</span><br></code></pre></td></tr></table></figure>
+<h3 id="1-2-通过numpy创建"><a href="#1-2-通过numpy创建" class="headerlink" title="1.2 通过numpy创建"></a>1.2 通过numpy创建</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br>n = np.array([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>])<br>t = torch.tensor(n)<br><span class="hljs-built_in">print</span>(t)<br><span class="hljs-comment"># tensor([1, 2])</span><br></code></pre></td></tr></table></figure>
+<h3 id="1-3-tensor-type-and-convert"><a href="#1-3-tensor-type-and-convert" class="headerlink" title="1.3 tensor-type and convert"></a>1.3 tensor-type and convert</h3><p>type()不能识别出Tensor内部的数据类型，只能识别出变量的基本类型是Tensor，而dtype方法可以识别出变量具体为哪种类型的Tensor。<br>可以使用.float()、.int()等方法对张量类型进行转化。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python">i = torch.tensor([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])<br>f = torch.tensor([<span class="hljs-number">1.0</span>, <span class="hljs-number">2.0</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(i), i.dtype, sep = <span class="hljs-string">&#x27; , &#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(f), f.dtype, sep = <span class="hljs-string">&#x27; , &#x27;</span>)<br><span class="hljs-comment"># &lt;class &#x27;torch.Tensor&#x27;&gt; , torch.int64</span><br><span class="hljs-comment"># &lt;class &#x27;torch.Tensor&#x27;&gt; , torch.float32</span><br><br>t = torch.tensor([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])<br>f = t.<span class="hljs-built_in">float</span>()<br><span class="hljs-built_in">print</span>(f)<br><span class="hljs-built_in">print</span>(t) <span class="hljs-comment"># 并不会改变原来t的数据类型</span><br><span class="hljs-comment"># tensor([1., 2.])</span><br><span class="hljs-comment"># tensor([1, 2])</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="tensor—shape"><a href="#tensor—shape" class="headerlink" title="tensor—shape"></a>tensor—shape</h2><p>张量的维度中，我们使用的张量如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 一维向量</span><br>t1 = torch.tensor((<span class="hljs-number">1</span>, <span class="hljs-number">2</span>))<br><span class="hljs-comment"># 二维向量</span><br>t2 = torch.tensor([[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]])<br><span class="hljs-comment"># 三维向量</span><br>t3 = torch.tensor([[[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]],[[<span class="hljs-number">5</span>, <span class="hljs-number">6</span>], [<span class="hljs-number">7</span>, <span class="hljs-number">8</span>]]])<br><br><span class="hljs-comment"># ndim查看张量维度</span><br><span class="hljs-built_in">print</span>(t1.ndim, t2.ndim, t3.ndim, sep = <span class="hljs-string">&#x27;, &#x27;</span>)<br><span class="hljs-comment"># 1, 2, 3</span><br><span class="hljs-comment"># t1为1维向量</span><br><span class="hljs-comment"># t2为2维矩阵</span><br><span class="hljs-comment"># t3为3维张量</span><br><br><span class="hljs-comment"># shape&amp;size查看向量的形状</span><br><span class="hljs-built_in">print</span>(t1.shape, t2.shape, t3.shape, sep = <span class="hljs-string">&#x27;, &#x27;</span>)<br><span class="hljs-comment"># torch.Size([2]), torch.Size([2, 3]), torch.Size([2, 2, 2])</span><br><br><span class="hljs-built_in">print</span>(t1.size(), t2.size(), t3.size(), sep = <span class="hljs-string">&#x27;, &#x27;</span>)<br><span class="hljs-comment"># torch.Size([2]), torch.Size([2, 3]), torch.Size([2, 2, 2])</span><br><br><span class="hljs-comment"># numel查看张量中的元素个数</span><br><span class="hljs-built_in">print</span>(t1.numel(), t2.numel(), t3.numel(), sep = <span class="hljs-string">&#x27;, &#x27;</span>)<br><span class="hljs-comment"># 2, 6, 8</span><br><span class="hljs-comment"># t1向量中共有2个元素</span><br><span class="hljs-comment"># t2矩阵中共有6个元素</span><br><span class="hljs-comment"># t3张量中共有8个元素</span><br><br><span class="hljs-comment"># flatten将任意维度张量转为一维张量</span><br>t2.flatten()<br><span class="hljs-comment"># tensor([1, 2, 3, 4, 5, 6])</span><br><br>t3.flatten()<br><span class="hljs-comment"># tensor([1, 2, 3, 4, 5, 6, 7, 8])</span><br><br><br></code></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>t1向量torch.Size([2])的理解：向量的形状是1行2列。</li>
+<li>t2矩阵torch.Size([2, 3])的理解：二维矩阵的形状是2行3列。</li>
+<li>t3矩阵torch.Size([2, 2, 2])的理解：包含两个二维矩阵，每个二维矩阵的形状是2行2列。</li>
+</ul>
+</blockquote>
+<h3 id="reshape任意变形"><a href="#reshape任意变形" class="headerlink" title="reshape任意变形"></a>reshape任意变形</h3><p><strong>形变维度的乘积需要等于张量元素的个数。</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 将`t3`变成2×4的矩阵</span><br>t3.reshape(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>)<br><span class="hljs-comment">#tensor([[1, 2, 3, 4],[5, 6, 7, 8]])</span><br><br><span class="hljs-comment"># 将`t3`变成1×4×2的矩阵</span><br>t3.reshape(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>)<br><span class="hljs-comment"># tensor([[[1, 2], [3, 4], [5, 6], [7, 8]]])</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="squeeze-unsqueeze"><a href="#squeeze-unsqueeze" class="headerlink" title="squeeze&amp;unsqueeze"></a>squeeze&amp;unsqueeze</h3><ul>
+<li>squeeze的作用是压缩张量，去掉维数为1位置的维度</li>
+<li>unsqueeze的作用是解压张量，给<strong>指定位置</strong>加上维数为一的维度</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 将t3的维度变为2×1×4</span><br>t_214 = t3.reshape(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>)<br><span class="hljs-built_in">print</span>(t_214)<br><span class="hljs-comment"># tensor([[[1, 2, 3, 4]], [[5, 6, 7, 8]]])</span><br><br><span class="hljs-comment"># 使用squeeze将其变成2×4，去掉维度为1位置的维度</span><br>t_24 = t_214.squeeze(<span class="hljs-number">1</span>)<br><span class="hljs-built_in">print</span>(t_24)<br><span class="hljs-comment"># tensor([[1, 2, 3, 4], [5, 6, 7, 8]])</span><br><br><span class="hljs-comment"># 将2×4的维度再转换成2×1×4，在第二个维度上加一维</span><br><span class="hljs-comment"># 索引是从0开始的。参数0代表第一维，参数1代表第二维，以此类推</span><br><span class="hljs-built_in">print</span>(t_24.unsqueeze(<span class="hljs-number">1</span>))<br>tensor([[[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]], [[<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>]]])<br></code></pre></td></tr></table></figure>
+
+<h3 id="tensor-——-value"><a href="#tensor-——-value" class="headerlink" title="tensor ——&gt; value"></a>tensor ——&gt; value</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">n = torch.tensor(<span class="hljs-number">1</span>)<br><span class="hljs-built_in">print</span>(n) <span class="hljs-comment"># tensor(1)</span><br><br><span class="hljs-comment"># 使用.item()方法将张量转为python中的数值</span><br>n.item() <span class="hljs-comment"># 1</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="张量的索引"><a href="#张量的索引" class="headerlink" title="张量的索引"></a>张量的索引</h2><p>张量是有序序列，我们可以根据每个元素在系统内的顺序位置，来找出特定的元素，也就是索引。</p>
+<p>一维张量索引与Python中的索引一样是是从左到右，从0开始的，遵循格式为[start: end: step]。</p>
+<h2 id="张量的合并与分割"><a href="#张量的合并与分割" class="headerlink" title="张量的合并与分割"></a>张量的合并与分割</h2><blockquote>
+<p>当对一个张量进行切割时，返回的是原始张量的一个视图（view）或子集，而不是创建一个新的张量。这意味着切片返回的是原始张量的一个引用，并与原始张量共享数据存储，<strong>所以在修改切片返回的张量时，会同时修改原始张量中相应的元素。</strong> 需要注意的是，如果我们希望创建一个拷贝而非共享内存的切片，可以使用 .copy() 方法，这样操作切片将不会对原始张量产生影响。</p>
+</blockquote>
+<h3 id="张量的分割-chunk-split"><a href="#张量的分割-chunk-split" class="headerlink" title="张量的分割 chunk &amp; split"></a>张量的分割 chunk &amp; split</h3><p>chunk(tensor, chunks, dim)能够按照某个维度(dim)对张量进行均匀切分(chunks)，并且返回结果是原张量的视图。</p>
+<h3 id="张量的合并-cat"><a href="#张量的合并-cat" class="headerlink" title="张量的合并 cat"></a>张量的合并 cat</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python">a = torch.zeros(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)<br><span class="hljs-comment"># tensor([[0., 0., 0.],</span><br><span class="hljs-comment">#         [0., 0., 0.]])</span><br><br>b = torch.ones(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)<br><span class="hljs-comment"># tensor([[1., 1., 1.],</span><br><span class="hljs-comment">#         [1., 1., 1.]])</span><br><br><br>因为在张量a与b中，shape的第一个位置是代表向量维度，所以当dim取<span class="hljs-number">0</span>时，就是将向量进行合并，向量中的标量数不变：<br>torch.cat([a, b], dim = <span class="hljs-number">0</span>) <br><span class="hljs-comment"># tensor([[0., 0., 0.],</span><br><span class="hljs-comment">#         [0., 0., 0.],</span><br><span class="hljs-comment">#         [1., 1., 1.],</span><br><span class="hljs-comment">#         [1., 1., 1.]])</span><br><br>当dim取<span class="hljs-number">1</span>时，shape的第二个位置是代表列，即标量数，就是在列上（标量维度）进行拼接，行数（向量数）不变：<br>torch.cat([a, b], dim = <span class="hljs-number">1</span>)<br><span class="hljs-comment"># tensor([[0., 0., 0., 1., 1., 1.],</span><br><span class="hljs-comment">##        [0., 0., 0., 1., 1., 1.]])</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="张量的堆叠-stack"><a href="#张量的堆叠-stack" class="headerlink" title="张量的堆叠 stack"></a>张量的堆叠 stack</h3><p>和拼接不同，堆叠不是将元素拆分重装，而是将各参与堆叠的对象分装到一个更高维度的张量里。<br>和 cat 的区别：拼接之后维度不变，堆叠之后维度升高。拼接是把一个个元素单独提取出来之后再放到二维张量里，而堆叠则是直接将两个二维向量封装到一个三维张量中。因此，堆叠的要求更高，参与堆叠的张量必须形状完全相同。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python">a = torch.zeros(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)<br><span class="hljs-comment"># tensor([[0., 0., 0.],</span><br><span class="hljs-comment">#         [0., 0., 0.]])</span><br><br>b = torch.ones(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)<br><span class="hljs-comment"># tensor([[1., 1., 1.],</span><br><span class="hljs-comment">#         [1., 1., 1.]])</span><br><br>torch.stack([a, b], dim = <span class="hljs-number">0</span>)<br><span class="hljs-comment"># tensor([[[0., 0., 0.],</span><br><span class="hljs-comment">#          [0., 0., 0.]],</span><br><span class="hljs-comment">#         [[1., 1., 1.],</span><br><span class="hljs-comment">#          [1., 1., 1.]]])</span><br><br>torch.stack([a, b], dim = <span class="hljs-number">0</span>).shape<br><span class="hljs-comment"># torch.Size([2, 2, 3])</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="12-3"><a href="#12-3" class="headerlink" title="12.3"></a>12.3</h1><h1 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h1><blockquote>
+<p>通道注意力（Channel Attention），空间注意力（Spatial Attention），分支注意力（Branch Attention），自注意力（Self Attention）和交叉注意力（Cross Attention）</p>
+</blockquote>
+<h1 id="12-8"><a href="#12-8" class="headerlink" title="12.8"></a>12.8</h1><h1 id="vision-transformer"><a href="#vision-transformer" class="headerlink" title="vision transformer"></a>vision transformer</h1><h1 id="grad-cam"><a href="#grad-cam" class="headerlink" title="grad-cam"></a>grad-cam</h1><h1 id="Vit-Grad-Cam"><a href="#Vit-Grad-Cam" class="headerlink" title="Vit + Grad-Cam"></a>Vit + Grad-Cam</h1><blockquote>
+<p><code>https://zhuanlan.zhihu.com/p/640450435</code><br>Grad-CAM 对 ViT 的输出进行可视化的原理是利用 ViT 的最后一个注意力块的输出和梯度，计算出每个 token 对分类结果的贡献度，然后将这些贡献度映射回原始图像的空间位置，形成一张热力图。</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>深度学习知识点汇总</div>
+      <div>https://cs-lb.github.io/2024/04/14/深度学习/深度学习知识点汇总/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Liu Bo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年4月14日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/04/15/%E8%AE%A1%E7%AE%97%E6%9C%BA408/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%A4%8D%E4%B9%A0/" title="计算机网络复习">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">计算机网络复习</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/04/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/" title="损失函数">
+                        <span class="hidden-mobile">损失函数</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","appKey":"aoBSZ1mISmupN9aimSNuZrgr","path":"window.location.pathname","placeholder":"评论","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"https://jx9ekdkf.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"appid":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","appkey":"aoBSZ1mISmupN9aimSNuZrgr"},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

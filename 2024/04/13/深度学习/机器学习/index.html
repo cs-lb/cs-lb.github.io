@@ -1,0 +1,839 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/webico.ico">
+  <link rel="icon" href="/img/webico.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Liu Bo">
+  <meta name="keywords" content="408 算法 保研">
+  
+    <meta name="description" content="机器学习特点 浅层学习，不涉及特征学习，特征来源于人工提取  代码 Sklearn python的机器学习库  基本步骤 数据预处理（去掉一些有缺失特征的样本；去掉一些冗余的数据特征；对数值特征进行缩放和归一化；） 特征提取：从数据的原始特征中提取一些对特定机器学习任务有用的高质量特征（比如在图像分类中提取边缘） 特征转换：对特征进行进一步的加工，比如降维和升维，降维包括特征抽取和特征选择。常用特">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习">
+<meta property="og:url" content="https://cs-lb.github.io/2024/04/13/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="CS_Blog">
+<meta property="og:description" content="机器学习特点 浅层学习，不涉及特征学习，特征来源于人工提取  代码 Sklearn python的机器学习库  基本步骤 数据预处理（去掉一些有缺失特征的样本；去掉一些冗余的数据特征；对数值特征进行缩放和归一化；） 特征提取：从数据的原始特征中提取一些对特定机器学习任务有用的高质量特征（比如在图像分类中提取边缘） 特征转换：对特征进行进一步的加工，比如降维和升维，降维包括特征抽取和特征选择。常用特">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cs-lb.github.io/img/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A.png">
+<meta property="article:published_time" content="2024-04-13T15:26:40.000Z">
+<meta property="article:modified_time" content="2024-04-25T17:11:18.914Z">
+<meta property="article:author" content="Liu Bo">
+<meta property="article:tag" content="408 算法 保研">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cs-lb.github.io/img/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A.png">
+  
+  
+  
+  <title>机器学习 - CS_Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cs-lb.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","app_key":"aoBSZ1mISmupN9aimSNuZrgr","server_url":"https://jx9ekdkf.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CS_LB&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="机器学习"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-13 23:26" pubdate>
+          2024年4月13日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          2.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          20 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">机器学习</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
+<li>浅层学习，不涉及特征学习，特征来源于人工提取</li>
+</ol>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ol>
+<li><code>Sklearn</code> python的机器学习库</li>
+</ol>
+<h2 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h2><ol>
+<li><strong>数据预处理</strong>（去掉一些有缺失特征的样本；去掉一些冗余的数据特征；对数值特征进行缩放和归一化；）</li>
+<li><strong>特征提取：</strong>从数据的原始特征中提取一些对特定机器学习任务有用的高质量特征（比如在图像分类中提取边缘）</li>
+<li><strong>特征转换：</strong>对特征进行进一步的加工，比如降维和升维，降维包括特征抽取和特征选择。常用特征转换方法有主成分分析（PCA）和线性判别（LDA）</li>
+<li><strong>预测：</strong>学习一个函数并进行预测</li>
+</ol>
+<h2 id="线性模型"><a href="#线性模型" class="headerlink" title="线性模型"></a>线性模型</h2><blockquote>
+<p>线性模型是机器学习中应用最广泛的模型，指通过样本特征的线性组合来进行预测的模型，给定一个D维样本 $x &#x3D; [x_1,…,x_D]^T$ , 其<strong>线性组合(判别)函数</strong>为 </p>
+</blockquote>
+<p>$$<br>f(x;w) &#x3D; w_1x_1 + w_2x_2 + … + w_Dx_D + b<br>       &#x3D; w^Tx + b<br>$$</p>
+<p>其中 $w &#x3D; [w_1,…,w_D]$ 为 D维的权重向量，b为偏置<br>对于分类问题，要在线性组合函数的基础上引入<strong>非线性的决策函数</strong> $g()$ 来预测输出目标<br>$$<br>y &#x3D; g(f(x;w))<br>$$</p>
+<ol>
+<li><p><strong>一个 线性分类模型 主要由 一个或多个线性的判别函数 和 非线性的决策函数 组成</strong></p>
+</li>
+<li><p>接下来介绍四种不同的线性分类模型（线性分类器）：Logistic回归、Softmax回归、感知机、支持向量机。主要区别在于<strong>使用了不同的损失函数</strong></p>
+</li>
+</ol>
+<h2 id="机器学习算法"><a href="#机器学习算法" class="headerlink" title="机器学习算法"></a>机器学习算法</h2><p>机器学习算法分类：监督学习、无监督学习、强化学习</p>
+<ol>
+<li>**监督学习算法 (Supervised Algorithms）:**在监督学习训练过程中，可以由训练数据集学到或建立一个模式（函数 &#x2F; learning model），并依此模式推测新的实例。该算法要求特定的输入&#x2F;输出，首先需要决定使用哪种数据作为范例。例如，文字识别应用中一个手写的字符，或一行手写文字。主要算法包括神经网络、支持向量机、最近邻居法、朴素贝叶斯法、决策树等。</li>
+<li>**无监督学习算法 (Unsupervised Algorithms):**这类算法没有特定的目标输出，算法将数据集分为不同的组。</li>
+<li>**强化学习算法 (Reinforcement Algorithms):**强化学习普适性强，主要基于决策进行训练，算法根据输出结果（决策）的成功或错误来训练自己，通过大量经验训练优化后的算法将能够给出较好的预测。类似有机体在环境给予的奖励或惩罚的刺激下，逐步形成对刺激的预期，产生能获得最大利益的习惯性行为。在运筹学和控制论的语境下，强化学习被称作“近似动态规划”</li>
+</ol>
+<p>基本的机器学习算法：线性回归、支持向量机(SVM)、最近邻居(KNN)、逻辑回归、决策树、k平均、随机森林、朴素贝叶斯、降维、梯度增强</p>
+<h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><p>线性回归算法（Linear Regression）的建模过程就是使用数据点来寻找最佳拟合线</p>
+<ol>
+<li>多元线性回归<br>多元线性回归是回归分析中的一种复杂模型，它考虑了多个输入变量对输出变量的影响。与一元线性回归不同，多元线性回归通过引入多个因素，更全面地建模了系统关系。</li>
+</ol>
+<p>多元线性回归模型的表达式为：$f ( x ) &#x3D;\mathbf{k^T}\mathbf{x}+b$<br>其中，$\mathbf{x}$为输入向量，包含多个特征（自变量）；$f(\mathbf{x})$为模型的输出或响应（预测的目标变量）；$\mathbf{k^T}$ 为特征权重；$b$为是模型的截距或偏置；我们的目标是通过学习$\mathbf{k^T}$ 和 $b$ 使得 $f(\mathbf{x})$ 尽可能的接近真实观测值 $\mathbf{y}$</p>
+<p>直白点说：首先求出当前模型的 所有采样点上的预测值𝑤𝑥(𝑖) +𝑏与真实值𝑦(𝑖)之间的差的平方和作为总误差ℒ，然后搜索一组参数𝑤∗,𝑏∗使得ℒ最小，对应的直线就是我们要寻找的最优直线</p>
+<ol start="2">
+<li>实现方式</li>
+</ol>
+<p><strong>全局梯度下降</strong><br>梯度下降法是一种迭代算法。选取适当的初值x(0)，不断迭代，更新x的值，进行<strong>目标函数(也是线性回归的损失函数)的极小化</strong>，直到收敛。（它从一个初始点开始，反复使用某种规则从移动到下一个点，构造这样一个数列，直到<strong>收敛到梯度为0的点处</strong>，即梯度下降算法）<br>由于负梯度方向时使函数值下降最快的方向，在迭代的每一步，<strong>以负梯度方向更新x的值</strong>，从而达到减少函数值的目的</p>
+<p>线性回归一般选择的是MSE（均方误差）<br><strong>均方误差</strong>是预测值与真实值之间差值的平方的平均值</p>
+<p><strong>学习率在梯度下降法中的作用</strong><br>我们可以通过 𝜼 来控制每一步走的距离</p>
+<ol>
+<li>以保证不要走的太快，错过了最低点</li>
+<li>同时也要保证收敛速度不要太慢</li>
+</ol>
+<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p><strong>逻辑回归和线性回归区别：</strong></p>
+<p>逻辑回归：</p>
+<ol>
+<li>逻辑回归是一种用于分类问题的模型，而不是回归问题。它用于预测二元分类或多元分类的概率。</li>
+<li>损失函数通常是对数损失函数（log loss），也称为交叉熵损失函数（cross-entropy loss）。</li>
+<li>目标是最大化似然函数或最小化损失函数，通常通过梯度下降等方法实现。</li>
+<li>相比较线性回归的连续值直接求解，在逻辑回归中，还需要<strong>使用Sigmoid函数将回归方程映射成概率进行分类</strong></li>
+</ol>
+<p>线性回归：</p>
+<ol>
+<li>线性回归用于预测连续型变量的值，是一种回归模型。</li>
+<li>损失函数通常是均方误差（Mean Squared Error，MSE）。</li>
+<li>目标是最小化损失函数，通过梯度下降等方法实现。</li>
+</ol>
+<h3 id="KNN算法（最近邻居-k-近邻算法）"><a href="#KNN算法（最近邻居-k-近邻算法）" class="headerlink" title="KNN算法（最近邻居&#x2F;k-近邻算法）"></a>KNN算法（最近邻居&#x2F;k-近邻算法）</h3><p>KNN算法是一种基于实例的学习，或者是局部近似和将所有计算推迟到分类之后的惰性学习。KNN主要用于分类问题</p>
+<p>用最近的邻居（k）来预测未知数据点。k 值是预测精度的一个关键因素，无论是分类还是回归，衡量邻居的权重都非常有用，较近邻居的权重比较远邻居的权重大</p>
+<p>ex. 假设k &#x3D; 5，代表用周围5个点来估计未知数据点的类别，这5个点中比例最高的类别即为该预测类别</p>
+<ol>
+<li><p>需要想办法来计算两个样本之间的距离或者相似度，之后才能选出最相近的样本。<strong>欧氏距离</strong>是一个最简单常用的方法</p>
+</li>
+<li><p>怎么确定K值<br>确定KNN算法的K值通常需要通过<strong>交叉验证</strong></p>
+</li>
+</ol>
+<ul>
+<li>将数据集分成K份（通常K取5或10），每次选择其中一份作为验证集，剩下的K-1份作为训练集。</li>
+<li>对于每个K值，重复K次交叉验证，计算模型在验证集上的性能指标（如准确率、F1分数等）的平均值。</li>
+<li>根据性能指标的表现选择最优的K值。</li>
+</ul>
+<h3 id="决策树（Decision-Tress）"><a href="#决策树（Decision-Tress）" class="headerlink" title="决策树（Decision Tress）"></a>决策树（Decision Tress）</h3><ol>
+<li>决策树（Decision tree）是一种特殊的树结构，由一个决策图和可能的结果（例如成本和风险）组成，用来辅助决策。</li>
+<li>机器学习中，决策树是一个预测模型，树中每个节点表示某个对象，而每个分叉路径则代表某个可能的属性值，而每个叶节点则对应从根节点到该叶节点所经历的路径所表示的对象的值。</li>
+<li>决策树仅有单一输出，通常该算法用于解决分类问题。</li>
+</ol>
+<p><strong>决策树节点的划分</strong><br>熵：代表一个系统的混乱程度，越混乱熵越高<br>划分依据：<strong>最大化信息增益（熵）</strong><br>比较多个特征的信息增益，选择信息增益最大的特征作为根节点进行划分。然后，重复这个过程，对每个子节点进行划分，直到满足停止条件（如节点包含的样本数小于预定义阈值）为止</p>
+<p>信息增益的计算步骤：</p>
+<ol>
+<li>计算每个类别的信息熵</li>
+<li>求离散的特征属性值 a 对数据集 D 的条件信息熵</li>
+<li>计算信息增益</li>
+</ol>
+<p><img src="/../../img/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="损失函数、代价函数、目标函数"><a href="#损失函数、代价函数、目标函数" class="headerlink" title="损失函数、代价函数、目标函数"></a>损失函数、代价函数、目标函数</h2><ul>
+<li><strong>损失函数</strong> Loss Function 通常是<strong>针对单个训练样本而言</strong>，给定一个模型输出 $\hat{y}$ 和一个真实 $y$ ，损失函数输出一个实值损失 $L&#x3D;f(y_i, \hat{y_i})$</li>
+<li><strong>代价函数</strong> Cost Function 通常是<strong>针对整个训练集</strong>（或者在使用 mini-batch gradient descent 时一个 mini-batch）的总损失 $J&#x3D;\sum_{i&#x3D;1}^{N} f(y_i,\hat{y_i})$</li>
+<li><strong>目标函数</strong> Objective Function 是一个更通用的术语，表示任意<strong>希望被优化的函数</strong>，用于机器学习领域和非机器学习领域（比如运筹优化）</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>机器学习</div>
+      <div>https://cs-lb.github.io/2024/04/13/深度学习/机器学习/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Liu Bo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年4月13日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/04/13/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0/" title="表示学习">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">表示学习</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/04/12/algorithm_know/%E5%B7%AE%E5%88%86%E5%92%8C%E5%89%8D%E7%BC%80%E5%92%8C/" title="前缀和和差分">
+                        <span class="hidden-mobile">前缀和和差分</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","appKey":"aoBSZ1mISmupN9aimSNuZrgr","path":"window.location.pathname","placeholder":"评论","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"https://jx9ekdkf.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"appid":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","appkey":"aoBSZ1mISmupN9aimSNuZrgr"},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
