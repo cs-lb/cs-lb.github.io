@@ -24,7 +24,7 @@
 <meta property="og:description" content="卷积神经网络层次结构从输入层 -&gt; 中间隐藏层 -&gt;  输出层一个神经网络也可以分为两块，前一块是特征抽取，从输入中提取到容易线性分割的提取，后一块使用线性分类器来做分类 中间隐藏层 包括 卷积层、全连接层、 分类层 、批量归一化层（BN）、残差连接层 等 最简单结构是 输入层 -&gt; 卷积层 -&gt; 全连接层 -&gt; 输出层  卷积层 主要用于处理图像数据或具有类似结构的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-19T07:41:03.000Z">
-<meta property="article:modified_time" content="2024-04-25T08:19:49.077Z">
+<meta property="article:modified_time" content="2024-04-26T02:16:55.030Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="408 算法 保研">
 <meta name="twitter:card" content="summary_large_image">
@@ -240,7 +240,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          884 字
+          1.2k 字
         
       </span>
     
@@ -252,7 +252,7 @@
         
         
           <!-- compatible with older versions-->
-          8 分钟
+          11 分钟
         
       </span>
     
@@ -300,21 +300,29 @@
 <h3 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h3><blockquote>
 <p>主要用于处理图像数据或具有类似结构的数据，通过卷积操作<strong>提取局部特征</strong>，例如边缘、纹理等<br>前面的层通常负责提取低级别的特征，随着网络的深度增加，特征提取的层次也逐渐升高，从低级别的特征到高级别的抽象特征<br>单个卷积核在原图上能够计算的响应区域被我们称为该<strong>卷积的感受野</strong>, 小的像素区域是难以得到关于图像的高阶语义信息的，因为感受野太小了。随着网络层次深入，最终神经元感受野通常会涵盖整个输入图像</p>
 </blockquote>
+<ul>
+<li><p>卷积层在图像处理等领域表现出色，因为图像数据具有<strong>局部相关性</strong>和<strong>平移不变性</strong>，卷积操作可以有效地捕捉这些特征。</p>
+<ul>
+<li>局部相关性：相邻像素之间具有较高的相关性，这意味着在图像的局部区域内，像素之间的数值变化不会太大</li>
+<li>平移不变性：无论图像中的物体位置如何变化，我们仍然能够正确地识别和理解图像中的内容</li>
+</ul>
+</li>
+<li><p>其<strong>参数共享</strong>和<strong>局部连接</strong>的特性使得模型具有较少的参数量和更强的泛化能力。</p>
+<ul>
+<li>参数共享：在整个输入数据的不同位置使用相同的滤波器（卷积核参数）参数。这样可以大大减少模型的参数量，使得模型更加轻量化，同时也有利于提高模型的泛化能力，因为参数共享使得模型可以从不同位置学习到相似的特征。</li>
+<li>滤波器只与输入数据的局部区域进行卷积计算，而不是与整个输入数据进行计算。这种局部连接的方式能够捕捉到输入数据中的局部特征，也有利于减少计算量</li>
+</ul>
+</li>
+</ul>
 <h3 id="全连接层"><a href="#全连接层" class="headerlink" title="全连接层"></a>全连接层</h3><blockquote>
 <p>也称为密集连接层，是一种常见的神经网络层结构，其中每个神经元都与前一层的所有神经元连接。<br>全连接层通常出现在网络的最后几层，用于<strong>将前面层提取到的特征进行组合和分类</strong>。</p>
 </blockquote>
 <h3 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h3><blockquote>
 <p>用于<strong>降低特征图的空间维度，减少参数数量，同时保留重要的特征信息</strong><br>常见的池化操作包括最大池化和平均池化</p>
 </blockquote>
-<h3 id="批量归一化层（BN）"><a href="#批量归一化层（BN）" class="headerlink" title="批量归一化层（BN）"></a>批量归一化层（BN）</h3><blockquote>
-<p><strong>用于加速训练并增强网络的稳定性</strong>。在深度神经网络中，随着网络层数的增加，训练过程中可能出现梯度消失或梯度爆炸的问题，导致网络收敛困难或训练不稳定。</p>
-</blockquote>
-<blockquote>
+<h3 id="批量归一化层（BN）"><a href="#批量归一化层（BN）" class="headerlink" title="批量归一化层（BN）"></a>批量归一化层（BN）</h3><p><strong>用于加速训练并增强网络的稳定性</strong>。在深度神经网络中，随着网络层数的增加，训练过程中可能出现梯度消失或梯度爆炸的问题，导致网络收敛困难或训练不稳定。</p>
 <p>批量归一化通过<strong>对每个批次的输入</strong>进行归一化，即将每个特征维度的数据都减去均值并除以标准差，然后再乘以一个可学习的缩放因子和平移因子，使得网络的输入在训练过程中保持一定的分布，有利于梯度的传播和网络的收敛。</p>
-</blockquote>
-<blockquote>
-<p><strong>归一化概念：</strong>使得数据的分布范围或者特征值范围在一定范围内，以便更好地适应模型的训练和提高模型的稳定性</p>
-</blockquote>
+<p><strong>归一化概念</strong>:使得数据的分布范围或者特征值范围在一定范围内，以便更好地适应模型的训练和提高模型的稳定性</p>
 <h3 id="残差连接层"><a href="#残差连接层" class="headerlink" title="残差连接层"></a>残差连接层</h3><blockquote>
 <p>用于<strong>解决深度网络训练过程中的梯度消失问题</strong>。<br>在深度神经网络中，随着网络层数的增加，传统的前向传播和反向传播容易导致梯度逐渐减小，使得网络难以训练。<br>残差连接通过在网络中添加跨层连接，即将某一层的输入直接与后续层的输出相加，将原始的输入信息保留并传递给后续层，有助于减轻梯度消失问题，加速网络的训练和收敛。</p>
 </blockquote>

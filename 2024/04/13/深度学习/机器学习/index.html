@@ -16,20 +16,30 @@
   <meta name="author" content="Liu Bo">
   <meta name="keywords" content="408 算法 保研">
   
-    <meta name="description" content="机器学习特点 浅层学习，不涉及特征学习，特征来源于人工提取  代码 Sklearn python的机器学习库  基本步骤 数据预处理（去掉一些有缺失特征的样本；去掉一些冗余的数据特征；对数值特征进行缩放和归一化；） 特征提取：从数据的原始特征中提取一些对特定机器学习任务有用的高质量特征（比如在图像分类中提取边缘） 特征转换：对特征进行进一步的加工，比如降维和升维，降维包括特征抽取和特征选择。常用特">
+    <meta name="description" content="机器学习特点 浅层学习，不涉及特征学习，特征来源于人工提取  代码 Sklearn python的机器学习库  鸢尾花数据集（iris dataset） 12345678910111213141516171819202122232425262728293031from sklearn import datasetsfrom sklearn.model_selection import train_">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习">
 <meta property="og:url" content="https://cs-lb.github.io/2024/04/13/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="CS_Blog">
-<meta property="og:description" content="机器学习特点 浅层学习，不涉及特征学习，特征来源于人工提取  代码 Sklearn python的机器学习库  基本步骤 数据预处理（去掉一些有缺失特征的样本；去掉一些冗余的数据特征；对数值特征进行缩放和归一化；） 特征提取：从数据的原始特征中提取一些对特定机器学习任务有用的高质量特征（比如在图像分类中提取边缘） 特征转换：对特征进行进一步的加工，比如降维和升维，降维包括特征抽取和特征选择。常用特">
+<meta property="og:description" content="机器学习特点 浅层学习，不涉及特征学习，特征来源于人工提取  代码 Sklearn python的机器学习库  鸢尾花数据集（iris dataset） 12345678910111213141516171819202122232425262728293031from sklearn import datasetsfrom sklearn.model_selection import train_">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cs-lb.github.io/img/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92.png">
+<meta property="og:image" content="https://cs-lb.github.io/img/sigmid.png">
+<meta property="og:image" content="https://cs-lb.github.io/img/KNN.png">
+<meta property="og:image" content="https://cs-lb.github.io/img/%E5%86%B3%E7%AD%96%E6%A0%91.png">
 <meta property="og:image" content="https://cs-lb.github.io/img/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A.png">
+<meta property="og:image" content="https://cs-lb.github.io/img/K-Means.png">
+<meta property="og:image" content="https://cs-lb.github.io/img/SVM.png">
+<meta property="og:image" content="https://cs-lb.github.io/img/svm%E9%97%B4%E9%9A%94.png">
+<meta property="og:image" content="https://cs-lb.github.io/img/%E9%9B%86%E6%88%90%E7%AE%97%E6%B3%95.png">
+<meta property="og:image" content="https://cs-lb.github.io/img/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97.png">
+<meta property="og:image" content="https://cs-lb.github.io/img/Boosting.png">
 <meta property="article:published_time" content="2024-04-13T15:26:40.000Z">
-<meta property="article:modified_time" content="2024-04-25T17:11:18.914Z">
+<meta property="article:modified_time" content="2024-04-28T07:06:27.729Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="408 算法 保研">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cs-lb.github.io/img/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A.png">
+<meta name="twitter:image" content="https://cs-lb.github.io/img/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92.png">
   
   
   
@@ -242,7 +252,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2.4k 字
+          5.6k 字
         
       </span>
     
@@ -254,7 +264,7 @@
         
         
           <!-- compatible with older versions-->
-          20 分钟
+          47 分钟
         
       </span>
     
@@ -300,7 +310,10 @@
 <li>浅层学习，不涉及特征学习，特征来源于人工提取</li>
 </ol>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ol>
-<li><code>Sklearn</code> python的机器学习库</li>
+<li><p><code>Sklearn</code> python的机器学习库</p>
+</li>
+<li><p>鸢尾花数据集（iris dataset）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> datasets<br><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> train_test_split<br><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LogisticRegression<br><span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> accuracy_score<br><br><span class="hljs-comment"># 加载数据集</span><br><span class="hljs-comment"># 鸢尾花数据集（iris dataset）是一个经典的机器学习数据集，其中包含了150个样本，</span><br><span class="hljs-comment"># 每个样本有四个特征：花萼长度、花萼宽度、花瓣长度、花瓣宽度。</span><br><span class="hljs-comment"># 这些样本被分为三个类别：山鸢尾（setosa）、变色鸢尾（versicolor）和维吉尼亚鸢尾（virginica）。</span><br><span class="hljs-comment"># 鸢尾花数据集通常被用来进行分类问题的训练和评估，是机器学习领域常用的基准数据集之一。您可以使用sklearn库中的datasets.load_iris()函数加载这个数据集。</span><br>iris = datasets.load_iris()<br>X = iris.data<br>y = iris.target<br><span class="hljs-built_in">print</span>(X)<br><span class="hljs-built_in">print</span>(y)<br><span class="hljs-comment"># 划分训练集和测试集</span><br>X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="hljs-number">0.2</span>, random_state=<span class="hljs-number">42</span>)<br><br><span class="hljs-comment"># 创建线性分类器模型</span><br>model = LogisticRegression(max_iter=<span class="hljs-number">1</span>) <span class="hljs-comment"># 迭代次数</span><br><br><span class="hljs-comment"># 拟合模型</span><br>model.fit(X_train, y_train)<br><br><span class="hljs-comment"># 预测</span><br>y_pred = model.predict(X_test)<br><br><span class="hljs-comment"># 评估性能</span><br>accuracy = accuracy_score(y_test, y_pred)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Accuracy: &#123;&#125;&quot;</span>.<span class="hljs-built_in">format</span>(accuracy))<br><br></code></pre></td></tr></table></figure></li>
 </ol>
 <h2 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h2><ol>
 <li><strong>数据预处理</strong>（去掉一些有缺失特征的样本；去掉一些冗余的数据特征；对数值特征进行缩放和归一化；）</li>
@@ -319,30 +332,32 @@
 <li><p>接下来介绍四种不同的线性分类模型（线性分类器）：Logistic回归、Softmax回归、感知机、支持向量机。主要区别在于<strong>使用了不同的损失函数</strong></p>
 </li>
 </ol>
-<h2 id="机器学习算法"><a href="#机器学习算法" class="headerlink" title="机器学习算法"></a>机器学习算法</h2><p>机器学习算法分类：监督学习、无监督学习、强化学习</p>
-<ol>
-<li>**监督学习算法 (Supervised Algorithms）:**在监督学习训练过程中，可以由训练数据集学到或建立一个模式（函数 &#x2F; learning model），并依此模式推测新的实例。该算法要求特定的输入&#x2F;输出，首先需要决定使用哪种数据作为范例。例如，文字识别应用中一个手写的字符，或一行手写文字。主要算法包括神经网络、支持向量机、最近邻居法、朴素贝叶斯法、决策树等。</li>
-<li>**无监督学习算法 (Unsupervised Algorithms):**这类算法没有特定的目标输出，算法将数据集分为不同的组。</li>
-<li>**强化学习算法 (Reinforcement Algorithms):**强化学习普适性强，主要基于决策进行训练，算法根据输出结果（决策）的成功或错误来训练自己，通过大量经验训练优化后的算法将能够给出较好的预测。类似有机体在环境给予的奖励或惩罚的刺激下，逐步形成对刺激的预期，产生能获得最大利益的习惯性行为。在运筹学和控制论的语境下，强化学习被称作“近似动态规划”</li>
-</ol>
+<p><strong>训练数据集是线性可分</strong></p>
+<p>当说训练数据集是线性可分的时，意味着在数据集中存在一个能够清晰划分两个或多个类别的线性决策边界。<br>换句话说，存在一个线性函数或平面，可以将不同类别的样本有效地分开。这意味着在特征空间中，不同类别的样本在一定程度上能够被一条直线、平面或超平面等线性边界分开。</p>
+<p>如果训练数据集是线性可分的，则意味着使用线性分类器（例如线性回归、逻辑回归、支持向量机等）能够很好地对数据进行分类或预测<br>如果数据集不是线性可分的，就需要使用更复杂的模型或非线性技术来处理数据。</p>
+<h2 id="机器学习算法"><a href="#机器学习算法" class="headerlink" title="机器学习算法"></a>机器学习算法</h2><p>机器学习算法分类：监督学习、无监督学习、强化学习<br><strong>监督学习算法</strong> (Supervised Algorithms) 在监督学习训练过程中，可以由训练数据集学到或建立一个模式（函数 &#x2F; learning model），并依此模式推测新的实例。该算法要求特定的输入&#x2F;输出，首先需要决定使用哪种数据作为范例。例如，文字识别应用中一个手写的字符，或一行手写文字。主要算法包括神经网络、支持向量机、最近邻居法、朴素贝叶斯法、决策树等。</p>
+<p><strong>无监督学习算法</strong> (Unsupervised Algorithms) 这类算法没有特定的目标输出，算法将数据集分为不同的组。</p>
+<p><strong>强化学习算法</strong> (Reinforcement Algorithms) 强化学习普适性强，主要基于决策进行训练，算法根据输出结果（决策）的成功或错误来训练自己，通过大量经验训练优化后的算法将能够给出较好的预测。类似有机体在环境给予的奖励或惩罚的刺激下，逐步形成对刺激的预期，产生能获得最大利益的习惯性行为。在运筹学和控制论的语境下，强化学习被称作“近似动态规划”</p>
 <p>基本的机器学习算法：线性回归、支持向量机(SVM)、最近邻居(KNN)、逻辑回归、决策树、k平均、随机森林、朴素贝叶斯、降维、梯度增强</p>
-<h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><p>线性回归算法（Linear Regression）的建模过程就是使用数据点来寻找最佳拟合线</p>
+<h3 id="线性回归（Linear-Regression）"><a href="#线性回归（Linear-Regression）" class="headerlink" title="线性回归（Linear Regression）"></a>线性回归（Linear Regression）</h3><p>线性回归算法（Linear Regression）的建模过程就是使用数据点来寻找最佳拟合线</p>
 <ol>
 <li>多元线性回归<br>多元线性回归是回归分析中的一种复杂模型，它考虑了多个输入变量对输出变量的影响。与一元线性回归不同，多元线性回归通过引入多个因素，更全面地建模了系统关系。</li>
 </ol>
 <p>多元线性回归模型的表达式为：$f ( x ) &#x3D;\mathbf{k^T}\mathbf{x}+b$<br>其中，$\mathbf{x}$为输入向量，包含多个特征（自变量）；$f(\mathbf{x})$为模型的输出或响应（预测的目标变量）；$\mathbf{k^T}$ 为特征权重；$b$为是模型的截距或偏置；我们的目标是通过学习$\mathbf{k^T}$ 和 $b$ 使得 $f(\mathbf{x})$ 尽可能的接近真实观测值 $\mathbf{y}$</p>
+<p><img src="/../../img/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92.png" srcset="/img/loading.gif" lazyload></p>
 <p>直白点说：首先求出当前模型的 所有采样点上的预测值𝑤𝑥(𝑖) +𝑏与真实值𝑦(𝑖)之间的差的平方和作为总误差ℒ，然后搜索一组参数𝑤∗,𝑏∗使得ℒ最小，对应的直线就是我们要寻找的最优直线</p>
 <ol start="2">
 <li>实现方式</li>
 </ol>
-<p><strong>全局梯度下降</strong><br>梯度下降法是一种迭代算法。选取适当的初值x(0)，不断迭代，更新x的值，进行<strong>目标函数(也是线性回归的损失函数)的极小化</strong>，直到收敛。（它从一个初始点开始，反复使用某种规则从移动到下一个点，构造这样一个数列，直到<strong>收敛到梯度为0的点处</strong>，即梯度下降算法）<br>由于负梯度方向时使函数值下降最快的方向，在迭代的每一步，<strong>以负梯度方向更新x的值</strong>，从而达到减少函数值的目的</p>
+<p><strong>全局梯度下降</strong><br>梯度下降法是一种迭代算法。选取适当的初值x(0)，不断迭代，更新x的值，进行<strong>目标函数(也是线性回归的损失函数)的极小化</strong>，直到收敛。（它从一个初始点开始，反复使用某种规则从移动到下一个点，构造这样一个数列，直到<strong>收敛到梯度为0的点处</strong>，即梯度下降算法）</p>
+<p>由于负梯度方向时使函数值下降最快的方向，在迭代的每一步，<strong>以负梯度方向更新x的值</strong>，从而达到减少函数值的目的</p>
 <p>线性回归一般选择的是MSE（均方误差）<br><strong>均方误差</strong>是预测值与真实值之间差值的平方的平均值</p>
 <p><strong>学习率在梯度下降法中的作用</strong><br>我们可以通过 𝜼 来控制每一步走的距离</p>
 <ol>
 <li>以保证不要走的太快，错过了最低点</li>
 <li>同时也要保证收敛速度不要太慢</li>
 </ol>
-<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p><strong>逻辑回归和线性回归区别：</strong></p>
+<h3 id="逻辑回归（Logistic-regression）"><a href="#逻辑回归（Logistic-regression）" class="headerlink" title="逻辑回归（Logistic regression）"></a>逻辑回归（Logistic regression）</h3><p><strong>逻辑回归和线性回归区别：</strong></p>
 <p>逻辑回归：</p>
 <ol>
 <li>逻辑回归是一种用于分类问题的模型，而不是回归问题。它用于预测二元分类或多元分类的概率。</li>
@@ -350,13 +365,16 @@
 <li>目标是最大化似然函数或最小化损失函数，通常通过梯度下降等方法实现。</li>
 <li>相比较线性回归的连续值直接求解，在逻辑回归中，还需要<strong>使用Sigmoid函数将回归方程映射成概率进行分类</strong></li>
 </ol>
+<p><img src="/../../img/sigmid.png" srcset="/img/loading.gif" lazyload></p>
 <p>线性回归：</p>
 <ol>
 <li>线性回归用于预测连续型变量的值，是一种回归模型。</li>
 <li>损失函数通常是均方误差（Mean Squared Error，MSE）。</li>
 <li>目标是最小化损失函数，通过梯度下降等方法实现。</li>
 </ol>
-<h3 id="KNN算法（最近邻居-k-近邻算法）"><a href="#KNN算法（最近邻居-k-近邻算法）" class="headerlink" title="KNN算法（最近邻居&#x2F;k-近邻算法）"></a>KNN算法（最近邻居&#x2F;k-近邻算法）</h3><p>KNN算法是一种基于实例的学习，或者是局部近似和将所有计算推迟到分类之后的惰性学习。KNN主要用于分类问题</p>
+<h3 id="KNN算法（最近邻居-k-近邻算法，K-Nearest-Neighbors）"><a href="#KNN算法（最近邻居-k-近邻算法，K-Nearest-Neighbors）" class="headerlink" title="KNN算法（最近邻居&#x2F;k-近邻算法，K-Nearest Neighbors）"></a>KNN算法（最近邻居&#x2F;k-近邻算法，K-Nearest Neighbors）</h3><p>口诀：近朱者赤，近墨者黑</p>
+<p><img src="/../../img/KNN.png" srcset="/img/loading.gif" lazyload></p>
+<p>KNN算法是一种基于实例的学习，或者是局部近似和将所有计算推迟到分类之后的惰性学习。KNN主要用于<strong>分类</strong>问题</p>
 <p>用最近的邻居（k）来预测未知数据点。k 值是预测精度的一个关键因素，无论是分类还是回归，衡量邻居的权重都非常有用，较近邻居的权重比较远邻居的权重大</p>
 <p>ex. 假设k &#x3D; 5，代表用周围5个点来估计未知数据点的类别，这5个点中比例最高的类别即为该预测类别</p>
 <ol>
@@ -373,9 +391,11 @@
 <h3 id="决策树（Decision-Tress）"><a href="#决策树（Decision-Tress）" class="headerlink" title="决策树（Decision Tress）"></a>决策树（Decision Tress）</h3><ol>
 <li>决策树（Decision tree）是一种特殊的树结构，由一个决策图和可能的结果（例如成本和风险）组成，用来辅助决策。</li>
 <li>机器学习中，决策树是一个预测模型，树中每个节点表示某个对象，而每个分叉路径则代表某个可能的属性值，而每个叶节点则对应从根节点到该叶节点所经历的路径所表示的对象的值。</li>
-<li>决策树仅有单一输出，通常该算法用于解决分类问题。</li>
+<li>决策树仅有单一输出，通常该算法用于解决<strong>分类</strong>问题。</li>
 </ol>
-<p><strong>决策树节点的划分</strong><br>熵：代表一个系统的混乱程度，越混乱熵越高<br>划分依据：<strong>最大化信息增益（熵）</strong><br>比较多个特征的信息增益，选择信息增益最大的特征作为根节点进行划分。然后，重复这个过程，对每个子节点进行划分，直到满足停止条件（如节点包含的样本数小于预定义阈值）为止</p>
+<p><img src="/../../img/%E5%86%B3%E7%AD%96%E6%A0%91.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>决策树节点的划分</strong><br>熵：代表一个系统的混乱程度，越混乱熵越高</p>
+<p>划分依据：<strong>最大化信息增益（熵）</strong><br>比较多个特征的信息增益，选择信息增益最大的特征作为根节点进行划分。然后，重复这个过程，对每个子节点进行划分，直到满足停止条件（如节点包含的样本数小于预定义阈值）为止</p>
 <p>信息增益的计算步骤：</p>
 <ol>
 <li>计算每个类别的信息熵</li>
@@ -383,6 +403,100 @@
 <li>计算信息增益</li>
 </ol>
 <p><img src="/../../img/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="k-平均算法（K-Means）"><a href="#k-平均算法（K-Means）" class="headerlink" title="k-平均算法（K-Means）"></a>k-平均算法（K-Means）</h3><p>口诀：物以类聚，人以群分</p>
+<p><img src="/../../img/K-Means.png" srcset="/img/loading.gif" lazyload></p>
+<p>k-平均算法(K-Means)是一种<strong>无监督学习算法</strong>，为<strong>聚类问题</strong>提供了一种解决方案。<br>K-Means 算法把 n 个点（可以是样本的一次观察或一个实例）划分到 k 个集群（cluster），使得每个点都属于离他最近的均值（即聚类中心，centroid）对应的集群。重复上述过程一直持续到重心不改变。</p>
+<p>计算过程如下：</p>
+<ol>
+<li><p>分配阶段：对每个数据点，计算其与每个类中心的距离，然后将其分配到距离最近的类中心所对应的类里。</p>
+</li>
+<li><p>更新阶段：对于每个类，根据该类中所有数据点的均值计算新的类中心。假设某个类包含的数据点集合为 𝑆, 其中包含 𝑛 个数据点，则该类的新的类中心 $𝐶_𝑗$ 可以通过以下公式计算得到, $𝑥_𝑖$ 是数据点集合 $S$ 中的第 $i$ 个数据点</p>
+</li>
+</ol>
+<p>$$<br>[ C_j &#x3D; \frac{1}{n} \sum_{i&#x3D;1}^{n} x_i ]<br>$$</p>
+<ol>
+<li>重复迭代：重复执行分配和更新阶段，直至达到停止条件为止。停止条件可以是类中心不再发生变化，即算法收敛；或者是达到最大迭代次数。</li>
+</ol>
+<p>预测新的未知数据点：迭代每类的聚类（簇）中心，计算该样本点距离每个中心的距离，距离最近的点即为该样本的类别</p>
+<h3 id="SVM-支持向量机，Support-Vector-Machine"><a href="#SVM-支持向量机，Support-Vector-Machine" class="headerlink" title="SVM (支持向量机，Support Vector Machine)"></a>SVM (支持向量机，Support Vector Machine)</h3><p><strong>基本想法</strong> 是求解能够正确划分训练数据集并且几何间隔最大的分离超平面<br>最大化类别间隔实现分类</p>
+<p><strong>支持向量</strong> 是指训练样本中，与分类超平面最近的数据点。其是训练数据的子集同时也是最难分类的点</p>
+<p><img src="/../../img/SVM.png" srcset="/img/loading.gif" lazyload></p>
+<p>SVM 模型将实例表示为空间中的点，将使用一条直线分隔数据点。需要注意的是，支持向量机需要对输入数据进行<strong>完全标记</strong>，仅直接适用于两类任务，如果是多类任务需要减少到几个二元问题 或者 修改损失函数比如使用softmax</p>
+<p><strong>支持向量机包含几种模型</strong></p>
+<p>主要是根据<strong>训练数据集是否线性可分</strong>以及<strong>是否允许出现分类错误</strong>进行划分的。主要包含以下三种模型：</p>
+<p>硬间隔支持向量机：当训练数据线性可分时，硬间隔最大化不允许出现分类错误，此时超平面将所有训练数据集都分类正确，所以叫硬间隔支持向量机</p>
+<p>软间隔支持向量机：当训练数据近似线性可分时，软间隔最大化允许出现分类错误，此时超平面不能将所有训练数据点都分类正确，所以叫软间隔支持向量机</p>
+<p>非线性支持向量机：当训练数据线性不可分时，通过使用核函数和软间隔最大化对数据进行分类</p>
+<p><strong>硬间隔软间隔</strong></p>
+<p>间隔(margin)就是指决策面(y&#x3D;0)与任意训练数据点之间的最小距离。</p>
+<p>硬间隔是指SVM在分类中不允许出现分类错误。通俗点，硬间隔就是训练集中的任何数据点不允许出现在间隔内，即两条蓝线之间，但数据点可以出现在蓝色线上，这些点叫支持向量。</p>
+<p>软间隔是指SVM在分类中允许出现分类错误的点，如下图所示。这些圈出的数据点都是支持向量，但是其中两个点不在蓝线上，一个在间隔内，另一个被分类错误(黑色直线所指的两个点)。软间隔允许这种情况存在，硬间隔则不允许。</p>
+<p><img src="/../../img/svm%E9%97%B4%E9%9A%94.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>SVM的优化</strong><br>更好得找出混在正类中的负类 以及 混在负类中的正类 </p>
+<ol>
+<li><p>增加惩罚项</p>
+</li>
+<li><p>使用核函数<br>通俗解释：如果想把混在一起的沙子和黄豆分开，可以用力一拍，用于弹起后的高度不同，因此可以据此将其分开</p>
+</li>
+</ol>
+<h3 id="集成算法"><a href="#集成算法" class="headerlink" title="集成算法"></a>集成算法</h3><p>构建多个学习器，然后通过一定策略结合把它们来完成学习任务的，常常可以获得比单一学习显著优越的学习器。</p>
+<p><img src="/../../img/%E9%9B%86%E6%88%90%E7%AE%97%E6%B3%95.png" srcset="/img/loading.gif" lazyload></p>
+<p>集成学习通过训练学习出多个估计器<br>预测时通过结合器将多个估计器的结果整合起来当作最后的结果输出。<br>即训练时用多种分类器一起完成同一份任务，测试时对待测试样本分别通过不同的分类器，汇总最后的结果。</p>
+<p><strong>集成学习的优势:</strong> 是提升了单个估计器的通用性与鲁棒性，比单个估计器拥有更好的预测性能并且能更好得防止过拟合。集成学习的另一个特点是能方便的进行并行化操作</p>
+<p>集成算法一般分为三类：Bagging，Boosting，Stacking（我们可以把它简单地看成并行，串行和树型）</p>
+<h4 id="Bagging-并行"><a href="#Bagging-并行" class="headerlink" title="Bagging 并行"></a>Bagging 并行</h4><p>Bagging的全称是bootstrap averaging，它把各个基模型的结果组织起来</p>
+<h5 id="随机森林（Random-Forest）"><a href="#随机森林（Random-Forest）" class="headerlink" title="随机森林（Random Forest）"></a>随机森林（Random Forest）</h5><p>随机：数据采样随机，特征选择随机（每次数据集是随机有放回的选出，同时随机选出部分特征作为输入）</p>
+<p>森林：很多个决策树并行放在一起</p>
+<p><img src="/../../img/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>随机森林可以看作一个决策树的集合</strong>，随机森林中每棵决策树估计一个分类，这个过程称为 “<strong>投票</strong>（vote）”。理想情况下，我们根据每棵决策树的每个投票，选择最多投票的分类</p>
+<p>投票策略：软投票与硬投票<br><strong>硬投票</strong>：直接用类别值，少数服从多数。<br><strong>软投票</strong>：各自分类器的概率值进行加权平均</p>
+<p>用随机的方式建立一个决策树的森林。当有一个新的输入样本进入的时候，就<strong>让森林中的每一棵决策树分别进行判断</strong>，预测时使用投票结果最多的分类，也是少数服从多数的算法。</p>
+<p>随机森林优势：</p>
+<ol>
+<li>它能够处理很高维度（feature很多）的数据，并且不用做特征选择。</li>
+<li>在训练完后，它能够给出哪些feature比较重要。</li>
+<li>容易做成并行化方法，速度比较快。</li>
+<li>可以进行可视化展示，便于分析。</li>
+</ol>
+<p><strong>和决策树区别</strong></p>
+<h5 id="BaggingClassifier-BaggingRegressor"><a href="#BaggingClassifier-BaggingRegressor" class="headerlink" title="BaggingClassifier&#x2F;BaggingRegressor"></a>BaggingClassifier&#x2F;BaggingRegressor</h5><p>是从原始数据集抽选Ｓ次（抽取实例，抽取属性），得到S个新数据集（有的值可能重复，有的值可能不出现）。使用同一模型，训练得到S个分类器，预测时使用投票结果最多的分类</p>
+<h5 id="VotingClassifier"><a href="#VotingClassifier" class="headerlink" title="VotingClassifier"></a>VotingClassifier</h5><p>可选择多个不同的基模型，分别进行预测，以投票方式决定最终结果。</p>
+<h4 id="Boosting-串行"><a href="#Boosting-串行" class="headerlink" title="Boosting 串行"></a>Boosting 串行</h4><p>从弱学习器开始加强，通过加权来进行训练。新模型是在旧模型的基本上建立的</p>
+<p><img src="/../../img/Boosting.png" srcset="/img/loading.gif" lazyload></p>
+<p>Boosting相当于串联电路，先需要做好第一个模型，再做第二个，再做第三个，按照顺序一步一步做。</p>
+<h5 id="AdaBoost自适应提升算法"><a href="#AdaBoost自适应提升算法" class="headerlink" title="AdaBoost自适应提升算法"></a>AdaBoost自适应提升算法</h5><p>它对分类错误属性的给予更大权重，再做下次迭代，直到收敛</p>
+<h5 id="Gradient-Boosting-Machine（简称GBM）梯度提升算法"><a href="#Gradient-Boosting-Machine（简称GBM）梯度提升算法" class="headerlink" title="Gradient Boosting Machine（简称GBM）梯度提升算法"></a>Gradient Boosting Machine（简称GBM）梯度提升算法</h5><p>它通过求损失函数在梯度方向下降的方法，层层改进，sklearn中也实现了该算法GradientBoostingClassifier&#x2F;GradientBoostingRegressor。GBM是目前非常流行的一类算法。</p>
+<h3 id="降维算法（Dimensional-Reduction）"><a href="#降维算法（Dimensional-Reduction）" class="headerlink" title="降维算法（Dimensional Reduction）"></a>降维算法（Dimensional Reduction）</h3><p>降维其更深层次的意义在于<strong>有效信息的提取综合及无用信息的摈弃</strong>。</p>
+<p>数据降维算法是机器学习算法中的大家族，与分类、回归、聚类等算法不同，它的<strong>目标</strong>是将向量投影到低维空间，以达到某种目的如可视化，或是做分类。</p>
+<p>数据降维就是寻找一个映射函数f，将高维向量x映射成低维向量y<br>$$<br>f : (x)  -&gt; (y)<br>$$</p>
+<p>如何确定这个映射函数，是各降维算法核心，它们往往根据不同的准则进行构造。</p>
+<p><strong>降维算法分类</strong></p>
+<p>目前已经存在大量的数据降维算法，可以从另个不同的维度对它们进行分类。</p>
+<p>按照是否有使用样本的标签值，可以将降维算法分为有监督降维和无监督降维；</p>
+<p>按照降维算法使用的映射函数，可以将算法分为线性降维与非线性降维；</p>
+<p>无监督降维算法不使用样本标签值，因此是一种无监督学习算法，其典型代表是<strong>PCA</strong>；</p>
+<p>有监督的降维算法则使用了样本标签值，是一种有监督学习算法，其典型代表是<strong>LDA</strong>；</p>
+<p>线性降维算根据样本集构造出线性函数完成向低维空间的映射。一般通过对向量x进行线性变换即左乘一个投影矩阵W而得到结果向量y</p>
+<p>$$<br> y &#x3D; W x<br>$$</p>
+<p>非线性降维算法则构造一个非线性映射完成数据的降维。很多时候数据是非线性的，因此需要使用非线性降维算法以取得更好的效果。</p>
+<h4 id="LAD算法（线性判别分析法）"><a href="#LAD算法（线性判别分析法）" class="headerlink" title="LAD算法（线性判别分析法）"></a>LAD算法（线性判别分析法）</h4><p>Linear Discriminant Analysis<br><strong>线性、有监督降维算法</strong></p>
+<p>LDA降维的<strong>目标</strong>：将带有标签的数据降维，投影到低维空间同时满足三个条件：</p>
+<ul>
+<li>尽可能多地保留数据样本的信息（即选择最大的特征是对应的特征向量所代表的的方向）。</li>
+<li>寻找使样本尽可能好分的最佳投影方向。</li>
+<li>投影后使得同类样本尽可能近，不同类样本尽可能远。</li>
+</ul>
+<p><strong>思想：</strong> 投影之后同类的样本尽量集中，不同类的样本尽量分开</p>
+<p><strong>衡量指标：</strong> 类间散度&#x2F;类内散度最大</p>
+<h4 id="PCA算法（主成分分析法）"><a href="#PCA算法（主成分分析法）" class="headerlink" title="PCA算法（主成分分析法）"></a>PCA算法（主成分分析法）</h4><p><strong>线性、无监督降维算法</strong></p>
+<p>主成分分析（Principal Component Analysis，PCA）是一种常用的降维技术，用于将高维数据转换为低维数据，同时保留数据集中的最大方差。PCA通过找到数据中的<strong>主成分（即数据最大方差方向）</strong> 来实现这一目标</p>
+<p>从而可以减少数据集的特征数量，减少数据的维度，降低计算和存储开销，并帮助提高模型的泛化能力</p>
+<p><strong>PCA算法思想：</strong> 是将n维特征映射到k维上，这k维是全新的正交特征也被称为主成分，是在原有n维特征的基础上重新构造出来的k维特征</p>
+<p><strong>实现方法：</strong><br>PCA算法有两种实现方法：</p>
+<ul>
+<li>基于特征值 分解协方差矩阵 实现PCA算法</li>
+<li>基于SVD 分解协方差矩阵 实现PCA算法</li>
+</ul>
 <h2 id="损失函数、代价函数、目标函数"><a href="#损失函数、代价函数、目标函数" class="headerlink" title="损失函数、代价函数、目标函数"></a>损失函数、代价函数、目标函数</h2><ul>
 <li><strong>损失函数</strong> Loss Function 通常是<strong>针对单个训练样本而言</strong>，给定一个模型输出 $\hat{y}$ 和一个真实 $y$ ，损失函数输出一个实值损失 $L&#x3D;f(y_i, \hat{y_i})$</li>
 <li><strong>代价函数</strong> Cost Function 通常是<strong>针对整个训练集</strong>（或者在使用 mini-batch gradient descent 时一个 mini-batch）的总损失 $J&#x3D;\sum_{i&#x3D;1}^{N} f(y_i,\hat{y_i})$</li>
