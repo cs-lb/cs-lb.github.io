@@ -1,0 +1,934 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/webico.ico">
+  <link rel="icon" href="/img/webico.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Liu Bo">
+  <meta name="keywords" content="408 算法 保研">
+  
+    <meta name="description" content="面试准备1.磁共振图像介绍磁共振成像（Magnetic Resonance Imaging，简称MRI）是一种利用强磁场、无线电波和计算机技术结合的医学成像技术。它能够提供人体内部结构的详细图像，尤其是软组织，如大脑、脊髓、关节、肌肉和其他内脏器官。以下是关于MRI的一些关键点介绍：  成像原理：MRI基于原子核在磁场中的磁性质。当身体被置于一个强磁场中时，某些原子核（如氢原子核）会与磁场对齐。无">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试准备">
+<meta property="og:url" content="https://cs-lb.github.io/2024/05/12/%E4%BF%9D%E7%A0%94%E8%B5%84%E6%96%99/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/index.html">
+<meta property="og:site_name" content="CS_Blog">
+<meta property="og:description" content="面试准备1.磁共振图像介绍磁共振成像（Magnetic Resonance Imaging，简称MRI）是一种利用强磁场、无线电波和计算机技术结合的医学成像技术。它能够提供人体内部结构的详细图像，尤其是软组织，如大脑、脊髓、关节、肌肉和其他内脏器官。以下是关于MRI的一些关键点介绍：  成像原理：MRI基于原子核在磁场中的磁性质。当身体被置于一个强磁场中时，某些原子核（如氢原子核）会与磁场对齐。无">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-12T13:54:00.000Z">
+<meta property="article:modified_time" content="2024-05-12T18:07:13.080Z">
+<meta property="article:author" content="Liu Bo">
+<meta property="article:tag" content="408 算法 保研">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>面试准备 - CS_Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cs-lb.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","app_key":"aoBSZ1mISmupN9aimSNuZrgr","server_url":"https://jx9ekdkf.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CS_LB&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="面试准备"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-05-12 21:54" pubdate>
+          2024年5月12日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          4.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          37 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">面试准备</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="面试准备"><a href="#面试准备" class="headerlink" title="面试准备"></a>面试准备</h1><h2 id="1-磁共振图像介绍"><a href="#1-磁共振图像介绍" class="headerlink" title="1.磁共振图像介绍"></a>1.磁共振图像介绍</h2><p>磁共振成像（Magnetic Resonance Imaging，简称MRI）是一种利用强磁场、无线电波和计算机技术结合的医学成像技术。它能够提供人体内部结构的详细图像，尤其是软组织，如大脑、脊髓、关节、肌肉和其他内脏器官。以下是关于MRI的一些关键点介绍：</p>
+<ol>
+<li><p><strong>成像原理</strong>：MRI基于原子核在磁场中的磁性质。当身体被置于一个强磁场中时，某些原子核（如氢原子核）会与磁场对齐。无线电波脉冲被用来扰动这些原子核，当无线电波停止后，原子核会返回其原始状态，并在这个过程中释放出能量。这些释放出的能量被MRI机器检测到，并用来生成图像。</p>
+</li>
+<li><p><strong>软组织对比</strong>：MRI特别擅长区分不同的软组织类型，如肌肉、肌腱、韧带、大脑组织等，这使得它在神经系统疾病的诊断中非常有用。</p>
+</li>
+<li><p><strong>无辐射</strong>：与X射线或CT扫描不同，MRI不使用辐射，因此被认为是一种安全的成像方法。</p>
+</li>
+<li><p><strong>多平面成像</strong>：MRI可以生成多个平面的图像，包括轴向、冠状和矢状面，这有助于从不同角度查看内部结构。</p>
+</li>
+<li><p><strong>功能性MRI（fMRI）</strong>：这是一种特殊的MRI技术，它可以检测大脑活动的变化，通常用于研究大脑功能和神经精神疾病。</p>
+</li>
+<li><p><strong>对比剂使用</strong>：在某些情况下，可能需要使用对比剂来提高图像的清晰度，尤其是在检测血管、肿瘤或其他异常时。</p>
+</li>
+<li><p><strong>局限性</strong>：MRI扫描时间较长，成本较高，且对于有心脏起搏器、金属植入物或某些其他医疗条件的患者不适用。</p>
+</li>
+<li><p><strong>临床应用</strong>：MRI广泛应用于各种临床情况，包括但不限于脑部疾病（如中风、肿瘤、癫痫和阿尔茨海默病）、脊髓损伤、关节和骨骼问题、心脏病和肿瘤分期。</p>
+</li>
+</ol>
+<h2 id="2-磁共振图像增强模型与算法研究"><a href="#2-磁共振图像增强模型与算法研究" class="headerlink" title="2.磁共振图像增强模型与算法研究"></a>2.磁共振图像增强模型与算法研究</h2><p>磁共振图像增强是医学图像处理领域的一个重要研究方向，其目的是改善MRI图像的质量，使之更适合于临床诊断和医学研究。图像增强可以提高图像中某些特征的可见性，比如对比度、边缘、纹理等，同时尽量保留图像的原始信息。以下是一些常见的磁共振图像增强模型与算法：</p>
+<ol>
+<li><p><strong>空间域滤波器</strong>：</p>
+<ul>
+<li><strong>平滑滤波器</strong>：如高斯滤波器，用于减少图像噪声，但可能模糊图像细节。</li>
+<li><strong>锐化滤波器</strong>：如拉普拉斯滤波器，用于增强图像边缘，提高图像的清晰度。</li>
+</ul>
+</li>
+<li><p><strong>频率域滤波器</strong>：</p>
+<ul>
+<li>使用傅里叶变换将图像转换到频率域，然后对频率成分进行调整，以增强或抑制特定的频率带。</li>
+</ul>
+</li>
+<li><p><strong>对比度增强</strong>：</p>
+<ul>
+<li>直方图均衡化：调整图像的直方图，使得像素值分布更加均匀，从而增强图像的全局对比度。</li>
+<li>对比度限制自适应直方图均衡化（CLAHE）：是一种改进的直方图均衡化方法，它在小区域内增强对比度，减少噪声放大。</li>
+</ul>
+</li>
+<li><p><strong>非线性映射</strong>：</p>
+<ul>
+<li>对数变换和幂律变换：这些变换可以增强图像的暗区域或亮区域，改善图像的局部对比度。</li>
+</ul>
+</li>
+<li><p><strong>深度学习技术</strong>：</p>
+<ul>
+<li>卷积神经网络（CNN）：可以设计用于特定类型的图像增强任务，如去噪、超分辨率或特征增强。</li>
+<li>生成对抗网络（GAN）：通过对抗过程生成更加逼真和高质量的图像。</li>
+</ul>
+</li>
+<li><p><strong>多模态融合</strong>：</p>
+<ul>
+<li>结合不同成像参数或不同时间点获取的MRI图像，以提高图像的信息量和诊断价值。</li>
+</ul>
+</li>
+<li><p><strong>特定结构增强</strong>：</p>
+<ul>
+<li>对于特定的医学应用，如血管成像、肿瘤检测等，可以设计算法特别增强这些结构的特征。</li>
+</ul>
+</li>
+<li><p><strong>图像分割和特征提取</strong>：</p>
+<ul>
+<li>利用图像增强技术辅助图像分割，准确区分不同的组织类型，提取有用的医学特征。</li>
+</ul>
+</li>
+<li><p><strong>优化算法</strong>：</p>
+<ul>
+<li>利用优化技术，如梯度下降，来调整图像增强过程中的参数，以达到更好的视觉效果或满足特定的诊断需求。</li>
+</ul>
+</li>
+<li><p><strong>质量评估</strong>：</p>
+<ul>
+<li>在增强过程中，需要对图像质量进行评估，以确保增强后的图像在视觉上和临床上都是可接受的。</li>
+</ul>
+</li>
+</ol>
+<p>在研究和开发MRI图像增强模型与算法时，需要考虑算法的计算效率、增强效果、以及对诊断准确性的影响。此外，还需要进行大量的实验验证，以评估增强算法在不同类型MRI图像和不同临床情况下的表现。随着技术的进步，深度学习等先进的机器学习技术在MRI图像增强领域展现出巨大的潜力。</p>
+<h2 id="3-介绍下论文"><a href="#3-介绍下论文" class="headerlink" title="3.介绍下论文"></a>3.介绍下论文</h2><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>AD没法根治，因此通过分类算法辅助医生提高其早期诊断率是非常重要的。医生主要是通过MRI来判断分类，比如关键的组织像海马体、内嗅皮层。</p>
+<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>提高AD分类的准确度的同时，保证AD分类的效率</p>
+<h3 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h3><p>使用的是ADNI（阿尔茨海默病神经影像学研究项目）、使用了220个CN（认知正常）、310个MCI（早期认知障碍）、255个AD（阿尔茨海默病）</p>
+<p>相关的数据集</p>
+<ol>
+<li><p>OASIS (Open Access Series of Imaging Studies)</p>
+</li>
+<li><p>The Australian Imaging, Biomarker &amp; Lifestyle (AIBL) Study</p>
+</li>
+<li><p>The National Alzheimer’s Coordinating Center (NACC) Database 由美国阿尔茨海默病协会维护</p>
+</li>
+</ol>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>为了同时集成CNN和vit各自优点</p>
+<ol>
+<li><p>CNN优点是需要计算资源少提取特征比较快，但在捕捉图像的全局依赖关系方面不足。</p>
+</li>
+<li><p>vit优点是通过全局自注意力机制，ViT能够捕捉图像中任意两个像素之间的依赖关系，无论它们之间的距离有多远。并且可以高效地并行化。但占用计算资源、模型训练速度慢</p>
+</li>
+</ol>
+<p><strong>LP：</strong> 先使用CNN和maxpool提取一次特征并减少特征图大小之后再进行分块操作可以减少模型参数量。并使用了较少的patch（模型捕捉到图像的细粒度特征，这对于检测图像中的细节变化非常重要。有助于学习到更精细的图像表示。）之后通关vit进行分类。</p>
+<p><strong>DWLA：</strong> 动态局部窗口注意力机制。允许注意力只在窗口内部进行计算，将注意力计算图划分成一个个窗口，窗口大小会动态改变。这种方法允许模型在不同阶段关注不同尺度的特征（7个transformer Encoder块中动态改变,从大窗口到小窗口）</p>
+<p>相比于大窗口计算，小窗口计算的好处</p>
+<p><strong>Loss ：</strong> 加权损失函数，权重系数是0.1。<br>center loss: 一方面。有些人正常衰老也会出现一定程度的脑萎缩。导致CN和MCI的MRI图像比较接近。另一方面，有些AD病人可能萎缩的部位不一样，从而导致同为AD的MRI图像相差很大。<br><strong>中心损失思想：</strong> 通过强迫每个类别的特征尽可能接近类别的中心，来提高对特征的区分能力。这有助于区分不同类别中的特征，减少了同一类别内的特征离散度，从而提高了分类模型的准确性和鲁棒性。</p>
+<p>中心损失的计算：中心损失函数通常采用平方距离作为距离度量，并希望这个距离尽可能小。因此，中心损失可以表示为所有样本点到其对应类别中心点距离的总和。中心损失的一个关键点是类别中心的更新，这通常在模型训练过程中进行。</p>
+<p>中心损失函数的实现涉及到额外的存储和计算开销，因为需要存储和更新每个类别的中心点。然而，它在人脸识别和细粒度图像分类中，已被证明是非常有效的。</p>
+<p><strong>Cross Entropy Loss :</strong> 它衡量的是模型预测的<strong>概率分布与真实标签的概率分布之间的差异</strong>。连续可微的，便于使用梯度下降等优化算法进行训练</p>
+<p>对于二分类问题，交叉熵损失定义如下：</p>
+<p>[ L &#x3D; -\left( y \log(p) + (1 - y) \log(1 - p) \right) ]</p>
+<p>其中：</p>
+<ul>
+<li>( y ) 是真实标签，其值为 0 或 1。</li>
+<li>( p ) 是模型预测为正类的概率。</li>
+<li>( L ) 是损失值。</li>
+</ul>
+<p><strong>标签平滑</strong>：为了避免模型对某些类别过于自信，有时会使用<strong>标签平滑</strong>技术，即真实标签不是完全确定的1或0，而是稍微平滑的值（例如0.9和0.1）。</p>
+<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><p>评价指标：<br>敏感度&#x2F;召回率：所有实际正例中，被正确识别的正例比例（漏诊）<br>特异性：所有实际负例中，被正确识别的负例比例</p>
+<p>准确度：95.54 ——&gt; 99.36<br>参数量：86.39 ——&gt; 50.51</p>
+<h2 id="Vision-transformer"><a href="#Vision-transformer" class="headerlink" title="Vision transformer"></a>Vision transformer</h2><h2 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h2><p><strong>网络结构</strong><br>AlexNet是一种深度卷积神经网络（CNN）架构，由Alex Krizhevsky、Ilya Sutskever和Geoffrey Hinton在2012年提出，并在当年的ImageNet大规模视觉识别挑战赛（ILSVRC）中取得了突破性的成绩。AlexNet的网络结构相对复杂，参数众多，是当时首个真正意义上的深度卷积神经网络，其深度是之前神经网络的数倍。</p>
+<p>AlexNet的网络结构主要包括以下几个部分：</p>
+<ol>
+<li><p><strong>输入层</strong>：AlexNet的输入图像尺寸是224x224x3（RGB三通道）。原论文中提到，虽然实际图像尺寸为227x227x3，但通常使用224x224x3的尺寸进行处理。</p>
+</li>
+<li><p><strong>卷积层</strong>：网络包含5个卷积层（C1至C5），每个卷积层后面紧跟一个ReLU激活函数和一个局部响应归一化（LRN）层。卷积层的配置如下：</p>
+<ul>
+<li>C1：11x11x3卷积核，96个卷积核，步长为4。</li>
+<li>C2：5x5x48卷积核，128个卷积核，步长为1，应用在C1层的输出上。</li>
+<li>C3：3x3x256卷积核，384个卷积核，步长为1。</li>
+<li>C4：3x3x192卷积核，192个卷积核，步长为1。</li>
+<li>C5：3x3x192卷积核，128个卷积核，步长为1。</li>
+</ul>
+</li>
+<li><p><strong>池化层</strong>：在第1、2、5个卷积层后面各有一个最大池化层，池化核大小为3x3，步长为2。</p>
+</li>
+<li><p><strong>全连接层</strong>：在卷积和池化层之后，网络包含3个全连接层（FC6、FC7和FC8）。</p>
+<ul>
+<li>FC6：4096个神经元。</li>
+<li>FC7：4096个神经元。</li>
+<li>FC8（输出层）：1000个神经元，对应ImageNet的1000个类别。</li>
+</ul>
+</li>
+<li><p><strong>Dropout层</strong>：在FC6和FC7层后应用了Dropout技术，以减少过拟合现象。</p>
+</li>
+<li><p><strong>softmax输出</strong>：最终的FC8全连接层输出通过softmax函数转换为概率值，用于图像分类。</p>
+</li>
+</ol>
+<p>AlexNet的创新之处包括使用ReLU激活函数、局部响应归一化（LRN）和Dropout技术，以及能够在GPU上进行并行训练的架构设计。此外，AlexNet在训练时采用了数据增强策略，通过对图像进行旋转、翻转、裁剪等变换来增加数据多样性。</p>
+<h3 id="局部响应归一化（Local-Response-Normalization，简称LRN）"><a href="#局部响应归一化（Local-Response-Normalization，简称LRN）" class="headerlink" title="局部响应归一化（Local Response Normalization，简称LRN）"></a>局部响应归一化（Local Response Normalization，简称LRN）</h3><p>LRN 操作涉及对每个特征图（feature map）中的元素进行归一化，使得较大响应的元素相对更大，而较小响应的元素相对更小。这样，LRN能够在不同通道上产生专注不同特征的feature map，从而减少不同卷积核产生的feature map之间的相关性</p>
+<h3 id="ReLU激活函数"><a href="#ReLU激活函数" class="headerlink" title="ReLU激活函数"></a>ReLU激活函数</h3><p>在深度学习中，”Rule”激活函数并不是一个标准术语，因此可能存在一些误解或混淆。如果您是指ReLU（Rectified Linear Unit）激活函数，它是一种非常流行的激活函数，其公式如下：</p>
+<p>[ \text{ReLU}(x) &#x3D; \max(0, x) ]</p>
+<p>ReLU激活函数的特点是当输入x为正数时，输出就是x本身；当输入x为负数时，输出为0。这种操作被称为”rectification”，它<strong>允许网络在正区间内线性地响应输入变化，而在负区间内则抑制输出</strong>。</p>
+<p><strong>ReLU激活函数优点</strong></p>
+<ol>
+<li><p><strong>计算简单</strong>：ReLU激活函数的计算非常直接和简单，它仅在输入值为正时激活，这减少了计算量并加快了训练速度。</p>
+</li>
+<li><p><strong>收敛速度快</strong>：相比于其他如sigmoid或tanh等激活函数，ReLU激活函数在正区间内是线性的，这有助于在训练过程中实现更快的梯度下降，从而加快收敛速度。</p>
+</li>
+<li><p><strong>缓解梯度消失问题</strong>：在深度神经网络中，使用sigmoid或tanh激活函数时，梯度可能会随着层数的增加而迅速减小，导致梯度消失问题。<strong>ReLU由于其线性特性，在正区间内梯度恒定，这有助于缓解梯度消失问题。</strong></p>
+</li>
+<li><p><strong>稀疏激活</strong>：ReLU激活函数在负区间内输出为零，这意味着网络中的神经元会稀疏地激活，这有助于减少计算量并可能提高模型的泛化能力。</p>
+</li>
+<li><p><strong>减少过拟合风险</strong>：稀疏激活的特性还意味着模型倾向于学习更加分散的表示，这可以减少过拟合的风险。</p>
+</li>
+<li><p><strong>实现简单</strong>：ReLU激活函数的实现非常简单，易于在各种深度学习框架中实现和使用。</p>
+</li>
+</ol>
+<p>尽管ReLU激活函数有很多优点，但它也有缺点，如在训练初期可能会导致神经元的死亡（即在训练过程中某些神经元可能永远不会激活）。为了解决这个问题，变体如Leaky ReLU和Parametric ReLU被提出，以允许负输入有一个非零的梯度。</p>
+<ul>
+<li>Leaky ReLU：允许负输入有一个非零的梯度，公式为 ( \text{LeakyReLU}(x) &#x3D; \max(\alpha x, x) )，其中 ( \alpha ) 是一个很小的正数。</li>
+<li>Parametric ReLU（PReLU）：Leaky ReLU的一个泛化，其中负输入的梯度 ( \alpha ) 是一个可学习的参数。</li>
+<li>Exponential Linear Unit（ELU）：提供一个负输入非零输出的平滑曲线，公式为 ( \text{ELU}(x) &#x3D; x ) if ( x &gt; 0 ) else ( \alpha (e^x - 1) )。</li>
+</ul>
+<p>总的来说，ReLU激活函数由于其简单、快速和有效的特点，在深度学习中得到了广泛的应用，尤其是在像AlexNet这样的深度卷积神经网络中。</p>
+<h2 id="CBAM"><a href="#CBAM" class="headerlink" title="CBAM"></a>CBAM</h2><p>CBAM（Convolutional Block Attention Module）是一种用于深度卷积神经网络的注意力机制模块，它旨在提高网络对输入数据的特征表示能力。CBAM 是由 Sanghyun Woo 等人在 2018 年提出的，它可以作为一个即插即用的模块，嵌入到现有的卷积神经网络架构中，以增强特征的表达能力。</p>
+<p>CBAM 包含两个主要部分：通道注意力（Channel Attention）和空间注意力（Spatial Attention）。这两个部分按顺序应用于卷积层的输出上，以逐步提炼特征表示。</p>
+<ol>
+<li><p><strong>通道注意力（Channel Attention）</strong>：</p>
+<ul>
+<li>通道注意力的目的是允许网络专注于更重要的通道特征，同时抑制不重要的通道。</li>
+<li>它首先使用全局平均池ing（Global Average Pooling, GAP）将每个通道的特征压缩成一个单独的数值，然后通过两个连续的全连接（FC）层，其中第二个FC层使用ReLU激活函数，最后通过一个sigmoid激活函数输出每个通道的重要性权重。</li>
+</ul>
+</li>
+<li><p><strong>空间注意力（Spatial Attention）</strong>：</p>
+<ul>
+<li>空间注意力的目的是强调特征图中更重要的空间位置，同时忽略不重要的位置。</li>
+<li>空间注意力通过将通道注意力的输出输入到一个卷积层，然后应用ReLU激活函数，接着再使用一个3x3的卷积核进行卷积操作，最后通过sigmoid激活函数输出每个空间位置的重要性权重。</li>
+</ul>
+</li>
+</ol>
+<p>CBAM 的工作流程如下：</p>
+<ul>
+<li>输入一个卷积层的特征图。</li>
+<li>应用通道注意力来获得每个通道的权重。</li>
+<li>使用这些通道权重来线性组合原始特征图中的通道。</li>
+<li>将通道注意力的输出传递给空间注意力模块。</li>
+<li>应用空间注意力来获得每个空间位置的权重。</li>
+<li>使用这些空间位置权重来线性组合特征图中的空间位置。</li>
+</ul>
+<p>CBAM 可以有效地增强网络对输入数据的感知能力，从而提高下游任务的性能，如图像分类、目标检测等。由于 CBAM 是一个轻量级模块，它不会显著增加计算负担，因此可以很容易地集成到各种深度学习架构中。</p>
+<p>CBAM 的一个关键优势是它提供了一种简单而有效的方法来增强特征表示，而无需改变网络的基本架构。这使得它成为提高现有模型性能的有用工具。此外，CBAM 的概念也启发了后续许多其他注意力机制模块的发展。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>面试准备</div>
+      <div>https://cs-lb.github.io/2024/05/12/保研资料/面试准备/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Liu Bo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年5月12日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/05/12/%E4%BF%9D%E7%A0%94%E8%B5%84%E6%96%99/%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86/" title="数学原理">
+                        <span class="hidden-mobile">数学原理</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","appKey":"aoBSZ1mISmupN9aimSNuZrgr","path":"window.location.pathname","placeholder":"评论","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"https://jx9ekdkf.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"appid":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","appkey":"aoBSZ1mISmupN9aimSNuZrgr"},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
