@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://cs-lb.github.io/img/self_attention.png">
 <meta property="og:image" content="https://cs-lb.github.io/img/Multi-Head%20Attention.png">
 <meta property="article:published_time" content="2024-04-15T08:07:46.000Z">
-<meta property="article:modified_time" content="2024-05-01T03:54:18.160Z">
+<meta property="article:modified_time" content="2024-05-13T12:47:14.094Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="408 算法 保研">
 <meta name="twitter:card" content="summary_large_image">
@@ -243,7 +243,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          102 字
+          378 字
         
       </span>
     
@@ -255,7 +255,7 @@
         
         
           <!-- compatible with older versions-->
-          1 分钟
+          4 分钟
         
       </span>
     
@@ -305,6 +305,10 @@
 <ol>
 <li>每个Patch数据通过映射得到一个长度为768的token向量，即[16, 16, 3] -&gt; [768]</li>
 </ol>
+<h2 id="MLP"><a href="#MLP" class="headerlink" title="MLP"></a>MLP</h2><h3 id="Transformer-Block中的MLP"><a href="#Transformer-Block中的MLP" class="headerlink" title="Transformer Block中的MLP"></a>Transformer Block中的MLP</h3><p>在自注意力机制之后，通常会有一个简单的MLP，其作用是对自注意力机制的输出进行进一步的非线性变换。</p>
+<p>这个MLP通常包含两个<strong>线性变换（FC），</strong> 它们之间有一个激活函数（通常是GELU激活函数）。MLP的输入是自注意力机制的输出，输出是经过MLP变换后的特征，这些特征将被送入下一个Transformer块或最终的分类头部。</p>
+<h3 id="分类头部中的MLP"><a href="#分类头部中的MLP" class="headerlink" title="分类头部中的MLP"></a>分类头部中的MLP</h3><p>在ViT的末尾，特征图经过一个分类头部来生成最终的分类结果。在ViT的早期版本中，分类头部可能仅仅是一个线性层，它将Transformer的输出特征映射到类别数量的维度上。然而，现代的ViT变体通常在分类头部使用一个或多个MLP层，以提供更复杂的非线性变换能力。</p>
+<p>这些MLP层允许模型在最终的分类决策中捕捉更高层次的特征交互，有助于提高分类的准确性。</p>
 
                 
               </div>
