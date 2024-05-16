@@ -16,24 +16,22 @@
   <meta name="author" content="Liu Bo">
   <meta name="keywords" content="408 算法 保研">
   
-    <meta name="description" content="国家级大学生创新创业训练项目阿尔茨海默病早期辅助诊断APP—基于AlexNet模型与软注意力机制的AI医疗项目  项目内容：本项目针对阿尔茨海默病（AD）的核磁共振图像进行医学图像分类研究。改进了基于卷积神经网络的 AlexNet 模型。创新性地引入软注意力机制，去重点关注与 AD 疾病相关性较高的海马体以提高分类准确率。 项目负责：组织协调队伍，负责分类模型的训练，并主导开发能自动识别AD分类的">
+    <meta name="description" content="C++内存分区模型程序运行前划分为代码区和全局区，程序运行后分为栈区和堆区   全局区：全局变量，静态变量（static关键字），常量（字符串常量 和 const修饰的全局常量） 栈区：由编译器自动分配释放，存放着函数的参数值，局部变量等，注意不要返回局部变量的地址 堆区：由程序员分配释放，若程序员不释放，程序结束后将由操作系统回收   new运算符  利用new运算符可以将数据开辟到堆区：int">
 <meta property="og:type" content="article">
-<meta property="og:title" content="国家级大创">
-<meta property="og:url" content="https://cs-lb.github.io/2024/05/03/%E5%9B%BD%E5%AE%B6%E7%BA%A7%E5%A4%A7%E5%88%9B/index.html">
+<meta property="og:title" content="C++内存分区">
+<meta property="og:url" content="https://cs-lb.github.io/2024/04/22/%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86/C-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA/index.html">
 <meta property="og:site_name" content="CS_Blog">
-<meta property="og:description" content="国家级大学生创新创业训练项目阿尔茨海默病早期辅助诊断APP—基于AlexNet模型与软注意力机制的AI医疗项目  项目内容：本项目针对阿尔茨海默病（AD）的核磁共振图像进行医学图像分类研究。改进了基于卷积神经网络的 AlexNet 模型。创新性地引入软注意力机制，去重点关注与 AD 疾病相关性较高的海马体以提高分类准确率。 项目负责：组织协调队伍，负责分类模型的训练，并主导开发能自动识别AD分类的">
+<meta property="og:description" content="C++内存分区模型程序运行前划分为代码区和全局区，程序运行后分为栈区和堆区   全局区：全局变量，静态变量（static关键字），常量（字符串常量 和 const修饰的全局常量） 栈区：由编译器自动分配释放，存放着函数的参数值，局部变量等，注意不要返回局部变量的地址 堆区：由程序员分配释放，若程序员不释放，程序结束后将由操作系统回收   new运算符  利用new运算符可以将数据开辟到堆区：int">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cs-lb.github.io/img/AlexNet.png">
-<meta property="article:published_time" content="2024-05-03T04:54:06.000Z">
-<meta property="article:modified_time" content="2024-05-07T00:38:14.409Z">
+<meta property="article:published_time" content="2024-04-22T00:20:28.000Z">
+<meta property="article:modified_time" content="2024-04-22T00:20:45.875Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="408 算法 保研">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cs-lb.github.io/img/AlexNet.png">
   
   
   
-  <title>国家级大创 - CS_Blog</title>
+  <title>C++内存分区 - CS_Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -218,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="国家级大创"></span>
+            <span id="subtitle" data-typed-text="C++内存分区"></span>
           
         </div>
 
@@ -229,8 +227,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-05-03 12:54" pubdate>
-          2024年5月3日 下午
+        <time datetime="2024-04-22 08:20" pubdate>
+          2024年4月22日 早上
         </time>
       </span>
     
@@ -242,7 +240,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          638 字
+          607 字
         
       </span>
     
@@ -291,34 +289,94 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">国家级大创</h1>
+            <h1 id="seo-header">C++内存分区</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="国家级大学生创新创业训练项目"><a href="#国家级大学生创新创业训练项目" class="headerlink" title="国家级大学生创新创业训练项目"></a>国家级大学生创新创业训练项目</h1><p>阿尔茨海默病早期辅助诊断APP—基于AlexNet模型与软注意力机制的AI医疗项目</p>
+                <h2 id="C-内存分区模型"><a href="#C-内存分区模型" class="headerlink" title="C++内存分区模型"></a>C++内存分区模型</h2><p><strong>程序运行前划分为代码区和全局区，程序运行后分为栈区和堆区</strong></p>
+<blockquote>
 <ul>
-<li>项目内容：本项目针对阿尔茨海默病（AD）的核磁共振图像进行医学图像分类研究。改进了基于卷积神经网络的 AlexNet 模型。创新性地引入软注意力机制，去重点关注与 AD 疾病相关性较高的海马体以提高分类准确率。</li>
-<li>项目负责：组织协调队伍，负责分类模型的训练，并主导开发能自动识别AD分类的小程序。</li>
-<li>项目成果：国家级大创优秀结题、申请软件著作权两项（均一作）、科创比赛省一等奖</li>
+<li>全局区：全局变量，静态变量（static关键字），常量（字符串常量 和 const修饰的全局常量）</li>
+<li>栈区：由编译器自动分配释放，存放着函数的参数值，局部变量等，注意不要返回局部变量的地址</li>
+<li>堆区：由程序员分配释放，若程序员不释放，程序结束后将由操作系统回收</li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53536373/article/details/137408747">Alexnet网络中加入CBAM attention机制</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44791964/article/details/121371986">Pytorch 图像处理中注意力机制的解析与代码详解</a></p>
-<h2 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h2><ol>
-<li>首次利用GPU加速网络训练</li>
-<li>首次使用了RuLU激活函数，而不是传统的sigmoid 和 Tanh函数</li>
-<li>使用了LRN局部响应归一化</li>
-<li>在全连接层的前面两层使用了Dropout操作（正向传播中随机使一部分神经元失活），以减少过拟合</li>
-</ol>
-<p><img src="/../img/AlexNet.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="Kaiming初始化方法"><a href="#Kaiming初始化方法" class="headerlink" title="Kaiming初始化方法"></a>Kaiming初始化方法</h2><blockquote>
-<p><strong>Kaiming初始化方法根据每一层的输入和输出的维度来初始化参数，保证每一层的输出的方差尽可能保持不变</strong>。</p>
-<p>具体来说，参数初始化采用均匀分布或者高斯分布，并且按照特定的缩放因子来执行。</p>
-<p>函数会根据Kaiming初始化方法从正态分布中抽取值并填充到张量中，具体的数学形式是根据输入和输出的特征图大小计算合适的标准差</p>
-<p>对于ReLU激活函数的网络，通常使用的缩放因子 sqrt(2 &#x2F; fan_in)，其中fan_in是该层的输入神经元数量。</p>
 </blockquote>
-<h2 id="软注意力机制"><a href="#软注意力机制" class="headerlink" title="软注意力机制"></a>软注意力机制</h2><p>CBAM注意力机制是一种用于图像分类和目标检测任务的注意力机制，其全称为”Convolutional Block Attention Module”。CBAM注意力机制结合通道注意力模块（Channel Attention Module）和空间注意力模块（Spatial Attention Module），以增强模型对图像的理解能力。</p>
-<p>在CBAM中，通道注意力模块用于调整每个通道的重要性，以便网络能够更好地关注不同通道之间的相关性。而空间注意力模块则用于捕捉图像中不同区域之间的关系，以提高模型对目标区域的感知能力。</p>
+<h3 id="new运算符"><a href="#new运算符" class="headerlink" title="new运算符"></a>new运算符</h3><blockquote>
+<ul>
+<li>利用new运算符可以将数据开辟到堆区：<code>int *p = new int(10)</code></li>
+<li>new运算符返回的是数据在栈中的地址</li>
+<li>利用 <code>delete</code>  可以释放堆区数据（<code>delete p</code> ）</li>
+</ul>
+</blockquote>
+<p>开辟数组：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C++">let* arr = <span class="hljs-keyword">new</span> <span class="hljs-type">int</span>[<span class="hljs-number">10</span>];<br><span class="hljs-keyword">for</span>( <span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i&lt;<span class="hljs-number">10</span>; i++)&#123;<br>    arr[ i ] = i + <span class="hljs-number">100</span>;<br> &#125;<br> <span class="hljs-comment">//释放数组</span><br> <span class="hljs-keyword">delete</span>[ ] arr<br></code></pre></td></tr></table></figure>
+
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><h3 id="引用的基本使用"><a href="#引用的基本使用" class="headerlink" title="引用的基本使用"></a>引用的基本使用</h3><blockquote>
+<ul>
+<li>作用：给变量起别名</li>
+<li>基本语法：数据类型 &amp;别名 &#x3D; 原名（ int &amp;b &#x3D; a ）</li>
+<li>引用一定要初始化，且之后不能再更改了</li>
+<li>函数参数的引用传递，形参也会修饰实参</li>
+</ul>
+</blockquote>
+<h3 id="引用的本质"><a href="#引用的本质" class="headerlink" title="引用的本质"></a>引用的本质</h3><h2 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h2><h3 id="类的访问权限"><a href="#类的访问权限" class="headerlink" title="类的访问权限"></a>类的访问权限</h3><blockquote>
+<p>类的默认访问权限是private</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>权限名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public</td>
+<td>类的内外都可以访问</td>
+</tr>
+<tr>
+<td>protected</td>
+<td>只有类内可以访问，且可以被继承</td>
+</tr>
+<tr>
+<td>private</td>
+<td>只有类内可以访问，且不可以被继承</td>
+</tr>
+</tbody></table>
+<p><strong>成员属性私有化</strong><br>1.可以自己控制读写权限<br>2.对于写可以检测数据的有效性</p>
+<h2 id="构造函数和析构函数"><a href="#构造函数和析构函数" class="headerlink" title="构造函数和析构函数"></a>构造函数和析构函数</h2><p>构造函数语法：<code>名（）&#123; &#125;</code></p>
+<blockquote>
+<ul>
+<li>1.构造函数，没有返回值也不写void</li>
+<li>2.构造函数名称应与类名相同</li>
+<li>3.构造函数可以有参数，也可以重载</li>
+<li>4.程序在调用对象时会自动调用构造函数</li>
+</ul>
+</blockquote>
+<p>析构函数语法：<code>（）&#123; &#125;</code></p>
+<blockquote>
+<ul>
+<li>1.析构函数，没有返回值也不写void</li>
+<li>2.析构函数名称应与类名相同，在名称前加上 ~</li>
+<li>3.析构函数不可以有参数</li>
+<li>4.程序在对象被销毁时会自动调用析构函数</li>
+</ul>
+</blockquote>
+<h2 id="深拷贝-浅拷贝"><a href="#深拷贝-浅拷贝" class="headerlink" title="深拷贝&amp;浅拷贝"></a>深拷贝&amp;浅拷贝</h2><h2 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h2><blockquote>
+<ul>
+<li>静态成员变量<ul>
+<li>所有对象共享同一份数据</li>
+<li>在编译阶段分配内存</li>
+<li>类内声明，类外访问</li>
+</ul>
+</li>
+<li>静态成员函数<ul>
+<li>所有对象共享同一个函数</li>
+<li>静态成员函数只能访问静态成员变量</li>
+</ul>
+</li>
+</ul>
+</blockquote>
 
                 
               </div>
@@ -336,8 +394,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>国家级大创</div>
-      <div>https://cs-lb.github.io/2024/05/03/国家级大创/</div>
+      <div>C++内存分区</div>
+      <div>https://cs-lb.github.io/2024/04/22/开发知识/C-内存分区/</div>
     </div>
     <div class="license-meta">
       
@@ -349,7 +407,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年5月3日</div>
+          <div>2024年4月22日</div>
         </div>
       
       
@@ -381,9 +439,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/05/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2/" title="语义分割">
+                      <a href="/2024/04/22/%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="小程序开发问题汇总">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">语义分割</span>
+                        <span class="hidden-mobile">小程序开发问题汇总</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -391,8 +449,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/Swin-transformer/" title="Swin-transformer">
-                        <span class="hidden-mobile">Swin-transformer</span>
+                      <a href="/2024/04/22/%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86/Vue/" title="Vue">
+                        <span class="hidden-mobile">Vue</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
