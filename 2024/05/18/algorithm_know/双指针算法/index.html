@@ -16,22 +16,22 @@
   <meta name="author" content="Liu Bo">
   <meta name="keywords" content="408 算法 保研">
   
-    <meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
+    <meta name="description" content="双指针算法tips:  涉及到 重复 二字考虑用一个计数数组进行存储  左右指针思路：设立两个指针 i 和 j ; 分别指向数组两端，在不同条件下，向内部移动某个指针，直到两个指针交互。 12345678910111213int i&#x3D;0,j&#x3D;n-1;while(i&lt;j)&#123;    if()&#123;        v &#x3D; ...;        i++;    &#125;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="夏令营经验贴总结">
-<meta property="og:url" content="https://cs-lb.github.io/2024/04/23/%E4%BF%9D%E7%A0%94%E8%B5%84%E6%96%99/%E5%A4%8F%E4%BB%A4%E8%90%A5%E7%BB%8F%E9%AA%8C%E8%B4%B4%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="双指针算法">
+<meta property="og:url" content="https://cs-lb.github.io/2024/05/18/algorithm_know/%E5%8F%8C%E6%8C%87%E9%92%88%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="CS_Blog">
-<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:description" content="双指针算法tips:  涉及到 重复 二字考虑用一个计数数组进行存储  左右指针思路：设立两个指针 i 和 j ; 分别指向数组两端，在不同条件下，向内部移动某个指针，直到两个指针交互。 12345678910111213int i&#x3D;0,j&#x3D;n-1;while(i&lt;j)&#123;    if()&#123;        v &#x3D; ...;        i++;    &#125;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-23T06:02:10.000Z">
-<meta property="article:modified_time" content="2024-05-18T13:58:20.341Z">
+<meta property="article:published_time" content="2024-05-18T00:20:56.000Z">
+<meta property="article:modified_time" content="2024-05-18T11:39:56.930Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="408 算法 保研">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>夏令营经验贴总结 - CS_Blog</title>
+  <title>双指针算法 - CS_Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -216,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="夏令营经验贴总结"></span>
+            <span id="subtitle" data-typed-text="双指针算法"></span>
           
         </div>
 
@@ -227,8 +227,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-23 14:02" pubdate>
-          2024年4月23日 下午
+        <time datetime="2024-05-18 08:20" pubdate>
+          2024年5月18日 早上
         </time>
       </span>
     
@@ -240,7 +240,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          298 字
+          172 字
         
       </span>
     
@@ -252,7 +252,7 @@
         
         
           <!-- compatible with older versions-->
-          3 分钟
+          2 分钟
         
       </span>
     
@@ -289,25 +289,25 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">夏令营经验贴总结</h1>
+            <h1 id="seo-header">双指针算法</h1>
             
             
-              
-              <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="fb3a0dbe0aeb19beef6906f65d0b25f3de7194add04b9f47d3cbc372aff35878">184d5613b7d1f40c9857b7bf904a8fe36b33bf429edbb9059ece5af0bf6d6695fbe83ac3e024ed502a727d981ac7692a1791730a4348f90bbee5c9cdc5b8b0f3dab26871bbfc86ef5fcc9a60bbe72a84635e0cc7e2283dc0769b5d5ce111220bbbc6713b6be16e21038456185a891c9c2b030106fa39b6c67e056342f79b66af76ad039bbed3d0b53f30942aba67f8833f6392e748036e6c07d03423cb36cbf82172caf7b298af82b81687b10154fa0b33fa931b4620c10cff0f1c2e30dcd0a060deafe0d95209554dc7c8dce3730636d56640df2350baeb26572fae2d684296b46334b36b74746e7f40dfe3ee7c782b0aba333a5545a356c8224c7b02706a16dd7720add66ad49a32ba34f8ff933baeecd9daf4f24e4f6c249ce1678284a871081ec7c8ade773900b4ad2118b38452596ed0fa9b4556c61a52d77b6cb9ce4a02b1703f63e30a4776d21d651c12f9d1eb08e41d77983f3b22648f201a17526f55ae46f63c477529399e00187290572787d28aedcb07075988d9d5ccce76d899964a2685b5f1bec0e5687d54f0462ed80c689281b8a104c275a9924f402bb1b51eadea064b3c5d4e4cab94fae305e66e8a7f348118f8b60acb1773b11a2f0f55db4659055269aefed9ae45e1d0ef2c77c7dd31c16d9d11de64a3c46a279e6a07780ea2a19d7a8938b07ec8c342d3103e03ed7da4a590ba3759b52bae4b41d4d132c96dc825669f6c2ab37179048b506dc6f18884219c558feef13becd82f85474724150642117708b1ee2b8bded25fcdcdbb0f1a9576e52cc301e89dd51bea669d57caf7b007c4c1216743f7fbac096291091661a1ea7d54f45fb20215c5567cb359cb2abc95950462289c2b85e1aeea5547948351401b4f3d0b51f21618579d88fd19d647aa331393fff66d449da9cd21eb586e8a7729b8e2f82c416315af03ac60dc9acd14e4a0eaa71a6504df088e913bf56db6b2371436446c9a21a3e8a32b1eebf20c6103d402afdc62f28b59cadc644686353a6fc3572322744f3a9c7f4bae7e5d5f4a3b09c71cd94577132c736c6d9bd15b7fa29d7553ef801c6d937dd166beec0d717cc81b916b366d5a7dc0e03f789d2a98d0259141ab236565a61da772fada28909286ec8417e9a98c2b291288cda42931572ce84b19d2faa90e075bf721806af55f76b2ac4e96c74001436db654e6a4e9158dc9cab8a733bd6992efd7880446675248b3470d682dc1a14620ceba4b1b49dc74ded95329e53449e42b2de0542a2e973d94b5c77c31184c2338d6473bc50c370c741567c54edb535e69616d70805b13cce52080c36e3ae00265ccf59c87f672f0dfb58b56963e643836b77a6d7efb8ee281a1c28298710ab49296c33ed8c7604464e234b0521485290f6fd4c34a2f2cd4cc283be2f6a2f9d97306a7a82cc2c5208bca94f5501093b0380696691ae53ab4ef51e437f59ca6430e89f1d8d3bbb8ea3963c7a01bd8e5e670c26ca867eb345f0176a366efd6c09399a7c798525d28ca77fa34feaa142617c9f4c19ad2798149c8bea6739d5eea3166ee9d36586f09ade039f4e0027611509d88733cf886600f2c6976d4fd9a0167cc0059ea1818853a54840f7200f8216fa9e6764c3e3100bb27af6e1c1e84326f5a9cf41b2d5e0831a9e41cdf3949c6c508fdf627c79b0e4e6c0260d04b3d610a1118f7e4d4d59238ad5453e493da8744da3b620fa2eddf15b6db74edbff6e0ecaddac2ccf4290da918385fe1235226265406b59b6401c174a9a39c20dd6e7f64f3baaa1a5cfc5794fd7943236b46e6140957b45a2c7900a02c49a0902610e764c397b8e296f3f1053c4c0f62aa5253595bc74df10df2d17a30214d4609c7d081bda322cf0348d90b70af22634bc46c0a425d9aa7bff711847d07756165c7f1052af602a761e30f188d966eadf66c9f5d67f478fb5c425156be8d1736f31e83d6407edd1dbf71f867426237d1f897fe5a4024b2439f61f28df1813564dafad8877821407507a1572cdc0bdd662ed67c47f9374c926145b54fd2a9553ffe99df8f6876b1b11711ced2f757af0b9d750c27b793ba3996631a6c52d2e31e048136d2392b170430aecf92c5f7f1be5e2883660d80b0e8656088e7f416b648fd12af16beff2c705ccb1c64cf8d3d49c0fec199eb17070d0af8424a8fa390598fecfea1c096dd41527bc248f4f7971e75e3cb14f2c9131d6876262f79ffd244c5e7e97f5d06e2692f0a8b43194726ca25c33bd3e6529ccbf57a6b8ea867df76c16ad201edf6d948f5b29d2ec83536b0df525f8990de1fdc1a5983423080ccbf6deafa24aa3d098b1da4e45f5f2403f263d5e24d7dbe69749514f3f1c08e02f766495ccba261ca4b056906544689e7998c19b5d4ce3541dbdba5f32ba5a99757ffdedbd183ddaaafe5aacc0d21048ee68b7092e6ff75ee028146777c487aa172f1f8ab6abdd1b3fe6f01c8b22c2670ed95d78d2dfe7435f7b37ab84fd8ea0251fbd325877866f006ce98cdd34befd3c57991f69b956243124258696f0dce043f7964f8bc61845c86444e8a37a947d1869de08146bc509e4303ae672f8784acec177c7ce350b4f99c4e2ebe62d5fd2397d629302de319a21d5a375db7b4ff17eb0408adcde9125c644ab62036cef6e3fc3ab2155c2e2efd813fbde329b5d6f9009ac205cc4eb45fdfd0a1ed83d5de0a5a4429fb18e3144b05f1e5b7c0ecf973dda57af808371c8d2a2d58c3a67bc5457b08dde8282ad66af05c11583703566f9c1963c6aeb3b79571df158717c47f12a814de822e9ce60dcabc89046eb7c53f20305dc8a2b6fd5ab6b79302c3e330b396ef440c387b7f5901df6285e2fb6eeb3af92aab1b049acd0af4ee714b14bfe9b00e895551121df7772e8e4b5ec4c786c0afa400a714f4b27bb9db44ece08942d1f8dad22a19935f44db54165afc27889692ad617a09dd1481292c11d3efbc9077c7726b1706eaffd18fdb153e5d7b3f26538edd1666e4d24591e4389a621c950c726300be125288adb71851050f6f022418db9046d8fb7a99aedb0965aecb6714de6c2664c41e695149f07efa94aacfefafcbc1c92f26e6a8713588d990575b2a2097317fe7bb46cf6ad6e19d53c22d1f3800fb6b1ccfe2de43c9e1e58285372b0ff03f5c5275e444d718dbf0daf94bf6ea47f075b69f459286c4bfb3b480c50fb48676b9c6bf227a256b0317f6cf44fd8db4ab462eef4d469fbc4ac15fba07b4a4344790c194761e727549e62e31006e5dc8c852287cbf6b573366540420e5a3531ad6f5037897d39a94f5fc0c8962bce6d869d84a06c6ab9162f0f5afbfba6d130822a6abafc743524a519aa4f06f517bbb7017880b1a832200344857329fc45e3fa4e1b0eeba8568d71177bc044ed836664535073e53843828cecabb3857857bac9a6adad8db90f80f9e52cd3041656b2d95acf57e94452ebddd5fe8bdb4332cc69cf0a6cb0ae14c63d06ef65aa796ec115a3ad6a5c85ee2b6c598a2da0e51144c83ef44e4f6f042f77e86aa6500f9acca7dac1e559e184bbd821f700e50db808cfc14b0e90c1477d7f6de473f7e832629ceb8e6345226b6e09b7d56e45f7093f7b237bbb4bcd9151135f1a2d04cddf32d5eb1ef63e42e94f11c46167b4ba8fda64f516222a99aecf8c47870c3db2c111ff1b8723c4af5880eb5396a0e5726fa78be7ad22d1fe71848ef6f5ffa859a5dacfb999906e09f88a5d9649f6836eae3b5f2ef3a9f5d9de567dc10b28262f0e652ff22eba984c0a0d33d2c16930736286e0e05514d21375d6a761057fe3993aa03b6775af7d4a6c1979684ccad470b0c30ac29d71ca126648e296269a7e0f15dc598cb5</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
-              
+              <div class="markdown-body">
+                
+                <h1 id="双指针算法"><a href="#双指针算法" class="headerlink" title="双指针算法"></a>双指针算法</h1><p>tips:</p>
+<ol>
+<li>涉及到 <strong>重复</strong> 二字考虑用一个计数数组进行存储</li>
+</ol>
+<h2 id="左右指针"><a href="#左右指针" class="headerlink" title="左右指针"></a>左右指针</h2><p>思路：设立两个指针 i 和 j ; 分别指向数组两端，在不同条件下，向内部移动某个指针，直到两个指针交互。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-type">int</span> i=<span class="hljs-number">0</span>,j=n<span class="hljs-number">-1</span>;<br><span class="hljs-keyword">while</span>(i&lt;j)&#123;<br>    <span class="hljs-keyword">if</span>()&#123;<br>        v = ...;<br>        i++;<br>    &#125;<br>    <span class="hljs-keyword">else</span>&#123;<br>        v = ...;<br>        j--;<br>    &#125;<br>    res = <span class="hljs-built_in">max</span>(res,v);<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<p>例题一: <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/container-with-most-water/description/">盛最多水的容器</a></p>
+<p>例题二：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/he-wei-sde-liang-ge-shu-zi-lcof/description/">和为s的两个数字</a></p>
+<h2 id="快慢指针"><a href="#快慢指针" class="headerlink" title="快慢指针"></a>快慢指针</h2><p>思想：<br>两个指针朝着同一方向前进，一个指针走得慢，一个指针走得快。</p>
+<p>例题一：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/middle-of-the-linked-list/submissions/532905013/">链表的中间结点</a></p>
+<p>例题二：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/801/">最长连续不重复子序列</a></p>
 
-              
+                
+              </div>
             
             <hr/>
             <div>
@@ -322,8 +322,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>夏令营经验贴总结</div>
-      <div>https://cs-lb.github.io/2024/04/23/保研资料/夏令营经验贴总结/</div>
+      <div>双指针算法</div>
+      <div>https://cs-lb.github.io/2024/05/18/algorithm_know/双指针算法/</div>
     </div>
     <div class="license-meta">
       
@@ -335,7 +335,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年4月23日</div>
+          <div>2024年5月18日</div>
         </div>
       
       
@@ -367,9 +367,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/04/23/%E4%BF%9D%E7%A0%94%E8%B5%84%E6%96%99/%E8%81%94%E7%B3%BB%E5%AF%BC%E5%B8%88%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" title="联系导师经验总结">
+                      <a href="/2024/05/18/algorithm_know/%E7%A6%BB%E6%95%A3%E5%8C%96/" title="离散化">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">联系导师经验总结</span>
+                        <span class="hidden-mobile">离散化</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -377,8 +377,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/22/%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="小程序开发问题汇总">
-                        <span class="hidden-mobile">小程序开发问题汇总</span>
+                      <a href="/2024/05/17/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E6%A2%AF%E5%BA%A6/" title="深度学习中的梯度">
+                        <span class="hidden-mobile">深度学习中的梯度</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -596,23 +596,6 @@
   
 
 
-
-
-  
-  <script defer>
-    if (document.getElementById('hbePass') || document.querySelector('hbe-prefix')) {
-      Fluid.utils.waitElementLoaded('hbe-prefix', function() {
-        var hbePrefix = document.querySelector('hbe-prefix');
-        hbePrefix.parentElement.classList.add('markdown-body');
-        Fluid.utils.retry(function() {
-          if (Fluid.boot && Fluid.boot.refresh) {
-            Fluid.boot.refresh();
-            return true;
-          }
-        }, 100, 10);
-      })
-    }
-  </script>
 
 
   

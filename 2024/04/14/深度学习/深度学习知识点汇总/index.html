@@ -24,7 +24,7 @@
 <meta property="og:description" content="深度学习知识点汇总12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455import torchimport torch.nn as nn# 定义模型class Net(nn.Module):    def __init__(self):">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-14T09:56:03.000Z">
-<meta property="article:modified_time" content="2024-04-14T09:56:29.962Z">
+<meta property="article:modified_time" content="2024-05-17T02:17:58.997Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="408 算法 保研">
 <meta name="twitter:card" content="summary_large_image">
@@ -240,7 +240,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          3.8k 字
+          3k 字
         
       </span>
     
@@ -252,7 +252,7 @@
         
         
           <!-- compatible with older versions-->
-          32 分钟
+          25 分钟
         
       </span>
     
@@ -330,14 +330,6 @@
 <p>具体来说，Dropout 在前向传播的过程中，以一定的概率 p（通常设置为0.5）将某个神经元的输出设为0，即丢弃该神经元。这样做的结果是，每个神经元在训练过程中都有一定概率暂时被“关闭”，从而迫使网络去考虑其他神经元的贡献，减少了对特定神经元的依赖性。同时，在前向传播过程中，通过保留每个神经元输出的比例，可以确保网络的总体期望值不变。</p>
 <h1 id="12-2"><a href="#12-2" class="headerlink" title="12.2"></a>12.2</h1><h2 id="Triplet-Loss-和-Center-Loss"><a href="#Triplet-Loss-和-Center-Loss" class="headerlink" title="Triplet Loss 和 Center Loss"></a>Triplet Loss 和 Center Loss</h2><blockquote>
 <p><code>https://blog.csdn.net/weixin_40671425/article/details/98068190</code></p>
-</blockquote>
-<h2 id="梯度消失和梯度爆炸"><a href="#梯度消失和梯度爆炸" class="headerlink" title="梯度消失和梯度爆炸"></a>梯度消失和梯度爆炸</h2><p>梯度消失和梯度爆炸的根源主要是因为<strong>深度神经网络结构</strong>以及**激活函数选择不当(函数的导数数值过小会导致梯度消失)**，目前优化神经网络的方法都是基于反向传播的思想，即根据损失函数计算的误差通过反向传播的方式，指导深度网络权值的更新。<br>在反向传播时对激活函数进行求导。如果在此部分大于1，那么随着层数的增加，求出的梯度的更新将以指数形式增加，发生梯度爆炸。如果此部分小于1，那么随着层数的增加求出的梯度更新的信息会以指数形式衰减，发生梯度消失。</p>
-<p><strong>梯度消失：</strong> 即在反向传播过程中，由于梯度值逐层传递时逐渐变小，导致较靠近输入层的层难以有效地学习到输入数据的特征和模式。</p>
-<p><strong>梯度爆炸</strong> 在深度神经网络训练过程中，梯度值逐层传递时逐渐增大，并且可能超出网络的数值范围的问题。当梯度值变得非常大时，参数更新的幅度也会变得非常大，导致模型变得不稳定，甚至无法收敛。</p>
-<p><strong>method</strong><br>1.正则化：通过 L1 或 L2 正则化来控制参数的大小，防止梯度值过大。<br>2.梯度剪裁（Gradient Clipping）：限制梯度值的范围，将超出阈值的梯度进行裁剪。<br>3.预训练：可以先使用无监督学习或其他方式进行预训练，提供一个比较好的初始参数，从而减小梯度消失和爆炸的可能性。<br>4.层标准化（Layer Normalization）或批标准化（Batch Normalization）：对层输出进行标准化，使其均值为0、方差为1，有助于缓解梯度消失情况。<br>5.参数初始化：合理选择参数的初始化方法，如使用 Xavier 或 He 等初始化方法，可以减小梯度消失和爆炸的概率。<br>6.更稳定的激活函数：使用 ReLU、Leaky ReLU 或其变体等激活函数，可以避免梯度消失，并且有助于缓解梯度爆炸。<br>7.Residual Connections（残差连接）：在网络中增加跨层连接，可以传递较浅层的梯度信息，缓解梯度消失和爆炸。</p>
-<p><strong>Residual Connections</strong></p>
-<blockquote>
-<p>残差连接引入了一种跨层传递的机制，即在网络的某些层中，将前一层的输出直接加到后一层的输入中去。这种机制可以有效地传递一定的梯度信息，避免了网络深度增加时出现的梯度消失问题，同时也能够克服一些非凸优化问题，使得网络更容易优化。<br>具体而言，假设某一层的输入为 x，输出为 y，则残差连接的实现形式可以表示为：<br><code>y=F(x)+x</code><br>其中 F(x) 表示该层的非线性变换操作，即前向传播过程。在反向传播梯度计算时，则会将损失函数 L 反向传播到该层，生成梯度 ∂L&#x2F;∂y，并将该梯度传递到 x，从而计算 ∂L&#x2F;∂x，即该层输入 x 对损失函数的梯度。</p>
 </blockquote>
 <h1 id="12-2-1"><a href="#12-2-1" class="headerlink" title="12.2"></a>12.2</h1><blockquote>
 <p><code>https://zhuanlan.zhihu.com/p/438085414</code></p>
