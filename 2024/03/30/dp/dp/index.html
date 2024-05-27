@@ -24,7 +24,7 @@
 <meta property="og:description" content="dp问题 要将$f[0][0]$ 等特殊的点进行初始化操作   背包问题0-1背包 问题描述：有 N 件物品和一个容量是 V 的背包。每件物品只能使用一次。第 i件物品的体积是$ v_i $，价值是$ w_i $ 。 求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大  针对0-1背包问题，每个物品有选与不选两种选择，则暴力枚举的时间复杂度为 $ O(2^n) $ 状态表示">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-30T15:54:14.000Z">
-<meta property="article:modified_time" content="2024-04-07T14:16:27.288Z">
+<meta property="article:modified_time" content="2024-05-23T14:37:49.500Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="动态规划">
@@ -242,7 +242,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.4k 字
+          1.5k 字
         
       </span>
     
@@ -254,7 +254,7 @@
         
         
           <!-- compatible with older versions-->
-          12 分钟
+          13 分钟
         
       </span>
     
@@ -354,15 +354,17 @@
 <li>将s个物品的体积看成一个个单独的物品</li>
 </ol>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//将s个物品看成一个个单独的物品</span><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>    cin &gt;&gt; a &gt;&gt; b &gt;&gt; s;<br>    <span class="hljs-keyword">while</span>(s--)&#123;<br>        t++; <span class="hljs-comment">//t从1开始</span><br>        v[t] = a;<br>        w[t] = b;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//拆分后直接套用0-1背包板子</span><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=t;i++)&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=m;j&gt;=v[i];j--)&#123;<br>        f[j] = <span class="hljs-built_in">max</span>(f[j],f[j-v[i]]+w[i]);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>二进制优化版本</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    cin &gt;&gt; n &gt;&gt; m;<br>    <span class="hljs-type">int</span> t = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>        <span class="hljs-type">int</span> a,b,s;<br>        <span class="hljs-type">int</span> k = <span class="hljs-number">1</span>;<br>        cin &gt;&gt; a &gt;&gt; b &gt;&gt; s;<br>        <span class="hljs-keyword">while</span>(k&lt;=s)&#123;<br>            t++;<br>            v[t] = k*a;<br>            w[t] = k*b;<br>            s -= k; <span class="hljs-comment">//s代表目前还未分配的，每次要减去已经分配</span><br>            k*=<span class="hljs-number">2</span>;<br>        &#125;<br>        <span class="hljs-comment">//如果还有没分配的，再进行最后一次分配</span><br>        <span class="hljs-keyword">if</span>(s&gt;<span class="hljs-number">0</span>)&#123;<br>            t++;<br>            v[t] = a*s;<br>            w[t] = b*s;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=t;i++)&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=m;j&gt;=v[i];j--)&#123;<br>            f[j] = f[j];<br>            <span class="hljs-keyword">if</span>(v[i] &lt;= j) f[j] = <span class="hljs-built_in">max</span>(f[j],f[j-v[i]]+w[i]);<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; f[m]; <br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="分组背包"><a href="#分组背包" class="headerlink" title="分组背包"></a>分组背包</h2><blockquote>
 <p>问题描述：有 N 组物品和一个容量是 V 的背包。每组物品有若干个，同一组内的物品最多只能选一个。每件物品的体积是$ v_{ij} $，价值是$ w_{ij} $，其中$ i $是组号，$ j $ 是组内编号。<br>求解将哪些物品装入背包，可使物品总体积不超过背包容量，且总价值最大。</p>
 </blockquote>
 <p><strong>状态计算</strong></p>
 <ol>
-<li>体积和价值表示为$ v[i][k] w[i][k] $ $ i $代表物品组，k 代表物品组里的第k个物品<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>    cin &gt;&gt; s[i];<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=s[i];j++)&#123;<br>        cin &gt;&gt; v[i][j] &gt;&gt; w[i][j];<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li>体积和价值表示为$ v[i][k] w[i][k] $ $ i $代表物品组，k 代表物品组里的第k个物品<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-type">int</span> d[S][M]; <span class="hljs-comment">//从前s组选，体积不超过m</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>        cin &gt;&gt; s[i];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=s[i];j++)&#123;<br>            cin &gt;&gt; v[i][j] &gt;&gt; w[i][j];<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure></li>
 <li>对每个物品组进行循环，将其转换成0-1背包<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>;j&lt;=m;j++)&#123;<br>        d[i][j] = d[i<span class="hljs-number">-1</span>][j];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k=<span class="hljs-number">1</span>;k&lt;=s[i];k++)<br>            <span class="hljs-keyword">if</span>(j &gt;= v[i][k]) d[i][j] = <span class="hljs-built_in">max</span>(d[i][j], d[i<span class="hljs-number">-1</span>][j-v[i][k]] + w[i][k]);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ol>
 

@@ -24,7 +24,7 @@
 <meta property="og:description" content="夏令营机试C语言注意事项 C语言中，不允许在全局作用域（file scope）中定义可变长度数组可以这样定义： int s[100010];   C语言字符串操作C语言字符串操作总结大全(超详细)C语言字符串操作总结大全(超详细)    strcmp(str1,str2) &#x3D;&#x3D; 0 代表相同  C语言排序实现 冒泡排序两个for循环，每次可以找到一个最大数字放置在未排好序列的最">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-16T07:00:46.000Z">
-<meta property="article:modified_time" content="2024-05-20T08:07:36.655Z">
+<meta property="article:modified_time" content="2024-05-24T17:15:45.903Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="408 算法 保研">
 <meta name="twitter:card" content="summary_large_image">
@@ -333,7 +333,7 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">//此处是 大于等于 10</span><br><span class="hljs-keyword">if</span>(v &gt;= <span class="hljs-number">10</span>) v-=<span class="hljs-number">10</span>,t=<span class="hljs-number">1</span>;<br><span class="hljs-keyword">else</span>&#123;<br>    t = <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <ol start="2">
-<li>当计算到最后一位时，要判断此时t是否&gt;0，如果大于要输出来</li>
+<li>当计算到最后一位时，要判断此时t是否&gt;0，如果大于要输出来<br><strong>注意最后一个进位也要考虑进来</strong></li>
 </ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-keyword">if</span>(t&gt;<span class="hljs-number">0</span>) <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>,t);<br></code></pre></td></tr></table></figure>
 
