@@ -23,13 +23,15 @@
 <meta property="og:site_name" content="CS_Blog">
 <meta property="og:description" content="vectorvector索引vector只有在指定长度时,才能用下标索引的方法修改元素 123456789101112vector&lt;int&gt; a(10);int main()&#123;	int n &#x3D; 2;	for(int i&#x3D;0;i&lt;n;i++)&#123;		cin &gt;&gt; a[i];	&#125;	for(auto p &#x3D; a.begin();p !&#x3D; a.en">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cs-lb.github.io/img/347.png">
 <meta property="article:published_time" content="2024-04-01T15:08:07.000Z">
-<meta property="article:modified_time" content="2024-05-24T02:31:20.587Z">
+<meta property="article:modified_time" content="2024-06-03T15:58:55.592Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="stl">
 <meta property="article:tag" content="vector">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cs-lb.github.io/img/347.png">
   
   
   
@@ -242,7 +244,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          541 字
+          681 字
         
       </span>
     
@@ -254,7 +256,7 @@
         
         
           <!-- compatible with older versions-->
-          5 分钟
+          6 分钟
         
       </span>
     
@@ -336,7 +338,12 @@
 </blockquote>
 <p>nth为一个迭代器，指向序列中的一个元素。第n小的值恰好在nth位置上</p>
 <p>执行nth_element()之后，序列中的元素会围绕nth进行划分：<strong>nth之前的元素都小于等于它，而之后的元素都大于等于它</strong></p>
-
+<h2 id="哈希表-vector"><a href="#哈希表-vector" class="headerlink" title="哈希表 + vector"></a>哈希表 + vector</h2><p><img src="/../../img/347.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li><code>unordered_map&lt;int,int&gt; st;</code> <strong>哈希表统计数据</strong></li>
+<li><code>vector&lt;pair&lt;int,int&gt;&gt; a;</code>   <strong>vector的sort来排序</strong></li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    unordered_map&lt;<span class="hljs-type">int</span>,<span class="hljs-type">int</span>&gt; st; <span class="hljs-comment">//哈希表统计数据</span><br>    vector&lt;pair&lt;<span class="hljs-type">int</span>,<span class="hljs-type">int</span>&gt;&gt; a; <span class="hljs-comment">//vector的sort来排序</span><br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">topKFrequent</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> k)</span> </span>&#123;<br>        <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        vector&lt;<span class="hljs-type">int</span>&gt; res;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>            st[nums[i]] ++;<br>        &#125;<br>        <span class="hljs-keyword">auto</span> it = st.<span class="hljs-built_in">begin</span>();<br>        <span class="hljs-keyword">while</span>(it != st.<span class="hljs-built_in">end</span>()) &#123;<br>            a.<span class="hljs-built_in">push_back</span>(&#123;it-&gt;second,it-&gt;first&#125;);<br>            it ++;<br>        &#125;<br>        <span class="hljs-built_in">sort</span>(a.<span class="hljs-built_in">begin</span>(),a.<span class="hljs-built_in">end</span>());<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = a.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>;i&gt;=<span class="hljs-number">0</span>;i--)&#123;<br>            <span class="hljs-keyword">if</span>(k == <span class="hljs-number">0</span>) <span class="hljs-keyword">break</span>;<br>            res.<span class="hljs-built_in">push_back</span>(a[i].second);<br>            k--;<br>        &#125;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;;<br><br></code></pre></td></tr></table></figure>
                 
               </div>
             

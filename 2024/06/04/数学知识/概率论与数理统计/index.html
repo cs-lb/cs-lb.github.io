@@ -1,0 +1,861 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/webico.ico">
+  <link rel="icon" href="/img/webico.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Liu Bo">
+  <meta name="keywords" content="408 算法 保研">
+  
+    <meta name="description" content="概率论与数理统计概率概率计算公式1. 加法公式 加法公式用于计算两个事件至少有一个发生的概率 ，即事件A或事件B发生的概率。 如果事件A和事件B不是互斥的，那么需要减去它们同时发生的概率，以避免重复计算：[ P(A \cup B) &#x3D; P(A) + P(B) - P(A \cap B) ] 如果事件A和事件B是互斥的（即它们不能同时发生），那么加法公式可以表示为：[ P(A \cup B">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概率论与数理统计">
+<meta property="og:url" content="https://cs-lb.github.io/2024/06/04/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/index.html">
+<meta property="og:site_name" content="CS_Blog">
+<meta property="og:description" content="概率论与数理统计概率概率计算公式1. 加法公式 加法公式用于计算两个事件至少有一个发生的概率 ，即事件A或事件B发生的概率。 如果事件A和事件B不是互斥的，那么需要减去它们同时发生的概率，以避免重复计算：[ P(A \cup B) &#x3D; P(A) + P(B) - P(A \cap B) ] 如果事件A和事件B是互斥的（即它们不能同时发生），那么加法公式可以表示为：[ P(A \cup B">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cs-lb.github.io/img/%E7%A6%BB%E6%95%A3%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83.png">
+<meta property="article:published_time" content="2024-06-04T15:04:22.000Z">
+<meta property="article:modified_time" content="2024-06-04T17:28:39.555Z">
+<meta property="article:author" content="Liu Bo">
+<meta property="article:tag" content="408 算法 保研">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cs-lb.github.io/img/%E7%A6%BB%E6%95%A3%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83.png">
+  
+  
+  
+  <title>概率论与数理统计 - CS_Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cs-lb.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","app_key":"aoBSZ1mISmupN9aimSNuZrgr","server_url":"https://jx9ekdkf.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CS_LB&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="概率论与数理统计"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-06-04 23:04" pubdate>
+          2024年6月4日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          3.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          28 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">概率论与数理统计</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="概率论与数理统计"><a href="#概率论与数理统计" class="headerlink" title="概率论与数理统计"></a>概率论与数理统计</h1><h2 id="概率"><a href="#概率" class="headerlink" title="概率"></a>概率</h2><h3 id="概率计算公式"><a href="#概率计算公式" class="headerlink" title="概率计算公式"></a>概率计算公式</h3><p><strong>1. 加法公式</strong></p>
+<p>加法公式用于计算两个事件<strong>至少有一个发生的概率</strong> ，即事件A或事件B发生的概率。</p>
+<p>如果事件A和事件B不是互斥的，那么需要减去它们同时发生的概率，以避免重复计算：<br>[ P(A \cup B) &#x3D; P(A) + P(B) - P(A \cap B) ]</p>
+<p>如果事件A和事件B是<strong>互斥的（即它们不能同时发生）</strong>，那么加法公式可以表示为：<br>[ P(A \cup B) &#x3D; P(A) + P(B) ]</p>
+<p>其中：</p>
+<ul>
+<li>( P(A \cup B) ) 是事件A或事件B发生的概率。</li>
+<li>( P(A) ) 是事件A发生的概率。</li>
+<li>( P(B) ) 是事件B发生的概率。</li>
+<li>( P(A \cap B) ) 是事件A和事件B同时发生的概率。</li>
+</ul>
+<p><strong>2. 乘法公式</strong></p>
+<p>乘法公式用于计算两个事件<strong>同时发生的概率</strong>，即事件A和事件B的联合概率。</p>
+<p>如果事件A和事件B不是独立的，那么需要使用条件概率来计算它们的联合概率：<br>[ P(A \cap B) &#x3D; P(A) \times P(B | A) ]<br>或者<br>[ P(A \cap B) &#x3D; P(B) \times P(A | B) ]</p>
+<p>如果事件<strong>A和B是独立的</strong>，那么它们的联合概率可以通过它们各自的概率相乘得到：<br>[ P(A \cap B) &#x3D; P(A) \times P(B) ]</p>
+<p>其中：</p>
+<ul>
+<li>( P(A \cap B) ) 是事件A和事件B同时发生的概率。</li>
+<li>( P(B | A) ) 是在事件A发生的条件下事件B发生的概率，即条件概率。</li>
+<li>( P(A | B) ) 是在事件B发生的条件下事件A发生的概率。</li>
+</ul>
+<p><strong>3. 全概率公式（原因推结果）</strong></p>
+<p>全概率公式用于计算一个事件的结果，当这个事件是由多个互斥原因引起的。如果事件A是由多个互斥的子事件B1, B2, …, Bn引起的，那么事件A发生的概率可以通过以下公式计算：<br>[ P(A) &#x3D; P(A|B_1)P(B_1) + P(A|B_2)P(B_2) + \ldots + P(A|B_n)P(B_n) ]<br>其中：</p>
+<ul>
+<li>( P(A) ) 是事件A发生的概率。</li>
+<li>( P(B_i) ) 是第i个原因发生的概率。</li>
+<li>( P(A|B_i) ) 是在第i个原因发生的条件下，事件A发生的概率。</li>
+</ul>
+<p>全概率公式允许我们通过已知的各个原因的概率和它们导致结果的条件概率，来计算结果发生的概率</p>
+<p><strong>4. 贝叶斯公式（结果推原因）</strong></p>
+<p>贝叶斯公式是一种逆概率计算方法，它允许我们根据已知的结果来推断原因的概率。贝叶斯公式可以表示为：<br>[ P(B_i|A) &#x3D; \frac{P(A|B_i)P(B_i)}{P(A)} ]<br>其中：</p>
+<ul>
+<li>( P(B_i|A) ) 是在事件A发生的条件下，原因Bi发生的概率。</li>
+<li>( P(A|B_i) ) 是在原因Bi发生的条件下，事件A发生的概率。</li>
+<li>( P(B_i) ) 是原因Bi发生的概率。</li>
+<li>( P(A) ) 是事件A发生的概率。</li>
+</ul>
+<p>贝叶斯公式的核心思想是，通过已知的事件A发生的条件概率和原因的概率，以及事件A发生的概率，来计算在事件A发生的情况下，各个原因发生的概率。</p>
+<p>这两个公式在处理不确定性和进行决策时非常有用，特别是在我们只有部分信息的情况下。例如，在医学诊断、风险评估、机器学习中的分类问题等领域，全概率公式和贝叶斯公式都发挥着重要作用。</p>
+<h3 id="事件独立性"><a href="#事件独立性" class="headerlink" title="事件独立性"></a>事件独立性</h3><h2 id="分布"><a href="#分布" class="headerlink" title="分布"></a>分布</h2><h3 id="离散分布"><a href="#离散分布" class="headerlink" title="离散分布"></a>离散分布</h3><p><img src="/../../img/%E7%A6%BB%E6%95%A3%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>1. 伯努利分布（0-1分布）</strong></p>
+<p>描述了只有两种可能结果（成功和失败，通常用1和0表示）的单次随机试验。</p>
+<p><strong>2. 二项分布（n重 伯努利分布）</strong></p>
+<p>描述了固定次数 𝑛的独立重复的伯努利试验中成功的次数。</p>
+<p><strong>3. 几何分布</strong></p>
+<p>描述了在一系列独立的伯努利试验中，得到第一次成功所需的试验次数。<br>意义：n 次伯努利试验中前 k-1 次皆失败，第 k 次成功的概率。</p>
+<p><strong>4. 泊松分布（0-1分布）</strong></p>
+<p>二项分布的极限。期望和方差均为λ。</p>
+<p>参数 λ 是单位时间(或单位面积)内随机事件的平均发生次数，满足线性相加（2 倍单位时间内…服从 2λ分布）。</p>
+<p>泊松分布适合于描述单位时间内随机事件发生的次数</p>
+<h3 id="连续分布"><a href="#连续分布" class="headerlink" title="连续分布"></a>连续分布</h3><p>概率论与数理统计中的均匀分布、指数分布和正态分布是三种非常重要的连续概率分布，它们在不同的领域和情境下有着广泛的应用。</p>
+<p><strong>均匀分布（Uniform Distribution）</strong><br>均匀分布是一种最简单的连续概率分布，其中随机变量在某个区间内取任何值的概率是相同的。如果随机变量 ( X ) 在区间 ( [a, b] ) 上服从均匀分布，其概率密度函数（PDF）为：<br>[ f(x) &#x3D; \begin{cases}<br>\frac{1}{b - a} &amp; \text{for } a \leq x \leq b, \<br>0 &amp; \text{otherwise.}<br>\end{cases} ]</p>
+<p>均匀分布的特点：</p>
+<ul>
+<li>概率密度在区间 ( [a, b] ) 上是恒定的。</li>
+<li>区间外的概率密度为0。</li>
+<li>随机变量的期望值 ( E(X) ) 为 ( \frac{a + b}{2} )。</li>
+<li>方差 ( \text{Var}(X) ) 为 ( \frac{(b - a)^2}{12} )。</li>
+</ul>
+<p><strong>指数分布（Exponential Distribution）</strong><br>指数分布是一种单参数的连续概率分布，常用于描述独立随机事件发生的时间间隔。如果随机变量 ( X ) 服从参数为 ( \lambda ) 的指数分布，其概率密度函数为：<br>[ f(x) &#x3D; \lambda e^{-\lambda x} \quad \text{for } x \geq 0 ]<br>其中 ( \lambda &gt; 0 )。</p>
+<p>指数分布的特点：</p>
+<ul>
+<li>它没有记忆性，即指数分布的随机变量的持续时间不依赖于已经经过的时间。</li>
+<li>期望值 ( E(X) ) 为 ( \frac{1}{\lambda} )。</li>
+<li>方差 ( \text{Var}(X) ) 为 ( \frac{1}{\lambda^2} )。</li>
+</ul>
+<p><strong>正态分布（Normal Distribution）</strong><br>正态分布，也称为高斯分布，是连续概率分布中最重要的一种。它在自然科学和社会科学的许多领域中都有应用。如果随机变量 ( X ) 服从均值为 ( \mu )，方差为 ( \sigma^2 ) 的正态分布，其概率密度函数为：<br>[ f(x) &#x3D; \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x - \mu)^2}{2\sigma^2}} ]</p>
+<p>正态分布的特点：</p>
+<ul>
+<li>它是对称的，并且以均值 ( \mu ) 为中心。</li>
+<li>大部分数据集中在均值附近，数据的分布呈现钟形曲线。</li>
+<li>期望值 ( E(X) )、中位数和众数都等于 ( \mu )。</li>
+<li>方差 ( \text{Var}(X) ) 为 ( \sigma^2 )。</li>
+<li>68-95-99.7 规则（经验法则）表明，在正态分布中，约68%的数据落在 ( \mu \pm \sigma ) 区间内，约95%落在 ( \mu \pm 2\sigma ) 区间内，约99.7%落在 ( \mu \pm 3\sigma ) 区间内。</li>
+</ul>
+<p>这三种分布各自有其独特的性质和应用场景。均匀分布常用于描述在一定范围内等可能发生的事件；指数分布适用于描述泊松过程中事件之间的时间间隔；正态分布则因其优美的数学性质和中心极限定理，在统计推断和数据分析中扮演着核心角色。</p>
+<h2 id="大数定律"><a href="#大数定律" class="headerlink" title="大数定律"></a>大数定律</h2><p>大数定律是概率论和数理统计中的一个基本概念，它描述了在一定条件下，<strong>随着样本量的增加，样本均值会越来越接近总体均值的性质。</strong> 大数定律保证了在大量重复实验中，随机变量的相对频率趋近于其概率。</p>
+<h3 id="大数定律的两种形式"><a href="#大数定律的两种形式" class="headerlink" title="大数定律的两种形式"></a>大数定律的两种形式</h3><ol>
+<li><p><strong>切比雪夫大数定律（Chebyshev’s Law of Large Numbers）</strong><br>切比雪夫大数定律是大数定律的一个较弱的形式，它适用于具有相同期望值和有限方差的随机变量序列。它指出，对于一列独立同分布（i.i.d.）的随机变量 ( X_1, X_2, \ldots )，如果它们的期望值 ( \mu ) 和方差 ( \sigma^2 ) 都存在，则样本均值 ( \overline{X}<em>n &#x3D; \frac{1}{n} \sum</em>{i&#x3D;1}^n X_i ) 会随着 ( n ) 的增加而趋近于 ( \mu )。具体来说，对于任意正数 ( \varepsilon &gt; 0 )，有：<br>[ P\left(|\overline{X}_n - \mu| \geq \varepsilon\right) \leq \frac{\sigma^2}{n \varepsilon^2} ]</p>
+</li>
+<li><p><strong>中心极限定理（Central Limit Theorem, CLT）</strong><br>中心极限定理是大数定律的一个更强的形式，它说明了在适当的条件下，大量独立同分布的随机变量之和经过标准化后趋近于正态分布。无论原始随机变量本身服从何种分布，只要它们具有相同的期望值 ( \mu ) 和方差 ( \sigma^2 )，它们的样本均值的分布会随着样本量的增加而趋近于正态分布 ( N(\mu, \frac{\sigma^2}{n}) )。具体来说，对于任意 ( z ) 值，当 ( n ) 足够大时，有：<br>[ P\left(\frac{\overline{X}_n - \mu}{\sigma&#x2F;\sqrt{n}} \leq z\right) \approx \Phi(z) ]<br>其中，( \Phi(z) ) 是标准正态分布的累积分布函数。</p>
+</li>
+</ol>
+<h3 id="大数定律的应用"><a href="#大数定律的应用" class="headerlink" title="大数定律的应用"></a>大数定律的应用</h3><p>大数定律在统计学、经济学、保险学、质量管理等领域有着广泛的应用。它为统计推断提供了理论基础，尤其是在估计总体参数时。例如：</p>
+<ul>
+<li>在抽样调查中，通过大数定律，我们可以相信，随着样本量的增加，样本均值会越来越接近总体均值。</li>
+<li>在保险业中，大数定律用于解释为什么保险公司可以通过承保大量保单来分散风险，从而稳定赔付成本。</li>
+<li>在质量管理中，大数定律帮助我们理解为什么生产大量产品时，产品的缺陷率会趋于稳定。</li>
+</ul>
+<p>大数定律不保证每个样本均值都接近总体均值，但它确实保证了随着样本量的增加，样本均值的分布会越来越集中于总体均值周围。这是统计学中非常重要的一个概念，它帮助我们理解和预测大量数据的行为。</p>
+<h2 id="面试题目"><a href="#面试题目" class="headerlink" title="面试题目"></a>面试题目</h2><h3 id="贝叶斯公式是什么，有什么应用"><a href="#贝叶斯公式是什么，有什么应用" class="headerlink" title="贝叶斯公式是什么，有什么应用"></a>贝叶斯公式是什么，有什么应用</h3><p>贝叶斯公式描述了两个<strong>条件概率之间的关系</strong><br>即在已知某个事件B发生的条件下，事件A发生的概率 与 在已知事件A发生的条件下，事件B发生的概率之间的关系。（原因推结果）</p>
+<ol>
+<li>机器学习：在机器学习中，贝叶斯方法被用于分类、聚类和预测。贝叶斯分类器利用<strong>先验概率</strong>和<strong>似然度</strong>来计算新实例的后验概率。</li>
+</ol>
+<p>贝叶斯分类器是一种统计分类方法，它使用贝叶斯定理来结合先验知识（先验概率）和新观测到的数据（似然度），从而计算出新实例的后验概率，并据此做出分类决策。以下是贝叶斯分类器如何工作的详细解释：</p>
+<p><strong>先验概率（Prior Probability）</strong><br>先验概率是指在没有考虑新证据之前，我们对某个事件发生的概率评估。在分类问题中，先验概率通常是指各类别在数据集中出现的频率。例如，如果我们正在处理垃圾邮件分类问题，先验概率可能是垃圾邮件和非垃圾邮件在训练数据集中的比例。</p>
+<p><strong>似然度（Likelihood）</strong><br>似然度是指在某个假设下，观测数据出现的概率。在贝叶斯分类器中，似然度是指给定类别条件下，实例特征出现的概率。例如，对于一封邮件，似然度可以是邮件中包含特定单词的概率，假设这些单词只在垃圾邮件中出现。</p>
+<p><strong>后验概率（Posterior Probability）</strong><br>后验概率是在考虑了新证据之后，对事件发生概率的重新评估。在贝叶斯分类器中，后验概率是给定实例特征条件下，该实例属于某个类别的概率。贝叶斯定理提供了一种计算后验概率的方法：</p>
+<p>[ P(C_k|X) &#x3D; \frac{P(X|C_k) \cdot P(C_k)}{P(X)} ]</p>
+<p>其中：</p>
+<ul>
+<li>( P(C_k|X) ) 是后验概率，即给定特征集 ( X ) 的条件下，实例属于类别 ( C_k ) 的概率。</li>
+<li>( P(X|C_k) ) 是似然度，即在类别 ( C_k ) 发生的条件下，观测到特征集 ( X ) 的概率。</li>
+<li>( P(C_k) ) 是先验概率，即类别 ( C_k ) 的初始概率。</li>
+<li>( P(X) ) 是边缘概率，即不考虑类别标签，观测到特征集 ( X ) 的概率，它可以通过对所有类别的似然度和先验概率乘积求和得到。</li>
+</ul>
+<p><strong>分类决策</strong><br>贝叶斯分类器根据后验概率来做出分类决策。具体来说，对于一个新的实例，分类器会计算该实例属于每个可能类别的后验概率，然后选择具有最高后验概率的类别作为预测结果。</p>
+<p>贝叶斯分类器的优势在于其简单性和解释性，它可以很容易地结合领域知识（通过先验概率）和数据（通过似然度）。此外，贝叶斯分类器在处理大量特征时特别有效，尤其是在特征之间存在不确定性时。</p>
+<ol start="2">
+<li><p>决策理论：贝叶斯决策理论通过考虑不确定性和风险来帮助做出最优决策。</p>
+</li>
+<li><p>信号处理：在信号检测和滤波中，贝叶斯方法可以用来估计信号的存在概率。</p>
+</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>概率论与数理统计</div>
+      <div>https://cs-lb.github.io/2024/06/04/数学知识/概率论与数理统计/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Liu Bo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年6月4日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/06/05/%E4%BF%9D%E7%A0%94%E8%B5%84%E6%96%99/%E4%BF%9D%E7%A0%94%E4%B8%93%E4%B8%9A%E8%AF%BE%E9%9D%A2%E8%AF%95%E9%A2%98%E5%BA%93/" title="保研专业课面试题库">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">保研专业课面试题库</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/06/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C%E8%A1%A8/" title="哈希表">
+                        <span class="hidden-mobile">哈希表</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","appKey":"aoBSZ1mISmupN9aimSNuZrgr","path":"window.location.pathname","placeholder":"评论","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"https://jx9ekdkf.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"appid":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","appkey":"aoBSZ1mISmupN9aimSNuZrgr"},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

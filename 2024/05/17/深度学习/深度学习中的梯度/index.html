@@ -24,7 +24,7 @@
 <meta property="og:description" content="深度学习中的梯度梯度反向传播梯度反向传播（Backpropagation）是神经网络中用于训练模型的关键算法。在反向传播过程中，梯度会从输出层反向传递到输入层，用于更新网络中的权重。梯度反向传播涉及对网络中每一层的权重和激活函数进行微分，计算损失函数相对于每个权重的梯度。 梯度反向传播会经过多层反复相乘的原因与链式法则（Chain Rule）有关，这是微积分中用于求解复合函数导数的基本法则。在神经">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-17T02:17:03.000Z">
-<meta property="article:modified_time" content="2024-05-17T02:21:16.690Z">
+<meta property="article:modified_time" content="2024-06-01T01:56:18.037Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="408 算法 保研">
 <meta name="twitter:card" content="summary_large_image">
@@ -240,7 +240,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2.2k 字
+          2.9k 字
         
       </span>
     
@@ -252,7 +252,7 @@
         
         
           <!-- compatible with older versions-->
-          19 分钟
+          25 分钟
         
       </span>
     
@@ -352,6 +352,36 @@
 <blockquote>
 <p>残差连接引入了一种跨层传递的机制，即在网络的某些层中，将前一层的输出直接加到后一层的输入中去。这种机制可以有效地传递一定的梯度信息，避免了网络深度增加时出现的梯度消失问题，同时也能够克服一些非凸优化问题，使得网络更容易优化。<br>具体而言，假设某一层的输入为 x，输出为 y，则残差连接的实现形式可以表示为：<br><code>y=F(x)+x</code><br>其中 F(x) 表示该层的非线性变换操作，即前向传播过程。在反向传播梯度计算时，则会将损失函数 L 反向传播到该层，生成梯度 ∂L&#x2F;∂y，并将该梯度传递到 x，从而计算 ∂L&#x2F;∂x，即该层输入 x 对损失函数的梯度。</p>
 </blockquote>
+<h2 id="梯度下降算法"><a href="#梯度下降算法" class="headerlink" title="梯度下降算法"></a>梯度下降算法</h2><p>梯度下降算法是一种用于最小化目标函数的优化算法，通常用于机器学习和深度学习中的参数估计问题。在深度学习中，目标函数通常是损失函数，它衡量模型预测与实际数据之间的差异。梯度下降算法的基本思想是迭代地调整模型的参数，以减少损失函数的值。</p>
+<p>以下是梯度下降算法的基本步骤：</p>
+<ol>
+<li><p><strong>初始化参数</strong>：随机初始化模型参数或使用预设的值。</p>
+</li>
+<li><p><strong>计算梯度</strong>：计算损失函数对每个参数的偏导数，这些偏导数构成了梯度向量。梯度指向损失函数增长最快的方向。</p>
+</li>
+<li><p><strong>更新参数</strong>：根据梯度和一个学习率（步长）来更新每个参数。参数更新的公式通常是：<br>[ \theta_i :&#x3D; \theta_i - \eta \cdot \frac{\partial J}{\partial \theta_i} ]<br>其中，(\theta_i) 是第(i)个参数，(\eta) 是学习率，(\frac{\partial J}{\partial \theta_i}) 是损失函数(J)对参数(\theta_i)的偏导数。</p>
+</li>
+<li><p><strong>重复迭代</strong>：重复步骤2和3，直到满足停止条件，如梯度足够小、达到预定的迭代次数或损失函数值不再显著减小。</p>
+</li>
+</ol>
+<p>梯度下降算法有几种变体，用于提高性能和稳定性：</p>
+<ul>
+<li><p><strong>批量梯度下降（Batch Gradient Descent）</strong>：每次迭代使用整个数据集来计算梯度和更新参数。这种方法计算准确，但可能计算成本高，且在大数据集上效率低。</p>
+</li>
+<li><p><strong>随机梯度下降（Stochastic Gradient Descent, SGD）</strong>：每次迭代只使用一个训练样本来计算梯度和更新参数。SGD通常更快，但可能会有较大的噪声，导致训练过程不稳定。</p>
+</li>
+<li><p><strong>小批量梯度下降（Mini-batch Gradient Descent）</strong>：每次迭代使用一小部分数据（称为小批量）来计算梯度和更新参数。这是批量梯度下降和随机梯度下降的折中方案，通常在实践中效果较好。</p>
+</li>
+<li><p><strong>动量（Momentum）</strong>：在SGD的基础上增加了动量项，可以帮助梯度下降更快地收敛，同时减少震荡。</p>
+</li>
+<li><p><strong>AdaGrad</strong>：自适应梯度算法，为每个参数调整学习率，使得每个参数的学习率与其历史梯度的大小成反比。</p>
+</li>
+<li><p><strong>RMSProp</strong>：一种自适应学习率优化算法，类似于AdaGrad，但解决了AdaGrad学习率过快减小的问题。</p>
+</li>
+<li><p><strong>Adam</strong>：自适应矩估计算法，结合了动量和RMSProp的思想，是目前非常流行的优化算法之一。</p>
+</li>
+</ul>
+<p>梯度下降算法及其变体在深度学习中被广泛使用，它们通过有效地调整模型参数来最小化损失函数，从而训练出性能良好的深度学习模型。</p>
 
                 
               </div>
