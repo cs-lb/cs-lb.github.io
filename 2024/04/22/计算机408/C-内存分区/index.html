@@ -16,23 +16,22 @@
   <meta name="author" content="Liu Bo">
   <meta name="keywords" content="408 算法 保研">
   
-    <meta name="description" content="操作系统复习进程和线程区别进程之间通信的方式进程调度算法临界区访问临界资源（互斥访问资源）的那段代码">
+    <meta name="description" content="C++复习栈空间和堆空间区别   特性&#x2F;方面 栈空间（Stack） 堆空间（Heap）    内存管理 自动管理 手动管理   生命周期 函数调用结束时自动销毁 需手动释放，否则可能导致内存泄漏   分配速度 快 慢   大小 相对较小 相对较大   内存碎片 不容易产生 容易产生   性能 高 相对较低   使用场景 存储局部变量、函数调用上下文 存储大型数据结构、动态分配的对象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="操作系统复习">
-<meta property="og:url" content="https://cs-lb.github.io/2024/04/15/%E8%AE%A1%E7%AE%97%E6%9C%BA408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:title" content="C++复习">
+<meta property="og:url" content="https://cs-lb.github.io/2024/04/22/%E8%AE%A1%E7%AE%97%E6%9C%BA408/C-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA/index.html">
 <meta property="og:site_name" content="CS_Blog">
-<meta property="og:description" content="操作系统复习进程和线程区别进程之间通信的方式进程调度算法临界区访问临界资源（互斥访问资源）的那段代码">
+<meta property="og:description" content="C++复习栈空间和堆空间区别   特性&#x2F;方面 栈空间（Stack） 堆空间（Heap）    内存管理 自动管理 手动管理   生命周期 函数调用结束时自动销毁 需手动释放，否则可能导致内存泄漏   分配速度 快 慢   大小 相对较小 相对较大   内存碎片 不容易产生 容易产生   性能 高 相对较低   使用场景 存储局部变量、函数调用上下文 存储大型数据结构、动态分配的对象">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-15T04:58:31.000Z">
-<meta property="article:modified_time" content="2024-06-06T08:28:10.843Z">
+<meta property="article:published_time" content="2024-04-22T00:20:28.000Z">
+<meta property="article:modified_time" content="2024-06-06T08:34:55.228Z">
 <meta property="article:author" content="Liu Bo">
-<meta property="article:tag" content="408">
-<meta property="article:tag" content="操作系统">
+<meta property="article:tag" content="408 算法 保研">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>操作系统复习 - CS_Blog</title>
+  <title>C++复习 - CS_Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -217,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="操作系统复习"></span>
+            <span id="subtitle" data-typed-text="C++复习"></span>
           
         </div>
 
@@ -228,8 +227,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-15 12:58" pubdate>
-          2024年4月15日 下午
+        <time datetime="2024-04-22 08:20" pubdate>
+          2024年4月22日 早上
         </time>
       </span>
     
@@ -241,7 +240,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          48 字
+          1.4k 字
         
       </span>
     
@@ -253,7 +252,7 @@
         
         
           <!-- compatible with older versions-->
-          1 分钟
+          12 分钟
         
       </span>
     
@@ -290,12 +289,191 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">操作系统复习</h1>
+            <h1 id="seo-header">C++复习</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="操作系统复习"><a href="#操作系统复习" class="headerlink" title="操作系统复习"></a>操作系统复习</h1><h2 id="进程和线程区别"><a href="#进程和线程区别" class="headerlink" title="进程和线程区别"></a>进程和线程区别</h2><h2 id="进程之间通信的方式"><a href="#进程之间通信的方式" class="headerlink" title="进程之间通信的方式"></a>进程之间通信的方式</h2><h2 id="进程调度算法"><a href="#进程调度算法" class="headerlink" title="进程调度算法"></a>进程调度算法</h2><h2 id="临界区"><a href="#临界区" class="headerlink" title="临界区"></a>临界区</h2><p>访问临界资源（互斥访问资源）的那段代码</p>
+                <h1 id="C-复习"><a href="#C-复习" class="headerlink" title="C++复习"></a>C++复习</h1><h2 id="栈空间和堆空间区别"><a href="#栈空间和堆空间区别" class="headerlink" title="栈空间和堆空间区别"></a>栈空间和堆空间区别</h2><table>
+<thead>
+<tr>
+<th>特性&#x2F;方面</th>
+<th>栈空间（Stack）</th>
+<th>堆空间（Heap）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存管理</td>
+<td>自动管理</td>
+<td>手动管理</td>
+</tr>
+<tr>
+<td>生命周期</td>
+<td>函数调用结束时自动销毁</td>
+<td>需手动释放，否则可能导致内存泄漏</td>
+</tr>
+<tr>
+<td>分配速度</td>
+<td>快</td>
+<td>慢</td>
+</tr>
+<tr>
+<td>大小</td>
+<td>相对较小</td>
+<td>相对较大</td>
+</tr>
+<tr>
+<td>内存碎片</td>
+<td>不容易产生</td>
+<td>容易产生</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>高</td>
+<td>相对较低</td>
+</tr>
+<tr>
+<td>使用场景</td>
+<td>存储局部变量、函数调用上下文</td>
+<td>存储大型数据结构、动态分配的对象</td>
+</tr>
+<tr>
+<td>分配&#x2F;释放操作符</td>
+<td>无（自动）</td>
+<td><code>new</code> &#x2F; <code>delete</code></td>
+</tr>
+<tr>
+<td>典型限制</td>
+<td>大小有限制，不适合大型数据</td>
+<td>受限于系统可用内存</td>
+</tr>
+<tr>
+<td>访问速度</td>
+<td>访问速度通常比堆内存快</td>
+<td>访问速度相对较慢</td>
+</tr>
+<tr>
+<td>示例</td>
+<td><code>int a;</code></td>
+<td><code>int* b = new int;</code> <code>delete b;</code></td>
+</tr>
+</tbody></table>
+<h2 id="引用和指针"><a href="#引用和指针" class="headerlink" title="引用和指针"></a>引用和指针</h2><p>引用的主要优点是语法简单、使用安全，因为它们不允许空引用，也不能重新指向另一个对象。指针则更加灵活，但也更复杂，需要程序员手动管理，包括处理空指针和内存泄漏等问题。</p>
+<p><strong>引用的基本使用</strong></p>
+<blockquote>
+<ul>
+<li>作用：给变量起别名</li>
+<li>基本语法：数据类型 &amp;别名 &#x3D; 原名（ int &amp;b &#x3D; a ）</li>
+<li>引用一定要初始化，且之后不能再更改了</li>
+<li>函数参数的引用传递，形参也会修饰实参</li>
+</ul>
+</blockquote>
+<h3 id="引用和指针区别"><a href="#引用和指针区别" class="headerlink" title="引用和指针区别"></a>引用和指针区别</h3><p>引用是提供对已存在对象的一个别名<br>指针是指向对象的内存地址</p>
+<ol>
+<li><strong>不存在空引用</strong>。引用必须连接到一块合法的内存。</li>
+<li><strong>指向改变</strong>：一旦引用被初始化为一个对象，就不能被指向到另一个对象。指针可以在任何时候指向到另一个对象。</li>
+<li><strong>初始化</strong>：引用必须在创建时被初始化。指针可以在任何时间被初始化。</li>
+</ol>
+<h2 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h2><p><strong>类的访问权限</strong></p>
+<blockquote>
+<p>类的默认访问权限是private</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>权限名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public</td>
+<td>类的内外都可以访问</td>
+</tr>
+<tr>
+<td>protected</td>
+<td>只有类内可以访问，且可以被继承</td>
+</tr>
+<tr>
+<td>private</td>
+<td>只有类内可以访问，且不可以被继承</td>
+</tr>
+</tbody></table>
+<p><strong>成员属性私有化</strong><br>1.可以自己控制读写权限<br>2.对于写可以检测数据的有效性</p>
+<h3 id="构造函数和析构函数"><a href="#构造函数和析构函数" class="headerlink" title="构造函数和析构函数"></a>构造函数和析构函数</h3><p>构造函数语法：<code>名（）&#123; &#125;</code></p>
+<blockquote>
+<ul>
+<li>1.构造函数，没有返回值也不写void</li>
+<li>2.构造函数名称应与类名相同</li>
+<li>3.构造函数可以有参数，也可以重载</li>
+<li>4.程序在调用对象时会自动调用构造函数</li>
+</ul>
+</blockquote>
+<p>析构函数语法：<code>（）&#123; &#125;</code></p>
+<blockquote>
+<ul>
+<li>1.析构函数，没有返回值也不写void</li>
+<li>2.析构函数名称应与类名相同，在名称前加上 ~</li>
+<li>3.析构函数不可以有参数</li>
+<li>4.程序在对象被销毁时会自动调用析构函数</li>
+</ul>
+</blockquote>
+<h3 id="深拷贝-浅拷贝"><a href="#深拷贝-浅拷贝" class="headerlink" title="深拷贝&amp;浅拷贝"></a>深拷贝&amp;浅拷贝</h3><h3 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h3><blockquote>
+<ul>
+<li>静态成员变量<ul>
+<li>所有对象共享同一份数据</li>
+<li>在编译阶段分配内存</li>
+<li>类内声明，类外访问</li>
+</ul>
+</li>
+<li>静态成员函数<ul>
+<li>所有对象共享同一个函数</li>
+<li>静态成员函数只能访问静态成员变量</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="面向对象的三个性质"><a href="#面向对象的三个性质" class="headerlink" title="面向对象的三个性质"></a>面向对象的三个性质</h3><p>封装 集成 多态</p>
+<h3 id="函数名，函数指针，函数的入口地址"><a href="#函数名，函数指针，函数的入口地址" class="headerlink" title="函数名，函数指针，函数的入口地址"></a>函数名，函数指针，函数的入口地址</h3><ul>
+<li>函数名：c语言中，函数名就是一个函数指针。</li>
+<li>入口地址：函数时执行的第一条指令的地址，通过这个地址可以找到该函数。</li>
+<li>函数指针：指向入口地址，就可以通过该指针调用函数了。</li>
+</ul>
+<h3 id="数组名，数组首地址，数组指针"><a href="#数组名，数组首地址，数组指针" class="headerlink" title="数组名，数组首地址，数组指针"></a>数组名，数组首地址，数组指针</h3><ul>
+<li>数组名不是指针，是数组首地址。但 sizeof 时返回整个数组地址大小。</li>
+<li>编译器会自动将 数组名 a 替换为 指向该数组首元素的指针 &amp;a[0]。</li>
+</ul>
+<h2 id="C-内存分区模型"><a href="#C-内存分区模型" class="headerlink" title="C++内存分区模型"></a>C++内存分区模型</h2><p><strong>程序运行前划分为代码区和全局区，程序运行后分为栈区和堆区</strong></p>
+<blockquote>
+<ul>
+<li>全局区：全局变量，静态变量（static关键字），常量（字符串常量 和 const修饰的全局常量）</li>
+<li>栈区：由编译器自动分配释放，存放着函数的参数值，局部变量等，注意不要返回局部变量的地址</li>
+<li>堆区：由程序员分配释放，若程序员不释放，程序结束后将由操作系统回收</li>
+</ul>
+</blockquote>
+<h3 id="malloc、free-和-new、delete-的区别。"><a href="#malloc、free-和-new、delete-的区别。" class="headerlink" title="malloc、free 和 new、delete 的区别。"></a>malloc、free 和 new、delete 的区别。</h3><p>new从自由存储区上分配内存，malloc从堆上分配内存。自由存储区是C++基于new操作符的一个抽象概念，凡是通过new操作符进行内存申请，该内存即为自由存储区。<br>new、delete 返回的是某种数据类型指针；malloc、free 返回的是 void 指针。<br>使用new操作符申请内存分配时，无须指定内存块的大小，编译器会根据类型信息自行计算；使用malloc则需要显式指出所需内存的尺寸。<br>new 可以调用对象的构造函数，对应的 delete 调用相应的析构函数；malloc 仅仅分配内存，free 仅仅回收内存，并不执行构造和析构函数。<br>new、delete 是操作符，可以重载；malloc、free 是函数，可以重写(覆盖)。</p>
+<h3 id="new运算符"><a href="#new运算符" class="headerlink" title="new运算符"></a>new运算符</h3><blockquote>
+<ul>
+<li>利用new运算符可以将数据开辟到堆区：<code>int *p = new int(10)</code></li>
+<li>new运算符返回的是数据在栈中的地址</li>
+<li>利用 <code>delete</code>  可以释放堆区数据（<code>delete p</code> ）</li>
+</ul>
+</blockquote>
+<p>开辟数组：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C++">let* arr = <span class="hljs-keyword">new</span> <span class="hljs-type">int</span>[<span class="hljs-number">10</span>];<br><span class="hljs-keyword">for</span>( <span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i&lt;<span class="hljs-number">10</span>; i++)&#123;<br>    arr[ i ] = i + <span class="hljs-number">100</span>;<br> &#125;<br> <span class="hljs-comment">//释放数组</span><br> <span class="hljs-keyword">delete</span>[ ] arr<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 
               </div>
@@ -304,43 +482,6 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/408/" class="category-chain-item">408</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="category-chain-item">操作系统</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/408/" class="print-no-link">#408</a>
-      
-        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="print-no-link">#操作系统</a>
-      
-    </div>
   
 </div>
 
@@ -350,8 +491,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>操作系统复习</div>
-      <div>https://cs-lb.github.io/2024/04/15/计算机408/操作系统复习/</div>
+      <div>C++复习</div>
+      <div>https://cs-lb.github.io/2024/04/22/计算机408/C-内存分区/</div>
     </div>
     <div class="license-meta">
       
@@ -363,7 +504,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年4月15日</div>
+          <div>2024年4月22日</div>
         </div>
       
       
@@ -395,9 +536,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/04/15/%E8%AE%A1%E7%AE%97%E6%9C%BA408/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0/" title="计算机组成原理复习">
+                      <a href="/2024/04/22/%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="小程序开发问题汇总">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">计算机组成原理复习</span>
+                        <span class="hidden-mobile">小程序开发问题汇总</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -405,8 +546,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/15/%E8%AE%A1%E7%AE%97%E6%9C%BA408/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%A4%8D%E4%B9%A0/" title="计算机网络复习">
-                        <span class="hidden-mobile">计算机网络复习</span>
+                      <a href="/2024/04/22/%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86/Vue/" title="Vue">
+                        <span class="hidden-mobile">Vue</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
