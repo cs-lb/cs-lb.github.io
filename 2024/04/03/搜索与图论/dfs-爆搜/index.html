@@ -24,7 +24,7 @@
 <meta property="og:description" content="dfs(爆搜) 和 全排列dfs递归图解  递归就是把一个大问题变成中问题再变成一个很小的问题进行解决 如果在分解问题时，可能出现一个大问题包括很多个中问题的情况，此时就要在递归外面加上for循环  1234567891011121314151617181920212223242526272829303132333435363738394041int n;int path[N];int st[N]">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-03T07:11:56.000Z">
-<meta property="article:modified_time" content="2024-04-11T09:04:11.329Z">
+<meta property="article:modified_time" content="2024-06-12T17:22:59.389Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="图论">
@@ -241,7 +241,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          754 字
+          1.1k 字
         
       </span>
     
@@ -253,7 +253,7 @@
         
         
           <!-- compatible with older versions-->
-          7 分钟
+          10 分钟
         
       </span>
     
@@ -319,6 +319,26 @@
 <li>下面每种情况其循环时的下标应当为 a[i]</li>
 </ol>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1e5</span>+<span class="hljs-number">10</span>;<br><br><span class="hljs-type">int</span> n,m;<br><span class="hljs-type">int</span> flag;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">node</span>&#123;<br>	<span class="hljs-type">int</span> t,d,l;<br>&#125;p[N];<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-number">0</span>); cin.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>); cout.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>	cin &gt;&gt; m;<br>	<span class="hljs-keyword">while</span>(m--)&#123;<br>        cin &gt;&gt; n;<br>        <span class="hljs-type">int</span> a[n]; <span class="hljs-comment">//全排列数组</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++) a[i] = i; <span class="hljs-comment">//初始排列数组为 1,2,3</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++) cin &gt;&gt; p[i].t &gt;&gt; p[i].d &gt;&gt; p[i].l;<br>        <span class="hljs-keyword">do</span>&#123;<br>            <span class="hljs-comment">//初始化操作</span><br>          flag = <span class="hljs-literal">true</span>;<br>          <span class="hljs-type">int</span> start = <span class="hljs-number">0</span>; <span class="hljs-comment">// 上一架飞机的降落时间，在此事件后开始降落的飞机都是合法的</span><br>          <br>          <span class="hljs-comment">//循环某个排序</span><br>          <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>            <span class="hljs-type">int</span> j = a[i]; <span class="hljs-comment">//代表此次排列顺序的下标</span><br><br>            start = <span class="hljs-built_in">max</span>(start , p[j].t) ; <span class="hljs-comment">// 和飞机到达时间取max,因为有可能上个飞机已经降落完成但下个飞机还没到</span><br>            <span class="hljs-keyword">if</span>(p[j].t + p[j].d &gt;= start)&#123;<br>              start += p[j].l;<br>            &#125;<br>            <span class="hljs-keyword">else</span>&#123;<br>              flag = <span class="hljs-literal">false</span>;<br>              <span class="hljs-keyword">break</span>;<br>            &#125;<br>          &#125;<br>          <br>          <span class="hljs-keyword">if</span>(flag)&#123;<br>              <span class="hljs-comment">//只要有一组排列满足条件即可判定为yes</span><br>            cout &lt;&lt; <span class="hljs-string">&quot;YES&quot;</span> &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>            <span class="hljs-keyword">break</span>;<br>          &#125;<br>        &#125;<span class="hljs-keyword">while</span>(<span class="hljs-built_in">next_permutation</span>(a+<span class="hljs-number">1</span>,a+n+<span class="hljs-number">1</span>));<br>             <br>        <span class="hljs-comment">//只有所有排列都不满足条件才判定为no</span><br>        <span class="hljs-keyword">if</span>(!flag) cout &lt;&lt; <span class="hljs-string">&quot;NO&quot;</span> &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="组合问题"><a href="#组合问题" class="headerlink" title="组合问题"></a>组合问题</h2><h3 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h3><p>给定两个整数 n 和 k，返回范围 [1, n] 中所有可能的 k 个数的组合。</p>
+<p>你可以按 任何顺序 返回答案。<br>输入：n &#x3D; 4, k &#x3D; 2<br>输出：<br>[<br>    [2,4],<br>    [3,4],<br>    [2,3],<br>    [1,2],<br>    [1,3],<br>    [1,4],<br>]</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; res;<br>    vector&lt;<span class="hljs-type">int</span>&gt; path;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> n,<span class="hljs-type">int</span> k,<span class="hljs-type">int</span> startIndex)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(path.<span class="hljs-built_in">size</span>() == k)&#123;<br>            res.<span class="hljs-built_in">push_back</span>(path);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=startIndex;i&lt;=n;i++)&#123;<br>                path.<span class="hljs-built_in">push_back</span>(i);<br>                <span class="hljs-built_in">dfs</span>(n,k,i+<span class="hljs-number">1</span>);<br>                path.<span class="hljs-built_in">pop_back</span>();<br>            &#125;<br>        &#125;<br>    &#125;<br>    vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">combine</span>(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> k) &#123;<br>        <span class="hljs-built_in">dfs</span>(n,k,<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h3 id="组合总和"><a href="#组合总和" class="headerlink" title="组合总和"></a>组合总和</h3><p>给你一个 无重复元素 的整数数组 candidates 和一个目标整数 target ，找出 candidates 中可以使数字和为目标数 target 的 所有 不同组合 ，并以列表形式返回。你可以按 任意顺序 返回这些组合。</p>
+<p>candidates 中的 同一个 数字可以 无限制重复被选取 。如果至少一个数字的被选数量不同，则两种组合是不同的。 </p>
+<p><strong>和普通组合问题的区别</strong></p>
+<ol>
+<li>组合中的元素个数没有数量要求</li>
+<li>元素可无限重复选取</li>
+</ol>
+<p><strong>startIndex 不需要在 ++</strong><br>原始组合问题：<code>backtracking(candidates, target, sum, i+1);</code><br>本题的递归回溯：<code>backtracking(candidates, target, sum, i);</code></p>
+<p><strong>在求和问题中，排序之后加剪枝是常见的套路！</strong></p>
+<h2 id="排列问题"><a href="#排列问题" class="headerlink" title="排列问题"></a>排列问题</h2><p><strong>和组合问题的区别</strong></p>
+<ul>
+<li>每层都是从0开始搜索而不是startIndex</li>
+<li>需要used数组记录path里都放了哪些元素了</li>
+</ul>
+
                 
               </div>
             
