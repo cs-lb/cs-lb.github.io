@@ -16,15 +16,15 @@
   <meta name="author" content="Liu Bo">
   <meta name="keywords" content="408 算法 保研">
   
-    <meta name="description" content="dp问题 要将$f[0][0]$ 等特殊的点进行初始化操作   背包问题0-1背包 问题描述：有 N 件物品和一个容量是 V 的背包。每件物品只能使用一次。第 i件物品的体积是$ v_i $，价值是$ w_i $ 。 求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大  针对0-1背包问题，每个物品有选与不选两种选择，则暴力枚举的时间复杂度为 $ O(2^n) $ 状态表示">
+    <meta name="description" content="dp问题分类求最值求max&#x2F;min值 最后一块石头的重量 II 12345678for(int i&#x3D;0;i&lt;stones.size();i++)&#123;    for(int j &#x3D; sum; j &gt;&#x3D; 0; j--)&#123;        if(j&gt;&#x3D;stones[i]) f[j] &#x3D; max(f[j],f[j-stones[i]]+stones[i]);">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动态规划（背包问题）">
 <meta property="og:url" content="https://cs-lb.github.io/2024/03/30/dp/dp/index.html">
 <meta property="og:site_name" content="CS_Blog">
-<meta property="og:description" content="dp问题 要将$f[0][0]$ 等特殊的点进行初始化操作   背包问题0-1背包 问题描述：有 N 件物品和一个容量是 V 的背包。每件物品只能使用一次。第 i件物品的体积是$ v_i $，价值是$ w_i $ 。 求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大  针对0-1背包问题，每个物品有选与不选两种选择，则暴力枚举的时间复杂度为 $ O(2^n) $ 状态表示">
+<meta property="og:description" content="dp问题分类求最值求max&#x2F;min值 最后一块石头的重量 II 12345678for(int i&#x3D;0;i&lt;stones.size();i++)&#123;    for(int j &#x3D; sum; j &gt;&#x3D; 0; j--)&#123;        if(j&gt;&#x3D;stones[i]) f[j] &#x3D; max(f[j],f[j-stones[i]]+stones[i]);">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-30T15:54:14.000Z">
-<meta property="article:modified_time" content="2024-05-23T14:37:49.500Z">
+<meta property="article:modified_time" content="2024-08-11T06:10:19.956Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="动态规划">
@@ -242,7 +242,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.5k 字
+          1.9k 字
         
       </span>
     
@@ -254,7 +254,7 @@
         
         
           <!-- compatible with older versions-->
-          13 分钟
+          16 分钟
         
       </span>
     
@@ -296,7 +296,21 @@
             
               <div class="markdown-body">
                 
-                <h1 id="dp问题"><a href="#dp问题" class="headerlink" title="dp问题"></a>dp问题</h1><ol>
+                <h1 id="dp问题分类"><a href="#dp问题分类" class="headerlink" title="dp问题分类"></a>dp问题分类</h1><h2 id="求最值"><a href="#求最值" class="headerlink" title="求最值"></a>求最值</h2><p><strong>求max&#x2F;min值</strong></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/last-stone-weight-ii/description/">最后一块石头的重量 II</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;stones.<span class="hljs-built_in">size</span>();i++)&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = sum; j &gt;= <span class="hljs-number">0</span>; j--)&#123;<br>        <span class="hljs-keyword">if</span>(j&gt;=stones[i]) f[j] = <span class="hljs-built_in">max</span>(f[j],f[j-stones[i]]+stones[i]);<br>    &#125;<br>&#125;<br><span class="hljs-type">int</span> target = sum / <span class="hljs-number">2</span>;<br><span class="hljs-comment">//要使最后一块石头的重量尽可能地小，f[target] 需要在不超过 ⌊sum/2⌋ 的前提下尽可能地大</span><br><span class="hljs-keyword">return</span> (sum-f[target]) - f[target]; <span class="hljs-comment">// 最后剩下的一块石头的重量</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="求数目"><a href="#求数目" class="headerlink" title="求数目"></a>求数目</h2><p><strong>累加</strong></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/target-sum/">目标和</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">//动态规划数组初始化</span><br><br>f[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>; <span class="hljs-comment">//在初始化的时候dp[0] 一定要初始化为1，因为dp[0]是在公式中一切递推结果的起源，如果dp[0]是0的话，递推结果将都是0</span><br><br><span class="hljs-comment">//dp公式</span><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++)&#123;<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = x ; j &gt;= <span class="hljs-number">0</span>; j--)&#123; <span class="hljs-comment">//最小值可以取0，因此此时这里要取0</span><br><br>        <span class="hljs-comment">//凑整f[j]有多少方法呢，也就是把 所有的 f[j - nums[i]] 累加起来</span><br>        <span class="hljs-keyword">if</span>(j &gt;= nums[i]) f[j] += f[j-nums[i]]; <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="背包问题的排列数和组合数"><a href="#背包问题的排列数和组合数" class="headerlink" title="背包问题的排列数和组合数"></a>背包问题的排列数和组合数</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/coin-change-ii/description/">零钱兑换 II</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">change</span><span class="hljs-params">(<span class="hljs-type">int</span> amount, vector&lt;<span class="hljs-type">int</span>&gt;&amp; coins)</span> </span>&#123;<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">f</span><span class="hljs-params">(amount+<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)</span></span>;<br>        f[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br><br>        <span class="hljs-comment">//组合数</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;coins.<span class="hljs-built_in">size</span>();i++)&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=coins[i];j&lt;=amount;j++)&#123;<br>                f[j] += f[j-coins[i]];<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">//排列数</span><br>        <span class="hljs-comment">/*</span><br><span class="hljs-comment">        for(int j=0;j&lt;=amount;j++)&#123;</span><br><span class="hljs-comment">            for(int i=0;i&lt;coins.size();i++)&#123;</span><br><span class="hljs-comment">                if(j&gt;=coins[i]) f[j] += f[j-coins[i]];</span><br><span class="hljs-comment">            &#125;</span><br><span class="hljs-comment">        &#125;</span><br><span class="hljs-comment">        for(int j=0;j&lt;=amount;j++)&#123;</span><br><span class="hljs-comment">            cout &lt;&lt; f[j] &lt;&lt; &quot;\n&quot;;</span><br><span class="hljs-comment">        &#125;</span><br><span class="hljs-comment">        */</span><br>        <span class="hljs-keyword">return</span> f[amount];<br>    &#125;<br>&#125;;<br><br></code></pre></td></tr></table></figure>
+
+
+<h1 id="dp问题"><a href="#dp问题" class="headerlink" title="dp问题"></a>dp问题</h1><ol>
 <li>要将$f[0][0]$ 等特殊的点进行初始化操作</li>
 <li></li>
 </ol>

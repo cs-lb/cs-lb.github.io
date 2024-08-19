@@ -24,7 +24,7 @@
 <meta property="og:description" content="深度学习知识点汇总深度学习的57个专业术语 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455import torchimport torch.nn as nn# 定义模型class Net(nn.Module):    def __init__(">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-14T09:56:03.000Z">
-<meta property="article:modified_time" content="2024-06-16T16:41:49.808Z">
+<meta property="article:modified_time" content="2024-07-19T14:35:44.290Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="408 算法 保研">
 <meta name="twitter:card" content="summary_large_image">
@@ -315,8 +315,8 @@
 <p>2.正则化<br>在进行目标函数或代价函数（损失函数）优化时，在函数后面加上一个正则项，一般有L1正则、L2正则等。</p>
 <blockquote>
 <ul>
-<li><strong>L1正则化：</strong> L1正则化是通过在目标函数中加入L1范数惩罚项来实现的。L1范数是指权重向量W中的各个元素绝对值之和，因此L1正则化的目的是使模型参数尽可能地稀疏。L1正则化可以促使模型参数向零值收缩，进而减少特征的数量。</li>
-<li><strong>L2正则化：</strong> L2正则化是通过在目标函数中加入L2范数惩罚项来实现的。L2范数是指权重向量W中的各个元素的平方和开根号，因此L2正则化的目的是通过约束模型参数的平方和，使得它们的值不会过大。L2正则化可以帮助避免模型的权值过拟合，并使得模型更具有鲁棒性和泛化能力。</li>
+<li><strong>L1正则化：</strong> L1正则化是通过在目标函数中加入L1范数惩罚项来实现的。<strong>L1范数是指权重向量W中的各个元素绝对值之和</strong>，因此L1正则化的目的是使模型参数尽可能地稀疏。L1正则化可以促使模型参数向零值收缩，进而减少特征的数量。</li>
+<li><strong>L2正则化：</strong> L2正则化是通过在目标函数中加入L2范数惩罚项来实现的。<strong>L2范数是指权重向量W中的各个元素的平方和开根号</strong>，因此L2正则化的目的是通过约束模型参数的平方和，使得它们的值不会过大。L2正则化可以帮助避免模型的权值过拟合，并使得模型更具有鲁棒性和泛化能力。</li>
 </ul>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 添加L2正则化项</span><br>l2_reg = torch.tensor(<span class="hljs-number">0.</span>) <span class="hljs-comment"># 创建一个初始值为零的 torch.Tensor 对象，用于累加模型参数的 L2 范数。</span><br><span class="hljs-keyword">for</span> param <span class="hljs-keyword">in</span> model.parameters():<br>    l2_reg += torch.norm(param, <span class="hljs-number">2</span>)<br>loss += l2_penalty * l2_reg <span class="hljs-comment">#  L2 正则化的惩罚系数（penalty coefficient），用于控制正则化的强度。它是一个超参数，需要根据具体问题进行调整(交叉验证)。</span><br></code></pre></td></tr></table></figure>

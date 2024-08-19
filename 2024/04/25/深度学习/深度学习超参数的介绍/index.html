@@ -16,18 +16,20 @@
   <meta name="author" content="Liu Bo">
   <meta name="keywords" content="408 算法 保研">
   
-    <meta name="description" content="深度学习超参数的介绍学习率">
+    <meta name="description" content="深度学习超参数的介绍学习率深入理解神经网络学习率(定义、影响因素、常见调参方法、关键代码实现) 深度学习中的学习率（Learning Rate）是一个至关重要的超参数，它决定了模型在训练过程中更新权重参数的速度与方向。在使用梯度下降法（Gradient Descent）或其变种（如随机梯度下降，Stochastic Gradient Descent, SGD）优化模型时，学习率扮演着核心角色。 具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度学习超参数的介绍">
 <meta property="og:url" content="https://cs-lb.github.io/2024/04/25/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%B6%85%E5%8F%82%E6%95%B0%E7%9A%84%E4%BB%8B%E7%BB%8D/index.html">
 <meta property="og:site_name" content="CS_Blog">
-<meta property="og:description" content="深度学习超参数的介绍学习率">
+<meta property="og:description" content="深度学习超参数的介绍学习率深入理解神经网络学习率(定义、影响因素、常见调参方法、关键代码实现) 深度学习中的学习率（Learning Rate）是一个至关重要的超参数，它决定了模型在训练过程中更新权重参数的速度与方向。在使用梯度下降法（Gradient Descent）或其变种（如随机梯度下降，Stochastic Gradient Descent, SGD）优化模型时，学习率扮演着核心角色。 具">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cs-lb.github.io/img/lr.png">
 <meta property="article:published_time" content="2024-04-25T08:59:31.000Z">
-<meta property="article:modified_time" content="2024-04-25T14:55:47.791Z">
+<meta property="article:modified_time" content="2024-08-02T05:01:46.075Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="408 算法 保研">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cs-lb.github.io/img/lr.png">
   
   
   
@@ -240,7 +242,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          13 字
+          3k 字
         
       </span>
     
@@ -252,7 +254,7 @@
         
         
           <!-- compatible with older versions-->
-          1 分钟
+          26 分钟
         
       </span>
     
@@ -294,7 +296,199 @@
             
               <div class="markdown-body">
                 
-                <h1 id="深度学习超参数的介绍"><a href="#深度学习超参数的介绍" class="headerlink" title="深度学习超参数的介绍"></a>深度学习超参数的介绍</h1><h2 id="学习率"><a href="#学习率" class="headerlink" title="学习率"></a>学习率</h2>
+                <h1 id="深度学习超参数的介绍"><a href="#深度学习超参数的介绍" class="headerlink" title="深度学习超参数的介绍"></a>深度学习超参数的介绍</h1><h2 id="学习率"><a href="#学习率" class="headerlink" title="学习率"></a>学习率</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/a910247/article/details/137590886">深入理解神经网络学习率(定义、影响因素、常见调参方法、关键代码实现)</a></p>
+<p>深度学习中的学习率（Learning Rate）是一个至关重要的超参数，它决定了模型在训练过程中更新权重参数的速度与方向。在使用梯度下降法（Gradient Descent）或其变种（如随机梯度下降，Stochastic Gradient Descent, SGD）优化模型时，学习率扮演着核心角色。</p>
+<p>具体来说，在每次迭代过程中，模型计算损失函数关于各个参数的梯度，这个梯度指示了参数应当朝着哪个方向调整以最小化损失。学习率就是这个调整过程中的“步伐”大小，即参数更新的量。数学表达式通常是这样的：</p>
+<p><img src="/../../img/lr.png" srcset="/img/loading.gif" lazyload></p>
+<p>如果学习率<strong>设置得过大</strong>，那么在每一步迭代中，模型参数可能会跨过最优解，导致震荡或者发散，这被称为“振荡现象”或“不稳定性”。相反，如果学习率<strong>设置得太小</strong>，模型收敛到最优解的速度将会非常慢，而且可能会陷入局部极小点，而不是全局最优解。</p>
+<h2 id="过拟合和欠拟合（Overfitting-and-underfitting）"><a href="#过拟合和欠拟合（Overfitting-and-underfitting）" class="headerlink" title="过拟合和欠拟合（Overfitting and underfitting）"></a>过拟合和欠拟合（Overfitting and underfitting）</h2><p>过拟合和欠拟合是导致模型泛化能力不高的两种常见原因，都是模型学习能力与数据复杂度之间失配的结果。<br><strong>“欠拟合”</strong>常常在模型学习能力较弱，而数据复杂度较高的情况出现，此时模型由于学习能力不足，无法学习到数据集中的“一般规律”，因而导致泛化能力弱。<br><strong>“过拟合”</strong>常常在模型学习能力过强的情况中出现，此时的模型学习能力太强，以至于将训练集单个样本自身的特点都能捕捉到，并将其认为是“一般规律”，同样这种情况也会导致模型泛化能力下降。</p>
+<h3 id="Overfitting"><a href="#Overfitting" class="headerlink" title="Overfitting"></a>Overfitting</h3><p>过拟合（over-fitting）也称为过学习，它的直观表现是算法在训练集上表现好，但在测试集上表现不好，泛化性能差<br><strong>cause</strong></p>
+<blockquote>
+<ul>
+<li>训练集的数据太少或者缺乏代表性；</li>
+<li>训练集样本存在的噪音干扰过大，导致模型拟合了噪音的特征，反而忽略了真实的输入输出间的关系；</li>
+<li>参数太多，模型复杂度过高；</li>
+</ul>
+</blockquote>
+<p><strong>method</strong></p>
+<ol>
+<li>增加数据量</li>
+</ol>
+<ul>
+<li>从数据源头获取更多数据；</li>
+<li>通过数据增强对数据进行扩充：对图像进行翻转、裁剪、缩放、平移、添加噪声等。</li>
+</ul>
+<ol start="2">
+<li>正则化<br>在进行目标函数或代价函数（损失函数）优化时，在函数后面加上一个正则项，一般有L1正则、L2正则等。</li>
+</ol>
+<blockquote>
+<ul>
+<li><strong>L1正则化：</strong> L1正则化是通过在目标函数中加入L1范数惩罚项来实现的。L1范数是指权重向量W中的各个元素绝对值之和，因此L1正则化的目的是使模型参数尽可能地稀疏。L1正则化可以促使模型参数向零值收缩，进而减少特征的数量。</li>
+<li><strong>L2正则化：</strong> L2正则化是通过在目标函数中加入L2范数惩罚项来实现的。L2范数是指权重向量W中的各个元素的平方和开根号，因此L2正则化的目的是通过约束模型参数的平方和，使得它们的值不会过大。L2正则化可以帮助避免模型的权值过拟合，并使得模型更具有鲁棒性和泛化能力。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>区别：</strong> L1正则化减少的是一个常量，L2正则化减少的是权重的固定比例；使用L1可以得到稀疏的权值，使用L2可以得到平滑的权值；实践中L2正则化通常优于L1正则化。</p>
+</blockquote>
+<ol start="3">
+<li>Dropout<br>Dropout 是一种常用的正则化技术，用于减少深度神经网络的过拟合现象。Dropout 在训练过程中随机地丢弃一部分神经元的输出，从而强制模型去学习其他特征的表示。</li>
+</ol>
+<p>欠拟合（Underfitting）是指模型在训练数据上的表现就不够好，无法捕捉数据的基本趋势和模式，导致模型的预测或分类能力较差。以下是欠拟合的原因和一些解决方案：</p>
+<h3 id="欠拟合的原因"><a href="#欠拟合的原因" class="headerlink" title="欠拟合的原因"></a>欠拟合的原因</h3><ol>
+<li><p><strong>模型太简单</strong>：如果模型结构过于简单，可能无法捕捉数据的复杂特征和关系。</p>
+</li>
+<li><p><strong>训练数据不足</strong>：过少的训练样本可能导致模型无法学习到足够的信息。</p>
+</li>
+<li><p><strong>特征选择不当</strong>：如果重要的特征被忽略或未被正确使用，模型可能无法学习到数据的真实结构。</p>
+</li>
+<li><p><strong>训练时间不足</strong>：模型可能需要更多的迭代次数来充分学习数据的特征。</p>
+</li>
+<li><p><strong>学习率过高</strong>：如果学习率设置得过高，可能导致模型在训练过程中震荡，无法收敛到最优解。</p>
+</li>
+<li><p><strong>正则化过度</strong>：过度的正则化可能会限制模型的复杂度，导致模型无法拟合数据。</p>
+</li>
+<li><p><strong>数据预处理不当</strong>：如数据未归一化或标准化，可能导致模型训练效果不佳。</p>
+</li>
+<li><p><strong>错误的模型选择</strong>：选择了不适合当前数据分布和问题的模型。</p>
+</li>
+</ol>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol>
+<li><p><strong>增加模型复杂度</strong>：增加模型的层数或神经元数量，使模型能够捕捉更复杂的特征。</p>
+</li>
+<li><p><strong>获取更多数据</strong>：增加训练数据量，提供更多的信息供模型学习。</p>
+</li>
+<li><p><strong>特征工程</strong>：通过特征选择、特征提取或特征构造等方法，增加模型的预测能力。</p>
+</li>
+<li><p><strong>延长训练时间</strong>：增加迭代次数，让模型有更多的机会学习数据。</p>
+</li>
+<li><p><strong>降低学习率</strong>：适当降低学习率，确保模型能够稳定地收敛。</p>
+</li>
+<li><p><strong>减少正则化强度</strong>：减少L1或L2正则化项的系数，或使用其他类型的正则化方法。</p>
+</li>
+<li><p><strong>数据预处理</strong>：确保数据被正确地预处理，如归一化、标准化或去噪声。</p>
+</li>
+<li><p><strong>选择合适的模型</strong>：根据数据的特点和问题的需求，选择合适的模型类型。</p>
+</li>
+<li><p><strong>使用集成学习</strong>：通过组合多个模型的预测结果，提高模型的整体性能。</p>
+</li>
+<li><p><strong>调整训练策略</strong>：如使用不同的优化算法或调整其他超参数，可能会改善模型的训练效果。</p>
+</li>
+<li><p><strong>模型解释性</strong>：使用模型解释性工具来理解模型的预测，识别模型未能捕捉的特征。</p>
+</li>
+<li><p><strong>交叉验证</strong>：使用交叉验证来评估模型在不同数据子集上的表现，确保模型的泛化能力。</p>
+</li>
+</ol>
+<p>通过这些方法，可以提高模型的拟合度，使其在训练数据上能够更好地捕捉数据的基本趋势和模式。在实际应用中，通常需要通过实验和调整来找到最佳的解决方案。</p>
+<h2 id="损失函数、代价函数、目标函数"><a href="#损失函数、代价函数、目标函数" class="headerlink" title="损失函数、代价函数、目标函数"></a>损失函数、代价函数、目标函数</h2><p>当然，以下是对损失函数、代价函数和目标函数的总结，包括它们的定义和区别：</p>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>定义</th>
+<th>区别与联系</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>损失函数（Loss Function）</td>
+<td>衡量模型预测值与实际值差异的函数，用于训练过程中评估模型性能。</td>
+<td>通常是代价函数的具体实现，关注单个样本的预测误差。</td>
+</tr>
+<tr>
+<td></td>
+<td>例如：均方误差（MSE）、交叉熵损失（Cross-Entropy Loss）</td>
+<td></td>
+</tr>
+<tr>
+<td>代价函数（Cost Function）</td>
+<td>衡量模型整体性能的函数，通常是损失函数对所有样本的累积或平均。</td>
+<td>比损失函数更广泛，可以包含正则化项等，用于选择最优模型参数。</td>
+</tr>
+<tr>
+<td></td>
+<td>例如：正则化的均方误差、总交叉熵损失</td>
+<td>通常是训练过程中优化的目标。</td>
+</tr>
+<tr>
+<td>目标函数（Objective Function）</td>
+<td>用于优化问题的函数，通常结合了代价函数和其他考虑因素。（经验风险+结构风险）</td>
+<td>可以包含代价函数，也可以包含其他优化目标，如公平性、可解释性。</td>
+</tr>
+<tr>
+<td></td>
+<td>例如：带有约束的目标函数</td>
+<td>用于指导模型训练和评估，是最终优化的目标。</td>
+</tr>
+</tbody></table>
+<h3 id="详细说明："><a href="#详细说明：" class="headerlink" title="详细说明："></a>详细说明：</h3><ul>
+<li><p><strong>损失函数</strong>：</p>
+<ul>
+<li>用于衡量单个样本的预测误差。</li>
+<li>常见的损失函数有：<ul>
+<li><strong>均方误差（MSE）</strong>：[ \text{MSE} &#x3D; \frac{1}{n} \sum_{i&#x3D;1}^n (y_i - \hat{y}_i)^2 ]</li>
+<li><strong>交叉熵损失</strong>：[ \text{Cross-Entropy Loss} &#x3D; -\frac{1}{n} \sum_{i&#x3D;1}^n [y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i)] ]</li>
+</ul>
+</li>
+<li>损失函数的选择取决于问题类型（如回归或分类）。</li>
+</ul>
+</li>
+<li><p><strong>代价函数</strong>：</p>
+<ul>
+<li>通常指代整个数据集上的损失函数的总和或平均。</li>
+<li>可以包含正则化项来防止过拟合，如：<ul>
+<li><strong>L1正则化</strong>：[ \text{Cost} &#x3D; \text{MSE} + \lambda \sum_{j&#x3D;1}^m |w_j| ]</li>
+<li><strong>L2正则化</strong>：[ \text{Cost} &#x3D; \text{MSE} + \lambda \sum_{j&#x3D;1}^m w_j^2 ]</li>
+</ul>
+</li>
+<li>代价函数是训练过程中需要最小化的函数。</li>
+</ul>
+</li>
+<li><p><strong>目标函数</strong>：</p>
+<ul>
+<li>综合了代价函数和其他优化目标（如约束条件）。</li>
+<li>可以是多目标优化问题的一部分，考虑多个不同的目标，如：<ul>
+<li><strong>准确性</strong>：模型的预测准确性。</li>
+<li><strong>公平性</strong>：模型在不同群体上的表现。</li>
+<li><strong>可解释性</strong>：模型决策的透明度。</li>
+</ul>
+</li>
+<li>目标函数是最终优化的目标，指导模型的训练和评估。</li>
+</ul>
+</li>
+</ul>
+<p>在实际应用中，这些术语有时可以互换使用，但它们在概念上有所区别。理解这些区别有助于更准确地描述和优化机器学习模型。</p>
+<h2 id="监督，无监督，半监督，弱监督学习"><a href="#监督，无监督，半监督，弱监督学习" class="headerlink" title="监督，无监督，半监督，弱监督学习"></a>监督，无监督，半监督，弱监督学习</h2><p>在机器学习和人工智能领域，这些术语描述了不同的学习模式和方法：</p>
+<ol>
+<li><p><strong>监督学习（Supervised Learning）</strong>：</p>
+<ul>
+<li>监督学习是一种机器学习类型，其中模型从标记的训练数据中学习。这些数据包括输入特征和相应的输出标签。</li>
+<li>模型的目标是学习一个函数，能够从输入特征映射到正确的输出标签。</li>
+<li>常见的监督学习任务包括分类（如垃圾邮件检测）和回归（如房价预测）。</li>
+</ul>
+</li>
+<li><p><strong>半监督学习（Semi-Supervised Learning）</strong>：</p>
+<ul>
+<li>半监督学习是监督学习的一种变体，其中训练数据包含一部分标记样本和一部分未标记样本。</li>
+<li>这种方法通常用于标签获取成本高昂，但未标记数据容易获得的情况。</li>
+<li>半监督学习模型利用未标记数据来提高学习性能，同时利用标记数据来指导学习过程。</li>
+</ul>
+</li>
+<li><p><strong>弱监督学习（Weakly Supervised Learning）</strong>：</p>
+<ul>
+<li>弱监督学习涉及到使用不精确或不完整的标签进行学习。这种标签可能是噪声较大的、部分正确的或非常粗略的。</li>
+<li>与监督学习不同，弱监督学习不要求精确的标签，而是允许一定程度的错误或模糊性。</li>
+<li>这种学习模式适用于标签获取困难或成本高昂的情况，例如从文本描述中自动提取信息。</li>
+</ul>
+</li>
+<li><p><strong>无监督学习（Unsupervised Learning）</strong>：</p>
+<ul>
+<li>无监督学习是一种机器学习类型，其中模型从未标记的数据中学习，没有提供任何输出标签。</li>
+<li>模型的目标是发现数据中的结构和模式，例如通过聚类或降维技术。</li>
+<li>常见的无监督学习任务包括聚类（如市场细分）和关联规则学习（如购物篮分析）。</li>
+</ul>
+</li>
+</ol>
+<p>这些学习模式各有优势和适用场景，选择哪一种取决于具体问题的性质、数据的可用性以及所需的输出类型。</p>
+
                 
               </div>
             

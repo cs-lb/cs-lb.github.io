@@ -16,18 +16,23 @@
   <meta name="author" content="Liu Bo">
   <meta name="keywords" content="408 算法 保研">
   
-    <meta name="description" content="线性代数复习线性 无关&#x2F;有关&#x2F;变换线性无关 一组向量是线性无关的，如果它们不能通过线性组合（即加权和）来表示为零向量（一组向量里面，没有一个可以被其他人联合表示） 线性相关 如果一组向量可以通过非零权重的线性组合得到零向量，那么这组向量就是线性相关的。 线性 无关&#x2F; 相关 两者都不包含 所有权重都为0 的情况 线性变换 线性代数中的线性变换是一种将向量从一个向量空间映">
+    <meta name="description" content="线性代数复习向量运算 内积（点乘）  如果内积为0，代表两个向量正交，内积大于0，两向量夹角小于90内积小于0，两向量夹角大于90小于180  外积（叉乘）  线性 无关&#x2F;有关线性无关 一组向量是线性无关的，如果它们不能通过线性组合（即加权和）来表示为零向量（一组向量里面，没有一个可以被其他人联合表示） 线性相关 如果一组向量可以通过非零权重的线性组合得到零向量，那么这组向量就是线性相关">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线性代数复习">
 <meta property="og:url" content="https://cs-lb.github.io/2024/06/06/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%A4%8D%E4%B9%A0/index.html">
 <meta property="og:site_name" content="CS_Blog">
-<meta property="og:description" content="线性代数复习线性 无关&#x2F;有关&#x2F;变换线性无关 一组向量是线性无关的，如果它们不能通过线性组合（即加权和）来表示为零向量（一组向量里面，没有一个可以被其他人联合表示） 线性相关 如果一组向量可以通过非零权重的线性组合得到零向量，那么这组向量就是线性相关的。 线性 无关&#x2F; 相关 两者都不包含 所有权重都为0 的情况 线性变换 线性代数中的线性变换是一种将向量从一个向量空间映">
+<meta property="og:description" content="线性代数复习向量运算 内积（点乘）  如果内积为0，代表两个向量正交，内积大于0，两向量夹角小于90内积小于0，两向量夹角大于90小于180  外积（叉乘）  线性 无关&#x2F;有关线性无关 一组向量是线性无关的，如果它们不能通过线性组合（即加权和）来表示为零向量（一组向量里面，没有一个可以被其他人联合表示） 线性相关 如果一组向量可以通过非零权重的线性组合得到零向量，那么这组向量就是线性相关">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cs-lb.github.io/img/%E7%9F%A9%E9%98%B5%E5%90%91%E9%87%8F%E4%B9%98%E6%B3%95.png">
+<meta property="og:image" content="https://cs-lb.github.io/img/%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88.png">
+<meta property="og:image" content="https://cs-lb.github.io/img/%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84.png">
+<meta property="og:image" content="https://cs-lb.github.io/img/%E8%A7%A3%E6%96%B9%E7%A8%8B%E7%BB%84%E4%B8%AA%E6%95%B0.png">
 <meta property="article:published_time" content="2024-06-06T14:49:00.000Z">
-<meta property="article:modified_time" content="2024-07-18T02:58:26.800Z">
+<meta property="article:modified_time" content="2024-08-07T13:32:07.743Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="408 算法 保研">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cs-lb.github.io/img/%E7%9F%A9%E9%98%B5%E5%90%91%E9%87%8F%E4%B9%98%E6%B3%95.png">
   
   
   
@@ -240,7 +245,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.4k 字
+          3.4k 字
         
       </span>
     
@@ -252,7 +257,7 @@
         
         
           <!-- compatible with older versions-->
-          12 分钟
+          29 分钟
         
       </span>
     
@@ -294,14 +299,47 @@
             
               <div class="markdown-body">
                 
-                <h1 id="线性代数复习"><a href="#线性代数复习" class="headerlink" title="线性代数复习"></a>线性代数复习</h1><h2 id="线性-无关-有关-变换"><a href="#线性-无关-有关-变换" class="headerlink" title="线性 无关&#x2F;有关&#x2F;变换"></a>线性 无关&#x2F;有关&#x2F;变换</h2><p><strong>线性无关</strong></p>
+                <h1 id="线性代数复习"><a href="#线性代数复习" class="headerlink" title="线性代数复习"></a>线性代数复习</h1><h2 id="向量运算"><a href="#向量运算" class="headerlink" title="向量运算"></a>向量运算</h2><ol>
+<li>内积（点乘）</li>
+</ol>
+<p>如果内积为0，代表两个向量正交，<br>内积大于0，两向量夹角小于90<br>内积小于0，两向量夹角大于90小于180</p>
+<ol start="2">
+<li>外积（叉乘）</li>
+</ol>
+<h2 id="线性-无关-有关"><a href="#线性-无关-有关" class="headerlink" title="线性 无关&#x2F;有关"></a>线性 无关&#x2F;有关</h2><p><strong>线性无关</strong></p>
 <p>一组向量是线性无关的，如果它们不能通过线性组合（即加权和）来表示为零向量<br>（一组向量里面，没有一个可以被其他人联合表示）</p>
 <p><strong>线性相关</strong></p>
 <p>如果一组向量可以通过非零权重的线性组合得到零向量，那么这组向量就是线性相关的。</p>
 <p>线性 无关&#x2F; 相关 两者都不包含 所有权重都为0 的情况</p>
-<p><strong>线性变换</strong></p>
-<p>线性代数中的线性变换是一种将向量从一个向量空间映射到另一个向量空间的函数。</p>
+<h2 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h2><p>线性代数中的线性变换是一种将向量从一个向量空间映射到另一个向量空间的函数。</p>
 <p>它满足两个基本属性：加法的保持性和标量的乘法保持性。</p>
+<h2 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h2><p><strong>每个线性变换都可以用一个矩阵来表示</strong><br>如果矩阵里面的列是线性相关的（共线的话），这个矩阵就是一个高维到低维的线性变换。</p>
+<p><strong>矩阵向量乘法</strong><br><img src="/../../img/%E7%9F%A9%E9%98%B5%E5%90%91%E9%87%8F%E4%B9%98%E6%B3%95.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>逆矩阵</strong><br>AB &#x3D; E (B为A的逆矩阵，E为单位矩阵，即对角线全为1，其他位置全为0)</p>
+<p><strong>转置矩阵</strong><br>把矩阵的行和列交换产生的矩阵是A的转置矩阵，记作$A^T$<br>矩阵A的转置AT的秩与A的秩是一样的</p>
+<p><strong>对角矩阵</strong></p>
+<p>对角矩阵只在对角线上含有非0元素，其它位置都为0</p>
+<p><strong>单位矩阵</strong></p>
+<p>对角线（称为主对角线）上的元素均为1。除此以外全都为0。<br>任何矩阵与单位矩阵相乘都等于本身</p>
+<p><strong>正交矩阵</strong><br>$A^-1 &#x3D; A^T$ : A即为正交矩阵</p>
+<p><strong>相似矩阵</strong></p>
+<p>矩阵A和B相似：$P^{-1}AP &#x3D; B$</p>
+<p>若矩阵A和B相似，则R(A) &#x3D; R(B),且特征值也相同</p>
+<p>相似矩阵的本质就是在不同的基向量下表达同一个线性变换</p>
+<h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><p><strong>几何意义</strong><br>在二维中，行列式的值就是由基所围成的平行四边形的面积<br>det(A) &#x3D; S(A)</p>
+<p>行列式为0（代表这个矩阵所对应的线性变换将空间压缩到更小的维度上）的矩阵为奇异矩阵<br>非0的为非奇异矩阵</p>
+<p>矩阵可逆和矩阵满秩的充分必要条件都是 det不为0</p>
+<p><strong>线性变换定义</strong>：<br>线性变换是指一个函数 ( T: V \rightarrow W )，它将一个向量空间 ( V ) 中的向量 ( v ) 映射到另一个向量空间 ( W ) 中的向量 ( w )，且满足以下两个条件：</p>
+<ul>
+<li>加法保持性：对于任意向量 ( u, v \in V )，有 ( T(u + v) &#x3D; T(u) + T(v) )。</li>
+<li>标量乘法保持性：对于任意向量 ( v \in V ) 和任意标量 ( a )，有 ( T(av) &#x3D; aT(v) )。</li>
+</ul>
+<p><strong>几何意义</strong>：<br><strong>线性变换可以看作是一种在空间中的“拉伸”或“压缩”，甚至可以是“旋转”或“反射”。</strong> 在二维空间中，线性变换可以想象为一个网格被均匀地拉伸或压缩，而不会发生撕裂或折叠。</p>
+<h2 id="线性组合"><a href="#线性组合" class="headerlink" title="线性组合"></a>线性组合</h2><p>多个数乘向量的和</p>
+<p>n个线性无关的向量可以通过线性组合张成一个n维空间，这样的向量我们就可以称为基向量（线性相关的一组向量则不行）</p>
+<p>向量组可以张成的空间的维度也叫做秩</p>
+<p><img src="/../../img/%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="线性空间"><a href="#线性空间" class="headerlink" title="线性空间"></a>线性空间</h2><p>m个相互正交的向量，做加法和数乘，可以组成线性空间</p>
 <h2 id="矩阵乘法"><a href="#矩阵乘法" class="headerlink" title="矩阵乘法"></a>矩阵乘法</h2><p>矩阵乘法 是对空间的线性变换</p>
 <h2 id="基向量"><a href="#基向量" class="headerlink" title="基向量"></a>基向量</h2><ol>
 <li>基向量（或简称基）是构成向量空间的一组<strong>线性无关</strong>向量</li>
@@ -309,7 +347,15 @@
 <li>每个基向量集合的向量数量必须与向量空间的维数相同</li>
 </ol>
 <p>线性变换的含义</p>
-<h2 id="矩阵的秩"><a href="#矩阵的秩" class="headerlink" title="矩阵的秩"></a>矩阵的秩</h2><h3 id="矩阵的秩的含义"><a href="#矩阵的秩的含义" class="headerlink" title="矩阵的秩的含义"></a>矩阵的秩的含义</h3><p>它描述了矩阵中线性独立行或列的最大数目</p>
+<h2 id="矩阵的秩"><a href="#矩阵的秩" class="headerlink" title="矩阵的秩"></a>矩阵的秩</h2><ol>
+<li>矩阵中线性无关向量的个数。</li>
+<li>矩阵的秩 为 变换后空间的维度</li>
+<li>取子矩阵（方阵）的行列式，最大子矩阵维度 使得行列式 ≠ 0（没有对空间进行压缩）</li>
+</ol>
+<h3 id="矩阵的秩的含义"><a href="#矩阵的秩的含义" class="headerlink" title="矩阵的秩的含义"></a>矩阵的秩的含义</h3><p>它描述了<strong>矩阵中线性独立行或列的最大数目</strong></p>
+<p>一个向量组A: a1,a2,…,am </p>
+<p>线性相关的充分必要条件就是 R(A) &lt; m;</p>
+<p>线性无关的充分必要条件就是 R(A) &#x3D; m;</p>
 <ol>
 <li><p><strong>线性独立性</strong>：矩阵的秩是矩阵中线性独立行或列的最大数目。如果一个矩阵的秩为 ( r )，那么矩阵中至少有 ( r ) 行（或列）是线性独立的。</p>
 </li>
@@ -328,15 +374,22 @@
 </ol>
 <h3 id="计算方法"><a href="#计算方法" class="headerlink" title="计算方法"></a>计算方法</h3><p>矩阵的秩可以通过多种方法计算，常见的有：</p>
 <ul>
-<li><strong>高斯消元法</strong>：通过行操作将矩阵转换为行最简形，然后计算非零行的数目。</li>
-<li><strong>奇异值分解（SVD）</strong>：通过分解矩阵为三个矩阵的乘积，其中包含一个对角矩阵，其非零元素的数目即为矩阵的秩。</li>
+<li><p><strong>高斯消元法</strong>：通过行操作(<strong>初等行变换</strong>)将矩阵转换为行最简形，然后计算非零行的数目。</p>
+</li>
+<li><p><strong>奇异值分解（SVD）</strong>：通过分解矩阵为三个矩阵的乘积，其中包含一个对角矩阵，其非零元素的数目即为矩阵的秩。</p>
+</li>
 </ul>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Gm421G7aC/?spm_id_from=333.999.0.0">奇异值分解视频</a></p>
 <p>满秩矩阵也为可逆矩阵，满秩矩阵detA≠0（detA 就是矩阵A的行列式的值）</p>
-<p><strong>不满秩矩阵就是奇异矩阵</strong>，奇异矩阵detA&#x3D;0</p>
+<p><strong>不满秩矩阵就是奇异矩阵</strong>，奇异矩阵<strong>detA&#x3D;0</strong></p>
 <p>由行列式性质知道，矩阵A的转置AT的秩与A的秩是一样的</p>
-<h2 id="线性方程组有解（一个-多个）和无解的条件"><a href="#线性方程组有解（一个-多个）和无解的条件" class="headerlink" title="线性方程组有解（一个&#x2F;多个）和无解的条件"></a>线性方程组有解（一个&#x2F;多个）和无解的条件</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lynn0085/article/details/79375614">线性方程组什么时候无解？多个解？唯一解？</a></p>
+<h2 id="线性方程组有解（一个-多个）和无解的条件"><a href="#线性方程组有解（一个-多个）和无解的条件" class="headerlink" title="线性方程组有解（一个&#x2F;多个）和无解的条件"></a>线性方程组有解（一个&#x2F;多个）和无解的条件</h2><h3 id="线性方程组"><a href="#线性方程组" class="headerlink" title="线性方程组"></a>线性方程组</h3><p><img src="/../../img/%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84.png" srcset="/img/loading.gif" lazyload></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lynn0085/article/details/79375614">线性方程组什么时候无解？多个解？唯一解？</a></p>
+<p><img src="/../../img/%E8%A7%A3%E6%96%B9%E7%A8%8B%E7%BB%84%E4%B8%AA%E6%95%B0.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="特征值和特征向量的含义"><a href="#特征值和特征向量的含义" class="headerlink" title="特征值和特征向量的含义"></a>特征值和特征向量的含义</h2><p>矩阵向量乘积 &#x3D; 向量数乘（A为矩阵，$\mathbf{v}$为向量，$\lambda$为标量）<br>  [<br>  A\mathbf{v} &#x3D; \lambda \mathbf{v}<br>  ]</p>
 <p>从直观理解上看，由于矩阵的乘法实际上是对向量进行坐标旋转变换,它使得左乘 𝐴 后的向量依然与 𝑥 共线</p>
+<p><strong>几何意义</strong>：<br><strong>特征向量：是线性变换下保持方向不变的向量，</strong><br><strong>特征值：则表示这个方向上的伸缩比例。</strong> 在二维空间中，可以想象一个线性变换将一个向量“拉伸”或“压缩”成另一个向量，而特征向量就是在这个过程中方向不变的向量。</p>
+<p><strong>计算方法：</strong><br>式Av&#x3D;λv也可写成( A-λE)v&#x3D;0，并且|λE-A|叫做A 的特征多项式。当特征多项式等于0的时候，称为A的特征方程，特征方程是一个齐次线性方程组，求解特征值的过程其实就是求解特征方程的解。</p>
 <h3 id="特征值（Eigenvalue）"><a href="#特征值（Eigenvalue）" class="headerlink" title="特征值（Eigenvalue）"></a>特征值（Eigenvalue）</h3><p>特征值是与线性变换相关联的标量，满足以下性质：</p>
 <ul>
 <li>对于给定的线性变换 ( T ) 和非零向量 ( \mathbf{v} )，如果存在标量 ( \lambda ) 使得：<br>[<br>T(\mathbf{v}) &#x3D; \lambda \mathbf{v}<br>]<br>那么 ( \lambda ) 就是 ( T ) 的一个特征值。</li>
@@ -346,6 +399,9 @@
 <ul>
 <li>如果 ( \lambda ) 是线性变换 ( T ) 的特征值，那么满足 ( T(\mathbf{v}) &#x3D; \lambda \mathbf{v} ) 的非零向量 ( \mathbf{v} ) 就是 ( \lambda ) 的特征向量。</li>
 </ul>
+<h3 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h3><p>特征值和特征向量的计算通常通过求解特征方程 ( T(v) &#x3D; \lambda v ) 来完成，即：</p>
+<p>[ (T - \lambda I)v &#x3D; 0 ]</p>
+<p>其中，( T ) 是线性变换的矩阵表示，( I ) 是单位矩阵，( \lambda ) 是特征值，( v ) 是特征向量。</p>
 <h3 id="性质和应用"><a href="#性质和应用" class="headerlink" title="性质和应用"></a>性质和应用</h3><ol>
 <li><p><strong>不变性</strong>：特征向量在 ( T ) 的作用下被拉伸或压缩，但方向不变。这是“特征”（eigen，德语中意为“自身”）一词的由来。</p>
 </li>
@@ -354,6 +410,39 @@
 <li><p><strong>主成分分析（PCA）</strong>：在统计学和机器学习中（如PCA主成分分析法），特征值和特征向量用于降维和数据压缩，通过识别数据中的主要变化方向</p>
 </li>
 </ol>
+<p>在线性代数中，矩阵根据其特性可以被分为多种类型，每种类型都有其特定的性质和应用。以下是对称矩阵、置换矩阵、正交矩阵和正定矩阵的解释：</p>
+<h2 id="矩阵类型"><a href="#矩阵类型" class="headerlink" title="矩阵类型"></a>矩阵类型</h2><h3 id="对称矩阵（Symmetric-Matrix）"><a href="#对称矩阵（Symmetric-Matrix）" class="headerlink" title="对称矩阵（Symmetric Matrix）"></a>对称矩阵（Symmetric Matrix）</h3><ol>
+<li><strong>定义</strong>：如果矩阵( A )的转置( A^T )等于其本身，即( A^T &#x3D; A )，则称矩阵( A )为对称矩阵。</li>
+<li><strong>性质</strong>：对称矩阵的对角线以外的元素都是对称的，即( a_{ij} &#x3D; a_{ji} )。</li>
+<li><strong>应用</strong>：在物理学中，对称矩阵常用于表示守恒定律；在优化问题中，对称矩阵用于表示二次型。</li>
+</ol>
+<h3 id="置换矩阵（Permutation-Matrix）"><a href="#置换矩阵（Permutation-Matrix）" class="headerlink" title="置换矩阵（Permutation Matrix）"></a>置换矩阵（Permutation Matrix）</h3><ol>
+<li><strong>定义</strong>：置换矩阵是一种特殊类型的方阵，它的每一行和每一列都恰好有一个非零元素（通常是1），其余元素都是0。置换矩阵代表了一种排列或置换。</li>
+<li><strong>性质</strong>：置换矩阵的乘积可以表示更复杂的排列；它们在数学上用于重新排列集合中的元素顺序。</li>
+<li><strong>应用</strong>：在组合数学中，置换矩阵用于表示元素的重新排序；在计算机科学中，用于实现数据结构中的排序算法。</li>
+</ol>
+<h3 id="正交矩阵（Orthogonal-Matrix）"><a href="#正交矩阵（Orthogonal-Matrix）" class="headerlink" title="正交矩阵（Orthogonal Matrix）"></a>正交矩阵（Orthogonal Matrix）</h3><ol>
+<li><strong>定义</strong>：如果矩阵( A )的转置乘以( A )等于单位矩阵，即( A^TA &#x3D; AA^T &#x3D; I )，则称矩阵( A )为正交矩阵。</li>
+<li><strong>性质</strong>：正交矩阵的列向量和行向量都是单位向量，并且两两正交（即内积为0）。</li>
+<li><strong>应用</strong>：在几何变换中，正交矩阵用于表示保持长度和角度不变的变换，如旋转和反射。</li>
+</ol>
+<h3 id="正定矩阵（Positive-Definite-Matrix）"><a href="#正定矩阵（Positive-Definite-Matrix）" class="headerlink" title="正定矩阵（Positive Definite Matrix）"></a>正定矩阵（Positive Definite Matrix）</h3><ol>
+<li><strong>定义</strong>：对于任意非零向量( \mathbf{x} )，如果( \mathbf{x}^T A \mathbf{x} &gt; 0 )，则称矩阵( A )为正定矩阵。</li>
+<li><strong>性质</strong>：正定矩阵是对称矩阵的一种特殊类型，它的所有特征值都是正数；对角线上的元素也都是正数。</li>
+<li><strong>应用</strong>：正定矩阵在优化问题中非常重要，因为它们保证了函数的局部最小值也是全局最小值；在统计学中，正定矩阵用于表示协方差矩阵。</li>
+</ol>
+<h3 id="其他相关矩阵"><a href="#其他相关矩阵" class="headerlink" title="其他相关矩阵"></a>其他相关矩阵</h3><ul>
+<li><strong>半正定矩阵（Positive Semidefinite Matrix）</strong>：如果( \mathbf{x}^T A \mathbf{x} \geq 0 )对所有非零向量( \mathbf{x} )都成立，则矩阵( A )是半正定的。</li>
+<li><strong>负定矩阵（Negative Definite Matrix）</strong>：如果( \mathbf{x}^T A \mathbf{x} &lt; 0 )对所有非零向量( \mathbf{x} )都成立，则矩阵( A )是负定的。</li>
+<li><strong>不定矩阵（Indefinite Matrix）</strong>：如果矩阵既不是正定的也不是负定的，则称该矩阵为不定矩阵。</li>
+</ul>
+<p>理解这些矩阵类型的特性对于解决线性代数问题和应用矩阵理论在各个领域中非常重要。</p>
+<h2 id="线性代数的应用"><a href="#线性代数的应用" class="headerlink" title="线性代数的应用"></a>线性代数的应用</h2><ul>
+<li><strong>机器学习</strong>：在机器学习中，特征值和特征向量被用于主成分分析（PCA）等降维技术，以及谱聚类等聚类算法。</li>
+<li><strong>深度学习</strong>：在深度学习的卷积神经网络中，卷积核可以看作是一种线性变换，其参数（权重）可以通过特征值分解来优化。</li>
+<li><strong>物理学</strong>：在经典力学中，特征值问题与系统的固有频率相关，特征向量则与系统的振动模式相关。</li>
+</ul>
+<p>理解线性变换、特征值和特征向量对于深入学习数学、物理以及相关工程领域非常重要，它们提供了一种强大的工具来分析和理解复杂系统的行为。</p>
 
                 
               </div>
