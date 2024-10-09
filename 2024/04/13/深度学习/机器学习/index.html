@@ -29,13 +29,14 @@
 <meta property="og:image" content="https://cs-lb.github.io/img/%E5%86%B3%E7%AD%96%E6%A0%91.png">
 <meta property="og:image" content="https://cs-lb.github.io/img/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A.png">
 <meta property="og:image" content="https://cs-lb.github.io/img/K-Means.png">
+<meta property="og:image" content="https://cs-lb.github.io/img/%E8%81%9A%E7%B1%BB%E5%88%86%E7%B1%BB.png">
 <meta property="og:image" content="https://cs-lb.github.io/img/SVM.png">
 <meta property="og:image" content="https://cs-lb.github.io/img/svm%E9%97%B4%E9%9A%94.png">
 <meta property="og:image" content="https://cs-lb.github.io/img/%E9%9B%86%E6%88%90%E7%AE%97%E6%B3%95.png">
 <meta property="og:image" content="https://cs-lb.github.io/img/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97.png">
 <meta property="og:image" content="https://cs-lb.github.io/img/Boosting.png">
 <meta property="article:published_time" content="2024-04-13T15:26:40.000Z">
-<meta property="article:modified_time" content="2024-04-28T07:06:27.729Z">
+<meta property="article:modified_time" content="2024-08-29T06:47:48.551Z">
 <meta property="article:author" content="Liu Bo">
 <meta property="article:tag" content="408 算法 保研">
 <meta name="twitter:card" content="summary_large_image">
@@ -252,7 +253,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          5.6k 字
+          5.9k 字
         
       </span>
     
@@ -264,7 +265,7 @@
         
         
           <!-- compatible with older versions-->
-          47 分钟
+          50 分钟
         
       </span>
     
@@ -339,7 +340,18 @@
 <p><strong>无监督学习算法</strong> (Unsupervised Algorithms) 这类算法没有特定的目标输出，算法将数据集分为不同的组。</p>
 <p><strong>强化学习算法</strong> (Reinforcement Algorithms) 强化学习普适性强，主要基于决策进行训练，算法根据输出结果（决策）的成功或错误来训练自己，通过大量经验训练优化后的算法将能够给出较好的预测。类似有机体在环境给予的奖励或惩罚的刺激下，逐步形成对刺激的预期，产生能获得最大利益的习惯性行为。在运筹学和控制论的语境下，强化学习被称作“近似动态规划”</p>
 <p>基本的机器学习算法：线性回归、支持向量机(SVM)、最近邻居(KNN)、逻辑回归、决策树、k平均、随机森林、朴素贝叶斯、降维、梯度增强</p>
-<h3 id="线性回归（Linear-Regression）"><a href="#线性回归（Linear-Regression）" class="headerlink" title="线性回归（Linear Regression）"></a>线性回归（Linear Regression）</h3><p>线性回归算法（Linear Regression）的建模过程就是使用数据点来寻找最佳拟合线</p>
+<ol>
+<li><p>分类：K近邻、决策树、随机森林、朴素贝叶斯、GBDT、支持向量机等；</p>
+</li>
+<li><p>聚类：k均值聚类算法(K-Means)、基于密度聚类(DBSCAN)等；</p>
+</li>
+<li><p>回归：逻辑回归、线性回归；</p>
+</li>
+<li><p>降维：主成分分析算法(PCA)、LDA、局部线性嵌入(LLE)等</p>
+</li>
+</ol>
+<h3 id="线性回归（Linear-Regression）"><a href="#线性回归（Linear-Regression）" class="headerlink" title="线性回归（Linear Regression）"></a>线性回归（Linear Regression）</h3><p><strong>什么是回归问题</strong></p>
+<p>线性回归算法（Linear Regression）的建模过程就是使用数据点来寻找最佳拟合线</p>
 <ol>
 <li>多元线性回归<br>多元线性回归是回归分析中的一种复杂模型，它考虑了多个输入变量对输出变量的影响。与一元线性回归不同，多元线性回归通过引入多个因素，更全面地建模了系统关系。</li>
 </ol>
@@ -364,6 +376,7 @@
 <li>损失函数通常是对数损失函数（log loss），也称为交叉熵损失函数（cross-entropy loss）。</li>
 <li>目标是最大化似然函数或最小化损失函数，通常通过梯度下降等方法实现。</li>
 <li>相比较线性回归的连续值直接求解，在逻辑回归中，还需要<strong>使用Sigmoid函数将回归方程映射成概率进行分类</strong></li>
+<li><strong>它通过使用逻辑函数（如Sigmoid函数）将线性回归的输出值映射到0和1之间，从而表示概率。</strong></li>
 </ol>
 <p><img src="/../../img/sigmid.png" srcset="/img/loading.gif" lazyload></p>
 <p>线性回归：</p>
@@ -390,7 +403,7 @@
 </ul>
 <h3 id="决策树（Decision-Tress）"><a href="#决策树（Decision-Tress）" class="headerlink" title="决策树（Decision Tress）"></a>决策树（Decision Tress）</h3><ol>
 <li>决策树（Decision tree）是一种特殊的树结构，由一个决策图和可能的结果（例如成本和风险）组成，用来辅助决策。</li>
-<li>机器学习中，决策树是一个预测模型，树中每个节点表示某个对象，而每个分叉路径则代表某个可能的属性值，而每个叶节点则对应从根节点到该叶节点所经历的路径所表示的对象的值。</li>
+<li>机器学习中，<strong>决策树是一个预测模型，树中每个节点表示某个对象，而每个分叉路径则代表某个可能的属性值，而每个叶节点(也是类别)则对应从根节点到该叶节点所经历的路径所表示的对象的值</strong>。</li>
 <li>决策树仅有单一输出，通常该算法用于解决<strong>分类</strong>问题。</li>
 </ol>
 <p><img src="/../../img/%E5%86%B3%E7%AD%96%E6%A0%91.png" srcset="/img/loading.gif" lazyload></p>
@@ -410,14 +423,20 @@
 <ol>
 <li><p>分配阶段：对每个数据点，计算其与每个类中心的距离，然后将其分配到距离最近的类中心所对应的类里。</p>
 </li>
-<li><p>更新阶段：对于每个类，根据该类中所有数据点的均值计算新的类中心。假设某个类包含的数据点集合为 𝑆, 其中包含 𝑛 个数据点，则该类的新的类中心 $𝐶_𝑗$ 可以通过以下公式计算得到, $𝑥_𝑖$ 是数据点集合 $S$ 中的第 $i$ 个数据点</p>
+<li><p>更新阶段：对于每个类，根据该类中所有数据点的均值计算新的类中心。假设某个类包含的数据点集合为 𝑆, 其中包含 𝑛 个数据点，则该类的新的类中心 $𝐶_𝑗$ 可以通过以下公式计算得到, $𝑥_𝑖$ 是数据点集合 $S$ 中的第 $i$ 个数据点到类中心的距离</p>
 </li>
 </ol>
 <p>$$<br>[ C_j &#x3D; \frac{1}{n} \sum_{i&#x3D;1}^{n} x_i ]<br>$$</p>
-<ol>
+<ol start="3">
 <li>重复迭代：重复执行分配和更新阶段，直至达到停止条件为止。停止条件可以是类中心不再发生变化，即算法收敛；或者是达到最大迭代次数。</li>
 </ol>
+<p>总结：<strong>通过迭代地移动簇中心（质心）来最小化每个点到其簇中心的距离之和。</strong></p>
 <p>预测新的未知数据点：迭代每类的聚类（簇）中心，计算该样本点距离每个中心的距离，距离最近的点即为该样本的类别</p>
+<h3 id="聚类和分类问题的区别"><a href="#聚类和分类问题的区别" class="headerlink" title="聚类和分类问题的区别"></a>聚类和分类问题的区别</h3><ul>
+<li>聚类是一种<strong>无监督</strong>学习，而分类是一种有<strong>监督</strong>的学习。</li>
+<li>聚类<strong>只需要人工指定相似度的标准和类别数</strong>就可以，而分类需要从训练集学习分类的方法</li>
+</ul>
+<p><img src="/../../img/%E8%81%9A%E7%B1%BB%E5%88%86%E7%B1%BB.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="SVM-支持向量机，Support-Vector-Machine"><a href="#SVM-支持向量机，Support-Vector-Machine" class="headerlink" title="SVM (支持向量机，Support Vector Machine)"></a>SVM (支持向量机，Support Vector Machine)</h3><p><strong>基本想法</strong> 是求解能够正确划分训练数据集并且几何间隔最大的分离超平面<br>最大化类别间隔实现分类</p>
 <p><strong>支持向量</strong> 是指训练样本中，与分类超平面最近的数据点。其是训练数据的子集同时也是最难分类的点</p>
 <p><img src="/../../img/SVM.png" srcset="/img/loading.gif" lazyload></p>
@@ -469,7 +488,7 @@
 <h3 id="降维算法（Dimensional-Reduction）"><a href="#降维算法（Dimensional-Reduction）" class="headerlink" title="降维算法（Dimensional Reduction）"></a>降维算法（Dimensional Reduction）</h3><p>降维其更深层次的意义在于<strong>有效信息的提取综合及无用信息的摈弃</strong>。</p>
 <p>数据降维算法是机器学习算法中的大家族，与分类、回归、聚类等算法不同，它的<strong>目标</strong>是将向量投影到低维空间，以达到某种目的如可视化，或是做分类。</p>
 <p>数据降维就是寻找一个映射函数f，将高维向量x映射成低维向量y<br>$$<br>f : (x)  -&gt; (y)<br>$$</p>
-<p>如何确定这个映射函数，是各降维算法核心，它们往往根据不同的准则进行构造。</p>
+<p>如何确定这个映射函数，是降维算法核心，它们往往根据不同的准则进行构造。</p>
 <p><strong>降维算法分类</strong></p>
 <p>目前已经存在大量的数据降维算法，可以从另个不同的维度对它们进行分类。</p>
 <p>按照是否有使用样本的标签值，可以将降维算法分为有监督降维和无监督降维；</p>
@@ -488,20 +507,23 @@
 </ul>
 <p><strong>思想：</strong> 投影之后同类的样本尽量集中，不同类的样本尽量分开</p>
 <p><strong>衡量指标：</strong> 类间散度&#x2F;类内散度最大</p>
-<h4 id="PCA算法（主成分分析法）"><a href="#PCA算法（主成分分析法）" class="headerlink" title="PCA算法（主成分分析法）"></a>PCA算法（主成分分析法）</h4><p><strong>线性、无监督降维算法</strong></p>
-<p>主成分分析（Principal Component Analysis，PCA）是一种常用的降维技术，用于将高维数据转换为低维数据，同时保留数据集中的最大方差。PCA通过找到数据中的<strong>主成分（即数据最大方差方向）</strong> 来实现这一目标</p>
-<p>从而可以减少数据集的特征数量，减少数据的维度，降低计算和存储开销，并帮助提高模型的泛化能力</p>
+<h4 id="PCA算法（主成分分析法）"><a href="#PCA算法（主成分分析法）" class="headerlink" title="PCA算法（主成分分析法）"></a>PCA算法（主成分分析法）</h4><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/391531132">从线性代数几何角度看降维（上）：主成分分析(PCA)应用于降维</a></p>
+<p><strong>线性、无监督降维算法</strong></p>
+<p>主成分分析（Principal Component Analysis，PCA）是一种常用的降维技术，用于将高维数据转换为低维数据，同时保留数据集中的最大方差。PCA通过找到数据中的<strong>主成分（即数据最大方差方向）</strong> 来实现这一目标<br>从而可以减少数据集的特征数量，减少数据的维度，降低计算和存储开销，并帮助提高模型的泛化能力</p>
 <p><strong>PCA算法思想：</strong> 是将n维特征映射到k维上，这k维是全新的正交特征也被称为主成分，是在原有n维特征的基础上重新构造出来的k维特征</p>
 <p><strong>实现方法：</strong><br>PCA算法有两种实现方法：</p>
 <ul>
-<li>基于特征值 分解协方差矩阵 实现PCA算法</li>
-<li>基于SVD 分解协方差矩阵 实现PCA算法</li>
+<li>基于特征值分解 协方差矩阵 实现PCA算法</li>
+<li>基于SVD分解 协方差矩阵 实现PCA算法</li>
 </ul>
-<h2 id="损失函数、代价函数、目标函数"><a href="#损失函数、代价函数、目标函数" class="headerlink" title="损失函数、代价函数、目标函数"></a>损失函数、代价函数、目标函数</h2><ul>
-<li><strong>损失函数</strong> Loss Function 通常是<strong>针对单个训练样本而言</strong>，给定一个模型输出 $\hat{y}$ 和一个真实 $y$ ，损失函数输出一个实值损失 $L&#x3D;f(y_i, \hat{y_i})$</li>
-<li><strong>代价函数</strong> Cost Function 通常是<strong>针对整个训练集</strong>（或者在使用 mini-batch gradient descent 时一个 mini-batch）的总损失 $J&#x3D;\sum_{i&#x3D;1}^{N} f(y_i,\hat{y_i})$</li>
-<li><strong>目标函数</strong> Objective Function 是一个更通用的术语，表示任意<strong>希望被优化的函数</strong>，用于机器学习领域和非机器学习领域（比如运筹优化）</li>
-</ul>
+<p><strong>步骤</strong></p>
+<ol>
+<li>因为要提高计算效率和去除冗余特征，所以我们要做降维</li>
+<li>由于特征之间存在相关性，所以不能直接通过扔掉部分特征来做降维</li>
+<li>因此要先做特征转换，转换后的特征要满足彼此不相关</li>
+<li>要令转换后的新特征不相关，体现在新特征的协方差矩阵要为对角矩阵（reason：协方差矩阵的对角线元素表示各个特征自身的方差，而非对角线元素表示特征之间的协方差。如果新特征不相关，那么它们的协方差应该为零，因此协方差矩阵的非对角线元素都为零，整个矩阵成为对角矩阵。）</li>
+<li>接下来要开始扔特征（主成分），达到降维的目标  <strong>通常认为方差越大的特征含有的信息量越大，方差小的特征往往是噪声或无用信息</strong></li>
+</ol>
 
                 
               </div>
