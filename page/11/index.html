@@ -1,0 +1,1137 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/webico.ico">
+  <link rel="icon" href="/img/webico.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Liu Bo">
+  <meta name="keywords" content="408 算法 保研">
+  
+    <meta name="description" content="这是一个关于408、算法等计算机知识以及保研等相关经验贴的分享">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CS_Blog">
+<meta property="og:url" content="https://cs-lb.github.io/page/11/index.html">
+<meta property="og:site_name" content="CS_Blog">
+<meta property="og:description" content="这是一个关于408、算法等计算机知识以及保研等相关经验贴的分享">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Liu Bo">
+<meta property="article:tag" content="408 算法 保研">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>CS_Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cs-lb.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","app_key":"aoBSZ1mISmupN9aimSNuZrgr","server_url":"https://jx9ekdkf.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CS_LB&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://img2.imgtp.com/2024/03/26/I30s8664.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="我欲穿花寻路，直入白云深处，浩气展虹霓。"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/04/11/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/%E8%BF%9E%E9%80%9A%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/" target="_self">
+          <img src="/img/default.png" srcset="/img/loading.gif" lazyload alt="连通图的遍历">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/04/11/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/%E8%BF%9E%E9%80%9A%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/" target="_self">
+          连通图的遍历
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/04/11/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/%E8%BF%9E%E9%80%9A%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/" target="_self">
+        <div>
+          连通图的遍历 “连通块问题”，是基础搜索。用DFS或BFS都行：遍历一个连通块（找到这个连通块中所有的’#‘，并标记已经搜过，不用再搜）；再遍历下一个连通块…；遍历完所有连通块，统计有多少个连通块。  全球变暖题目链接：全球变暖  步骤：  对图g[N][N]进行循环，每次从是陆地并且没有遍历过的点开始搜索 进入dfs函数，将当前搜到的点置为true 然后以此点为中心向四个方向遍历，直到周围没有满
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-11 15:04" pubdate>
+              2024-04-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AE%97%E6%B3%95/%E5%9B%BE%E8%AE%BA/" class="category-chain-item">图论</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95/">#算法</a>
+            
+              <a href="/tags/%E5%9B%BE%E8%AE%BA/">#图论</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/04/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E8%B0%83%E6%A0%88%E5%92%8C%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/" target="_self">
+          <img src="/img/default.png" srcset="/img/loading.gif" lazyload alt="单调栈和单调队列">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/04/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E8%B0%83%E6%A0%88%E5%92%8C%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/" target="_self">
+          单调栈和单调队列
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/04/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E8%B0%83%E6%A0%88%E5%92%8C%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/" target="_self">
+        <div>
+          单调栈和单调队列单调栈和优先队列单调栈能保证全部元素的单调性，会直接舍去不合的元素，因此没有额外维护成本小根堆只能保证堆顶是最小值，不会直接舍去元素，但需要O(logn)的decreaseKey成本 有些题目答案一定是当前最大最小值，直接用单调栈维护即可，不是答案直接舍去，时间复杂度为O(n)当然使用优先队列也正确，因为堆顶一定是极值，但时间复杂度为O(nlogn) 另外，单调队列是双端版的单调栈
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-11 09:22" pubdate>
+              2024-04-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-chain-item">数据结构</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95/">#算法</a>
+            
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/04/10/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" target="_self">
+          <img src="/img/default.png" srcset="/img/loading.gif" lazyload alt="树的直径">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/04/10/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" target="_self">
+          树的直径
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/04/10/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" target="_self">
+        <div>
+          树的直径 定义：树上任意两节点之间最长的简单路径即为树的「直径」显然，一棵树可以有多条直径，他们的长度相等。可以用两次 DFS 或者树形 DP 的方法在 O(n) 时间求出树的直径。  求树的直径的方法：  任取一点作为起始点k，找到距离该点最远的一个点v。  从点v开始搜，找到距离点v最远的一点u，则uv间的距离是树的直径。   123456789101112131415161718192021
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-10 23:31" pubdate>
+              2024-04-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AE%97%E6%B3%95/%E5%9B%BE%E8%AE%BA/" class="category-chain-item">图论</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95/">#算法</a>
+            
+              <a href="/tags/%E5%9B%BE%E8%AE%BA/">#图论</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/04/10/algorithm_know/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6/" target="_self">
+          <img src="/img/default.png" srcset="/img/loading.gif" lazyload alt="区间合并">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/04/10/algorithm_know/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6/" target="_self">
+          区间合并
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/04/10/algorithm_know/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6/" target="_self">
+        <div>
+          区间合并步骤：  将区间按照左端点进行排序 循环判断，如果下一个区间的左端点小于（等于）当前区间的右端点时则可以合并，并更新右端点的最大值 如果下一个区间的左端点大于当前区间的右端点时则不可以合并，则更新右端点的最大值为下一个区间的右端点  核心代码： 12345678910111213141516171819//t代表有人挤奶牛的区间的集合，f代表没有挤奶牛的区间的集合//初始化    LL m
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-10 14:59" pubdate>
+              2024-04-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AE%97%E6%B3%95/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6/" class="category-chain-item">区间合并</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95/">#算法</a>
+            
+              <a href="/tags/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6/">#区间合并</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/04/10/%E8%AE%A1%E7%AE%97%E6%9C%BA408/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" target="_self">
+          <img src="/img/default.png" srcset="/img/loading.gif" lazyload alt="编译原理">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/04/10/%E8%AE%A1%E7%AE%97%E6%9C%BA408/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" target="_self">
+          编译原理
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/04/10/%E8%AE%A1%E7%AE%97%E6%9C%BA408/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" target="_self">
+        <div>
+          Here's something encrypted, password is required to continue reading.
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-10 14:25" pubdate>
+              2024-04-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" class="category-chain-item">期末复习</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" class="category-chain-item">编译原理</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">#期末复习</a>
+            
+              <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">#编译原理</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/04/10/algorithm_know/%E6%97%A5%E6%9C%9F%E9%97%AE%E9%A2%98/" target="_self">
+          <img src="/img/default.png" srcset="/img/loading.gif" lazyload alt="日期问题">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/04/10/algorithm_know/%E6%97%A5%E6%9C%9F%E9%97%AE%E9%A2%98/" target="_self">
+          日期问题
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/04/10/algorithm_know/%E6%97%A5%E6%9C%9F%E9%97%AE%E9%A2%98/" target="_self">
+        <div>
+          日期问题需要考虑的问题 是否是闰年来确定二月的天数 日期是否合理（month在112 day在128&#x2F;29&#x2F;30&#x2F;31（根据月份来判断）） 日期的输出顺序是否合理 日期相同时只需要输出一次  12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-10 10:31" pubdate>
+              2024-04-10
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/04/08/algorithm_know/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%BB%83%E4%B9%A0%E9%A2%98/" target="_self">
+          <img src="/img/default.png" srcset="/img/loading.gif" lazyload alt="二分查找练习题">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/04/08/algorithm_know/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%BB%83%E4%B9%A0%E9%A2%98/" target="_self">
+          二分查找练习题
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/04/08/algorithm_know/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%BB%83%E4%B9%A0%E9%A2%98/" target="_self">
+        <div>
+          二分查找练习题卡牌题目链接：卡牌  tips:  记得开long long （最好把所有的数据都从 int 变成 long long）  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647#include &lt;bits/stdc++.h&gt;using namespace
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-08 14:32" pubdate>
+              2024-04-08
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/" class="category-chain-item">二分算法</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95/">#算法</a>
+            
+              <a href="/tags/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/">#二分算法</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/04/07/dp/dp%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%BB%83%E4%B9%A0%E9%A2%98/" target="_self">
+          <img src="/img/default.png" srcset="/img/loading.gif" lazyload alt="dp背包问题练习题">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/04/07/dp/dp%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%BB%83%E4%B9%A0%E9%A2%98/" target="_self">
+          dp背包问题练习题
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/04/07/dp/dp%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%BB%83%E4%B9%A0%E9%A2%98/" target="_self">
+        <div>
+          dp背包问题练习题货币系统（完全背包）tips：  要将$f[0][0]$ 等特殊的点进行初始化操作 要将$f[N][N] $设置为 $long long$   1234567891011121314151617181920212223242526272829303132333435//从前v种货币中选，凑出N元钱的方案的集合的长度//第v种货币不选或者选一个/两个/...//如果第v种货币选一个
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-07 22:15" pubdate>
+              2024-04-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="category-chain-item">动态规划</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" class="category-chain-item">背包问题</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95/">#算法</a>
+            
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">#动态规划</a>
+            
+              <a href="/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">#背包问题</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/04/07/dp/%E7%BA%BF%E6%80%A7dp%E7%BB%83%E4%B9%A0%E9%A2%98/" target="_self">
+          <img src="/img/default.png" srcset="/img/loading.gif" lazyload alt="线性dp练习题">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/04/07/dp/%E7%BA%BF%E6%80%A7dp%E7%BB%83%E4%B9%A0%E9%A2%98/" target="_self">
+          线性dp练习题
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/04/07/dp/%E7%BA%BF%E6%80%A7dp%E7%BB%83%E4%B9%A0%E9%A2%98/" target="_self">
+        <div>
+          线性dp练习题数字三角形题目链接：数字三角形  tips  因为有些值为负数，因此要将所有$f[i][j]$初始为负无穷如果初始化为0会导致部分$f[i][j]$的值大于 本不应该大于 的f$f[i-1][j-1]$  1234567891011121314151617181920212223242526272829303132333435#include &lt;bits/stdc++.h&gt
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-07 15:46" pubdate>
+              2024-04-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="category-chain-item">动态规划</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7dp/" class="category-chain-item">线性dp</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95/">#算法</a>
+            
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">#动态规划</a>
+            
+              <a href="/tags/%E7%BA%BF%E6%80%A7dp/">#线性dp</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/04/07/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/%E5%9B%BE%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98/" target="_self">
+          <img src="/img/default.png" srcset="/img/loading.gif" lazyload alt="图的最短路问题">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/04/07/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/%E5%9B%BE%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98/" target="_self">
+          图的最短路问题
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/04/07/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/%E5%9B%BE%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98/" target="_self">
+        <div>
+          图的最短路问题 单源最短路朴素Dijkstra算法核心思想：  先确定最短距离点 然后用该点去更新其他点的最短距离   适合稠密图变量：dist[N] （距离源点的距离数组） , st[N]（某个点是否已经被更新为距离最短的点的集合中的状态数组）重边与自环：在min中会循环找出最短距离的边算法步骤：   初始化：dist 初始化为正无穷（0x3f）memset(dist,0x3f,sizeof(d
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-07 09:57" pubdate>
+              2024-04-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AE%97%E6%B3%95/%E5%9B%BE%E8%AE%BA/" class="category-chain-item">图论</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95/">#算法</a>
+            
+              <a href="/tags/%E5%9B%BE%E8%AE%BA/">#图论</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/10/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#board">9</a><a class="page-number" href="/page/10/#board">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/#board">12</a><a class="page-number" href="/page/13/#board">13</a><a class="page-number" href="/page/14/#board">14</a><a class="extend next" rel="next" href="/page/12/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,822 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/webico.ico">
+  <link rel="icon" href="/img/webico.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Liu Bo">
+  <meta name="keywords" content="408 算法 保研">
+  
+    <meta name="description" content="sky项目开发文档day01前后端项目导入和启动前端运行；后端导入项目；git上传；数据库搭建（sky.sql）； 前端nginx服务器nginx文件的config文件覆盖； html文件夹的覆盖；命令行启动nginx：brew services start nginx 后端项目 缺少.iml文件：终端进入项目文件夹，输入命令mvn idea:module  这里登录不了，可能有这三个原因，第一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sky项目开发文档">
+<meta property="og:url" content="https://cs-lb.github.io/2024/11/04/Java/sky%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/index.html">
+<meta property="og:site_name" content="CS_Blog">
+<meta property="og:description" content="sky项目开发文档day01前后端项目导入和启动前端运行；后端导入项目；git上传；数据库搭建（sky.sql）； 前端nginx服务器nginx文件的config文件覆盖； html文件夹的覆盖；命令行启动nginx：brew services start nginx 后端项目 缺少.iml文件：终端进入项目文件夹，输入命令mvn idea:module  这里登录不了，可能有这三个原因，第一个">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cs-lb.github.io/image-135.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-136.png">
+<meta property="article:published_time" content="2024-11-04T10:20:25.000Z">
+<meta property="article:modified_time" content="2024-11-20T09:30:02.328Z">
+<meta property="article:author" content="Liu Bo">
+<meta property="article:tag" content="408 算法 保研">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cs-lb.github.io/image-135.png">
+  
+  
+  
+  <title>sky项目开发文档 - CS_Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cs-lb.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","app_key":"aoBSZ1mISmupN9aimSNuZrgr","server_url":"https://jx9ekdkf.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CS_LB&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="sky项目开发文档"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-11-04 18:20" pubdate>
+          2024年11月4日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          1.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">sky项目开发文档</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="sky项目开发文档"><a href="#sky项目开发文档" class="headerlink" title="sky项目开发文档"></a>sky项目开发文档</h1><h2 id="day01"><a href="#day01" class="headerlink" title="day01"></a>day01</h2><h3 id="前后端项目导入和启动"><a href="#前后端项目导入和启动" class="headerlink" title="前后端项目导入和启动"></a>前后端项目导入和启动</h3><p>前端运行；后端导入项目；git上传；数据库搭建（sky.sql）；</p>
+<h4 id="前端nginx服务器"><a href="#前端nginx服务器" class="headerlink" title="前端nginx服务器"></a>前端nginx服务器</h4><p>nginx文件的config文件覆盖； html文件夹的覆盖；<br>命令行启动nginx：<code>brew services start nginx</code></p>
+<h4 id="后端项目"><a href="#后端项目" class="headerlink" title="后端项目"></a>后端项目</h4><ol>
+<li><p>缺少.iml文件：终端进入项目文件夹，输入命令mvn idea:module</p>
+</li>
+<li><p>这里登录不了，可能有这三个原因，第一个数据库密码不匹配，你去dev文件改成你的数据库密码，第二个是nginx服务器可能没开好，你重新启动好;maven配置jre版本成自己的</p>
+</li>
+<li><p>maven编译显示符号不存在：在设置里面找maven-&gt;运行程序&gt;把”将…委托给maven”打开(我这是中文的,英文是runner)</p>
+</li>
+<li><p>jdk版本更换</p>
+</li>
+</ol>
+<h2 id="day02"><a href="#day02" class="headerlink" title="day02"></a>day02</h2><h3 id="新增员工代码完善："><a href="#新增员工代码完善：" class="headerlink" title="新增员工代码完善："></a>新增员工代码完善：</h3><ol>
+<li>同一用户重复添加的异常处理（全局处理器）</li>
+<li>在JWT校验时 获得登陆用户的id （ThreadLocal对象）</li>
+</ol>
+<p><strong>ThreadLocal对象</strong><br>对于每一个请求，都会为其新建一个独立的线程</p>
+<h3 id="分页操作："><a href="#分页操作：" class="headerlink" title="分页操作："></a>分页操作：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-keyword">public</span> PageResult <span class="hljs-title function_">pageQuery</span><span class="hljs-params">(EmployeePageQueryDTO employeePageQueryDTO)</span> &#123;<br>    <span class="hljs-comment">//PageHelper、Page 这两个对象都是插件提供的</span><br>    PageHelper.startPage(employeePageQueryDTO.getPage(),employeePageQueryDTO.getPageSize()); <span class="hljs-comment">//设置分页参数</span><br><br>    Page&lt;Employee&gt; page = employeeMapper.pageQuery(employeePageQueryDTO); <span class="hljs-comment">//通过SQL查询得到一个Page对象，里面包含数据总数和数据列表</span><br><br>    <span class="hljs-type">long</span> <span class="hljs-variable">total</span> <span class="hljs-operator">=</span> page.getTotal(); <span class="hljs-comment">//数据总数</span><br>    List&lt;Employee&gt; records = page.getResult(); <span class="hljs-comment">//数据列表</span><br><br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PageResult</span>(total,records); <span class="hljs-comment">//将得到的数据放到 一个用于返回前端数据的实体类中</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="日期注解"><a href="#日期注解" class="headerlink" title="日期注解"></a>日期注解</h3><p>不加注解时，日期返回的是一个数组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//@JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)</span><br><span class="hljs-keyword">private</span> LocalDateTime createTime;<br><br><span class="hljs-comment">//@JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)</span><br><span class="hljs-keyword">private</span> LocalDateTime updateTime;<br><br><span class="hljs-string">&quot;createTime&quot;</span>: [<br>      <span class="hljs-number">2024</span>,<br>      <span class="hljs-number">11</span>,<br>      <span class="hljs-number">4</span>,<br>      <span class="hljs-number">18</span>,<br>      <span class="hljs-number">33</span>,<br>      <span class="hljs-number">37</span><br>],<br></code></pre></td></tr></table></figure>
+
+<p><strong>通过消息转换器对日期对象进行序列化</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 扩展spring MVC 框架的消息转换器(默认的消息转换器容器converters已经有8个消息转换器了)</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> converters</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">extendMessageConverters</span><span class="hljs-params">(List&lt;HttpMessageConverter&lt;?&gt;&gt; converters)</span>&#123;<br>    <span class="hljs-comment">//创建一个消息转换器对象</span><br>    <span class="hljs-type">MappingJackson2HttpMessageConverter</span> <span class="hljs-variable">converter</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MappingJackson2HttpMessageConverter</span>();<br>    <span class="hljs-comment">//需要为消息转换器设置一个对象转换器，对象转换器可以将java对象序列化为json数据</span><br>    converter.setObjectMapper(<span class="hljs-keyword">new</span> <span class="hljs-title class_">JacksonObjectMapper</span>() );<br><br>    <span class="hljs-comment">//将自己的消息转换器加入到容器中，并设置优先级（否则使用不到）</span><br>    converters.add(<span class="hljs-number">0</span>,converter);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="day3"><a href="#day3" class="headerlink" title="day3"></a>day3</h2><h3 id="得到自增的ID值"><a href="#得到自增的ID值" class="headerlink" title="得到自增的ID值"></a>得到自增的ID值</h3><p>加上 <code>useGeneratedKeys=&quot;true&quot; keyProperty=&quot;id&quot;</code> 即可在数据库操作返回的实体类对象中 通过getId() 得到自增的ID值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-operator">&lt;</span><span class="hljs-keyword">insert</span> id<span class="hljs-operator">=</span>&quot;saveDish&quot; parameterType<span class="hljs-operator">=</span>&quot;Dish&quot; useGeneratedKeys<span class="hljs-operator">=</span>&quot;true&quot; keyProperty<span class="hljs-operator">=</span>&quot;id&quot;<span class="hljs-operator">&gt;</span><br>    <span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> dish (<span class="hljs-operator">&lt;</span>include refid<span class="hljs-operator">=</span>&quot;key&quot;<span class="hljs-operator">/</span><span class="hljs-operator">&gt;</span>) <span class="hljs-keyword">values</span>(<span class="hljs-operator">&lt;</span>include refid<span class="hljs-operator">=</span>&quot;value&quot;<span class="hljs-operator">/</span><span class="hljs-operator">&gt;</span>)<br><span class="hljs-operator">&lt;</span><span class="hljs-operator">/</span><span class="hljs-keyword">insert</span><span class="hljs-operator">&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+<h3 id="得到用户的userId"><a href="#得到用户的userId" class="headerlink" title="得到用户的userId"></a>得到用户的userId</h3><p>在JWT校验的拦截器中，得到userId</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java">    log.info(<span class="hljs-string">&quot;jwt校验:&#123;&#125;&quot;</span>, token);<br>    <span class="hljs-type">Claims</span> <span class="hljs-variable">claims</span> <span class="hljs-operator">=</span> JwtUtil.parseJWT(jwtProperties.getUserSecretKey(), token);<br>    <span class="hljs-type">Long</span> <span class="hljs-variable">userId</span> <span class="hljs-operator">=</span> Long.valueOf(claims.get(JwtClaimsConstant.USER_ID).toString());<br>    log.info(<span class="hljs-string">&quot;当前员工id：&quot;</span>, userId);<br>    <span class="hljs-comment">//TODO 向当前线程对象ThreadLocal中存储id</span><br>    BaseContext.setCurrentId(userId);<br><br><span class="hljs-comment">// ======== 取出存储的userId=========</span><br>BaseContext.getCurrentId<br></code></pre></td></tr></table></figure>
+
+<h2 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h2><p>Mapper.xml 中的SQL语句出错</p>
+<p>1. </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-operator">&lt;</span>if test<span class="hljs-operator">=</span>&quot;dish_flavor != null&quot;<span class="hljs-operator">&gt;</span><br>    <span class="hljs-keyword">and</span> dish_flavor <span class="hljs-operator">=</span> dishFlavor<br><span class="hljs-operator">&lt;</span><span class="hljs-operator">/</span>if<span class="hljs-operator">&gt;</span><br><br><span class="hljs-operator">&lt;</span>if test<span class="hljs-operator">=</span>&quot;dishFlavor != null&quot;<span class="hljs-operator">&gt;</span><br>    <span class="hljs-keyword">and</span> dish_flavor <span class="hljs-operator">=</span> dishFlavor<br><span class="hljs-operator">&lt;</span><span class="hljs-operator">/</span>if<span class="hljs-operator">&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">org<span class="hljs-selector-class">.apache</span><span class="hljs-selector-class">.ibatis</span><span class="hljs-selector-class">.reflection</span><span class="hljs-selector-class">.ReflectionException</span>: There is no getter <span class="hljs-keyword">for</span> property named <span class="hljs-string">&#x27;dish_flavor&#x27;</span> <span class="hljs-keyword">in</span> <span class="hljs-string">&#x27;class com.sky.entity.ShoppingCart&#x27;</span><br><br></code></pre></td></tr></table></figure>
+
+<p>2. </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-operator">&lt;</span>if test<span class="hljs-operator">=</span>&quot;dishFlavor != null&quot;<span class="hljs-operator">&gt;</span><br>    <span class="hljs-keyword">and</span> dish_flavor <span class="hljs-operator">=</span> dishFlavor<br><span class="hljs-operator">&lt;</span><span class="hljs-operator">/</span>if<span class="hljs-operator">&gt;</span><br><br><br><span class="hljs-operator">&lt;</span>if test<span class="hljs-operator">=</span>&quot;dishFlavor != null&quot;<span class="hljs-operator">&gt;</span><br>    <span class="hljs-keyword">and</span> dish_flavor <span class="hljs-operator">=</span> #&#123;dishFlavor&#125;<br><span class="hljs-operator">&lt;</span><span class="hljs-operator">/</span>if<span class="hljs-operator">&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">java.<span class="hljs-keyword">sql</span>.SQLSyntaxErrorException: <span class="hljs-type">Unknown</span> <span class="hljs-keyword">column</span> <span class="hljs-string">&#x27;dishFlavor&#x27;</span> <span class="hljs-keyword">in</span> <span class="hljs-string">&#x27;where clause&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="day10"><a href="#day10" class="headerlink" title="day10"></a>day10</h2><h2 id="Spring-Task-（定时任务框架）"><a href="#Spring-Task-（定时任务框架）" class="headerlink" title="Spring Task （定时任务框架）"></a>Spring Task （定时任务框架）</h2><p>Spring框架提供的任务调度框架，可以按照约定的时间自动执行某个代码逻辑</p>
+<p>应用场景：还款提醒；处理未支付订单；定时通知</p>
+<p><strong>cron 表达式</strong><br>cron表达式其实就是一个字符串，通过cron表达式就可以定义任务触发的时间<br>构成规则：分成6或者7个域；每个域代表一个含义<br>每个域含义为：秒、分钟、小时、日、月、周、年（可选）</p>
+<h3 id="Spring-Task使用步骤"><a href="#Spring-Task使用步骤" class="headerlink" title="Spring Task使用步骤"></a>Spring Task使用步骤</h3><ol>
+<li>导入Maven坐标 spring-context</li>
+<li>启动类添加注解 @EnableScheduling 开启任务调度</li>
+<li>自定义定时任务类</li>
+</ol>
+<h2 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h2><p>WebSocket 是基于TCP的一种新的网络协议；它实现了<strong>浏览器和服务器的全双工通信</strong>——浏览器和服务器只需要完成一次握手，两者就可以创建<strong>持久性的连接</strong>，并进行双向数据传输。</p>
+<p><strong>和Http的区别</strong></p>
+<ul>
+<li>HTTP是短连接；WebSocket是长连接</li>
+<li>HTTP通信是单向的，基于请求响应模式；WebSocket是全双工</li>
+</ul>
+<p><strong>相同</strong></p>
+<ul>
+<li>都是基于TCP</li>
+</ul>
+<h3 id="WebSocket使用步骤"><a href="#WebSocket使用步骤" class="headerlink" title="WebSocket使用步骤"></a>WebSocket使用步骤</h3><p><img src="/image-135.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p><strong>WebSocket重大错误和解决方法</strong><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/677781954">使用spring-websocket 配置时的Bean引入报错</a></p>
+<p><code>Error creating bean with name &#39;serverEndpointExporter&#39;</code></p>
+<p>当进行 SpringBoot 单元测试时，并没有启动服务器，所以当加载到这个bean时会报错:<br>解决方案：在@SpringBootTest注解中添加webEnvironment配置，给wevsocket提供测试环境。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 注入ServerEndpointExporter，</span><br><span class="hljs-comment"> * 这个bean会自动注册使用了<span class="hljs-doctag">@ServerEndpoint</span>注解声明的Websocket endpoint</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Bean</span><br><span class="hljs-keyword">public</span> ServerEndpointExporter <span class="hljs-title function_">serverEndpointExporter</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ServerEndpointExporter</span>();<br>&#125;<br><br><span class="hljs-comment">// ========springboot-test</span><br><span class="hljs-comment">// 在@SpringBootTest注解中添加webEnvironment配置，给wevsocket提供测试环境。</span><br><span class="hljs-meta">@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="公共字段填充"><a href="#公共字段填充" class="headerlink" title="公共字段填充"></a>公共字段填充</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_49838656/article/details/131799350">https://blog.csdn.net/qq_49838656/article/details/131799350</a></p>
+<h2 id="来单提醒"><a href="#来单提醒" class="headerlink" title="来单提醒"></a>来单提醒</h2><p><img src="/image-136.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h2 id="RequestBody"><a href="#RequestBody" class="headerlink" title="@RequestBody()"></a>@RequestBody()</h2><p>要用封装好的  对象接收，不可以使用单独的数据参数接收<br><code>(@RequestBody() OrdersRejectionDTO ordersRejectionDTO)</code></p>
+<h2 id="redis-和nginx-停止命令"><a href="#redis-和nginx-停止命令" class="headerlink" title="redis 和nginx 停止命令"></a>redis 和nginx 停止命令</h2><p>更换配置文件前先停止服务！！！<br><code>sudo nginx -s quit </code></p>
+<p><code>ps aux | grep nginx</code></p>
+<p><code>launchctl list | grep nginx</code></p>
+<p><strong>先关闭在启动</strong><br><code>brew services stop nginx</code></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>sky项目开发文档</div>
+      <div>https://cs-lb.github.io/2024/11/04/Java/sky项目开发文档/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Liu Bo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年11月4日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/11/05/Java/Jave-Redis/" title="Jave-Redis">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Jave-Redis</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/11/03/Java/MySQL-%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6/" title="MySQL 并发控制">
+                        <span class="hidden-mobile">MySQL 并发控制</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","appKey":"aoBSZ1mISmupN9aimSNuZrgr","path":"window.location.pathname","placeholder":"评论","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"https://jx9ekdkf.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"appid":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","appkey":"aoBSZ1mISmupN9aimSNuZrgr"},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

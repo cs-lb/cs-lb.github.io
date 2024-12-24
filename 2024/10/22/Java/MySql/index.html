@@ -1,0 +1,1290 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/webico.ico">
+  <link rel="icon" href="/img/webico.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Liu Bo">
+  <meta name="keywords" content="408 算法 保研">
+  
+    <meta name="description" content="MySQLSQL语言的四大组成部分：  DDL（数据定义语言） 用于创建、删除和修改数据库对象，如表和数据库； DML（数据操纵语言） 涉及数据的增删改操作； DQL（数据查询语言） 专注于数据查询； DCL（数据控制语言） 用于设置和撤销用户权限。  mysql 连接 语法：mysql -u用户名 -p密码 [-h数据库服务器ip地址 -p端口号（mysql的默认端口3306）]  数据库操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySql">
+<meta property="og:url" content="https://cs-lb.github.io/2024/10/22/Java/MySql/index.html">
+<meta property="og:site_name" content="CS_Blog">
+<meta property="og:description" content="MySQLSQL语言的四大组成部分：  DDL（数据定义语言） 用于创建、删除和修改数据库对象，如表和数据库； DML（数据操纵语言） 涉及数据的增删改操作； DQL（数据查询语言） 专注于数据查询； DCL（数据控制语言） 用于设置和撤销用户权限。  mysql 连接 语法：mysql -u用户名 -p密码 [-h数据库服务器ip地址 -p端口号（mysql的默认端口3306）]  数据库操作">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cs-lb.github.io/image-72.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-73.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-75.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-81.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-74.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-76.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-78.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-79.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-80.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-82.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-83.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-85.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-86.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-117.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-118.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-119.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-120.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-80.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-121.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-122.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-123.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-82.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-83.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-124.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-85.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-125.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-139.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-140.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-141.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-142.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-143.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-144.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-145.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-146.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-147.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-148.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-149.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-150.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-166.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-151.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-153.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-154.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-155.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-156.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-157.png">
+<meta property="article:published_time" content="2024-10-22T11:58:50.000Z">
+<meta property="article:modified_time" content="2024-11-29T15:08:35.610Z">
+<meta property="article:author" content="Liu Bo">
+<meta property="article:tag" content="408 算法 保研">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cs-lb.github.io/image-72.png">
+  
+  
+  
+  <title>MySql - CS_Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cs-lb.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","app_key":"aoBSZ1mISmupN9aimSNuZrgr","server_url":"https://jx9ekdkf.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CS_LB&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="MySql"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-10-22 19:58" pubdate>
+          2024年10月22日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          7.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          59 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">MySql</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><p>SQL语言的四大组成部分：</p>
+<ul>
+<li>DDL（数据定义语言） 用于创建、删除和修改数据库对象，如表和数据库；</li>
+<li>DML（数据操纵语言） 涉及数据的增删改操作；</li>
+<li>DQL（数据查询语言） 专注于数据查询；</li>
+<li>DCL（数据控制语言） 用于设置和撤销用户权限。</li>
+</ul>
+<h2 id="mysql-连接"><a href="#mysql-连接" class="headerlink" title="mysql 连接"></a>mysql 连接</h2><ul>
+<li>语法：mysql -u用户名 -p密码 [-h数据库服务器ip地址 -p端口号（mysql的默认端口3306）]</li>
+</ul>
+<h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><p><img src="/image-72.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h2 id="表操作"><a href="#表操作" class="headerlink" title="表操作"></a>表操作</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> 表名&#123;<br>    字段<span class="hljs-number">1</span> 字段类型 [约束] [comment 字段<span class="hljs-number">1</span>注释],<br>    ...,<br>    字段n 字段类型 [约束] [comment 字段n注释]<br>&#125;[comment 表注释];<br></code></pre></td></tr></table></figure>
+
+<p><strong>约束:</strong><br><img src="/image-73.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p><strong>数据类型：</strong></p>
+<ol>
+<li>数字类型</li>
+</ol>
+<ul>
+<li>tinyint （小整数值 -127～128 如果是无符号unsigned 0~255）</li>
+<li>int</li>
+<li>bigint （极大整数值）</li>
+<li>float</li>
+<li>double</li>
+<li>decimal （精度最高的浮点数）</li>
+</ul>
+<ol start="2">
+<li>字符串类型</li>
+</ol>
+<ul>
+<li>char 定长字符串 0-255 bytes</li>
+<li>varchar 不定长字符串 0-65535 bytes</li>
+</ul>
+<ol start="3">
+<li>时间日期类型</li>
+</ol>
+<ul>
+<li>data （只有日期 YYYY-MM-DD）</li>
+<li>datatime 混合时间类型（日期 + 时间 YYYY-MM-DD HH：MM：SS）</li>
+</ul>
+<h2 id="添加-修改-删除-数据"><a href="#添加-修改-删除-数据" class="headerlink" title="添加&#x2F;修改&#x2F;删除 数据"></a>添加&#x2F;修改&#x2F;删除 数据</h2><p><img src="/image-75.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h2 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h2><p><strong>查询数据语法</strong><br><img src="/image-81.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h3 id="基本查询"><a href="#基本查询" class="headerlink" title="基本查询"></a>基本查询</h3><p><img src="/image-74.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h3><p><code>select 字段列表 from 表名 where 条件列表;</code></p>
+<p><img src="/image-76.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h3 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h3><p><code>select 聚合函数（[distinct | all] 字段列表）from 表名;</code></p>
+<p>如果指定了distinct , 则表示在计算时要取消指定列中的重复值</p>
+<p><img src="/image-78.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p><code>select 字段列表 from 表名 [where 条件列表] group by 分组字段名 [having 分组后过滤条件];</code></p>
+<p><strong>聚合函数的使用：</strong><br>在 MySQL 5.7 版本中引入了 ONLY_FULL_GROUP_BY SQL 模式，这个模式要求当使用 GROUP BY 子句时，SELECT 列表中的所有列都必须是聚合函数（如 SUM(), COUNT(), MAX(), MIN() 等）的结果，或者是 GROUP   BY 子句中指定的列。如果没有使用 GROUP BY 子句，那么 SELECT 列表中的所有列都必须是聚合函数的结果。</p>
+<p><strong>总结：</strong> </p>
+<ol>
+<li><p>如果查询的逻辑需要对某些列进行分组，那么应该在查询中添加 GROUP BY 子句，<strong>并在 SELECT 列表中只包含分组的列或者聚合函数。</strong></p>
+</li>
+<li><p>如果<strong>不需要对数据进行分组</strong>，那么应该<strong>从 SELECT 列表中移除非聚合列</strong></p>
+</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-comment">-- 没有分组，使用聚合函数</span><br><span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">AVG</span>(salary), <span class="hljs-built_in">SUM</span>(salary)<br><span class="hljs-keyword">FROM</span> employees;<br><br><span class="hljs-comment">-- 分组后，使用聚合函数</span><br><span class="hljs-keyword">SELECT</span> department_id, <span class="hljs-built_in">AVG</span>(salary), <span class="hljs-built_in">MAX</span>(salary)<br><span class="hljs-keyword">FROM</span> employees<br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> department_id;<br></code></pre></td></tr></table></figure>
+
+<p><strong>where 和 having 的区别</strong><br><img src="/image-79.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h3 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h3><p><code>select 字段列表 from 表名 [where 条件列表] group by 分组字段名 order by 字段1 排序方式1, 字段2 排序方式2;</code></p>
+<p>排序方式分为 <strong>ASC （升序，默认值） 和 DESC （降序）</strong></p>
+<h3 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h3><p><code>select 字段列表 from 表名 limit 起始索引，查询记录数;</code></p>
+<p>起始索引 &#x3D; （页码 - 1）* 每页展示记录数</p>
+<h3 id="数据查询的相关函数"><a href="#数据查询的相关函数" class="headerlink" title="数据查询的相关函数"></a>数据查询的相关函数</h3><p>用于信息统计：<br><img src="/image-80.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p><code>SELECT * FROM users WHERE IF(id &gt; 3, name = &#39;王2&#39;, name = &#39;王3&#39;);</code></p>
+<p><code>SELECT * FROM users WHERE IF(id &gt; 3, name = &#39;王2&#39;, true);</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">select<br>    <span class="hljs-keyword">case</span> job when <span class="hljs-number">1</span> then <span class="hljs-string">&#x27;班主任&#x27;</span> when <span class="hljs-number">2</span> then <span class="hljs-string">&#x27;讲师&#x27;</span> when <span class="hljs-number">3</span> then <span class="hljs-string">&#x27;学工主管&#x27;</span> when <span class="hljs-number">4</span> then <span class="hljs-string">&#x27;教研主管&#x27;</span> <span class="hljs-keyword">else</span> <span class="hljs-string">&#x27;未分配职位&#x27;</span> end,<br>    count(*)<br>    from tb_emp group by job;<br></code></pre></td></tr></table></figure>
+
+<h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><h3 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h3><p>查询两个表的交集，消除多余的笛卡尔积<br><img src="/image-82.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h3 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h3><ul>
+<li>左外连接 ：左表数据 + 两个表的并集</li>
+<li>右外连接 ：右表数据 + 两个表的并集</li>
+</ul>
+<p><img src="/image-83.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><p>SQL语句中嵌套select语句，称为嵌套查询，或者子查询<br>语法：<code>select * from t1 where column1 = (select column1 from t2 ...);</code></p>
+<p>子查询外部的语句可以是select&#x2F;delete&#x2F;update&#x2F;insert 中任意一个</p>
+<p><strong>子查询分类：</strong></p>
+<ul>
+<li><p>标量子查询<br><img src="/image-85.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+</li>
+<li><p>列子查询<br><img src="/image-86.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+</li>
+<li><p>行子查询</p>
+</li>
+<li><p>表子查询</p>
+</li>
+</ul>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>事务是一组操作的集合，它是一个不可分割的工作单元。事务会把所有操作作为一个整体一起向系统提交或者撤销操作请求。 即这些操作要么全做，要么都不做（要么全部成功，要不全部失败）。</p>
+<ul>
+<li>开启事务：<code>start transaction; / begin;</code></li>
+<li>提交事务：<code>commit;</code></li>
+<li>回滚事务：<code>rollback;</code></li>
+</ul>
+<p>注意：当我们<strong>执行了DDL语句之后，系统会自动的执行一次commit</strong>，连带着前面的添加数据一起完成了提交。</p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>MySQL 用的是B+树索引（多路平衡搜索树）</p>
+<p>语法：</p>
+<ul>
+<li>创建索引：<code>create [unique] index 索引名 on 表名（字段名）;</code></li>
+<li>删除索引：<code>drop index 索引名 from 表名;</code></li>
+<li>查看索引：<code>show index from 表名;</code></li>
+</ul>
+<h2 id="预编译SQL"><a href="#预编译SQL" class="headerlink" title="预编译SQL"></a>预编译SQL</h2><p>通过 <code>@Delete(&quot;delete from emp where id=#&#123;id&#125;;&quot;)</code> 进行预编译SQL<br>作用：</p>
+<ul>
+<li><p>性能更高</p>
+</li>
+<li><p>防止SQL注入，更加安全</p>
+</li>
+<li><p>#{} ：执行SQL时，会将 <code>#&#123;&#125;</code> 替换成 ？，生成预编译SQL；会自动设置参数值; </p>
+</li>
+<li><p>${} : 直接拼接字符串</p>
+</li>
+</ul>
+<p>tips: 如果是在引号中，不能直接使用#{} 传递参数，而要用concat拼接函数<br>ex. <code>&#39;%张%&#39;</code><br><code>concat(&#39;%&#39;, #&#123;&#125;, &#39;%&#39;)</code></p>
+<h2 id="用户控制-权限控制"><a href="#用户控制-权限控制" class="headerlink" title="用户控制&#x2F;权限控制"></a>用户控制&#x2F;权限控制</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-comment">-- 一、用户控制</span><br><br><span class="hljs-comment">-- 创建用户‘cslb’ ，只能够在当前主机localhost中访问数据库，密码为‘123456’</span><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> <span class="hljs-string">&#x27;cslb&#x27;</span>@<span class="hljs-string">&#x27;localhost&#x27;</span> identified <span class="hljs-keyword">by</span> <span class="hljs-string">&#x27;123456&#x27;</span>;<br><br><span class="hljs-comment">-- 创建用户，可以在任意主机访问</span><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> <span class="hljs-string">&#x27;allhost&#x27;</span>@<span class="hljs-string">&#x27;%&#x27;</span> identified <span class="hljs-keyword">by</span> <span class="hljs-string">&#x27;123456&#x27;</span>;<br><br><span class="hljs-comment">-- 修改用户密码</span><br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">user</span> <span class="hljs-string">&#x27;cslb&#x27;</span>@<span class="hljs-string">&#x27;localhost&#x27;</span> identified <span class="hljs-keyword">by</span> <span class="hljs-string">&#x27;1234&#x27;</span>;<br><br><span class="hljs-comment">-- 删除用户</span><br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">user</span> <span class="hljs-string">&#x27;allhost&#x27;</span>@<span class="hljs-string">&#x27;%&#x27;</span>;<br><br><span class="hljs-comment">-- 二、权限控制</span><br>      <span class="hljs-comment">-- 多个权限之间使用逗号分隔</span><br><br><span class="hljs-comment">-- 1.查询权限</span><br><span class="hljs-keyword">show</span> grants <span class="hljs-keyword">for</span> <span class="hljs-string">&#x27;cslb&#x27;</span>@<span class="hljs-string">&#x27;localhost&#x27;</span>;<br><br><span class="hljs-comment">-- 2.授予权限 grant 权限列表 on 数据库名.表名 to &#x27;用户名&#x27;@&#x27;主机名&#x27;;</span><br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">on</span> tlias.<span class="hljs-operator">*</span> <span class="hljs-keyword">to</span> <span class="hljs-string">&#x27;cslb&#x27;</span>@<span class="hljs-string">&#x27;localhost&#x27;</span>;<br><br><span class="hljs-comment">-- 3.撤销权限 revoke 权限列表 on 数据库名.表名 from &#x27;用户名&#x27;@&#x27;主机名&#x27;</span><br><span class="hljs-keyword">revoke</span> <span class="hljs-keyword">select</span> <span class="hljs-keyword">on</span> tlias.<span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;cslb&#x27;</span>@<span class="hljs-string">&#x27;localhost&#x27;</span>;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h3><p><img src="/image-117.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p>char_length(str) : 返回字符串长度</p>
+<h3 id="数值函数"><a href="#数值函数" class="headerlink" title="数值函数"></a>数值函数</h3><p><img src="/image-118.png" srcset="/img/loading.gif" lazyload alt="alt text"> </p>
+<h3 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h3><p><img src="/image-119.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h3 id="流程函数"><a href="#流程函数" class="headerlink" title="流程函数"></a>流程函数</h3><p><img src="/image-120.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p>用于信息统计：<br><img src="/image-80.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p><code>SELECT * FROM users WHERE IF(id &gt; 3, name = &#39;王2&#39;, name = &#39;王3&#39;);</code></p>
+<p><code>SELECT * FROM users WHERE IF(id &gt; 3, name = &#39;王2&#39;, true);</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">select<br>    name,<br>    <span class="hljs-keyword">case</span> workaddress when <span class="hljs-string">&#x27;北京&#x27;</span> then <span class="hljs-string">&#x27;一线城市&#x27;</span> when <span class="hljs-string">&#x27;上海&#x27;</span> then <span class="hljs-string">&#x27;一线城市&#x27;</span> <span class="hljs-keyword">else</span> <span class="hljs-string">&#x27;二线城市&#x27;</span> end as <span class="hljs-string">&#x27;工作地点&#x27;</span><br>    from emp;<br></code></pre></td></tr></table></figure>
+
+<h3 id="函数的使用"><a href="#函数的使用" class="headerlink" title="函数的使用"></a>函数的使用</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-comment">-- 字符串函数</span><br><span class="hljs-keyword">update</span> emp <span class="hljs-keyword">set</span> workno <span class="hljs-operator">=</span> lpad(workno,<span class="hljs-number">5</span>,<span class="hljs-string">&#x27;0&#x27;</span>) <span class="hljs-keyword">where</span> id<span class="hljs-operator">&gt;=</span><span class="hljs-number">1</span>;<br><br><span class="hljs-keyword">update</span> emp <span class="hljs-keyword">set</span> workno <span class="hljs-operator">=</span> substr(workno,<span class="hljs-number">5</span>,<span class="hljs-number">1</span>) <span class="hljs-keyword">where</span> id<span class="hljs-operator">&gt;=</span><span class="hljs-number">1</span>;<br><br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> <span class="hljs-keyword">char_length</span>(name) <span class="hljs-operator">=</span> <span class="hljs-number">2</span>;<br><br><span class="hljs-comment">-- 数值函数</span><br><span class="hljs-keyword">select</span> <span class="hljs-built_in">ceil</span>(<span class="hljs-number">1.5</span>) <span class="hljs-keyword">as</span> <span class="hljs-string">&#x27;向上取&#x27;</span>;<br><br><span class="hljs-keyword">select</span> rand() <span class="hljs-keyword">as</span> <span class="hljs-string">&#x27;0-1的随机数（包括0，不包括1）&#x27;</span>;<br><br><span class="hljs-keyword">select</span> round(<span class="hljs-number">2.3464</span>,<span class="hljs-number">2</span>) <span class="hljs-keyword">as</span> <span class="hljs-string">&#x27;求数的四舍五入的值，保留两位小数&#x27;</span>;<br><br><span class="hljs-keyword">select</span> lpad(round(rand()<span class="hljs-operator">*</span><span class="hljs-number">1000000</span>,<span class="hljs-number">0</span>),<span class="hljs-number">6</span>,<span class="hljs-string">&#x27;0&#x27;</span>) <span class="hljs-keyword">as</span> <span class="hljs-string">&#x27;六位数随机值&#x27;</span>;<br><br><span class="hljs-comment">-- 日期函数</span><br><span class="hljs-keyword">select</span> now() <span class="hljs-keyword">as</span> <span class="hljs-string">&#x27;当前时间&#x27;</span>;<br><br><span class="hljs-keyword">select</span> name,datediff(curdate(),entrydate) <span class="hljs-keyword">as</span> <span class="hljs-string">&#x27;入职天数&#x27;</span> <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> datediff(curdate(),entrydate) <span class="hljs-keyword">desc</span>;<br><br><span class="hljs-comment">-- 流程函数</span><br><span class="hljs-comment">-- if</span><br><span class="hljs-keyword">select</span> if(<span class="hljs-literal">false</span>,<span class="hljs-string">&#x27;ok&#x27;</span>,<span class="hljs-string">&#x27;Error&#x27;</span>);<br><br><span class="hljs-comment">-- ifnull</span><br><span class="hljs-keyword">select</span> ifnull(<span class="hljs-string">&#x27;ok&#x27;</span>,<span class="hljs-string">&#x27;isnull&#x27;</span>); # <span class="hljs-string">&#x27;ok&#x27;</span><br><span class="hljs-keyword">select</span> ifnull(<span class="hljs-string">&#x27;&#x27;</span>,<span class="hljs-string">&#x27;isnull&#x27;</span>); # <span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-keyword">select</span> ifnull(<span class="hljs-keyword">null</span>,<span class="hljs-string">&#x27;isnull&#x27;</span>); # <span class="hljs-keyword">null</span><br><br><span class="hljs-keyword">select</span><br>    name,<br>    <span class="hljs-keyword">case</span> workaddress <span class="hljs-keyword">when</span> <span class="hljs-string">&#x27;北京&#x27;</span> <span class="hljs-keyword">then</span> <span class="hljs-string">&#x27;一线城市&#x27;</span> <span class="hljs-keyword">when</span> <span class="hljs-string">&#x27;上海&#x27;</span> <span class="hljs-keyword">then</span> <span class="hljs-string">&#x27;一线城市&#x27;</span> <span class="hljs-keyword">else</span> <span class="hljs-string">&#x27;二线城市&#x27;</span> <span class="hljs-keyword">end</span> <span class="hljs-keyword">as</span> <span class="hljs-string">&#x27;工作地点&#x27;</span><br>    <span class="hljs-keyword">from</span> emp;<br><br><br></code></pre></td></tr></table></figure>
+
+<h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><p><img src="/image-121.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h3 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束"></a>外键约束</h3><p>外键约束的删除和更新行为<br><img src="/image-122.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p><img src="/image-123.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p><strong>外键的删除和更新行为语句</strong><br><code>alter table emp add constraint fk_emp_dept_id foreign key (dept_id) references dept(id) on update cascade on delete cascade</code></p>
+<h2 id="多表查询-1"><a href="#多表查询-1" class="headerlink" title="多表查询"></a>多表查询</h2><p><strong>多表关系</strong></p>
+<ul>
+<li>一对多<ul>
+<li>在多的一方建立外键，指向一的一方的主键</li>
+</ul>
+</li>
+<li>多对多<ul>
+<li>建立第三张中间表，中间表至少包含两个外键，分别关联两方主键</li>
+</ul>
+</li>
+<li>一对一<ul>
+<li>在任意一方加入外键，关联另外一方的主键，并且设置外键为唯一的（UNIQUE）</li>
+<li><strong>作用：一对一关系，用于单表拆分，将一张表的基础字段放在一张表中，其他详情字段放在另一张表中，以提升操作效率</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>去除笛卡尔积</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 结果是一个笛卡尔积</span><br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> emp, dept;<br><br><span class="hljs-comment">-- 多表查询加上连接查询的条件来去除无效的笛卡尔积（null值的样本不会查询到）</span><br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> emp, dept <span class="hljs-keyword">where</span> emp.dept_id <span class="hljs-operator">=</span> dept.id;<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h3><h4 id="内连接-1"><a href="#内连接-1" class="headerlink" title="内连接"></a>内连接</h4><p>查询两个表的交集，消除多余的笛卡尔积<br><img src="/image-82.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h4 id="外连接-1"><a href="#外连接-1" class="headerlink" title="外连接"></a>外连接</h4><ul>
+<li>左外连接 ：左表数据 + 两个表的并集</li>
+<li>右外连接 ：右表数据 + 两个表的并集</li>
+</ul>
+<p><img src="/image-83.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h4 id="自连接"><a href="#自连接" class="headerlink" title="自连接"></a>自连接</h4><p><strong>当前表与自身的连接查询，自连接必须使用表别名</strong><br><img src="/image-124.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p><strong>自连接查询，可以是内连接查询，也可以是外连接查询</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-comment">-- 笛卡尔积</span><br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> tb_user,tb_user_edu;<br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> emp,dept;<br><br><span class="hljs-comment">-- 消除笛卡尔积</span><br><span class="hljs-comment">-- 1.隐式内连接</span><br><span class="hljs-keyword">select</span> emp.name,dept.name <span class="hljs-keyword">from</span> emp,dept <span class="hljs-keyword">where</span> emp.dept_id <span class="hljs-operator">=</span> dept.id;<br><br><span class="hljs-comment">-- 2.显式内连接  inner join ... on ...</span><br><span class="hljs-keyword">select</span> e.name,d.name <span class="hljs-keyword">from</span> emp e <span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> dept d <span class="hljs-keyword">on</span> e.dept_id<span class="hljs-operator">=</span>d.id;<br><br><span class="hljs-comment">-- 3.左外连接(交集数据和左表所有数据)</span><br><span class="hljs-keyword">select</span> e.name,d.name <span class="hljs-keyword">from</span> emp e <span class="hljs-keyword">left</span> <span class="hljs-keyword">outer</span> <span class="hljs-keyword">join</span>  dept d <span class="hljs-keyword">on</span> e.dept_id<span class="hljs-operator">=</span>d.id;<br><br><span class="hljs-comment">-- 4.右外连接(交集数据和右表所有数据)</span><br><span class="hljs-keyword">select</span> e.<span class="hljs-operator">*</span>,d.<span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> emp e <span class="hljs-keyword">right</span> <span class="hljs-keyword">outer</span> <span class="hljs-keyword">join</span> dept d <span class="hljs-keyword">on</span> e.dept_id<span class="hljs-operator">=</span>d.id;<br><br><span class="hljs-comment">-- 5.自连接（必须要给表起别名）</span><br><span class="hljs-comment">-- select a.*,b.* from emp a,emp b where a.managerid=b.id;</span><br><span class="hljs-comment">-- 查询员工姓名及其领导姓名</span><br><span class="hljs-keyword">select</span> a.name <span class="hljs-string">&#x27;员工姓名&#x27;</span>,b.name <span class="hljs-string">&#x27;领导姓名&#x27;</span> <span class="hljs-keyword">from</span> emp a,emp b <span class="hljs-keyword">where</span> a.managerid<span class="hljs-operator">=</span>b.id;<br><br><br></code></pre></td></tr></table></figure>
+
+
+<h3 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h3><p>对于union查询，就是把多次查询的结果合并起来，形成一个新的查询结果集。</p>
+<p><code>select 字段列表 from 表A ...  union[all] select 字段列表 from 表B ...;</code></p>
+<p><strong>tips:</strong></p>
+<ol>
+<li>联合查询时，多张表的列数要保持一致，并且查询的字段类型也要一致</li>
+<li>union all的话是直接合并 ； union 会进行去重</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 查询薪资大于5000 和 年龄大于50的员工</span><br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> salary<span class="hljs-operator">&gt;</span><span class="hljs-number">5000</span><br><span class="hljs-keyword">union</span> <span class="hljs-keyword">all</span><br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> age<span class="hljs-operator">&gt;</span><span class="hljs-number">50</span>;<br></code></pre></td></tr></table></figure>
+
+<h3 id="子查询（嵌套查询）"><a href="#子查询（嵌套查询）" class="headerlink" title="子查询（嵌套查询）"></a>子查询（嵌套查询）</h3><p>SQL语句中嵌套select语句，称为嵌套查询，或者子查询<br>语法：<code>select * from t1 where column1 = (select column1 from t2 ...);</code></p>
+<p>子查询外部的语句可以是select&#x2F;delete&#x2F;update&#x2F;insert 中任意一个</p>
+<h4 id="标量子查询"><a href="#标量子查询" class="headerlink" title="标量子查询"></a>标量子查询</h4><p><img src="/image-85.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-comment">-- 一、标量子查询</span><br><span class="hljs-comment">-- 1. 查询“销售部”的员工信息</span><br><span class="hljs-comment">-- a. 查询销售部的部门id</span><br><span class="hljs-keyword">select</span> id <span class="hljs-keyword">from</span> dept <span class="hljs-keyword">where</span> name <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;销售部&#x27;</span>;<br><span class="hljs-comment">-- b. 根据部门id查询销售部的员工</span><br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> dept_id <span class="hljs-operator">=</span> (<span class="hljs-keyword">select</span> id <span class="hljs-keyword">from</span> dept <span class="hljs-keyword">where</span> name <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;销售部&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<h4 id="列子查询"><a href="#列子查询" class="headerlink" title="列子查询"></a>列子查询</h4><p><strong>子查询返回的结果是一列</strong><br>常用操作符：<br><img src="/image-125.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-comment">-- 二、列子查询</span><br><span class="hljs-comment">-- 1. 查询“销售部”和“市场部”的员工信息</span><br><span class="hljs-comment">-- a. 查询“销售部”和“市场部”的部门id</span><br><span class="hljs-keyword">select</span> id <span class="hljs-keyword">from</span> dept <span class="hljs-keyword">where</span> name <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;销售部&#x27;</span> <span class="hljs-keyword">or</span> name <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;市场部&#x27;</span>;<br><span class="hljs-comment">-- b. 根据部门id 查询 “销售部”和“市场部”员工（使用 in 关键字）</span><br><span class="hljs-comment">-- select * from emp where dept_id in (2,4);</span><br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> dept_id <span class="hljs-keyword">in</span> (<span class="hljs-keyword">select</span> id <span class="hljs-keyword">from</span> dept <span class="hljs-keyword">where</span> name <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;销售部&#x27;</span> <span class="hljs-keyword">or</span> name <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;市场部&#x27;</span>);<br><br><span class="hljs-comment">-- 2. 查询比财务部所有人工资都高的员工信息</span><br><br><span class="hljs-comment">-- a. 查询财务部所有人的最高工资</span><br><span class="hljs-keyword">select</span> <span class="hljs-built_in">max</span>(salary) <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> dept_id <span class="hljs-operator">=</span> (<span class="hljs-keyword">select</span> id <span class="hljs-keyword">from</span> dept <span class="hljs-keyword">where</span> name <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;财务部&#x27;</span>);<br><br><span class="hljs-comment">-- b. 查询比财务部所有人工资都高的员工信息</span><br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span><br><span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> salary <span class="hljs-operator">&gt;</span><br>               (<span class="hljs-keyword">select</span> <span class="hljs-built_in">max</span>(salary) <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> dept_id <span class="hljs-operator">=</span> (<span class="hljs-keyword">select</span> id <span class="hljs-keyword">from</span> dept <span class="hljs-keyword">where</span> name <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;财务部&#x27;</span>)) <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> salary <span class="hljs-keyword">asc</span>;<br></code></pre></td></tr></table></figure>
+
+<h4 id="行子查询"><a href="#行子查询" class="headerlink" title="行子查询"></a>行子查询</h4><p><strong>子查询返回的结果是一行</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-comment">-- 三、行子查询</span><br><span class="hljs-comment">-- 1. 查询与“张无忌”的薪资及领导相同的员工</span><br><span class="hljs-comment">--    select * from emp where (salary,managerid) = (12500,1);</span><br><br><span class="hljs-comment">-- a. 查询“张无忌”的薪资及领导</span><br><span class="hljs-keyword">select</span> salary,managerid<br><span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> name<span class="hljs-operator">=</span><span class="hljs-string">&#x27;张无忌&#x27;</span>;<br><br><span class="hljs-comment">-- b. 查询与“张无忌”的薪资及领导相同的员工</span><br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span><br><span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> (salary,managerid) <span class="hljs-operator">=</span><br>               (<span class="hljs-keyword">select</span> salary,managerid <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> name<span class="hljs-operator">=</span><span class="hljs-string">&#x27;张无忌&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<h4 id="表子查询"><a href="#表子查询" class="headerlink" title="表子查询"></a>表子查询</h4><p><strong>子查询返回的结果是多行多列; 将查询到的结果当成一个 新表</strong></p>
+<p><strong>（） in （）</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-comment">-- 四、表子查询</span><br><span class="hljs-comment">-- 1. 查询与 “鹿杖客” 和 “宋远桥” 的薪资及职位相同的员工</span><br><span class="hljs-comment">-- a. 查询 “鹿杖客” 和 “宋远桥” 的薪资及职位</span><br><span class="hljs-keyword">select</span> salary,job<br><span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> <span class="hljs-type">name</span>=<span class="hljs-string">&#x27;鹿杖客&#x27;</span> <span class="hljs-keyword">or</span> <span class="hljs-type">name</span> = <span class="hljs-string">&#x27;宋远桥&#x27;</span>;<br><br><span class="hljs-comment">-- 查询与 “鹿杖客” 和 “宋远桥” 的薪资及职位相同的员工 (使用in关键字)</span><br><span class="hljs-keyword">select</span> *<br><span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> (salary,job) <span class="hljs-keyword">in</span><br>               (<span class="hljs-keyword">select</span> salary,job <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> <span class="hljs-type">name</span>=<span class="hljs-string">&#x27;鹿杖客&#x27;</span> <span class="hljs-keyword">or</span> <span class="hljs-type">name</span> = <span class="hljs-string">&#x27;宋远桥&#x27;</span>);<br><br><br><span class="hljs-comment">-- 2. 查询入职日期是2006-01-01之后的员工信息及部门信息</span><br><span class="hljs-keyword">select</span> *<br><span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> enterdate&gt;<span class="hljs-string">&#x27;2006-01-01&#x27;</span>;<br><span class="hljs-comment">-- 使用左外连接；自连接会少一个无部门的员工 的信息</span><br><span class="hljs-keyword">select</span> e.*,d.* <span class="hljs-keyword">from</span> (<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> enterdate&gt;<span class="hljs-string">&#x27;2006-01-01&#x27;</span>) e <span class="hljs-keyword">left join</span> dept d <span class="hljs-keyword">on</span> e.dept_id = d.id;<br><span class="hljs-comment">-- </span><br><span class="hljs-keyword">select</span> e.*,d.* <span class="hljs-keyword">from</span> (<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> enterdate&gt;<span class="hljs-string">&#x27;2006-01-01&#x27;</span>) e ,dept d <span class="hljs-keyword">where</span> e.dept_id = d.id;<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="SQL索引"><a href="#SQL索引" class="headerlink" title="SQL索引"></a>SQL索引</h2><h3 id="索引结构"><a href="#索引结构" class="headerlink" title="索引结构"></a>索引结构</h3><p>为什么InnoDB存储引擎 选择使用 B+tree索引结构？</p>
+<blockquote>
+<p>相对于二叉树<br>相对于B树<br>相对于Hash索引</p>
+</blockquote>
+<h3 id="索引分类"><a href="#索引分类" class="headerlink" title="索引分类"></a>索引分类</h3><p><img src="/image-139.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p>在InnoDB存储引擎中，根据<strong>索引的存储形式</strong>可以分为：</p>
+<ul>
+<li>聚集索引 ： 将数据存储和索引放到了一块，索引结构的叶子结点保存了行数据<ul>
+<li>必须有，而且只有一个</li>
+</ul>
+</li>
+<li>二级索引 ： 将数据和索引分开存储，索引结构的叶子结点关联的是对应的主键<ul>
+<li>可以存在多个</li>
+</ul>
+</li>
+</ul>
+<p>聚集索引选取规则</p>
+<ol>
+<li>如果存在主键，主键就是聚集索引</li>
+<li>如果不存在主键，将使用第一个唯一索引作为聚集索引</li>
+<li>如果都没有，则InnoDB会自动生成一个rowid作为隐藏的聚集索引</li>
+</ol>
+<p>对于<code>select * from user where name = &#39;Arm&#39;;</code>的<strong>回表查询</strong>示意图</p>
+<p><img src="/image-140.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p>因此，<strong>根据id查询的效率高</strong> 于根据其余字段查询效率</p>
+<h3 id="索引语法"><a href="#索引语法" class="headerlink" title="索引语法"></a>索引语法</h3><ol>
+<li><p>查询索引<br><code>show index form 表名;</code></p>
+</li>
+<li><p>创建常规索引<br><code>create index 索引名称 on 表名(字段名);</code></p>
+</li>
+<li><p>创建唯一索引<br><code>create unique index 索引名称 on 表名(字段名);</code></p>
+</li>
+<li><p>创建联合索引<br><code>create index 索引名称 on 表名(字段名,...,字段名);</code></p>
+</li>
+<li><p>删除索引<br><code>drop 索引名称 on 表名</code></p>
+</li>
+</ol>
+<h3 id="SQL性能分析"><a href="#SQL性能分析" class="headerlink" title="SQL性能分析"></a>SQL性能分析</h3><ol>
+<li><p>查询数据库操作执行频次<br><code>show global status like &#39;Com_______&#39;;</code></p>
+</li>
+<li><p>慢查询日志</p>
+</li>
+<li><p>profiling 详情</p>
+</li>
+</ol>
+<ul>
+<li>查询是否支持 <code>select @@have_profiling;</code></li>
+<li>查询开启状态 <code>select @@profiling;</code></li>
+<li>开启 <code>set profiling = 1;</code></li>
+<li>查看SQL语句执行时间：<code>show profiles;</code></li>
+<li>查询指定query id的耗时情况：<code>show profiles for query id;</code></li>
+</ul>
+<ol start="4">
+<li>explain</li>
+</ol>
+<h3 id="索引使用"><a href="#索引使用" class="headerlink" title="索引使用"></a>索引使用</h3><p><strong>对于联合索引的使用规则：</strong></p>
+<ol>
+<li><p>最左前缀法则<br>如果索引了多列（联合索引），要遵守 <strong>最左前缀法则 ：</strong> </p>
+<blockquote>
+<p>查询要从 建立联合索引时 最左列的字段开始，否则索引会全部失效。并且不跳过索引中的列，如果跳过了，后面的索引将部分失效。（跟SQL语句的书写顺序无关）（是否全部生效根据key_len判断）</p>
+</blockquote>
+</li>
+<li><p>范围查询<br>联合索引时，出现范围查询（&gt; ，&lt;）时，范围查询右侧的列索引失效。<br>建议：使用大于等于或者小于等于，就不会失效了</p>
+</li>
+</ol>
+<p><strong>对于所有索引的使用规则</strong></p>
+<ol>
+<li><p><strong>索引列运算</strong><br>不要在索引列上进行运算操作，索引将失效</p>
+</li>
+<li><p><strong>字符串不加引号</strong><br>字符串类型字段使用时，不叫引号，索引将失效</p>
+</li>
+<li><p><strong>模糊查询</strong></p>
+</li>
+</ol>
+<ul>
+<li><p>如果仅仅是尾部模糊匹配，索引不失效 （‘张%’）</p>
+</li>
+<li><p>如果是头部模糊匹配，索引失效 （‘%张’） （‘%张%’）</p>
+</li>
+</ul>
+<ol start="4">
+<li><p><strong>or连接的条件</strong><br>用or分割的条件，如果or前的条件中的列有索引，而后面的列中没有索引，那么涉及到的索引将不会用到</p>
+</li>
+<li><p><strong>数据分布影响</strong><br>如果MySQL评估使用索引比全表查询慢，则不使用索引</p>
+</li>
+<li><p><strong>SQL提示</strong><br>SQL提示，是优化数据库的一个重要手段，简单来说，就是在SQL语句中加入一些人为提示来达到优化操作的目的</p>
+</li>
+</ol>
+<p><code>select * from 表名 use/ignore/force index(索引名称) where 查询条件;</code></p>
+<ul>
+<li>use：建议使用</li>
+<li>ignore：忽略索引</li>
+<li>force：强制使用</li>
+</ul>
+<ol start="7">
+<li><strong>覆盖索引</strong></li>
+</ol>
+<p>尽量使用覆盖索引：查询使用了索引，并且需要返回的列，在该索引中已经全部能够找到，不需要去回表查询。（因此要避免使用select *）</p>
+<p>explain 的Extra字段</p>
+<ul>
+<li>NULL: 没有使用索引，需要回表查询</li>
+<li>using index condition :查找使用了索引，但是需要回表查询</li>
+<li>Using where;using index : 查找使用了索引，但需要返回的数据都在索引列中能找到，因此不需要回表查询</li>
+</ul>
+<ol start="8">
+<li><strong>前缀索引</strong><br>当字段类型为字符串时，有时候需要索引很长的字符串，这会导致索引变得很大，查询时浪费大量的磁盘IO，影响查询效率。<br>此时只需要<strong>将字符串的一部分前缀，建立索引</strong>，这样可以大大节约索引空间，从而提高索引效率。<br><code>create index 索引名称 on 表名(字段名(n));</code></li>
+</ol>
+<p><strong>前缀长度的选择</strong><br>根据索引的选择性来决定；索引选择性越高，查询效率越高<br>选择性：不重复的索引值 和 数据表的记录总数的比值。</p>
+<p><code>select count(distinct 字段名)/count(*) from 表名</code><br><code>select count(distinct substring(字段名,start,end) )/count(*) from 表名</code></p>
+<ol start="9">
+<li><strong>单列索引和联合索引的选择问题</strong></li>
+</ol>
+<p>在业务场景中，如果存在多个查询条件，建议建立联合索引，而非多个单列索引</p>
+<p>因为如果使用单列索引，很容易出现回表查询的情况，造成性能下降。</p>
+<p>联合索引的B+tree：<br><img src="/image-141.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p><strong>索引选取原则</strong><br><img src="/image-142.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h2 id="SQL优化"><a href="#SQL优化" class="headerlink" title="SQL优化"></a>SQL优化</h2><h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><p><strong>insert优化</strong></p>
+<ul>
+<li>批量插入</li>
+<li>手动提交事务</li>
+<li>主键顺序插入</li>
+<li>load指令</li>
+</ul>
+<h3 id="主键优化"><a href="#主键优化" class="headerlink" title="主键优化"></a>主键优化</h3><p>主键设计原则：</p>
+<ul>
+<li>满足业务要求下，尽量降低主键长度</li>
+<li>插入数据，尽量选择顺序插入（B+tree的页合并、页分裂），选择使用AUTO_INCREASE 自增主键</li>
+<li>不要使用UUID或者其他自然主键，因为这些是无序的</li>
+<li>操作时，避免修改主键（会导致索引结构变化）</li>
+</ul>
+<h3 id="order-by优化"><a href="#order-by优化" class="headerlink" title="order by优化"></a>order by优化</h3><p>排序查询时，Extra 字段 分为 Using filesort 和 Using index（通过有序索引顺序扫描直接返回有序数据）</p>
+<ul>
+<li>根据排序字段建立合适的索引，多字段排序时也遵循建立联合索引时的最左前缀法则</li>
+<li>尽量使用覆盖索引，否则排序索引失效</li>
+<li>多字段排序，默认是升序，如果想要降序，则要在建立索引时指定规则（asc&#x2F;desc）</li>
+<li>如果不可避免得出现filesort，可以增加排序缓冲区大小 sort_buffer_size（默认256k）</li>
+</ul>
+<h3 id="group-by优化"><a href="#group-by优化" class="headerlink" title="group by优化"></a>group by优化</h3><ul>
+<li>在分组操作时，可以通过索引来提高效率</li>
+<li>分组操作时，索引的使用也是满足最左前缀法则的</li>
+</ul>
+<h3 id="limit优化"><a href="#limit优化" class="headerlink" title="limit优化"></a>limit优化</h3><p>优化思路：覆盖索引（先找出数据的主键id）+ 子&#x2F;连接查询<br><code>select * from table t, (select id from table order by id limit 100000,10) a where t.id = a.id;</code></p>
+<h3 id="count优化"><a href="#count优化" class="headerlink" title="count优化"></a>count优化</h3><p>count(*)的效率最高。InnoDB并不会把全部字段都取出来，而是专门做了优化，不取值，直接按行相加<br> <img src="/image-143.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h3 id="update优化"><a href="#update优化" class="headerlink" title="update优化"></a>update优化</h3><p> 使用更新语句时，要注意更新的查询条件要有索引。<br> 因为InnoDB的行锁是针对索引加的锁，不是针对记录加的锁，并且该索引不能失效，是否会从行锁升级为表锁。导致并发性能降低</p>
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><p> 视图是 基于 SQL 语句的结果集的可视化的虚拟表；本身不包含数据，也就不能对其进行索引操作。对视图的操作和对普通表的操作一样。</p>
+<p><strong>作用：</strong></p>
+<ul>
+<li><strong>简单：</strong> 简化用户对数据的理解，也可以简化操作，那些被经常使用的复杂的 SQL 查询可以定义为视图；</li>
+<li><strong>安全：</strong> 通过只给用户访问视图的权限，保证数据的安全性；</li>
+<li><strong>数据独立：</strong> 视图可以帮助用户屏蔽真实表结构变化带来的影响</li>
+</ul>
+<h3 id="视图检查条件"><a href="#视图检查条件" class="headerlink" title="视图检查条件"></a>视图检查条件</h3><p><code>with local/cascaded check option</code><br>cascaded 会检查级联的所有视图；local只会检查加了with check option的 </p>
+<p><strong>视图更新要求：</strong><br><img src="/image-144.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h2 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h2><p>存储过程：事先经过编译并存储在数据库中的一段SQL语句的集合<br>存储过程思想：SQL语句的代码封装和复用，从而提高效率</p>
+<h3 id="游标"><a href="#游标" class="headerlink" title="游标"></a>游标</h3><p>游标（cursor） 是用来存储查询结果集的数据类型，在存储过程和函数中可以使用游标对结果集进行循环的处理。</p>
+<h3 id="存储函数"><a href="#存储函数" class="headerlink" title="存储函数"></a>存储函数</h3><p>存储函数是有返回值的存储过程，存储函数的参数只能是IN类型的</p>
+<h2 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h2><p>触发器是和表有关的数据库对象；指在insert&#x2F;update&#x2F;delete操作之后或者之前，触发并执行触发器中定义的SQL语句集合。行级触发器（比如更新了5行数据，则触发器会执行5次）<br><img src="/image-145.png" srcset="/img/loading.gif" lazyload alt="alt text"><br>作用：确保数据的完整性、日志记录、数据校验</p>
+<p>创建触发器语法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TRIGGER</span> trigger_name<br>trigger_time<br>trigger_event<br><span class="hljs-keyword">ON</span> table_name<br><span class="hljs-keyword">FOR</span> <span class="hljs-keyword">EACH</span> <span class="hljs-type">ROW</span><br><span class="hljs-keyword">BEGIN</span><br>  trigger_statements<br><span class="hljs-keyword">END</span>;<br></code></pre></td></tr></table></figure>
+
+<h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><p>MySQL中，按照锁的粒度分为：</p>
+<ol>
+<li>全局锁：锁定数据库中的所有表</li>
+<li>表级锁：每次操作锁住整张表</li>
+<li>行级锁：每次操作锁住对应的行数据</li>
+</ol>
+<h3 id="共享锁和排他锁"><a href="#共享锁和排他锁" class="headerlink" title="共享锁和排他锁"></a>共享锁和排他锁</h3><p>不论是表级锁还是行级锁，都存在共享锁（Share Lock，S 锁）和排他锁（Exclusive Lock，X 锁）这两类：</p>
+<ul>
+<li><strong>共享锁（S 锁）：</strong> 又称读锁，事务在读取记录的时候获取共享锁，允许多个事务同时获取（锁兼容）。</li>
+<li><strong>排他锁（X 锁）：</strong> 又称写锁&#x2F;独占锁，事务在修改记录的时候获取排他锁，不允许多个事务同时获取。如果一个记录已经被加了排他锁，那其他事务不能再对这条事务加任何类型的锁（锁不兼容）。排他锁与任何的锁都不兼容，共享锁仅和共享锁兼容。</li>
+</ul>
+<p><strong>排他锁与任何的锁都不兼容，共享锁仅和共享锁兼容。</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>S 锁</th>
+<th>X 锁</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>S 锁</td>
+<td>兼容</td>
+<td>冲突</td>
+</tr>
+<tr>
+<td>X 锁</td>
+<td>冲突</td>
+<td>冲突</td>
+</tr>
+</tbody></table>
+<p>由于 MVCC 的存在，对于一般的 SELECT 语句，InnoDB 不会加任何锁。不过， 你可以通过以下语句显式加共享锁或排他锁。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs SQL"># 共享锁 可以在 MySQL <span class="hljs-number">5.7</span> 和 MySQL <span class="hljs-number">8.0</span> 中使用<br><span class="hljs-keyword">SELECT</span> ... LOCK <span class="hljs-keyword">IN</span> SHARE MODE;<br># 共享锁 可以在 MySQL <span class="hljs-number">8.0</span> 中使用<br><span class="hljs-keyword">SELECT</span> ... <span class="hljs-keyword">FOR</span> SHARE;<br># 排他锁<br><span class="hljs-keyword">SELECT</span> ... <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">UPDATE</span>;<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="全局锁"><a href="#全局锁" class="headerlink" title="全局锁"></a>全局锁</h3><p>主要用于数据备份（InnoDB可以通过 <code>--single-transaction</code> 参数实现不加锁的数据备份）</p>
+<p>加锁：<code>flush tables with read lock;</code><br>解锁：<code>unlock tables;</code></p>
+<h3 id="表级锁"><a href="#表级锁" class="headerlink" title="表级锁"></a>表级锁</h3><h4 id="表锁"><a href="#表锁" class="headerlink" title="表锁"></a>表锁</h4><ul>
+<li>表共享读锁（read lock）</li>
+<li>表独占写锁（write lock）</li>
+</ul>
+<p>语法：</p>
+<ol>
+<li>加锁：lock tables 表名… read&#x2F;write</li>
+<li>释放锁：unlock tables &#x2F; 客户端断开连接</li>
+</ol>
+<p>读锁：<br><img src="/image-146.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p>写锁：<br><img src="/image-147.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h4 id="元数据锁（MDL）"><a href="#元数据锁（MDL）" class="headerlink" title="元数据锁（MDL）"></a>元数据锁（MDL）</h4><p>元数据锁主要是维护表元数据的数据一致性，在表上有活动事务时，不可以对元数据进行写入操作；<strong>为了避免 DDL 和 DML 的冲突，保证读写的正确性</strong></p>
+<ul>
+<li>对一张表进行 CRUD 操作时，加的是 <strong>MDL 读锁</strong>；</li>
+<li>对一张表做结构变更操作的时候，加的是 <strong>MDL 写锁</strong>；</li>
+</ul>
+<p><img src="/image-148.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h4 id="意向锁"><a href="#意向锁" class="headerlink" title="意向锁"></a>意向锁</h4><p><strong>为了解决表锁和行锁的冲突问题</strong><br>如果需要用到表锁的话，如何判断表中的记录没有行锁呢，一行一行遍历肯定是不行，性能太差。我们需要用到一个叫做意向锁的东东来快速判断是否可以对某个表使用表锁。</p>
+<blockquote>
+<p>InnoDB引入意向锁，使得表锁不用每一行都进行检查是否加锁。</p>
+</blockquote>
+<ol>
+<li>意向共享锁（IS）：由语句<code>select... lock in share mode</code> 添加</li>
+<li>意向排他锁（IX）：有<code>insert</code>、<code>update</code>、<code>delete</code>、<code>select... for update</code> 添加</li>
+</ol>
+<p>意向锁互斥情况：<br><strong>意向锁内部之间不会互斥</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>IS 锁</th>
+<th>IX 锁</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>read  表锁共享锁</td>
+<td>兼容</td>
+<td>互斥</td>
+</tr>
+<tr>
+<td>write 表锁排他锁</td>
+<td>互斥</td>
+<td>互斥</td>
+</tr>
+</tbody></table>
+<p>这里指的是表级别的共享锁和排他锁，意向锁不会与行级的共享锁和排他锁互斥</p>
+<h3 id="行级锁"><a href="#行级锁" class="headerlink" title="行级锁"></a>行级锁</h3><p>InnoDB的数据是基于聚集索引组织的，行锁是通过对索引上的索引项加锁来实现的，而不是对记录加的锁。行级锁分为三类：</p>
+<ol>
+<li><strong>行锁（update）：</strong> 锁定单个行记录的锁，防止其他事务对此行进行update和delete。在 RC、RR隔离级别下都支持。</li>
+<li><strong>间隙锁（Gap Lock）：</strong> 锁定索引记录间隙（不含该记录），确保索引记录间隙不变，防止其他事务在这个间隙进行insert，产生幻读。在RR隔离级别下都支持。</li>
+<li><strong>临键锁（Next-Key Lock）：</strong> 行锁和间隙锁组合，同时锁住数据，并锁住数据前面的间隙Gap。 在RR隔离级别下支持。<strong>主要为了避免并发事务下出现幻读</strong></li>
+</ol>
+<h4 id="行锁"><a href="#行锁" class="headerlink" title="行锁"></a>行锁</h4><p>InnoDB实现了以下两种类型的行锁：</p>
+<ul>
+<li>共享锁（S）：允许一个事务去读一行，阻止其他事务获得相同数据集的排它锁。</li>
+<li>排他锁（X）：允许获取排他锁的事务更新数据，阻止其他事务获得相同数据集的共享锁和排他锁。<br><img src="/image-149.png" srcset="/img/loading.gif" lazyload alt="alt text"></li>
+</ul>
+<p>不同语句对应的加行锁类型：<br><strong>执行DML语句时，会自动得加上行锁</strong><br><img src="/image-150.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p>默认情况下，InnoDB在 REPEATABLE READ事务隔离级别运行，InnoDB<strong>默认使用 next-key 锁进行搜索和索引扫描</strong>，以防止幻读。</p>
+<ol>
+<li><strong>针对唯一索引进行检索时</strong>，对已存在的记录进行等值匹配时，将会自动<strong>优化为行锁</strong>。</li>
+<li>InnoDB的行锁是针对于索引加的锁，<strong>不通过索引条件检索数据</strong>，那么InnoDB将对表中的所有记 录加锁，此时 就会<strong>升级为表锁</strong>。</li>
+</ol>
+<h4 id="间隙锁-临键锁"><a href="#间隙锁-临键锁" class="headerlink" title="间隙锁 &amp; 临键锁"></a>间隙锁 &amp; 临键锁</h4><p> 默认情况下，InnoDB在 REPEATABLE READ事务隔离级别运行，InnoDB使用 next-key 锁进行搜 索和索引扫描，以防止幻读。</p>
+<ul>
+<li><p>索引上的等值查询(唯一索引)，给不存在的记录加锁时, 优化为间隙锁</p>
+</li>
+<li><p>索引上的等值查询(非唯一普通索引)，向右遍历时最后一个值不满足查询需求时， 临键锁（next-key lock） 退化为间隙锁。</p>
+</li>
+<li><p>索引上的范围查询(唯一索引) – 会访问到不满足条件的第一个值为止。</p>
+</li>
+</ul>
+<p><strong>注意：间隙锁唯一目的是防止其他事务插入间隙。间隙锁可以共存，一个事务采用的间隙锁不会 阻止另一个事务在同一间隙上采用间隙锁。</strong></p>
+<h2 id="MVCC"><a href="#MVCC" class="headerlink" title="MVCC"></a>MVCC</h2><h3 id="快照读"><a href="#快照读" class="headerlink" title="快照读"></a>快照读</h3><h3 id="当前读"><a href="#当前读" class="headerlink" title="当前读"></a>当前读</h3><p>MySQL 里除了普通查询是快照读，其他都是当前读，比如 update、insert、delete，这些语句执行前都会查询最新版本的数据，然后再做进一步的操作。<br><img src="/image-166.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h2 id="InnoDB引擎"><a href="#InnoDB引擎" class="headerlink" title="InnoDB引擎"></a>InnoDB引擎</h2><p><strong>逻辑存储结构</strong><br>表空间、段、区、页、行<br><img src="/image-151.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h3 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h3><p><img src="/image-153.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h4 id="内存结构"><a href="#内存结构" class="headerlink" title="内存结构"></a>内存结构</h4><ol>
+<li><p>Buffer Pool（缓冲池）<br>用来缓存表数据与索引数据，减少磁盘 IO 操作，提升效率</p>
+</li>
+<li><p>Change Buffer（更改缓冲区）<br>在进行 DML 操作时，如果请求的是 辅助索引（非唯一键索引）没有在缓冲池中时，并不会立 刻将磁盘页加载到缓冲池，而是在 CB 记录缓冲变更，等未来数据被 读取时，再将数据合并恢复到 BP 中。</p>
+</li>
+<li><p>Adaptive Hash Index（自适应哈希索引）<br>用于优化对与缓冲池数据的查询</p>
+</li>
+<li><p>Log Buffer（日志缓冲区）<br>用来保存要写入磁盘上 log 文件（ Redo&#x2F;Undo ）的数据，日志缓冲区的内容 定期刷新到磁盘 log 文件中。日志缓冲区满时会自动将其刷新到磁盘，当遇到 BLOB 或多行更新的大事务 操作时，增加日志缓冲区可以节省磁盘 I&#x2F;O 。</p>
+</li>
+</ol>
+<h4 id="磁盘结构"><a href="#磁盘结构" class="headerlink" title="磁盘结构"></a>磁盘结构</h4><h4 id="后台线程"><a href="#后台线程" class="headerlink" title="后台线程"></a>后台线程</h4><p>后台线程的作用：在合适的时机，将缓冲池中的数据刷新到磁盘中</p>
+<h3 id="事务原理"><a href="#事务原理" class="headerlink" title="事务原理"></a>事务原理</h3><ol>
+<li>原子性：undo log</li>
+<li>持久性：redo log</li>
+<li>隔离性：锁 + MVCC</li>
+<li>一致性：undo log + redo log</li>
+</ol>
+<h4 id="redo-log"><a href="#redo-log" class="headerlink" title="redo log"></a>redo log</h4><p><strong>重做日志</strong>，记录的是事务提交时数据页的物理修改，是用来<strong>实现事务的持久性</strong> （事务一旦提交或回滚，它对数据库中的数据的改变就是永久的。）</p>
+<p>redo log 包括两部分：</p>
+<ul>
+<li>内存中的 <code>redo log buffer</code></li>
+<li>磁盘中的 <code>redo log file</code></li>
+</ul>
+<p><strong>redo log 机制</strong><br>当事务提交之后会把所有修改信息都存到该日志文件中, 用于当刷新脏页到磁盘发生错误时, 进行数据恢复使用。（也称为先行日志）</p>
+<p><strong>redo log 机制流程图</strong></p>
+<p><img src="/image-154.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p><strong>为什么每一次提交事务，要刷新redo log 到磁盘中呢，而不是直接将buffer pool中的脏页刷新到磁盘呢</strong><br>因为在业务操作中，我们操作数据一般都是随机读写磁盘的，而不是顺序读写磁盘。<br>而redo log在往磁盘文件中写入数据，由于是日志文件，所以都是顺序写的。<br>&#x3D;&gt;顺序写的效率，要远大于随机写。 这种先写日志的方式，称之为 WAL（Write-Ahead Logging）。</p>
+<h4 id="undo-log"><a href="#undo-log" class="headerlink" title="undo log"></a>undo log</h4><p><strong>回滚日志</strong> 用于记录数据被修改前的信息 , 作用包含两个 : 提供回滚(<strong>保证事务的原子性</strong>) 和 MVCC(多版本并发控制) 。</p>
+<p>undo log和redo log记录物理日志不一样，它是逻辑日志。<br><strong>逻辑日志与物理日志的区别</strong></p>
+<ul>
+<li>逻辑日志是记录每一步执行的操作</li>
+<li>物理日志是记录存放的数据</li>
+</ul>
+<h3 id="MVCC-1"><a href="#MVCC-1" class="headerlink" title="MVCC"></a>MVCC</h3><p>MVCC定义：<strong>指维护一个数据的多个版本，使得读写操作没有冲突</strong></p>
+<p><strong>实现原理：</strong><br>快照读为MySQL实现MVCC提供了一个非阻塞读功能。</p>
+<p>需要依赖于<code>数据库记录中的三个隐式字段</code>、<code>undo log日志</code>、<code>readView</code></p>
+<p><strong>三个隐式字段</strong><br><img src="/image-155.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h2 id="MySQL-系统数据库"><a href="#MySQL-系统数据库" class="headerlink" title="MySQL 系统数据库"></a>MySQL 系统数据库</h2><p>MySQL数据库初始自带四个系统数据库<br><img src="/image-156.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h2 id="MySQL管理常用工具"><a href="#MySQL管理常用工具" class="headerlink" title="MySQL管理常用工具"></a>MySQL管理常用工具</h2><p><strong>mysqlshow</strong><br><img src="/image-157.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>MySql</div>
+      <div>https://cs-lb.github.io/2024/10/22/Java/MySql/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Liu Bo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年10月22日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/10/24/Java/Java-Mybatis/" title="Java-Mybaits">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Java-Mybaits</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/10/22/Java/JavaWeb%E7%9F%A5%E8%AF%86/" title="JavaWeb知识">
+                        <span class="hidden-mobile">JavaWeb知识</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","appKey":"aoBSZ1mISmupN9aimSNuZrgr","path":"window.location.pathname","placeholder":"评论","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"https://jx9ekdkf.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"appid":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","appkey":"aoBSZ1mISmupN9aimSNuZrgr"},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

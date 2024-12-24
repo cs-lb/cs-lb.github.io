@@ -1,0 +1,849 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/webico.ico">
+  <link rel="icon" href="/img/webico.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Liu Bo">
+  <meta name="keywords" content="408 算法 保研">
+  
+    <meta name="description" content="java 集合java 集合 从大类上分为以下两种  单列集合 Collection 双列集合 Map  单列集合List  遍历方式：当collection 因为没有索引，因此不支持普通for循环。  迭代器循环（只能遍历集合）   演示代码： 123456789List&lt;String&gt; list &#x3D; new ArrayList&lt;&gt;();list.add(&quot;ja">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java集合">
+<meta property="og:url" content="https://cs-lb.github.io/2024/10/13/Java/java%E9%9B%86%E5%90%88/index.html">
+<meta property="og:site_name" content="CS_Blog">
+<meta property="og:description" content="java 集合java 集合 从大类上分为以下两种  单列集合 Collection 双列集合 Map  单列集合List  遍历方式：当collection 因为没有索引，因此不支持普通for循环。  迭代器循环（只能遍历集合）   演示代码： 123456789List&lt;String&gt; list &#x3D; new ArrayList&lt;&gt;();list.add(&quot;ja">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cs-lb.github.io/image-17.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-18.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-19.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-20.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-115.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-21.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-23.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-116.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-24.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-25.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-26.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-27.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-28.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-31.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-30.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-22.png">
+<meta property="og:image" content="https://cs-lb.github.io/image-35.png">
+<meta property="article:published_time" content="2024-10-13T14:55:59.000Z">
+<meta property="article:modified_time" content="2024-12-23T02:20:45.152Z">
+<meta property="article:author" content="Liu Bo">
+<meta property="article:tag" content="408 算法 保研">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cs-lb.github.io/image-17.png">
+  
+  
+  
+  <title>java集合 - CS_Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cs-lb.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","app_key":"aoBSZ1mISmupN9aimSNuZrgr","server_url":"https://jx9ekdkf.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CS_LB&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="java集合"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-10-13 22:55" pubdate>
+          2024年10月13日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          933 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          8 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">java集合</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="java-集合"><a href="#java-集合" class="headerlink" title="java 集合"></a>java 集合</h1><p>java 集合 从大类上分为以下两种</p>
+<ul>
+<li>单列集合 Collection</li>
+<li>双列集合 Map</li>
+</ul>
+<h2 id="单列集合"><a href="#单列集合" class="headerlink" title="单列集合"></a>单列集合</h2><h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p><img src="/image-17.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p><img src="/image-18.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p>遍历方式：<br>当collection 因为没有索引，因此不支持普通for循环。</p>
+<ol>
+<li>迭代器循环（只能遍历集合）</li>
+</ol>
+<p><img src="/image-19.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p>演示代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java">List&lt;String&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>list.add(<span class="hljs-string">&quot;java&quot;</span>);<br>list.add(<span class="hljs-string">&quot;C++&quot;</span>);<br>System.out.println(list.get(<span class="hljs-number">1</span>));<br><br>Iterator&lt;String&gt; it = list.iterator();<br><span class="hljs-keyword">while</span>(it.hasNext())&#123;<br>    System.out.println(it.next());<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>增强for循环 （数组和集合都能遍历）</li>
+</ol>
+<p><img src="/image-20.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p>本质就是迭代器遍历集合的简化写法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">List&lt;String&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><span class="hljs-keyword">for</span>(String s:list)&#123;<br>    System.out.println(s);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Lambda 表达式</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">List&lt;String&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>list.forEach(s-&gt; System.out.println(s));<br><br><span class="hljs-comment">//通过 方法引用 进行简化</span><br>list.forEach(System.out::println);<br></code></pre></td></tr></table></figure>
+
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><ul>
+<li><p>hashSet ：<strong>数组 + 链表</strong></p>
+</li>
+<li><p>LinkedHashSet：元素之间通过<strong>双向链表</strong>来记录存储的顺序</p>
+</li>
+<li><p>HashTree: JDK8中，如果一个链表的元素个数超过8，并且table的大小 &gt;&#x3D; 64 就会变成红黑树</p>
+</li>
+</ul>
+<p>JDK1.8 以后的 HashMap 在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为 8）时，会首先调用 treeifyBin()方法。这个方法会根据 HashMap 数组来决定是否转换为红黑树。只有当数组长度大于或者等于 64 的情况下，才会执行转换红黑树操作，以减少搜索时间。否则，就是只是执行 resize() 方法对数组扩容</p>
+<p><img src="/image-115.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p><img src="/image-21.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p>Set集合中每个元素都会有自己的hashcode</p>
+<p>如果没有重写hashCode方法 ，不同对象计算出来的哈希值是不同的。</p>
+<p><strong>HashSet 集合去重复的机制</strong><br>如果希望Set集合认为2个内容一样的对象是重复的，必须重写对象的hashcode() 和 equals() 方法 </p>
+<p><img src="/image-23.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h4 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h4><p><img src="/image-116.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p><strong>TreeSet 排序</strong></p>
+<p><img src="/image-24.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p><strong>排序时关于返回值的规则</strong></p>
+<p><img src="/image-25.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h2 id="双列集合map"><a href="#双列集合map" class="headerlink" title="双列集合map"></a>双列集合map</h2><p><img src="/image-26.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p>Map集合常用方法</p>
+<p><img src="/image-27.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h3 id="Map集合遍历方式"><a href="#Map集合遍历方式" class="headerlink" title="Map集合遍历方式"></a>Map集合遍历方式</h3><p><img src="/image-28.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<ol>
+<li>键找值方式 <strong>keyset</strong></li>
+</ol>
+<p>需要用到 <strong>keyset方法 和 get方法</strong></p>
+<p><strong>使用map.get() 之前要先判断是否有该key ；使用map.containsKey();</strong></p>
+<p>流程：</p>
+<ul>
+<li>将Map集合的全部键放到一个Set集合中</li>
+<li>遍历Set集合，得到每一个键</li>
+<li>根据键去找值</li>
+</ul>
+<ol start="2">
+<li>键值对方法遍历 <strong>entrySet</strong></li>
+</ol>
+<p>需要用到 entrySet()方法 获取所有“键值对”的集合<br>流程：把Map集合转换成Set集合，里面的元素类型都是键值对类型( Map.Entry&lt;String,Integer&gt; )<br><img src="/image-31.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<ol start="3">
+<li><p>使用Lambda表达式<br><img src="/image-30.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+</li>
+<li><p><strong>keys() &amp;&amp; values()</strong></p>
+</li>
+</ol>
+<h2 id="并发修改异常问题"><a href="#并发修改异常问题" class="headerlink" title="并发修改异常问题"></a>并发修改异常问题</h2><p>遍历集合的同时又存在增删集合元素的行为时 ， 会导致可能出现业务异常<br>增强for循环和Lambda方法只能遍历元素，不适合 同时做 遍历增删 操作。</p>
+<p>解决方法：</p>
+<ol>
+<li><p>当集合有索引时，可以使用普通for循环倒着遍历去删除元素</p>
+</li>
+<li><p>当集合没有索引时，使用迭代器对象去删除元素</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs java">        ArrayList&lt;String&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><br>        list.add(<span class="hljs-string">&quot;Java入门&quot;</span>);<br>        list.add(<span class="hljs-string">&quot;宁夏枸杞&quot;</span>);<br>        list.add(<span class="hljs-string">&quot;黑枸杞&quot;</span>);<br>        list.add(<span class="hljs-string">&quot;人字拖&quot;</span>);<br>        list.add(<span class="hljs-string">&quot;特级枸杞&quot;</span>);<br>        list.add(<span class="hljs-string">&quot;枸杞子&quot;</span>);<br><br>        System.out.println(list.size());<br><br>        <span class="hljs-comment">// 遍历集合的同时又存在增删集合元素的行为时 ， 会导致可能出现业务异常</span><br><span class="hljs-comment">//        for (int i = 0; i &lt; list.size(); i++) &#123;</span><br><span class="hljs-comment">//            String s = list.get(i);</span><br><span class="hljs-comment">//            System.out.println(s);</span><br><span class="hljs-comment">//            if (s.contains(&quot;枸杞&quot;)) &#123;</span><br><span class="hljs-comment">//                System.out.println(s);</span><br><span class="hljs-comment">//                list.remove(s);</span><br><span class="hljs-comment">//            &#125;</span><br><span class="hljs-comment">//        &#125;</span><br><br><span class="hljs-comment">//        for(String s:list)&#123;</span><br><span class="hljs-comment">//            if(s.contains(&quot;枸杞&quot;))&#123;</span><br><span class="hljs-comment">//                list.remove(s);</span><br><span class="hljs-comment">//            &#125;</span><br><span class="hljs-comment">//        &#125;</span><br><br>        Iterator&lt;String&gt; iter = list.iterator();<br>        <span class="hljs-keyword">while</span>(iter.hasNext())&#123;<br>            <span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> iter.next();<br>            <span class="hljs-keyword">if</span>(s.contains(<span class="hljs-string">&quot;枸杞&quot;</span>))&#123;<br>                iter.remove(); <span class="hljs-comment">//通过迭代器的remove()方法去删除，如果使用list的remove方法去删除会报错</span><br>            &#125;<br>            <span class="hljs-keyword">else</span>&#123;<br>                System.out.println(s);<br>            &#125;<br>        &#125;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="hash表原理"><a href="#hash表原理" class="headerlink" title="hash表原理"></a>hash表原理</h2><p><img src="/image-22.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p><code>int index = (arr.length - 1) @ 哈希值</code></p>
+<h2 id="Collections-工具类"><a href="#Collections-工具类" class="headerlink" title="Collections 工具类"></a>Collections 工具类</h2><p>一个用来操作集合的工具类</p>
+<p><img src="/image-35.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>java集合</div>
+      <div>https://cs-lb.github.io/2024/10/13/Java/java集合/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Liu Bo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年10月13日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/10/14/Java/java-Stream%E6%B5%81/" title="java-Stream流">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">java-Stream流</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/10/12/Java/java%E6%B3%9B%E5%9E%8B/" title="java泛型">
+                        <span class="hidden-mobile">java泛型</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","appKey":"aoBSZ1mISmupN9aimSNuZrgr","path":"window.location.pathname","placeholder":"评论","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"https://jx9ekdkf.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"appid":"Jx9eKdKFy4OBtmVDLdj9AQoB-gzGzoHsz","appkey":"aoBSZ1mISmupN9aimSNuZrgr"},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
